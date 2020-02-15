@@ -25,5 +25,10 @@ namespace Inventario
         public virtual void Eliminar() { }
         public virtual void Consultar() { }
         public virtual void Limpiar() { }
+
+        private void buttonCerrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -135,5 +135,17 @@ namespace Inventario
             fn.MdiParent = this;
             fn.Show();
         }
+
+        private void matrizOpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formMatrizOp fmp = new formMatrizOp();
+            fmp.MdiParent = this;
+            fmp.Show();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

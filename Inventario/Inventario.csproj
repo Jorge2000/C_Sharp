@@ -60,6 +60,12 @@
     <Compile Include="FormCrud.Designer.cs">
       <DependentUpon>FormCrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="formMatrizOp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMatrizOp.Designer.cs">
+      <DependentUpon>formMatrizOp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNumeros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCrud.resx">
       <DependentUpon>FormCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMatrizOp.resx">
+      <DependentUpon>formMatrizOp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNumeros.resx">
       <DependentUpon>FormNumeros.cs</DependentUpon>
