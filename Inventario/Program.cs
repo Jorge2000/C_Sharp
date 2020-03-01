@@ -15,7 +15,7 @@ namespace Inventario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMantenimientoDeDepartamento());
+            Application.Run(new FormMenu());
         }
     }
 }
