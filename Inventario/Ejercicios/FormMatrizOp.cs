@@ -11,9 +11,9 @@ using utNumeros = Utilidades.Numeros;
 
 namespace Inventario
 {
-    public partial class formMatrizOp : Form
+    public partial class FormMatrizOp : Form
     {
-        public formMatrizOp()
+        public FormMatrizOp()
         {
             InitializeComponent();
         }

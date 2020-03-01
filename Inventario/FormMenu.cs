@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace Inventario
 {
-    public partial class Menu : Form
+    public partial class FormMenu : Form
     {
         private int childFormNumber = 0;
 
-        public Menu()
+        public FormMenu()
         {
             InitializeComponent();
         }
@@ -138,7 +138,7 @@ namespace Inventario
 
         private void matrizOpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formMatrizOp fmp = new formMatrizOp();
+            FormMatrizOp fmp = new FormMatrizOp();
             fmp.MdiParent = this;
             fmp.Show();
         }
@@ -146,6 +146,96 @@ namespace Inventario
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mantenimientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Menu_MdiChildActivate(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild is FormBase) {
+                FormBase obj = (FormBase)ActiveMdiChild;
+                saveToolStripButton.Enabled = obj.puedeSalvar;
+                printToolStripButton.Enabled = obj.puedeImprimir;
+                printPreviewToolStripButton.Enabled = obj.puedeConsultar;
+
+            }
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild is FormBase)
+            {
+                FormBase obj = (FormBase)ActiveMdiChild;
+                obj.Salvar();
+            }
+        }
+
+        private void printToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild is FormBase)
+            {
+                FormBase obj = (FormBase)ActiveMdiChild;
+                obj.Imprimir();
+            }
+        }
+
+        private void printPreviewToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild is FormBase)
+            {
+                FormBase obj = (FormBase)ActiveMdiChild;
+                obj.Consultar();
+            }
+        }
+
+        private void deClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConsultaDeCliente ConsultaDeCliente = new FormConsultaDeCliente();
+            ConsultaDeCliente.MdiParent = this;
+            ConsultaDeCliente.Show();
+        }
+
+        private void deDepartamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConsultaDeDepartamento ConsultaDeDepartamento = new FormConsultaDeDepartamento();
+            ConsultaDeDepartamento.MdiParent = this;
+            ConsultaDeDepartamento.Show();
+        }
+
+        private void deSuplidorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConsultaDeSuplidor ConsultaDeSuplidor = new FormConsultaDeSuplidor();
+            ConsultaDeSuplidor.MdiParent = this;
+            ConsultaDeSuplidor.Show();
+        }
+
+        private void deClienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormMantenimientoDeCliente MantenimientoDeCliente = new FormMantenimientoDeCliente();
+            MantenimientoDeCliente.MdiParent = this;
+            MantenimientoDeCliente.Show();
+        }
+
+        private void deDepartamentoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormMantenimientoDeDepartamento MantenimientoDeDepartamento = new FormMantenimientoDeDepartamento();
+            MantenimientoDeDepartamento.MdiParent = this;
+            MantenimientoDeDepartamento.Show();
+        }
+
+        private void deSuplidorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormMantenimientoDeSuplidor MantenimientoDeSuplidor = new FormMantenimientoDeSuplidor();
+            MantenimientoDeSuplidor.MdiParent = this;
+            MantenimientoDeSuplidor.Show();
         }
     }
 }

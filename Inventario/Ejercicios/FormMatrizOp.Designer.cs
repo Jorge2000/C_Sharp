@@ -1,6 +1,6 @@
 ﻿namespace Inventario
 {
-    partial class formMatrizOp
+    partial class FormMatrizOp
     {
         /// <summary>
         /// Required designer variable.

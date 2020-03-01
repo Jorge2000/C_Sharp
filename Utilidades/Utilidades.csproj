@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,12 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crud.cs" />
-    <Compile Include="Matrices.cs" />
-    <Compile Include="Numeros.cs" />
-    <Compile Include="PolimorfismoEjemplo.cs" />
-    <Compile Include="Primos.cs" />
+    <Compile Include="Ejercicios\Crud.cs" />
+    <Compile Include="ErrorHandling.cs" />
+    <Compile Include="ExecutionDB.cs" />
+    <Compile Include="label.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="label.Designer.cs">
+      <DependentUpon>label.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ejercicios\Matrices.cs" />
+    <Compile Include="Ejercicios\Numeros.cs" />
+    <Compile Include="Ejercicios\PolimorfismoEjemplo.cs" />
+    <Compile Include="Ejercicios\Primos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="textbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="textbox.Designer.cs">
+      <DependentUpon>textbox.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

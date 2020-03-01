@@ -154,7 +154,6 @@ namespace Utilidades
         }
 
         public static List<int> getElements(int[,] matriz) {
-            int cant = 25;
             List<int> elements = new List<int>();
             for (int f = 0; f < 5; f++)
             {

@@ -48,70 +48,179 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\FormConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FormConsulta.Designer.cs">
+      <DependentUpon>FormConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\FormConsultaDeProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FormConsultaDeProducto.Designer.cs">
+      <DependentUpon>FormConsultaDeProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExecutionDB.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCrud.cs">
+    <Compile Include="Consultas\FormConsultaDeCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCrud.Designer.cs">
+    <Compile Include="Consultas\FormConsultaDeCliente.Designer.cs">
+      <DependentUpon>FormConsultaDeCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\FormConsultaDeDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FormConsultaDeDepartamento.Designer.cs">
+      <DependentUpon>FormConsultaDeDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\FormConsultaDeSuplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FormConsultaDeSuplidor.Designer.cs">
+      <DependentUpon>FormConsultaDeSuplidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ejercicios\FormCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ejercicios\FormCrud.Designer.cs">
       <DependentUpon>FormCrud.cs</DependentUpon>
     </Compile>
-    <Compile Include="formMatrizOp.cs">
+    <Compile Include="Mantenimiento\FormMantenimientoDeCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formMatrizOp.Designer.cs">
-      <DependentUpon>formMatrizOp.cs</DependentUpon>
+    <Compile Include="Mantenimiento\FormMantenimientoDeCliente.Designer.cs">
+      <DependentUpon>FormMantenimientoDeCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNumeros.cs">
+    <Compile Include="Mantenimiento\FormMantenimientoDeProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNumeros.Designer.cs">
+    <Compile Include="Mantenimiento\FormMantenimientoDeProducto.Designer.cs">
+      <DependentUpon>FormMantenimientoDeProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\FormMantenimientoDeSuplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\FormMantenimientoDeSuplidor.Designer.cs">
+      <DependentUpon>FormMantenimientoDeSuplidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ejercicios\FormMatrizOp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ejercicios\FormMatrizOp.Designer.cs">
+      <DependentUpon>FormMatrizOp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ejercicios\FormNumeros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ejercicios\FormNumeros.Designer.cs">
       <DependentUpon>FormNumeros.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPrimos.cs">
+    <Compile Include="Ejercicios\FormPrimos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrimos.Designer.cs">
+    <Compile Include="Ejercicios\FormPrimos.Designer.cs">
       <DependentUpon>FormPrimos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMatrices.cs">
+    <Compile Include="Ejercicios\FormMatrices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMatrices.Designer.cs">
+    <Compile Include="Ejercicios\FormMatrices.Designer.cs">
       <DependentUpon>FormMatrices.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Mantenimiento\FormMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="Mantenimiento\FormMantenimiento.Designer.cs">
+      <DependentUpon>FormMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\FormMantenimientoDeDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\FormMantenimientoDeDepartamento.Designer.cs">
+      <DependentUpon>FormMantenimientoDeDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\FormProcesos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\FormProcesos.Designer.cs">
+      <DependentUpon>FormProcesos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FormReporte.Designer.cs">
+      <DependentUpon>FormReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Consultas\FormConsulta.resx">
+      <DependentUpon>FormConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\FormConsultaDeProducto.resx">
+      <DependentUpon>FormConsultaDeProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCrud.resx">
+    <EmbeddedResource Include="Consultas\FormConsultaDeCliente.resx">
+      <DependentUpon>FormConsultaDeCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\FormConsultaDeDepartamento.resx">
+      <DependentUpon>FormConsultaDeDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\FormConsultaDeSuplidor.resx">
+      <DependentUpon>FormConsultaDeSuplidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ejercicios\FormCrud.resx">
       <DependentUpon>FormCrud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formMatrizOp.resx">
-      <DependentUpon>formMatrizOp.cs</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento\FormMantenimientoDeCliente.resx">
+      <DependentUpon>FormMantenimientoDeCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNumeros.resx">
+    <EmbeddedResource Include="Mantenimiento\FormMantenimientoDeProducto.resx">
+      <DependentUpon>FormMantenimientoDeProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimiento\FormMantenimientoDeSuplidor.resx">
+      <DependentUpon>FormMantenimientoDeSuplidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ejercicios\FormMatrizOp.resx">
+      <DependentUpon>FormMatrizOp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ejercicios\FormNumeros.resx">
       <DependentUpon>FormNumeros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrimos.resx">
+    <EmbeddedResource Include="Ejercicios\FormPrimos.resx">
       <DependentUpon>FormPrimos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMatrices.resx">
+    <EmbeddedResource Include="Ejercicios\FormMatrices.resx">
       <DependentUpon>FormMatrices.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="Mantenimiento\FormMantenimiento.resx">
+      <DependentUpon>FormMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimiento\FormMantenimientoDeDepartamento.resx">
+      <DependentUpon>FormMantenimientoDeDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\FormProcesos.resx">
+      <DependentUpon>FormProcesos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FormReporte.resx">
+      <DependentUpon>FormReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
