@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
 
-namespace Inventario
+namespace Inventario.Mantenimiento
 {
     public partial class FormMantenimientoDeDepartamento : FormMantenimiento
     {
@@ -23,9 +23,11 @@ namespace Inventario
             txtNombre.Text = "";
             checkBoxEstado.Checked = false;
         }
+
+        
         public override void Salvar()
         {
-            /*string nombre = txtCodigo.Text.Trim();
+            string nombre = txtCodigo.Text.Trim();
             string codigo = txtCodigo.Text.Trim();
             bool estado = checkBoxEstado.Checked;
             if (string.IsNullOrEmpty(nombre))
@@ -35,8 +37,8 @@ namespace Inventario
                 return;
             }
             string queryStoreProcedure = string.Format("EXEC actualizar_departamentos '{0}', '{1}', '{2}'", codigo, nombre, estado);
-            Utilidades.Ejecuta(queryStoreProcedure);
-            Limpiar();*/
+            Execution.Ejecutar(queryStoreProcedure);
+            Limpiar();
         }
 
 
@@ -50,7 +52,7 @@ namespace Inventario
 
         }
 
-     private void btnSalvar_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             string codigo = clearString(txtCodigo);
             string nombre = clearString(txtNombre);
@@ -87,17 +89,17 @@ namespace Inventario
             DS = Execution.Ejecutar(query);
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
+            DataRow row = DS.Tables[0].Rows[0];
             if (countTable > 0 && countRows > 0)
             {
-                string nombre = DS.Tables[0].Rows[0]["nombre_departamento"].ToString().Trim();
-                bool estado = Convert.ToBoolean(DS.Tables[0].Rows[0]["status"]);
+                string nombre = row["nombre_departamento"].ToString().Trim();
+                bool estado = Convert.ToBoolean(row["status"]);
                 txtNombre.Text = nombre;
                 checkBoxEstado.Checked = estado;
             }
             else
             {
-                txtNombre.Text = "";
-                checkBoxEstado.Checked = false;
+                Limpiar();
             }
         }
 
@@ -115,6 +117,7 @@ namespace Inventario
         {
             base.onlyInteger(sender, e);
         }
+
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             onlyInteger(sender, e);
@@ -126,6 +129,16 @@ namespace Inventario
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

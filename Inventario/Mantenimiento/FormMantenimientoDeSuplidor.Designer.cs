@@ -49,6 +49,7 @@
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -78,6 +79,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(22, 276);
             this.label4.Name = "label4";
@@ -96,6 +98,7 @@
             // label
             // 
             this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
             this.label.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.Location = new System.Drawing.Point(22, 218);
             this.label.Name = "label";
@@ -106,6 +109,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(22, 99);
             this.label3.Name = "label3";
@@ -133,17 +137,19 @@
             // checkBoxEstado
             // 
             this.checkBoxEstado.AutoSize = true;
+            this.checkBoxEstado.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxEstado.Font = new System.Drawing.Font("Arial", 14F);
             this.checkBoxEstado.Location = new System.Drawing.Point(26, 331);
             this.checkBoxEstado.Name = "checkBoxEstado";
             this.checkBoxEstado.Size = new System.Drawing.Size(89, 26);
             this.checkBoxEstado.TabIndex = 17;
             this.checkBoxEstado.Text = "Estado";
-            this.checkBoxEstado.UseVisualStyleBackColor = true;
+            this.checkBoxEstado.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(22, 160);
             this.label2.Name = "label2";

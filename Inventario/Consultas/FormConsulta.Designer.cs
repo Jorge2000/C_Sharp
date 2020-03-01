@@ -45,6 +45,7 @@
             this.panel1.Controls.Add(this.btnSalvar);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.btnEliminar);
+            this.panel1.Location = new System.Drawing.Point(644, 0);
             this.panel1.Size = new System.Drawing.Size(141, 455);
             this.panel1.Controls.SetChildIndex(this.buttonCerrar, 0);
             this.panel1.Controls.SetChildIndex(this.btnEliminar, 0);
@@ -70,7 +71,7 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Arial", 14F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(11, 222);
+            this.btnSalvar.Location = new System.Drawing.Point(11, 288);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(0);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(121, 42);
@@ -86,7 +87,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 14F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(11, 283);
+            this.btnBuscar.Location = new System.Drawing.Point(11, 179);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(0);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(121, 42);
@@ -122,6 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(22, 81);
             this.label2.Name = "label2";
@@ -136,7 +138,7 @@
             this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeleccionar.Font = new System.Drawing.Font("Arial", 14F);
             this.btnSeleccionar.ForeColor = System.Drawing.Color.White;
-            this.btnSeleccionar.Location = new System.Drawing.Point(11, 157);
+            this.btnSeleccionar.Location = new System.Drawing.Point(11, 233);
             this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(0);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(121, 42);

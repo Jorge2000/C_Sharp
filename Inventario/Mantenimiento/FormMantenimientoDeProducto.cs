@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Execution = Utilidades.ExecutionDB;
+
 
 namespace Inventario.Mantenimiento
 {
@@ -17,6 +19,57 @@ namespace Inventario.Mantenimiento
         }
 
 
+        public override void Limpiar()
+        {
+            txtNombre.Text = "";
+            txtCodigoDpto.Text = "";
+            txtCodigoSuplidor.Text = "";
+            txtCantidadExistente.Text = "";
+            txtPunReo.Text = "";
+            txtCodigoUnidad.Text = "";
+            txtPrecio.Text = "";
+            txtEstado.Text = "";
+        }
+
+        public override void Consultar()
+        {
+            string codigo = txtCodigo.Text.Trim();
+            if (string.IsNullOrEmpty(codigo)) return;
+
+            string query = string.Format("SELECT * FROM productos WHERE codigo_producto = '{0}'", codigo);
+            DS = Execution.Ejecutar(query);
+            int countTable = DS.Tables.Count;
+            int countRows = DS.Tables[0].Rows.Count;
+            if (countTable > 0 && countRows > 0)
+            {
+                DataRow row = DS.Tables[0].Rows[0];
+                string nombre = row["nombre_producto"].ToString().Trim();
+                string codigoDpto = row["codigo_departamento"].ToString().Trim();
+                string codigoSuplidor = row["codigo_suplidor"].ToString().Trim();
+                string cantidadExistente = row["cantidad_existente"].ToString().Trim();
+                string punReo = row["pun_reo"].ToString().Trim();
+                string codigoUnidad = row["codigo_unidad"].ToString().Trim();
+                string precio = row["precio"].ToString().Trim();
+                string estado = row["estado"].ToString().Trim();
+
+
+                txtNombre.Text = nombre;
+                txtCodigoDpto.Text = codigoDpto;
+                txtCodigoSuplidor.Text = codigoSuplidor;
+                txtCantidadExistente.Text = cantidadExistente;
+                txtPunReo.Text = punReo;
+                txtCodigoUnidad.Text = codigoUnidad;
+                txtPrecio.Text = precio;
+                txtEstado.Text = estado;
+
+                // bool estado = Convert.ToBoolean(row["status"]);
+                // checkBoxEstado.Checked = estado;
+            }
+            else
+            {
+                Limpiar();
+            }            
+        }
         public override void onlyFloat(object sender, KeyPressEventArgs e)
         {
             base.onlyFloat(sender, e);

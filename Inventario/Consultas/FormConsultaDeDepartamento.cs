@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Execution = Utilidades.ExecutionDB;
+
 
 namespace Inventario
 {
@@ -17,21 +17,14 @@ namespace Inventario
             InitializeComponent();
         }
 
+        public override void fillDataGrid(string table, TextBox field, string column, DataGridView dataGridView)
+        {
+            base.fillDataGrid(table, field, column, dataGridView);
+        }
        
         public override void Consultar()
         {
-            string query = "SELECT * FROM departamento";
-            string nombre = txtNombre.Text.Trim();
-            if (!string.IsNullOrEmpty(nombre)){
-                string where = string.Format(" WHERE nombre_departamento LIKE '{0}';", nombre);
-                query += where;
-                /*DS = Execution.Ejecutar(query);
-                 int countTable = DS.Table[0].Count;
-                  if (countTable > 0) {
-                      dataGridView.RecordSource = DS.Table[0];
-                  }*/
-                 
-            }
+
         }
         private void label2_Click(object sender, EventArgs e)
         {
@@ -65,7 +58,7 @@ namespace Inventario
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Consultar();
+            fillDataGrid("departamento", txtNombre, "nombre", dataGridView);
         }
     }
 }

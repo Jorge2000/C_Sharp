@@ -48,6 +48,10 @@
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.FlatAppearance.BorderSize = 0;
@@ -62,8 +66,8 @@
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(348, 27);
-            this.label1.Text = "     Consulta de Departamentos";
+            this.label1.Size = new System.Drawing.Size(345, 27);
+            this.label1.Text = "     Consulta de departamentos";
             // 
             // dataGridView
             // 
@@ -87,7 +91,7 @@
             this.ClientSize = new System.Drawing.Size(786, 455);
             this.Controls.Add(this.dataGridView);
             this.Name = "FormConsultaDeDepartamento";
-            this.Text = "Consulta de Departamento";
+            this.Text = "Consulta de departamentos";
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.txtNombre, 0);

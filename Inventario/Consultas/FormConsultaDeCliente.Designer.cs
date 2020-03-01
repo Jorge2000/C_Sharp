@@ -42,10 +42,15 @@
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
             // 
             // btnSeleccionar
             // 
@@ -57,8 +62,8 @@
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(271, 27);
-            this.label1.Text = "     Consulta de Clientes";
+            this.label1.Size = new System.Drawing.Size(266, 27);
+            this.label1.Text = "     Consulta de clientes";
             // 
             // dataGridView
             // 
@@ -82,7 +87,7 @@
             this.ClientSize = new System.Drawing.Size(785, 455);
             this.Controls.Add(this.dataGridView);
             this.Name = "FormConsultaDeCliente";
-            this.Text = "FormConsultaDeCleinte";
+            this.Text = "Consulta de clientes";
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.txtNombre, 0);

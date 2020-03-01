@@ -15,5 +15,17 @@ namespace Inventario
         {
             InitializeComponent();
         }
+
+        public override void fillDataGrid(string table, TextBox field, string column, DataGridView dataGridView)
+        {
+            base.fillDataGrid(table, field, column, dataGridView);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            fillDataGrid("cliente", txtNombre, "nombre", dataGridView);
+        }
+
+
     }
 }

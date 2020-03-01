@@ -70,12 +70,13 @@
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(339, 27);
-            this.label1.Text = "      Mantenimiento de Clientes";
+            this.label1.Size = new System.Drawing.Size(334, 27);
+            this.label1.Text = "      Mantenimiento de clientes";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(22, 100);
             this.label3.Name = "label3";
@@ -103,17 +104,19 @@
             // checkBoxEstado
             // 
             this.checkBoxEstado.AutoSize = true;
+            this.checkBoxEstado.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxEstado.Font = new System.Drawing.Font("Arial", 14F);
             this.checkBoxEstado.Location = new System.Drawing.Point(26, 332);
             this.checkBoxEstado.Name = "checkBoxEstado";
             this.checkBoxEstado.Size = new System.Drawing.Size(89, 26);
             this.checkBoxEstado.TabIndex = 8;
             this.checkBoxEstado.Text = "Estado";
-            this.checkBoxEstado.UseVisualStyleBackColor = true;
+            this.checkBoxEstado.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(22, 161);
             this.label2.Name = "label2";
@@ -132,6 +135,7 @@
             // label
             // 
             this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
             this.label.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.Location = new System.Drawing.Point(22, 219);
             this.label.Name = "label";
@@ -150,6 +154,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(22, 277);
             this.label4.Name = "label4";
@@ -172,7 +177,7 @@
             this.Controls.Add(this.checkBoxEstado);
             this.Controls.Add(this.label2);
             this.Name = "FormMantenimientoDeCliente";
-            this.Text = "";
+            this.Text = "Mantenimiento de clientes";
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.label2, 0);

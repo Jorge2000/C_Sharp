@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Execution = Utilidades.ExecutionDB;
 
 namespace Inventario
 {
@@ -19,9 +20,6 @@ namespace Inventario
             InitializeComponent();
         }
 
-        public virtual void validarCampos() {
-            
-        }
-    }
+     }
 }
             

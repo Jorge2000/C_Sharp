@@ -15,5 +15,10 @@ namespace Inventario.Consultas
         {
             InitializeComponent();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            fillDataGrid("producto", txtNombre, "nombre_producto", dataGridView);
+        }
     }
 }

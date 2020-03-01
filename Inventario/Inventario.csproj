@@ -91,6 +91,12 @@
     <Compile Include="Ejercicios\FormCrud.Designer.cs">
       <DependentUpon>FormCrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimiento\FormMantenimientoDeDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\FormMantenimientoDeDepartamento.Designer.cs">
+      <DependentUpon>FormMantenimientoDeDepartamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimiento\FormMantenimientoDeCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,12 +151,6 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mantenimiento\FormMantenimientoDeDepartamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mantenimiento\FormMantenimientoDeDepartamento.Designer.cs">
-      <DependentUpon>FormMantenimientoDeDepartamento.cs</DependentUpon>
-    </Compile>
     <Compile Include="Procesos\FormProcesos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +186,9 @@
     <EmbeddedResource Include="Ejercicios\FormCrud.resx">
       <DependentUpon>FormCrud.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimiento\FormMantenimientoDeDepartamento.resx">
+      <DependentUpon>FormMantenimientoDeDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimiento\FormMantenimientoDeCliente.resx">
       <DependentUpon>FormMantenimientoDeCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,9 +215,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mantenimiento\FormMantenimientoDeDepartamento.resx">
-      <DependentUpon>FormMantenimientoDeDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\FormProcesos.resx">
       <DependentUpon>FormProcesos.cs</DependentUpon>

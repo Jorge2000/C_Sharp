@@ -47,10 +47,18 @@
             this.deClienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deDepartamentoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deSuplidorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deDepartamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deSuplidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.primosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,7 +115,9 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.reportesToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.consultaToolStripMenuItem,
+            this.toolStripMenuItem6,
             this.toolStripMenuItem1,
             this.editMenu,
             this.viewMenu,
@@ -253,6 +263,34 @@
             this.deSuplidorToolStripMenuItem1.Text = "de Suplidor";
             this.deSuplidorToolStripMenuItem1.Click += new System.EventHandler(this.deSuplidorToolStripMenuItem1_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 20);
+            this.toolStripMenuItem2.Text = "Registros";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(166, 22);
+            this.toolStripMenuItem3.Text = "de Cliente";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(166, 22);
+            this.toolStripMenuItem4.Text = "de Departamento";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(166, 22);
+            this.toolStripMenuItem5.Text = "de Suplidor";
+            // 
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -261,7 +299,7 @@
             this.deSuplidorToolStripMenuItem});
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
             this.consultaToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.consultaToolStripMenuItem.Text = "Consultas";
+            this.consultaToolStripMenuItem.Text = "Cosnultas";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.mantenimientosToolStripMenuItem_Click);
             // 
             // deClienteToolStripMenuItem
@@ -284,6 +322,37 @@
             this.deSuplidorToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.deSuplidorToolStripMenuItem.Text = "de Suplidor";
             this.deSuplidorToolStripMenuItem.Click += new System.EventHandler(this.deSuplidorToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9});
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(66, 20);
+            this.toolStripMenuItem6.Text = "Procesos";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(166, 22);
+            this.toolStripMenuItem7.Text = "de Cliente";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(166, 22);
+            this.toolStripMenuItem8.Text = "de Departamento";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(166, 22);
+            this.toolStripMenuItem9.Text = "de Suplidor";
             // 
             // toolStripMenuItem1
             // 
@@ -674,6 +743,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(248)))));
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(881, 453);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
@@ -765,6 +835,14 @@
         private System.Windows.Forms.ToolStripMenuItem deClienteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deDepartamentoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deSuplidorToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
     }
 }
 

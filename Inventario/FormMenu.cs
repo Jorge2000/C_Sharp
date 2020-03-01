@@ -226,9 +226,10 @@ namespace Inventario
 
         private void deDepartamentoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FormMantenimientoDeDepartamento MantenimientoDeDepartamento = new FormMantenimientoDeDepartamento();
+            
+            /*FormMantenimientoDeDepartamento MantenimientoDeDepartamento = new FormMantenimientoDeDepartamento();
             MantenimientoDeDepartamento.MdiParent = this;
-            MantenimientoDeDepartamento.Show();
+            MantenimientoDeDepartamento.Show();*/
         }
 
         private void deSuplidorToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -236,6 +237,21 @@ namespace Inventario
             FormMantenimientoDeSuplidor MantenimientoDeSuplidor = new FormMantenimientoDeSuplidor();
             MantenimientoDeSuplidor.MdiParent = this;
             MantenimientoDeSuplidor.Show();
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

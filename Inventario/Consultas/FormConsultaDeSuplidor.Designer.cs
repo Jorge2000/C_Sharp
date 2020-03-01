@@ -42,6 +42,7 @@
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -54,6 +55,11 @@
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            // 
+            // label1
+            // 
+            this.label1.Size = new System.Drawing.Size(295, 27);
+            this.label1.Text = "     Consulta de suplidores";
             // 
             // dataGridView
             // 
@@ -77,7 +83,7 @@
             this.ClientSize = new System.Drawing.Size(785, 455);
             this.Controls.Add(this.dataGridView);
             this.Name = "FormConsultaDeSuplidor";
-            this.Text = "FormConsultaDeSuplidor";
+            this.Text = "Consulta de suplidores";
             this.Controls.SetChildIndex(this.dataGridView, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.label2, 0);
