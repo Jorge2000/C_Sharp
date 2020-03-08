@@ -1,4 +1,4 @@
-﻿namespace Inventario
+﻿namespace Inventario.Reportes
 {
     partial class FormReporte
     {
@@ -28,27 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(664, 0);
+            // 
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
             // 
-            // label1
+            // reportViewer1
             // 
-            this.label1.Size = new System.Drawing.Size(144, 27);
-            this.label1.Text = "     Reportes";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 58);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(658, 373);
+            this.reportViewer1.TabIndex = 3;
             // 
             // FormReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(804, 499);
+            this.Controls.Add(this.reportViewer1);
             this.Name = "FormReporte";
-            this.Text = "";
+            this.Text = "FormReporte";
+            this.Load += new System.EventHandler(this.FormReporte_Load);
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.panel2, 0);
+            this.Controls.SetChildIndex(this.reportViewer1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -58,5 +70,7 @@
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

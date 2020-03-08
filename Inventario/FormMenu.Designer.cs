@@ -272,6 +272,7 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 20);
             this.toolStripMenuItem2.Text = "Registros";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -299,7 +300,7 @@
             this.deSuplidorToolStripMenuItem});
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
             this.consultaToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.consultaToolStripMenuItem.Text = "Cosnultas";
+            this.consultaToolStripMenuItem.Text = "Consultas";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.mantenimientosToolStripMenuItem_Click);
             // 
             // deClienteToolStripMenuItem

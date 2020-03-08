@@ -27,21 +27,46 @@ namespace Inventario.Mantenimiento
         
         public override void Salvar()
         {
-            string nombre = txtCodigo.Text.Trim();
-            string codigo = txtCodigo.Text.Trim();
+            string nombre = clearString(txtCodigo);
+            string codigo = clearString(txtCodigo);
             bool estado = checkBoxEstado.Checked;
-            if (string.IsNullOrEmpty(nombre))
-            {
-                MessageBox.Show("Debe de indicar el nombre");
-                txtNombre.Focus();
-                return;
-            }
-            string queryStoreProcedure = string.Format("EXEC actualizar_departamentos '{0}', '{1}', '{2}'", codigo, nombre, estado);
-            Execution.Ejecutar(queryStoreProcedure);
-            Limpiar();
+            string storeProcedureUpsertDepartamento = string.Format("EXEC upsertDepartamento {0}, {1}, {2}", codigo, nombre, estado);
+            DS = Execution.Ejecutar(storeProcedureUpsertDepartamento);
+            MessageBox.Show("Accion realizada con exito");
+
         }
 
+        public override void Eliminar()
+        {
+            string codigo = clearString(txtCodigo);
+            string storeProcedureEliminarDepartamento = string.Format("EXEC eliminarDepartamento {0}", codigo);
+            DS = Execution.Ejecutar(storeProcedureEliminarDepartamento);
+            MessageBox.Show("Accion realizada con exito");
+        }
 
+        public override void Consultar()
+        {
+            string codigo = txtCodigo.Text.Trim();
+            if (string.IsNullOrEmpty(codigo)) return;
+
+            string storeProcedureConsultarCliente = string.Format("EXEC consultarDepartamento {0}", codigo);
+            DS = Execution.Ejecutar(storeProcedureConsultarCliente);
+            int countTable = DS.Tables.Count;
+            int countRows = DS.Tables[0].Rows.Count;
+            DataRow row = DS.Tables[0].Rows[0];
+            if (countTable > 0 && countRows > 0)
+            {
+                string nombre = row["nombre_departamento"].ToString().Trim();
+                bool estado = Convert.ToBoolean(row["estado"]);
+                txtNombre.Text = nombre;
+                checkBoxEstado.Checked = estado;
+            }
+            else {
+                Limpiar();
+            }       
+
+        }
+        
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
@@ -52,58 +77,14 @@ namespace Inventario.Mantenimiento
 
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            string codigo = clearString(txtCodigo);
-            string nombre = clearString(txtNombre);
-            validatingField("código", codigo, txtNombre);
-            validatingField("nombre", nombre, txtNombre);
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCerrar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void FormRegistroDeDepartamento_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void txtCodigo_Validating(object sender, CancelEventArgs e)
-        {
-            string codigo = txtCodigo.Text.Trim();
-            if (string.IsNullOrEmpty(codigo)) return;
-
-            string query = string.Format("SELECT * FROM departamento WHERE codigo_departamento = '{0}'", codigo);
-            DS = Execution.Ejecutar(query);
-            int countTable = DS.Tables.Count;
-            int countRows = DS.Tables[0].Rows.Count;
-            DataRow row = DS.Tables[0].Rows[0];
-            if (countTable > 0 && countRows > 0)
-            {
-                string nombre = row["nombre_departamento"].ToString().Trim();
-                bool estado = Convert.ToBoolean(row["status"]);
-                txtNombre.Text = nombre;
-                checkBoxEstado.Checked = estado;
-            }
-            else
-            {
-                Limpiar();
-            }
-        }
-
-        public override void validatingField(string campo, string value, TextBox txtBox)
+       
+         public override void validatingField(string campo, string value, TextBox txtBox)
         {
             base.validatingField(campo, value, txtBox);
         }
@@ -141,6 +122,31 @@ namespace Inventario.Mantenimiento
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnSalvar_Click_1(object sender, EventArgs e)
+        {
+            Salvar();
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            Eliminar();
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            Consultar();
+        }
+
+        private void buttonCerrar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigo_Validating_1(object sender, CancelEventArgs e)
+        {
+            Consultar();
         }
     }
 }

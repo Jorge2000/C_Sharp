@@ -30,8 +30,6 @@
         {
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtEstado = new System.Windows.Forms.TextBox();
-            this.label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -46,6 +44,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtCodigoUnidad = new System.Windows.Forms.TextBox();
             this.txtCantidadExistente = new System.Windows.Forms.TextBox();
+            this.checkBoxEstado = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,11 +60,13 @@
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.Location = new System.Drawing.Point(11, 272);
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.Location = new System.Drawing.Point(11, 334);
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // panel1
             // 
@@ -75,6 +76,7 @@
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
             this.buttonCerrar.Location = new System.Drawing.Point(11, 393);
+            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
             // label1
             // 
@@ -100,25 +102,6 @@
             this.label4.Size = new System.Drawing.Size(65, 22);
             this.label4.TabIndex = 22;
             this.label4.Text = "Precio";
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Location = new System.Drawing.Point(193, 364);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(252, 29);
-            this.txtEstado.TabIndex = 21;
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.BackColor = System.Drawing.Color.Transparent;
-            this.label.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.Location = new System.Drawing.Point(22, 371);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(70, 22);
-            this.label.TabIndex = 20;
-            this.label.Text = "Estado";
             // 
             // label3
             // 
@@ -148,6 +131,7 @@
             this.txtCodigo.Size = new System.Drawing.Size(126, 29);
             this.txtCodigo.TabIndex = 17;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
+            this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigo_Validating);
             // 
             // label2
             // 
@@ -262,11 +246,24 @@
             this.txtCantidadExistente.TabIndex = 36;
             this.txtCantidadExistente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadExistente_KeyPress);
             // 
+            // checkBoxEstado
+            // 
+            this.checkBoxEstado.AutoSize = true;
+            this.checkBoxEstado.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxEstado.Font = new System.Drawing.Font("Arial", 14F);
+            this.checkBoxEstado.Location = new System.Drawing.Point(26, 367);
+            this.checkBoxEstado.Name = "checkBoxEstado";
+            this.checkBoxEstado.Size = new System.Drawing.Size(89, 26);
+            this.checkBoxEstado.TabIndex = 37;
+            this.checkBoxEstado.Text = "Estado";
+            this.checkBoxEstado.UseVisualStyleBackColor = false;
+            // 
             // FormMantenimientoDeProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 447);
+            this.Controls.Add(this.checkBoxEstado);
             this.Controls.Add(this.txtCantidadExistente);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCodigoUnidad);
@@ -279,8 +276,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtEstado);
-            this.Controls.Add(this.label);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtCodigo);
@@ -293,8 +288,6 @@
             this.Controls.SetChildIndex(this.txtCodigo, 0);
             this.Controls.SetChildIndex(this.txtNombre, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.label, 0);
-            this.Controls.SetChildIndex(this.txtEstado, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.txtPrecio, 0);
             this.Controls.SetChildIndex(this.label5, 0);
@@ -307,6 +300,7 @@
             this.Controls.SetChildIndex(this.txtCodigoUnidad, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.txtCantidadExistente, 0);
+            this.Controls.SetChildIndex(this.checkBoxEstado, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -320,8 +314,6 @@
 
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtEstado;
-        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCodigo;
@@ -336,5 +328,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCodigoUnidad;
         private System.Windows.Forms.TextBox txtCantidadExistente;
+        private System.Windows.Forms.CheckBox checkBoxEstado;
     }
 }

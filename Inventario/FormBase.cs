@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Inventario
 {
@@ -23,21 +24,39 @@ namespace Inventario
             InitializeComponent();
             buttonCerrar.FlatStyle = FlatStyle.Flat;
         }
+        
         public virtual void Limpiar() {
             MessageBox.Show("Limpiando");
         }
+        
         public virtual void Salvar() {
             MessageBox.Show("Salvando...");
         }
+        
         public virtual void Eliminar() {
             MessageBox.Show("Eliminando...");
         }
+        
         public virtual void Consultar() {
             MessageBox.Show("Consultando...");
         }
+        
         public virtual void Imprimir()
         {
             MessageBox.Show("Imprimiendo...");
+        }
+
+        public virtual bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public virtual void validatingField(string campo, string value, TextBox txtBox)
@@ -46,11 +65,15 @@ namespace Inventario
             {
                 errorProvider.SetError(txtBox, "El campo " + campo + " no puede estar vacios");
             }
+            else {
+                errorProvider.SetError(txtBox, "");
+            }
             
             
         }
 
         public virtual string clearString(TextBox str) {
+            if( string.IsNullOrEmpty(str.Text)) return "";
             return str.Text.Trim();
         }
 

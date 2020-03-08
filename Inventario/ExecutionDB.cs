@@ -13,20 +13,24 @@ namespace Utilidades
 
         public static DataSet Ejecutar(string query)
         {
-            DataSet dataSet = new DataSet();
+            DataSet DS = new DataSet();
             try
             {
-                SqlConnection connnector = new SqlConnection(@"Data Source=DESKTOP-6HBE9KH\SQLEXPRESS;Initial Catalog=inventario;Integrated Security=True");
-                connnector.Open();
-                SqlDataAdapter op = new SqlDataAdapter(query, connnector);
-                op.Fill(dataSet);
-                return dataSet;
+                SqlConnection connect = new SqlConnection(@"server=ESTUDIANTE\SQLEXPRESS;"+
+                "Trusted_Connection=yes;"+
+                "database=inventario;"+
+                "connection timeout=30");
+                connect.Open();
+                SqlDataAdapter adp = new SqlDataAdapter(query, connect);
+                adp.Fill(DS);
+                connect.Close();
+                return DS;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(Convert.ToString(e) + "");
                 throw;
             }
+
         }
 
 

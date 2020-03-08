@@ -253,5 +253,47 @@ namespace Inventario
         {
 
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FormReporte FormReporte = new FormReporte();
+            FormReporte.MdiParent = this;
+            FormReporte.Show();
+        }
+
+       /* public virtual bool validateForm(Control control, ErrorProvider errorProvider) {
+            bool containError = false;
+            if (control.Controls == 0) return false;
+            foreach (Control subControl in control.Controls)
+            {
+                if (subControl.Controls.Count > 0)
+                {
+                    bool ce = validateForm(subControl, errorProvider);
+                    if (ce)
+                    {
+                        containError = true;
+                    }
+                }
+                else
+                {
+                    if (subControl is TextBox) {
+                        TextBox textBox = (TextBox)subControl;
+                        if (textBox.Validated == true)
+                        {
+                            if (string.IsNullOrEmpty(textBox.Text.Trim()))
+                            {
+                                errorProvider.SetError(textBox, "Campo obligatorio");
+                                containError = true;
+                            }
+                            else
+                            {
+                                errorProvider.SetError(textBox, "");
+                            }
+                        }
+                    }
+                } return containError;
+            }
+            return true;
+        }*/
     }
 }

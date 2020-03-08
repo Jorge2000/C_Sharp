@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Execution = Utilidades.ExecutionDB;
 
 namespace Inventario
 {
@@ -21,10 +21,36 @@ namespace Inventario
         {
             base.fillDataGrid(table, field, column, dataGridView);
         }
-       
+
+        public void seleccionar() {
+            if (dataGridView.Rows.Count == 0) return;
+            string codigo = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            DialogResult = DialogResult.OK;
+            Close();
+        
+        }
+        public string codigo = "";
         public override void Consultar()
         {
+           /* string nombre = clearString(txtNombre);
+            string quey = "SELECT * FROM departamento ";
+            if (!string.IsNullOrEmpty(nombre)) {
 
+                quey += " WHERE nombre_departamento LIKE '%" + nombre + " %'";
+                DS = Utilidades.ExecutionDB(quey);
+                if (DS.Tables.Count > 0) 
+                {
+                    dataGridView.RecordSource = DS.Tables[0];
+                }
+            }
+            FormConsultaDeDepartamento ConsultaDeDepartamento = new FormConsultaDeDepartamento();
+            if (ConsultaDeDepartamento.ShowDialog() == DialogResult.OK)
+            {
+                codigo.Text = ConsultaDeDepartamento.txtCodigo_TextChanged;
+                codigo.Focuse();
+
+            }
+            ConsultaDeDepartamento.Dispose();*/
         }
         private void label2_Click(object sender, EventArgs e)
         {

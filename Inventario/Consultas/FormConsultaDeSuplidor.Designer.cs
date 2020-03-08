@@ -48,6 +48,11 @@
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             // 
+            // label2
+            // 
+            this.label2.Size = new System.Drawing.Size(172, 22);
+            this.label2.Text = "Buscar por nombre";
+            // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.FlatAppearance.BorderSize = 0;

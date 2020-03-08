@@ -41,18 +41,22 @@
             // btnSalvar
             // 
             this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
             // 
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click_1);
             // 
             // label1
             // 
@@ -85,6 +89,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(177, 29);
             this.txtCodigo.TabIndex = 9;
+            this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigo_Validating_1);
             // 
             // checkBoxEstado
             // 
@@ -109,7 +114,7 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Nombre";
             // 
-            // DeDepartamento
+            // FormMantenimientoDeDepartamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,7 +124,7 @@
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.checkBoxEstado);
             this.Controls.Add(this.label2);
-            this.Name = "DeDepartamento";
+            this.Name = "FormMantenimientoDeDepartamento";
             this.Text = "Mantenimiento de departamentos";
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);

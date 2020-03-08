@@ -48,9 +48,15 @@
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(200, 78);
+            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Size = new System.Drawing.Size(172, 22);
+            this.label2.Text = "Buscar por nombre";
             // 
             // btnSeleccionar
             // 

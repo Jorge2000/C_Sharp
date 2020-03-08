@@ -48,6 +48,11 @@
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             // 
+            // label2
+            // 
+            this.label2.Size = new System.Drawing.Size(172, 22);
+            this.label2.Text = "Buscar por nombre";
+            // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.FlatAppearance.BorderSize = 0;
@@ -84,11 +89,11 @@
             this.Controls.Add(this.dataGridView);
             this.Name = "FormConsultaDeProducto";
             this.Text = "Consulta de productos";
+            this.Controls.SetChildIndex(this.dataGridView, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.txtNombre, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.dataGridView, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

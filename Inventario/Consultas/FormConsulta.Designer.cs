@@ -115,7 +115,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(123, 78);
+            this.txtNombre.Location = new System.Drawing.Point(243, 78);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(170, 29);
             this.txtNombre.TabIndex = 12;
@@ -127,9 +127,9 @@
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(22, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 22);
+            this.label2.Size = new System.Drawing.Size(102, 22);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Buscar";
+            this.label2.Text = "Buscar por";
             // 
             // btnSeleccionar
             // 
