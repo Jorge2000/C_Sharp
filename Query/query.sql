@@ -83,65 +83,57 @@ CREATE PROCEDURE upsert_cliente
     @estado bit
 AS
     IF NOT EXISTS (SELECT codigo_cliente FROM cliente WHERE codigo_cliente = @codigo_cliente)
-        INSERT INTO cliente (codigo_cliente, nombre_departamento, email, telefono, estado) VALUES (@codigo_cliente, @nombre_cliente, @email, @telefono, @estado)
+        INSERT INTO cliente (codigo_cliente, nombre_cliente, email, telefono, estado) VALUES (@codigo_cliente, @nombre_cliente, @email, @telefono, @estado)
     ELSE 
-        UPDATE nombre_cliente =  @nombre_cliente, email =  @email, telefono =  @telefono, estado =  @estado WHERE codigo_cliente =  @codigo_cliente
-    SELECT @codigo_cliente AS codigo_cliente    
+        UPDATE cliente SET nombre_cliente =  @nombre_cliente, email =  @email, telefono =  @telefono, estado =  @estado WHERE codigo_cliente =  @codigo_cliente
+    SELECT @codigo_cliente AS codigo_cliente
+
+
+-- 
 
 CREATE PROCEDURE upsert_producto
-   @codigo_producto int
-   @nombre_producto varchar(50)
-   @codigo_departamento int
-   @codigo_suplidor int
-   @cantidad_existente int
-   @punto_reo int
-   @codigo_unidad int
-   @estado bit
-   @precio_de_venta int
+   @codigo_producto int, @nombre_producto varchar(50), @codigo_departamento int, @codigo_suplidor int, @cantidad_existente int, @punto_reo int, @codigo_unidad int, @estado bit, @precio_de_venta int
 AS
-    IF NOT EXISTS (SELECT codigo_producto FROM cliente WHERE codigo_producto = @codigo_producto)
-        INSERT INTO departamento (codigo_producto, nombre_producto, codigo_departamento, codigo_suplidor, cantidad_existente, punto_reo, codigo_unidad, estado, precio_de_venta) VALUES (@codigo_producto, @nombre_producto, @codigo_departamento, @codigo_suplidor, @cantidad_existente, @punto_reo, @codigo_unidad, @estado, @precio_de_venta)
+    IF NOT EXISTS (SELECT codigo_producto FROM producto WHERE codigo_producto = @codigo_producto)
+        INSERT INTO producto (codigo_producto, nombre_producto, codigo_departamento, codigo_suplidor, cantidad_existente, punto_reo, codigo_unidad, estado, precio_de_venta) VALUES (@codigo_producto, @nombre_producto, @codigo_departamento, @codigo_suplidor, @cantidad_existente, @punto_reo, @codigo_unidad, @estado, @precio_de_venta)
     ELSE 
-        UPDATE @nombre_producto = nombre_producto, @codigo_departamento = codigo_departamento, @codigo_suplidor = codigo_suplidor, @cantidad_existente = cantidad_existente, @punto_reo = punto_reo, @codigo_unidad = codigo_unidad, @estado = estado, @precio_de_venta = precio_de_venta WHERE codigo_producto =  @codigo_producto
+        UPDATE producto SET @nombre_producto = nombre_producto, @codigo_departamento = codigo_departamento, @codigo_suplidor = codigo_suplidor, @cantidad_existente = cantidad_existente, @punto_reo = punto_reo, @codigo_unidad = codigo_unidad, @estado = estado, @precio_de_venta = precio_de_venta WHERE codigo_producto =  @codigo_producto
 
 CREATE PROCEDURE upsert_unidad
-   @codigo_unidad int
-   @nombre_producto varchar(50)
+   @codigo_unidad int,
+   @nombre_unidad varchar(50),
    @estado bit
 AS
-    IF NOT EXISTS (SELECT codigo_unidad FROM cliente WHERE codigo_unidad = @codigo_unidad)
-        INSERT INTO producto (codigo_unidad, nombre_producto, estado) VALUES (@codigo_unidad, @nombre_producto, @estado)
+    IF NOT EXISTS (SELECT codigo_unidad FROM unidad WHERE codigo_unidad = @codigo_unidad)
+        INSERT INTO unidad (codigo_unidad, nombre_unidad, estado) VALUES (@codigo_unidad, @nombre_unidad, @estado)
     ELSE 
-        UPDATE nombre_producto = @nombre_producto, estado = @estado WHERE codigo_unidad =  @codigo_unidad WHERE codigo_unidad = @codigo_unidad
+        UPDATE unidad SET nombre_unidad = @nombre_unidad, estado = @estado WHERE codigo_unidad = @codigo_unidad
 
 CREATE PROCEDURE upsert_suplidor
-    @codigo_suplidor int,
-    @nombre_cliente varchar(50),
-    @email varchar(50),
-    @telefono varchar(13),
-    @estado bit
+    @codigo_suplidor int, @nombre_suplidor varchar(50), @email varchar(50), @telefono varchar(13), @estado bit
 AS
-    IF NOT EXISTS (SELECT codigo_suplidor FROM cliente WHERE codigo_suplidor = @codigo_suplidor)
-        INSERT INTO suplidor (codigo_suplidor, nombre_departamento, email, telefono, estado) VALUES (@codigo_suplidor, @nombre_cliente, @email, @telefono, @estado)
+    IF NOT EXISTS (SELECT codigo_suplidor FROM suplidor WHERE codigo_suplidor = @codigo_suplidor)
+        INSERT INTO suplidor (codigo_suplidor, nombre_suplidor, email, telefono, estado) VALUES (@codigo_suplidor, @nombre_suplidor, @email, @telefono, @estado)
     ELSE 
-        UPDATE nombre_suplidor = @nombre_suplidor, email = @email, telefono = @telefono, estado = @estad WHERE codigo_suplidor =  @codigo_suplidor
-    SELECT @codigo_suplidor AS codigo_suplidor  
+        UPDATE suplidor SET nombre_suplidor = @nombre_suplidor, email = @email, telefono = @telefono, estado = @estado WHERE codigo_suplidor =  @codigo_suplidor
+ 
 
 CREATE PROCEDURE upsert_departamento
-   @codigo_departamento int
-   @nombre_departamento varchar(50)
+   @codigo_departamento int,
+   @nombre_departamento varchar(50),
    @estado bit
 AS
-    IF NOT EXISTS (SELECT codigo_departamento FROM cliente WHERE codigo_departamento = @codigo_departamento)
-        INSERT INTO departamento (codigo_departamento, nombre_departamento, estado) VALUES (@codigo_departamento, @nombre_departamento, @estado)
+    IF NOT EXISTS (SELECT codigo_departamento FROM departamento WHERE codigo_departamento = @codigo_departamento)
+        INSERT INTO departamento (codigo_departamento, nombre_departamento , estado) VALUES (@codigo_departamento, @nombre_departamento , @estado)
     ELSE 
-        UPDATE nombre_departamento = @nombre_departamento, estado = @estado WHERE codigo_departamento =  @codigo_departamento
+        UPDATE departamento SET nombre_departamento = @nombre_departamento, estado = @estado WHERE codigo_departamento =  @codigo_departamento
 
-CREATE PROCEDURE eliminar_cliente
+CREATE PROCEDURE eliminarCliente
    @codigo_cliente int
 AS
     IF EXISTS (SELECT codigo_cliente FROM cliente WHERE codigo_cliente = @codigo_cliente)
         DELETE FROM cliente WHERE codigo_cliente = @codigo_cliente
+
 
 CREATE PROCEDURE eliminar_producto
    @codigo_producto int
@@ -166,6 +158,8 @@ CREATE PROCEDURE eliminar_suplidor
 AS
     IF EXISTS (SELECT codigo_suplidor FROM suplidor WHERE codigo_suplidor = @codigo_suplidor)
         DELETE FROM suplidor WHERE codigo_suplidor = @codigo_suplidor
+
+
 
 EXEC upsert_departameno @codigo_departamento, @nombre_departamento, @estado
 
@@ -192,26 +186,31 @@ EXEC eliminar_suplidor @codigo_suplidor
 
 CREATE PROCEDURE consultarDepartamento
 @codigo_departamento int
+AS
 SELECT * FROM departamento WHERE codigo_departamento = @codigo_departamento;
 
 
 CREATE PROCEDURE consultarSuplidor
 @codigo_suplidor int
+AS
 SELECT * FROM suplidor WHERE codigo_suplidor = @codigo_suplidor;
 
 
 CREATE PROCEDURE consultarCliente
 @codigo_cliente int
+AS
 SELECT * FROM cliente WHERE codigo_cliente = @codigo_cliente;
 
 
 CREATE PROCEDURE consultarUnidad
 @codigo_unidad int
+AS
 SELECT * FROM unidad WHERE codigo_unidad = @codigo_unidad;
 
 
 CREATE PROCEDURE consultarProducto
 @codigo_producto int
+AS
 SELECT * FROM producto WHERE codigo_producto = @codigo_producto;
 
 EXEC consultarDepartamento @codigo_departamento 

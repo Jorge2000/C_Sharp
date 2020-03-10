@@ -24,9 +24,14 @@ namespace Inventario
             InitializeComponent();
             buttonCerrar.FlatStyle = FlatStyle.Flat;
         }
-        
-        public virtual void Limpiar() {
+
+        public virtual void Limpiar()
+        {
             MessageBox.Show("Limpiando");
+        }
+        public virtual void Seleccionar()
+        {
+            MessageBox.Show("Seleccionando...");
         }
         
         public virtual void Salvar() {
@@ -89,6 +94,11 @@ namespace Inventario
                 e.Handled = true;
             }        
         
+        }
+
+
+        public virtual void onlyString(object sender, KeyPressEventArgs e) {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
 
         public virtual void onlyFloat(object sender, KeyPressEventArgs e)

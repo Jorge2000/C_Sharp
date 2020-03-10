@@ -27,21 +27,24 @@ namespace Inventario.Mantenimiento
         
         public override void Salvar()
         {
-            string nombre = clearString(txtCodigo);
+            string nombre = clearString(txtNombre);
             string codigo = clearString(txtCodigo);
-            bool estado = checkBoxEstado.Checked;
-            string storeProcedureUpsertDepartamento = string.Format("EXEC upsertDepartamento {0}, {1}, {2}", codigo, nombre, estado);
+            string estado = (checkBoxEstado.Checked) ? "1" : "0";
+            string storeProcedureUpsertDepartamento = string.Format("EXEC upsertDepartamento @codigo_departamento = {0}, @nombre_departamento = '{1}', @estado = {2}", codigo, nombre, estado);
             DS = Execution.Ejecutar(storeProcedureUpsertDepartamento);
             MessageBox.Show("Accion realizada con exito");
-
+            Limpiar();
         }
 
         public override void Eliminar()
         {
+
             string codigo = clearString(txtCodigo);
+            if (!string.IsNullOrEmpty(codigo)) {
             string storeProcedureEliminarDepartamento = string.Format("EXEC eliminarDepartamento {0}", codigo);
             DS = Execution.Ejecutar(storeProcedureEliminarDepartamento);
             MessageBox.Show("Accion realizada con exito");
+            Limpiar();}
         }
 
         public override void Consultar()
@@ -53,17 +56,12 @@ namespace Inventario.Mantenimiento
             DS = Execution.Ejecutar(storeProcedureConsultarCliente);
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
-            DataRow row = DS.Tables[0].Rows[0];
             if (countTable > 0 && countRows > 0)
             {
-                string nombre = row["nombre_departamento"].ToString().Trim();
-                bool estado = Convert.ToBoolean(row["estado"]);
-                txtNombre.Text = nombre;
-                checkBoxEstado.Checked = estado;
-            }
-            else {
-                Limpiar();
-            }       
+                DataRow row = DS.Tables[0].Rows[0];
+                txtNombre.Text = row["nombre_departamento"].ToString().Trim();
+                checkBoxEstado.Checked = Convert.ToBoolean(row["estado"]);
+            }      
 
         }
         
@@ -141,7 +139,7 @@ namespace Inventario.Mantenimiento
 
         private void buttonCerrar_Click_1(object sender, EventArgs e)
         {
-
+            Dispose();
         }
 
         private void txtCodigo_Validating_1(object sender, CancelEventArgs e)

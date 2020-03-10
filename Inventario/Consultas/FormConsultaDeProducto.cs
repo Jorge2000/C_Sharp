@@ -18,7 +18,6 @@ namespace Inventario.Consultas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            fillDataGrid("producto", txtNombre, "nombre_producto", dataGridView);
         }
     }
 }

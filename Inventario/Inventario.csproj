@@ -94,6 +94,11 @@
     <Compile Include="Ejercicios\FormCrud.Designer.cs">
       <DependentUpon>FormCrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="inventarioDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inventarioDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimiento\FormMantenimientoDeDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +248,18 @@
     <EmbeddedResource Include="Reportes\FormReporte.resx">
       <DependentUpon>FormReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="inventarioDataSet.xsc">
+      <DependentUpon>inventarioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="inventarioDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inventarioDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="inventarioDataSet.xss">
+      <DependentUpon>inventarioDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

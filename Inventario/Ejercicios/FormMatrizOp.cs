@@ -48,8 +48,9 @@ namespace Inventario
             }
             catch (Exception)
             {
-                throw;
                 MessageBox.Show("Ha ocurrido un error al tratar de reproducir en voz.");
+                throw;
+
             }
         }
 

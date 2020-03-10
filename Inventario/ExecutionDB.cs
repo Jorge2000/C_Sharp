@@ -16,7 +16,7 @@ namespace Utilidades
             DataSet DS = new DataSet();
             try
             {
-                SqlConnection connect = new SqlConnection(@"server=ESTUDIANTE\SQLEXPRESS;"+
+                SqlConnection connect = new SqlConnection(@"server=DESKTOP-6HBE9KH\SQLEXPRESS;" +
                 "Trusted_Connection=yes;"+
                 "database=inventario;"+
                 "connection timeout=30");

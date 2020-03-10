@@ -17,10 +17,6 @@ namespace Inventario
             InitializeComponent();
         }
 
-        public override void fillDataGrid(string table, TextBox field, string column, DataGridView dataGridView)
-        {
-            base.fillDataGrid(table, field, column, dataGridView);
-        }
 
         public void seleccionar() {
             if (dataGridView.Rows.Count == 0) return;
@@ -84,7 +80,7 @@ namespace Inventario
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            fillDataGrid("departamento", txtNombre, "nombre", dataGridView);
+
         }
     }
 }

@@ -25,13 +25,15 @@ namespace Inventario
         public override void Eliminar()
         {
             string codigo = clearString(txtCodigo);
-            string select = string.Format("IF EXISTS (SELECT * FROM suplidores WHERE codigo_suplidor = '{0}')", codigo);
-            string delete = string.Format(" DELETE FROM INTO suplidores WHERE codigo_suplidor = '{0}'", codigo);
-            string deleteClient = select + delete;
-
-            DS = Execution.Ejecutar(deleteClient);
-            MessageBox.Show("Se ha salvado la informacion");
+            if (!string.IsNullOrEmpty(codigo))
+            {
+                string storeProcedureEliminarSuplidor = string.Format("EXEC eliminarSuplidor {0}", codigo);
+                DS = Execution.Ejecutar(storeProcedureEliminarSuplidor);
+                MessageBox.Show("Accion realizada con exito");
+            }
+            Limpiar();
         }
+
         public override void Limpiar()
         {
             txtNombre.Text = "";
@@ -47,17 +49,14 @@ namespace Inventario
             string email = clearString(txtEmail);
             string codigo = clearString(txtCodigo);
             string telefono = clearString(txtTelefono);
-            string estado = checkBoxEstado.Text;
-            string storeProcedureUpsertSuplidor = string.Format("EXEC upsertSuplidor {0}, {1}, {2}, {3}, {4}", codigo, nombre, email, telefono, estado);
+            string estado = (checkBoxEstado.Checked) ? "1" : "0";
+            string storeProcedureUpsertSuplidor = string.Format("EXEC upsertSuplidor @codigo_suplidor = {0}, @nombre_suplidor = '{1}', @email = '{2}', @telefono =  '{3}', @estado = {4}", codigo, nombre, email, telefono, estado);
             if (IsValidEmail(email))
             {
                 DS = Execution.Ejecutar(storeProcedureUpsertSuplidor);
                 MessageBox.Show("Accion realizada con exito");
             }
-            else
-            {
-                MessageBox.Show("Por favor revise su correo electrónico");
-            }
+            Limpiar();
         }
 
         public override void Consultar()
@@ -69,18 +68,16 @@ namespace Inventario
             DS = Execution.Ejecutar(storeProcedureConsultarSuplidor);
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
-            DataRow row = DS.Tables[0].Rows[0];
+
             if (countTable > 0 && countRows > 0)
             {
+                DataRow row = DS.Tables[0].Rows[0];
                 txtTelefono.Text= row["telefono"].ToString();
                 txtNombre.Text = row["nombre_suplidor"].ToString();
                 txtEmail.Text = row["email"].ToString();
                 checkBoxEstado.Checked = Convert.ToBoolean(row["estado"]);
             }
-            else
-            {
-                Limpiar();
-            } 
+
         }
         
         public override void onlyInteger(object sender, KeyPressEventArgs e)
@@ -100,13 +97,18 @@ namespace Inventario
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
+            Salvar();
 
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Eliminar();
+        }
+
+        private void txtCodigo_Validating(object sender, CancelEventArgs e)
+        {
+            Consultar();
         }
     }
 }

@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Inventario.Reportes;
+using Inventario.Mantenimiento;
 
 namespace Inventario
 {
@@ -227,9 +229,9 @@ namespace Inventario
         private void deDepartamentoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             
-            /*FormMantenimientoDeDepartamento MantenimientoDeDepartamento = new FormMantenimientoDeDepartamento();
+            FormMantenimientoDeDepartamento MantenimientoDeDepartamento = new FormMantenimientoDeDepartamento();
             MantenimientoDeDepartamento.MdiParent = this;
-            MantenimientoDeDepartamento.Show();*/
+            MantenimientoDeDepartamento.Show();
         }
 
         private void deSuplidorToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -259,6 +261,20 @@ namespace Inventario
             FormReporte FormReporte = new FormReporte();
             FormReporte.MdiParent = this;
             FormReporte.Show();
+        }
+
+        private void deProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormMantenimientoDeProducto FormMantenimientoDeProducto = new FormMantenimientoDeProducto();
+            FormMantenimientoDeProducto.MdiParent = this;
+            FormMantenimientoDeProducto.Show();
+        }
+
+        private void deUnidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormMantenimientoUnidades FormMantenimientoUnidades = new FormMantenimientoUnidades();
+            FormMantenimientoUnidades.MdiParent = this;
+            FormMantenimientoUnidades.Show();
         }
 
        /* public virtual bool validateForm(Control control, ErrorProvider errorProvider) {

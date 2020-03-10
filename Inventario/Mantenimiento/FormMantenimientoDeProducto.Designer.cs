@@ -45,9 +45,15 @@
             this.txtCodigoUnidad = new System.Windows.Forms.TextBox();
             this.txtCantidadExistente = new System.Windows.Forms.TextBox();
             this.checkBoxEstado = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            this.txtDepartamento = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtSuplidor = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtUnidad = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalvar
@@ -88,7 +94,7 @@
             this.txtPrecio.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(193, 406);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(252, 29);
+            this.txtPrecio.Size = new System.Drawing.Size(68, 29);
             this.txtPrecio.TabIndex = 23;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
@@ -128,7 +134,7 @@
             this.txtCodigo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(193, 76);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(126, 29);
+            this.txtCodigo.Size = new System.Drawing.Size(68, 29);
             this.txtCodigo.TabIndex = 17;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigo_Validating);
@@ -184,19 +190,21 @@
             this.txtCodigoDpto.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoDpto.Location = new System.Drawing.Point(193, 153);
             this.txtCodigoDpto.Name = "txtCodigoDpto";
-            this.txtCodigoDpto.Size = new System.Drawing.Size(126, 29);
+            this.txtCodigoDpto.Size = new System.Drawing.Size(68, 29);
             this.txtCodigoDpto.TabIndex = 30;
             this.txtCodigoDpto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoDpto_KeyPress);
+            this.txtCodigoDpto.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigoDpto_Validating);
             // 
             // txtCodigoSuplidor
             // 
             this.txtCodigoSuplidor.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoSuplidor.Location = new System.Drawing.Point(193, 197);
             this.txtCodigoSuplidor.Name = "txtCodigoSuplidor";
-            this.txtCodigoSuplidor.Size = new System.Drawing.Size(126, 29);
+            this.txtCodigoSuplidor.Size = new System.Drawing.Size(68, 29);
             this.txtCodigoSuplidor.TabIndex = 31;
             this.txtCodigoSuplidor.TextChanged += new System.EventHandler(this.txtCodigoSuplidor_TextChanged);
             this.txtCodigoSuplidor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoSuplidor_KeyPress);
+            this.txtCodigoSuplidor.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigoSuplidor_Validating);
             // 
             // txtPunReo
             // 
@@ -233,16 +241,17 @@
             this.txtCodigoUnidad.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoUnidad.Location = new System.Drawing.Point(193, 324);
             this.txtCodigoUnidad.Name = "txtCodigoUnidad";
-            this.txtCodigoUnidad.Size = new System.Drawing.Size(126, 29);
+            this.txtCodigoUnidad.Size = new System.Drawing.Size(68, 29);
             this.txtCodigoUnidad.TabIndex = 34;
             this.txtCodigoUnidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoUnidad_KeyPress);
+            this.txtCodigoUnidad.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigoUnidad_Validating);
             // 
             // txtCantidadExistente
             // 
             this.txtCantidadExistente.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidadExistente.Location = new System.Drawing.Point(193, 238);
             this.txtCantidadExistente.Name = "txtCantidadExistente";
-            this.txtCantidadExistente.Size = new System.Drawing.Size(126, 29);
+            this.txtCantidadExistente.Size = new System.Drawing.Size(68, 29);
             this.txtCantidadExistente.TabIndex = 36;
             this.txtCantidadExistente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadExistente_KeyPress);
             // 
@@ -258,11 +267,77 @@
             this.checkBoxEstado.Text = "Estado";
             this.checkBoxEstado.UseVisualStyleBackColor = false;
             // 
+            // txtDepartamento
+            // 
+            this.txtDepartamento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDepartamento.Location = new System.Drawing.Point(366, 153);
+            this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.Size = new System.Drawing.Size(174, 29);
+            this.txtDepartamento.TabIndex = 39;
+            this.txtDepartamento.Validating += new System.ComponentModel.CancelEventHandler(this.txtDepartamento_Validating);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(282, 156);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 22);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Dpto.";
+            // 
+            // txtSuplidor
+            // 
+            this.txtSuplidor.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuplidor.Location = new System.Drawing.Point(366, 194);
+            this.txtSuplidor.Name = "txtSuplidor";
+            this.txtSuplidor.Size = new System.Drawing.Size(174, 29);
+            this.txtSuplidor.TabIndex = 41;
+            this.txtSuplidor.Validating += new System.ComponentModel.CancelEventHandler(this.txtSuplidor_Validating);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(282, 197);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 22);
+            this.label11.TabIndex = 40;
+            this.label11.Text = "Suplidor";
+            // 
+            // txtUnidad
+            // 
+            this.txtUnidad.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnidad.Location = new System.Drawing.Point(366, 324);
+            this.txtUnidad.Name = "txtUnidad";
+            this.txtUnidad.Size = new System.Drawing.Size(174, 29);
+            this.txtUnidad.TabIndex = 43;
+            this.txtUnidad.Validating += new System.ComponentModel.CancelEventHandler(this.txtUnidad_Validating);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(282, 327);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 22);
+            this.label12.TabIndex = 42;
+            this.label12.Text = "Unidad";
+            // 
             // FormMantenimientoDeProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 447);
+            this.Controls.Add(this.txtUnidad);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtSuplidor);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtDepartamento);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.checkBoxEstado);
             this.Controls.Add(this.txtCantidadExistente);
             this.Controls.Add(this.label9);
@@ -301,10 +376,16 @@
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.txtCantidadExistente, 0);
             this.Controls.SetChildIndex(this.checkBoxEstado, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            this.Controls.SetChildIndex(this.label10, 0);
+            this.Controls.SetChildIndex(this.txtDepartamento, 0);
+            this.Controls.SetChildIndex(this.label11, 0);
+            this.Controls.SetChildIndex(this.txtSuplidor, 0);
+            this.Controls.SetChildIndex(this.label12, 0);
+            this.Controls.SetChildIndex(this.txtUnidad, 0);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,5 +410,11 @@
         private System.Windows.Forms.TextBox txtCodigoUnidad;
         private System.Windows.Forms.TextBox txtCantidadExistente;
         private System.Windows.Forms.CheckBox checkBoxEstado;
+        private System.Windows.Forms.TextBox txtDepartamento;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtSuplidor;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtUnidad;
+        private System.Windows.Forms.Label label12;
     }
 }

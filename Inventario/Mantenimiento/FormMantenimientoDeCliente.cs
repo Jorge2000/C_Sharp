@@ -22,6 +22,15 @@ namespace Inventario
             return base.IsValidEmail(email);
         }
 
+        public override void Consultar() {
+            FormConsultaDeCliente ConsultaDeCliente = new FormConsultaDeCliente();
+            if (ConsultaDeCliente.ShowDialog() == DialogResult.OK) {
+                txtCodigo.Text = ConsultaDeCliente.Codigo;
+                SendKeys.Send("{TAB}");
+            }
+            ConsultaDeCliente.Dispose();
+        }
+        
         public override void Limpiar()
         {
             txtCodigo.Text = "";
@@ -31,7 +40,7 @@ namespace Inventario
             checkBoxEstado.Checked = false;
         }
         
-        public override void Consultar()
+        /*public override void Consultar()
         {
             string codigo = txtCodigo.Text.Trim();
             if (string.IsNullOrEmpty(codigo)) return;
@@ -40,41 +49,43 @@ namespace Inventario
             DS = Execution.Ejecutar(storeProcedureConsultarCliente);
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
-            DataRow row = DS.Tables[0].Rows[0];
+
             if (countTable > 0 && countRows > 0)
             {
-                string nombre = row["nombre_cliente"].ToString().Trim();
-                bool estado = Convert.ToBoolean(row["estado"]);
-                txtNombre.Text = nombre;
-                checkBoxEstado.Checked = estado;
+                DataRow row = DS.Tables[0].Rows[0];
+                txtNombre.Text = row["nombre_cliente"].ToString().Trim();
+                txtEmail.Text = row["email"].ToString().Trim();
+                txtTelefono.Text = row["telefono"].ToString().Trim();
+                checkBoxEstado.Checked = Convert.ToBoolean(row["estado"]);
+                
             }
-            else {
-                Limpiar();
-            }        
+                   
         }
-        
+        */
         public override void  Salvar() {
             string nombre = clearString(txtNombre);
             string email = clearString(txtEmail);
             string codigo = clearString(txtCodigo);
             string telefono = clearString(txtTelefono);
-            string estado = checkBoxEstado.Text;
-            string storeProcedureUpsertCliente = string.Format("EXEC upsertCliente {0}, {1}, {2}, {3}, {4}", codigo, nombre, email, telefono, estado );
+            string estado = (checkBoxEstado.Checked) ? "1" : "0"; 
+            string storeProcedureUpsertCliente = string.Format("EXEC upsertCliente @codigo_cliente = {0}, @nombre_cliente = '{1}', @email = '{2}', @telefono = '{3}', @estado = {4}", codigo, nombre, email, telefono, estado );
             if (IsValidEmail(email))
             {
                 DS = Execution.Ejecutar(storeProcedureUpsertCliente);
                 MessageBox.Show("Accion realizada con exito");
             }
-            else {
-                MessageBox.Show("Por favor revise su correo electrónico");
-            }
+            Limpiar();
         }
 
         public override void Eliminar() {
             string codigo = clearString(txtCodigo);
-            string storeProcedureEliminarCliente = string.Format("EXEC eliminarCliente {0}", codigo );
-            DS = Execution.Ejecutar(storeProcedureEliminarCliente);
-            MessageBox.Show("Accion realizada con exito");
+            if (!string.IsNullOrEmpty(codigo))
+            {
+                string storeProcedureEliminarCliente = string.Format("EXEC eliminarCliente {0}", codigo);
+                DS = Execution.Ejecutar(storeProcedureEliminarCliente);
+                MessageBox.Show("Accion realizada con exito");
+            }
+            Limpiar();
         }
         
         public override void onlyInteger(object sender, KeyPressEventArgs e)

@@ -18,6 +18,25 @@ namespace Inventario.Mantenimiento
             InitializeComponent();
         }
 
+
+        public void searchDataForegin(string tableName, string columna, string where, TextBox TextCodigo, TextBox TextName)
+        {
+            string value = TextCodigo.Text;
+            string query = string.Format("SELECT {0} FROM {1} WHERE {2} = {3}", columna, tableName, where, value);
+            DS = Execution.Ejecutar(query);
+            int countTable = DS.Tables.Count;
+            int countRows = DS.Tables[0].Rows.Count;
+            if (countTable > 0 && countRows > 0) { 
+                DataRow row = DS.Tables[0].Rows[0];
+                TextName.Text = row[columna].ToString();
+            } else {
+                MessageBox.Show("No se encuentra dicho codigo");
+                TextCodigo.Text = "";
+                TextName.Text = "";
+            }
+
+
+        }
         public override void Limpiar()
         {
             txtNombre.Text = "";
@@ -39,10 +58,11 @@ namespace Inventario.Mantenimiento
             string cantidadExistente = clearString(txtCantidadExistente);
             string punto_reo = clearString(txtPunReo);
             string codigoUnidad = clearString(txtCodigoUnidad);
-            string estado = checkBoxEstado.Text;
+            string estado = (checkBoxEstado.Checked) ? "1" : "0";
             string precio = clearString(txtPrecio);
 
-            string storeProcedureUpsertProducto = string.Format("EXEC upsertProducto {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}");
+            string storeProcedureUpsertProducto = string.Format("EXEC upsertProducto @codigo_producto = {0}, @nombre_producto = '{1}',@codigo_departamento = {2}, @codigo_suplidor = {3}, @cantidad_existente = {4}, @punto_reo = {5}, @codigo_unidad = {6}, @estado = {7},  @precio_de_venta = {8}", codigo, nombre, codigoDepartamento, codigoSuplidor, cantidadExistente, punto_reo, codigoUnidad, estado, precio
+);
             DS = Execution.Ejecutar(storeProcedureUpsertProducto);
             MessageBox.Show("Accion realizada con exito");
         }
@@ -56,29 +76,35 @@ namespace Inventario.Mantenimiento
             DS = Execution.Ejecutar(storeProcedureConsultarProducto);
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
-            DataRow row = DS.Tables[0].Rows[0];
             if (countTable > 0 && countRows > 0)
             {
-                txtNombre.Text = row["nombre_producto"].ToString();;
+                DataRow row = DS.Tables[0].Rows[0];
+                txtNombre.Text = row["nombre_producto"].ToString();
                 txtCodigoDpto.Text = row["codigo_departamento"].ToString();
                 txtCodigoSuplidor.Text = row["codigo_suplidor"].ToString();
                 txtCantidadExistente.Text = row["cantidad_existente"].ToString();
-                txtPunReo.Text = row["pun_reo"].ToString();
+                txtPunReo.Text = row["punto_reo"].ToString();
                 txtCodigoUnidad.Text = row["codigo_unidad"].ToString();
-                txtPrecio.Text = row["precio"].ToString();
+                txtPrecio.Text = row["precio_de_venta"].ToString();
                 checkBoxEstado.Checked = Convert.ToBoolean(row["estado"].ToString());
+
+
+                searchDataForegin("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
+                searchDataForegin("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
+                searchDataForegin("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
             }
-            else {
-                Limpiar();
-            } 
         }
 
         public override void Eliminar()
         {
             string codigo = clearString(txtCodigo);
-            string storeProcedureEliminarProducto = string.Format("EXEC eliminarProducto {0}", codigo);
-            DS = Execution.Ejecutar(storeProcedureEliminarProducto);
-            MessageBox.Show("Accion realizada con exito");
+            if (!string.IsNullOrEmpty(codigo))
+            {
+                string storeProcedureEliminarProducto = string.Format("EXEC eliminarProducto {0}", codigo);
+                DS = Execution.Ejecutar(storeProcedureEliminarProducto);
+                MessageBox.Show("Accion realizada con exito");
+            }
+            Limpiar();
         }
         
         public override void onlyFloat(object sender, KeyPressEventArgs e)
@@ -185,6 +211,36 @@ namespace Inventario.Mantenimiento
         private void txtCodigo_Validating(object sender, CancelEventArgs e)
         {
             Consultar();
+        }
+
+        private void txtDepartamento_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtSuplidor_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtUnidad_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtCodigoDpto_Validating(object sender, CancelEventArgs e)
+        {
+            searchDataForegin("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
+        }
+
+        private void txtCodigoSuplidor_Validating(object sender, CancelEventArgs e)
+        {
+            searchDataForegin("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
+        }
+
+        private void txtCodigoUnidad_Validating(object sender, CancelEventArgs e)
+        {
+            searchDataForegin("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
         }
     }
 }

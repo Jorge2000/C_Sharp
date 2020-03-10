@@ -105,6 +105,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.deUnidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -236,7 +238,9 @@
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deClienteToolStripMenuItem1,
             this.deDepartamentoToolStripMenuItem1,
-            this.deSuplidorToolStripMenuItem1});
+            this.deProductoToolStripMenuItem,
+            this.deSuplidorToolStripMenuItem1,
+            this.deUnidadToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.reportesToolStripMenuItem.Text = "Mantenimiento";
@@ -739,6 +743,20 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // deUnidadToolStripMenuItem
+            // 
+            this.deUnidadToolStripMenuItem.Name = "deUnidadToolStripMenuItem";
+            this.deUnidadToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.deUnidadToolStripMenuItem.Text = "de Unidad";
+            this.deUnidadToolStripMenuItem.Click += new System.EventHandler(this.deUnidadToolStripMenuItem_Click);
+            // 
+            // deProductoToolStripMenuItem
+            // 
+            this.deProductoToolStripMenuItem.Name = "deProductoToolStripMenuItem";
+            this.deProductoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.deProductoToolStripMenuItem.Text = "de Producto";
+            this.deProductoToolStripMenuItem.Click += new System.EventHandler(this.deProductoToolStripMenuItem_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -844,6 +862,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem deProductoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deUnidadToolStripMenuItem;
     }
 }
 

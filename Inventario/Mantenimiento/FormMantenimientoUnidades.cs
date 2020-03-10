@@ -17,14 +17,21 @@ namespace Inventario.Mantenimiento
             InitializeComponent();
         }
 
+        public override void Limpiar()
+        {
+            txtNombre.Text = "";
+            txtCodigo.Text = "";
+            checkBoxEstado.Checked = false;
+        }
         public override void Salvar()
         {
             string nombre = clearString(txtNombre);
             string codigo = clearString(txtCodigo);
-            string estado = checkBoxEstado.Text;
-            string storeProcedureUpsertUnidad = string.Format("EXEC upsertUnidad {0}, {1}, {2}", codigo, nombre, estado );
+            string estado = (checkBoxEstado.Checked) ? "1" : "0";
+            string storeProcedureUpsertUnidad = string.Format("EXEC upsertUnidad @codigo_unidad = {0}, @nombre_unidad = '{1}', @estado = {2}", codigo, nombre, estado);
             DS = Execution.Ejecutar(storeProcedureUpsertUnidad);
             MessageBox.Show("Accion realizada con exito");
+            Limpiar();
         }
 
         public override void Consultar()
@@ -36,24 +43,22 @@ namespace Inventario.Mantenimiento
             DS = Execution.Ejecutar(storeProcedureConsultarUnidad);
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
-            DataRow row = DS.Tables[0].Rows[0];
             if (countTable > 0 && countRows > 0)
             {
+                DataRow row = DS.Tables[0].Rows[0];
                 txtNombre.Text =  row["nombre_unidad"].ToString().Trim();;
                 checkBoxEstado.Checked = Convert.ToBoolean(row["estado"]);;
-            }
-            else
-            {
-                Limpiar();
-            }  
+            } 
         }
 
         public override void Eliminar()
         {
             string codigo = txtCodigo.Text.Trim();
+            if (!string.IsNullOrEmpty(codigo)) {
             string storeProcedureEliminarUnidad = string.Format("EXEC eliminarUnidad {0}", codigo);
             DS = Execution.Ejecutar(storeProcedureEliminarUnidad);
-            MessageBox.Show("Accion realizada con exito");
+            MessageBox.Show("Accion realizada con exito");}
+            Limpiar();
         }
         
         private void checkBoxEstado_CheckedChanged(object sender, EventArgs e)
