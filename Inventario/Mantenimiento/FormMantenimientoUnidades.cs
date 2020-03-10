@@ -26,12 +26,15 @@ namespace Inventario.Mantenimiento
         }
         public override void Salvar()
         {
+            if (Controles.ValidarForm(this, ep, false)) return;
             string nombre = clearString(txtNombre);
             string codigo = clearString(txtCodigo);
             string estado = (checkBoxEstado.Checked) ? "1" : "0";
             string storeProcedureUpsertUnidad = string.Format("EXEC upsertUnidad @codigo_unidad = {0}, @nombre_unidad = '{1}', @estado = {2}", codigo, nombre, estado);
-            DS = Execution.Ejecutar(storeProcedureUpsertUnidad);
-            MessageBox.Show("Accion realizada con exito");
+
+                DS = Execution.Ejecutar(storeProcedureUpsertUnidad);
+                MessageBox.Show("Accion realizada con exito");
+            
             Limpiar();
         }
 

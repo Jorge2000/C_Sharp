@@ -63,6 +63,8 @@ namespace Inventario
         }
         
         public override void  Salvar() {
+
+            if (Controles.ValidarForm(this, ep, false)) return;
             string nombre = clearString(txtNombre);
             string email = clearString(txtEmail);
             string codigo = clearString(txtCodigo);

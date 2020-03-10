@@ -69,6 +69,7 @@
     <Compile Include="Consultas\FormConsultaUnidad.Designer.cs">
       <DependentUpon>FormConsultaUnidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles.cs" />
     <Compile Include="ExecutionDB.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>

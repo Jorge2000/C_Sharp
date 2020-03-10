@@ -49,10 +49,12 @@ namespace Inventario.Mantenimiento
             txtCodigoUnidad.Text = "";
             txtPrecio.Text = "";
             checkBoxEstado.Checked = false;
+            txtCodigo.Text = "";
         }
 
         public override void Salvar()
         {
+            if (Controles.ValidarForm(this, ep, false)) return;
             string codigo = clearString(txtCodigo);
             string nombre = clearString(txtNombre);
             string codigoDepartamento = clearString(txtCodigoDpto);
@@ -65,8 +67,9 @@ namespace Inventario.Mantenimiento
 
             string storeProcedureUpsertProducto = string.Format("EXEC upsertProducto @codigo_producto = {0}, @nombre_producto = '{1}',@codigo_departamento = {2}, @codigo_suplidor = {3}, @cantidad_existente = {4}, @punto_reo = {5}, @codigo_unidad = {6}, @estado = {7},  @precio_de_venta = {8}", codigo, nombre, codigoDepartamento, codigoSuplidor, cantidadExistente, punto_reo, codigoUnidad, estado, precio
 );
-            DS = Execution.Ejecutar(storeProcedureUpsertProducto);
-            MessageBox.Show("Accion realizada con exito");
+                DS = Execution.Ejecutar(storeProcedureUpsertProducto);
+                MessageBox.Show("Accion realizada con exito");
+            Limpiar();
         }
 
         public void Consulta()
@@ -254,6 +257,11 @@ namespace Inventario.Mantenimiento
         private void txtCodigoUnidad_Validating(object sender, CancelEventArgs e)
         {
             searchDataForegin("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
+        }
+
+        private void txtDepartamento_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

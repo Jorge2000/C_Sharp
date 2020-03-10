@@ -17,7 +17,7 @@ namespace Inventario
         public bool puedeConsultar { set; get; }
         public bool puedeImprimir { set; get; }
         public DataSet DS = new DataSet();
-
+        public ErrorProvider ep = new ErrorProvider();
         
         public FormBase()
         {

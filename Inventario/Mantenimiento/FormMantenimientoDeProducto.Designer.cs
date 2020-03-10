@@ -54,6 +54,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalvar
@@ -269,11 +270,13 @@
             // 
             // txtDepartamento
             // 
+            this.txtDepartamento.Enabled = false;
             this.txtDepartamento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDepartamento.Location = new System.Drawing.Point(366, 153);
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(174, 29);
             this.txtDepartamento.TabIndex = 39;
+            this.txtDepartamento.TextChanged += new System.EventHandler(this.txtDepartamento_TextChanged);
             this.txtDepartamento.Validating += new System.ComponentModel.CancelEventHandler(this.txtDepartamento_Validating);
             // 
             // label10
@@ -289,6 +292,7 @@
             // 
             // txtSuplidor
             // 
+            this.txtSuplidor.Enabled = false;
             this.txtSuplidor.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSuplidor.Location = new System.Drawing.Point(366, 194);
             this.txtSuplidor.Name = "txtSuplidor";
@@ -309,6 +313,7 @@
             // 
             // txtUnidad
             // 
+            this.txtUnidad.Enabled = false;
             this.txtUnidad.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUnidad.Location = new System.Drawing.Point(366, 324);
             this.txtUnidad.Name = "txtUnidad";
@@ -386,6 +391,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

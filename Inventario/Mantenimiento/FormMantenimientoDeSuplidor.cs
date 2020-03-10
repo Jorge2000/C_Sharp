@@ -45,17 +45,16 @@ namespace Inventario
 
         public override void Salvar()
         {
+            if (Controles.ValidarForm(this, ep, false)) return;
             string nombre = clearString(txtNombre);
             string email = clearString(txtEmail);
             string codigo = clearString(txtCodigo);
             string telefono = clearString(txtTelefono);
             string estado = (checkBoxEstado.Checked) ? "1" : "0";
             string storeProcedureUpsertSuplidor = string.Format("EXEC upsertSuplidor @codigo_suplidor = {0}, @nombre_suplidor = '{1}', @email = '{2}', @telefono =  '{3}', @estado = {4}", codigo, nombre, email, telefono, estado);
-            if (IsValidEmail(email))
-            {
+
                 DS = Execution.Ejecutar(storeProcedureUpsertSuplidor);
                 MessageBox.Show("Accion realizada con exito");
-            }
             Limpiar();
         }
 
