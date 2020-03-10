@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
+using Inventario.Consultas;
 
 
 namespace Inventario.Mantenimiento
@@ -37,6 +38,7 @@ namespace Inventario.Mantenimiento
 
 
         }
+        
         public override void Limpiar()
         {
             txtNombre.Text = "";
@@ -67,7 +69,7 @@ namespace Inventario.Mantenimiento
             MessageBox.Show("Accion realizada con exito");
         }
 
-        public override void Consultar()
+        public void Consulta()
         {
             string codigo = txtCodigo.Text.Trim();
             if (string.IsNullOrEmpty(codigo)) return;
@@ -93,6 +95,17 @@ namespace Inventario.Mantenimiento
                 searchDataForegin("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
                 searchDataForegin("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
             }
+        }
+
+        public override void Consultar()
+        {
+            FormConsultaDeProducto ConsultaDeProducto  = new FormConsultaDeProducto();
+            if (ConsultaDeProducto.ShowDialog() == DialogResult.OK)
+            {
+                txtCodigo.Text = ConsultaDeProducto.Codigo;
+                SendKeys.Send("{TAB}");
+            }
+            ConsultaDeProducto.Dispose();
         }
 
         public override void Eliminar()
@@ -210,7 +223,7 @@ namespace Inventario.Mantenimiento
 
         private void txtCodigo_Validating(object sender, CancelEventArgs e)
         {
-            Consultar();
+            Consulta();
         }
 
         private void txtDepartamento_Validating(object sender, CancelEventArgs e)

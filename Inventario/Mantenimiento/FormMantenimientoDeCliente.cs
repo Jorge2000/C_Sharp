@@ -40,7 +40,7 @@ namespace Inventario
             checkBoxEstado.Checked = false;
         }
         
-        /*public override void Consultar()
+        public void Consulta()
         {
             string codigo = txtCodigo.Text.Trim();
             if (string.IsNullOrEmpty(codigo)) return;
@@ -61,7 +61,7 @@ namespace Inventario
             }
                    
         }
-        */
+        
         public override void  Salvar() {
             string nombre = clearString(txtNombre);
             string email = clearString(txtEmail);
@@ -122,7 +122,7 @@ namespace Inventario
 
         private void txtCodigo_Validating(object sender, CancelEventArgs e)
         {
-            Consultar();
+            Consulta();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

@@ -24,7 +24,6 @@ namespace Inventario.Mantenimiento
             checkBoxEstado.Checked = false;
         }
 
-        
         public override void Salvar()
         {
             string nombre = clearString(txtNombre);
@@ -47,7 +46,7 @@ namespace Inventario.Mantenimiento
             Limpiar();}
         }
 
-        public override void Consultar()
+        public void Consulta()
         {
             string codigo = txtCodigo.Text.Trim();
             if (string.IsNullOrEmpty(codigo)) return;
@@ -75,14 +74,23 @@ namespace Inventario.Mantenimiento
 
         }
 
-
         private void FormRegistroDeDepartamento_Load(object sender, EventArgs e)
         {
 
         }
 
+        public override void Consultar()
+        {
+            FormConsultaDeDepartamento ConsultaDeDepartamento = new FormConsultaDeDepartamento();
+            if (ConsultaDeDepartamento.ShowDialog() == DialogResult.OK)
+            {
+                txtCodigo.Text = ConsultaDeDepartamento.Codigo;
+                SendKeys.Send("{TAB}");
+            }
+            ConsultaDeDepartamento.Dispose();
+        }
        
-         public override void validatingField(string campo, string value, TextBox txtBox)
+        public override void validatingField(string campo, string value, TextBox txtBox)
         {
             base.validatingField(campo, value, txtBox);
         }
@@ -144,7 +152,7 @@ namespace Inventario.Mantenimiento
 
         private void txtCodigo_Validating_1(object sender, CancelEventArgs e)
         {
-            Consultar();
+            Consulta();
         }
     }
 }

@@ -61,6 +61,7 @@
             // btnSeleccionar
             // 
             this.btnSeleccionar.FlatAppearance.BorderSize = 0;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // buttonCerrar
             // 
@@ -73,20 +74,11 @@
             // 
             // dataGridView
             // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(193)))), ((int)(((byte)(233)))));
-            this.dataGridView.DataSource = this.DS;
-            this.dataGridView.Location = new System.Drawing.Point(26, 157);
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(12, 179);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.RowHeadersWidth = 40;
-            this.dataGridView.Size = new System.Drawing.Size(572, 230);
-            this.dataGridView.TabIndex = 15;
+            this.dataGridView.Size = new System.Drawing.Size(611, 264);
+            this.dataGridView.TabIndex = 13;
             // 
             // FormConsultaDeCliente
             // 
@@ -113,7 +105,8 @@
 
         #endregion
 
-        public System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridView dataGridView;
+
 
     }
 }

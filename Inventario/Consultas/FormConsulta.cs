@@ -21,7 +21,9 @@ namespace Inventario
         }
         public string Codigo = "";
 
-   
+        public virtual void Seleccionar() {
+            MessageBox.Show("Seleccionando");
+        }
 
         private void buttonCerrar_Click(object sender, EventArgs e)
         {
@@ -35,7 +37,7 @@ namespace Inventario
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            this.Consultar();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -46,6 +48,11 @@ namespace Inventario
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            this.Seleccionar();   
         }
     }
 }

@@ -18,36 +18,33 @@ namespace Inventario
         }
 
 
-        public void seleccionar() {
+        public override void Seleccionar()
+        {
             if (dataGridView.Rows.Count == 0) return;
-            string codigo = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            Codigo = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
             DialogResult = DialogResult.OK;
             Close();
-        
         }
-        public string codigo = "";
+
         public override void Consultar()
         {
-           /* string nombre = clearString(txtNombre);
-            string quey = "SELECT * FROM departamento ";
-            if (!string.IsNullOrEmpty(nombre)) {
-
-                quey += " WHERE nombre_departamento LIKE '%" + nombre + " %'";
-                DS = Utilidades.ExecutionDB(quey);
-                if (DS.Tables.Count > 0) 
-                {
-                    dataGridView.RecordSource = DS.Tables[0];
-                }
-            }
-            FormConsultaDeDepartamento ConsultaDeDepartamento = new FormConsultaDeDepartamento();
-            if (ConsultaDeDepartamento.ShowDialog() == DialogResult.OK)
+            string query = "SELECT * FROM departamento ";
+            string value = clearString(txtNombre);
+            if (!string.IsNullOrEmpty(value))
             {
-                codigo.Text = ConsultaDeDepartamento.txtCodigo_TextChanged;
-                codigo.Focuse();
+                query += string.Format(" WHERE nombre_departamento LIKE('%{0}%')", value);
 
             }
-            ConsultaDeDepartamento.Dispose();*/
+            DS = Execution.Ejecutar(query);
+            int countTable = DS.Tables.Count;
+            if (countTable > 0)
+            {
+                dataGridView.DataSource = DS.Tables[0];
+            }
         }
+
+
+
         private void label2_Click(object sender, EventArgs e)
         {
 

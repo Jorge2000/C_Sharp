@@ -1,6 +1,6 @@
-﻿namespace Inventario
+﻿namespace Inventario.Consultas
 {
-    partial class FormConsultaDeSuplidor
+    partial class FormConsultaUnidad
     {
         /// <summary>
         /// Required designer variable.
@@ -50,8 +50,8 @@
             // 
             // label2
             // 
-            this.label2.Size = new System.Drawing.Size(172, 22);
-            this.label2.Text = "Buscar por nombre";
+            this.label2.Size = new System.Drawing.Size(163, 22);
+            this.label2.Text = "Buscar por unidad";
             // 
             // btnSeleccionar
             // 
@@ -62,39 +62,27 @@
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
             // 
-            // label1
-            // 
-            this.label1.Size = new System.Drawing.Size(295, 27);
-            this.label1.Text = "     Consulta de suplidores";
-            // 
             // dataGridView
             // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(193)))), ((int)(((byte)(233)))));
-            this.dataGridView.Location = new System.Drawing.Point(26, 157);
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(12, 179);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.RowHeadersWidth = 40;
-            this.dataGridView.Size = new System.Drawing.Size(572, 230);
-            this.dataGridView.TabIndex = 15;
+            this.dataGridView.Size = new System.Drawing.Size(611, 264);
+            this.dataGridView.TabIndex = 14;
             // 
-            // FormConsultaDeSuplidor
+            // FormConsultaUnidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 455);
             this.Controls.Add(this.dataGridView);
-            this.Name = "FormConsultaDeSuplidor";
-            this.Text = "Consulta de suplidores";
-            this.Controls.SetChildIndex(this.dataGridView, 0);
+            this.Name = "FormConsultaUnidad";
+            this.Text = "Consulta de Unidad";
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.txtNombre, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.dataGridView, 0);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -107,7 +95,6 @@
 
         #endregion
 
-        public System.Windows.Forms.DataGridView dataGridView;
-
+        private System.Windows.Forms.DataGridView dataGridView;
     }
 }

@@ -8,23 +8,23 @@ using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
 
-namespace Inventario
+namespace Inventario.Consultas
 {
-    public partial class FormConsultaDeCliente : FormConsulta
+    public partial class FormConsultaUnidad : FormConsulta
     {
-        public FormConsultaDeCliente()
+        public FormConsultaUnidad()
         {
             InitializeComponent();
         }
 
         public override void Consultar()
         {
-            string query = "SELECT * FROM cliente ";
+            string query = "SELECT * FROM unidad ";
             string value = clearString(txtNombre);
             if (!string.IsNullOrEmpty(value))
             {
-                query += string.Format(" WHERE nombre_cliente LIKE('%{0}%')", value);
-   
+                query += string.Format(" WHERE nombre_unidad LIKE('%{0}%')", value);
+
             }
             DS = Execution.Ejecutar(query);
             int countTable = DS.Tables.Count;
@@ -39,10 +39,9 @@ namespace Inventario
             if (dataGridView.Rows.Count == 0) return;
             Codigo = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
             DialogResult = DialogResult.OK;
-            FormMantenimientoDeCliente MantenimientoDeCliente = new FormMantenimientoDeCliente();
             Close();
-            MantenimientoDeCliente.Show();
         }
+
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -53,7 +52,5 @@ namespace Inventario
         {
             this.Seleccionar();
         }
-
-
     }
 }

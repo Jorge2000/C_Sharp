@@ -33,9 +33,9 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.checkBoxEstado = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalvar
@@ -92,6 +92,7 @@
             this.txtCodigo.Size = new System.Drawing.Size(126, 29);
             this.txtCodigo.TabIndex = 18;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigo_Validating);
             // 
             // checkBoxEstado
             // 
@@ -137,10 +138,10 @@
             this.Controls.SetChildIndex(this.txtCodigo, 0);
             this.Controls.SetChildIndex(this.txtNombre, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

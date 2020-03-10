@@ -63,6 +63,12 @@
     <Compile Include="Consultas\FormConsultaDeProducto.Designer.cs">
       <DependentUpon>FormConsultaDeProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\FormConsultaUnidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FormConsultaUnidad.Designer.cs">
+      <DependentUpon>FormConsultaUnidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExecutionDB.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\FormConsultaDeProducto.resx">
       <DependentUpon>FormConsultaDeProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\FormConsultaUnidad.resx">
+      <DependentUpon>FormConsultaUnidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>

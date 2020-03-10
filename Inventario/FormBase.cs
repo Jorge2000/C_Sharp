@@ -29,10 +29,6 @@ namespace Inventario
         {
             MessageBox.Show("Limpiando");
         }
-        public virtual void Seleccionar()
-        {
-            MessageBox.Show("Seleccionando...");
-        }
         
         public virtual void Salvar() {
             MessageBox.Show("Salvando...");

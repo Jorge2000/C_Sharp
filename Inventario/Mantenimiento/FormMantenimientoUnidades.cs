@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
+using Inventario.Consultas;
 
 namespace Inventario.Mantenimiento
 {
@@ -34,7 +35,7 @@ namespace Inventario.Mantenimiento
             Limpiar();
         }
 
-        public override void Consultar()
+        public void Consulta()
         {
             string codigo = txtCodigo.Text.Trim();
             if (string.IsNullOrEmpty(codigo)) return;
@@ -50,6 +51,18 @@ namespace Inventario.Mantenimiento
                 checkBoxEstado.Checked = Convert.ToBoolean(row["estado"]);;
             } 
         }
+        public override void Consultar()
+        {
+            FormConsultaUnidad ConsultaUnidad = new FormConsultaUnidad();
+            if (ConsultaUnidad.ShowDialog() == DialogResult.OK)
+            {
+                txtCodigo.Text = ConsultaUnidad.Codigo;
+                SendKeys.Send("{TAB}");
+            }
+            ConsultaUnidad.Dispose();
+        }
+        
+
 
         public override void Eliminar()
         {
@@ -104,6 +117,11 @@ namespace Inventario.Mantenimiento
         private void buttonCerrar_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private void txtCodigo_Validating(object sender, CancelEventArgs e)
+        {
+            Consulta();
         }
     }
 }

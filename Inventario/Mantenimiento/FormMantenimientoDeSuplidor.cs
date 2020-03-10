@@ -61,6 +61,17 @@ namespace Inventario
 
         public override void Consultar()
         {
+            FormConsultaDeSuplidor ConsultaDeSuplidor = new FormConsultaDeSuplidor();
+            if (ConsultaDeSuplidor.ShowDialog() == DialogResult.OK)
+            {
+                txtCodigo.Text = ConsultaDeSuplidor.Codigo;
+                SendKeys.Send("{TAB}");
+            }
+            ConsultaDeSuplidor.Dispose();
+        }
+
+        public void Consulta()
+        {
             string codigo = txtCodigo.Text;
             if (string.IsNullOrEmpty(codigo)) return;
 
@@ -108,7 +119,7 @@ namespace Inventario
 
         private void txtCodigo_Validating(object sender, CancelEventArgs e)
         {
-            Consultar();
+            Consulta();
         }
     }
 }
