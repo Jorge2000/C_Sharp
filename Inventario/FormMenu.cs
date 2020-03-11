@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,164 +6,131 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Inventario.Reportes;
 using Inventario.Mantenimiento;
+using Inventario.Reportes;
 
-namespace Inventario
-{
-    public partial class FormMenu : Form
-    {
+namespace Inventario {
+    public partial class FormMenu : Form {
         private int childFormNumber = 0;
 
-        public FormMenu()
-        {
-            InitializeComponent();
+        public FormMenu () {
+            InitializeComponent ();
         }
 
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
+        private void ShowNewForm (object sender, EventArgs e) {
+            Form childForm = new Form ();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
+            childForm.Show ();
         }
 
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        private void OpenFile (object sender, EventArgs e) {
+            OpenFileDialog openFileDialog = new OpenFileDialog ();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
             openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
+            if (openFileDialog.ShowDialog (this) == DialogResult.OK) {
                 string FileName = openFileDialog.FileName;
             }
         }
 
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        private void SaveAsToolStripMenuItem_Click (object sender, EventArgs e) {
+            SaveFileDialog saveFileDialog = new SaveFileDialog ();
+            saveFileDialog.InitialDirectory = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
             saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
+            if (saveFileDialog.ShowDialog (this) == DialogResult.OK) {
                 string FileName = saveFileDialog.FileName;
             }
         }
 
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
+        private void ExitToolsStripMenuItem_Click (object sender, EventArgs e) {
+            this.Close ();
         }
 
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
+        private void CutToolStripMenuItem_Click (object sender, EventArgs e) { }
 
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
+        private void CopyToolStripMenuItem_Click (object sender, EventArgs e) { }
 
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
+        private void PasteToolStripMenuItem_Click (object sender, EventArgs e) { }
 
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void ToolBarToolStripMenuItem_Click (object sender, EventArgs e) {
             toolStrip.Visible = toolBarToolStripMenuItem.Checked;
         }
 
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void StatusBarToolStripMenuItem_Click (object sender, EventArgs e) {
             statusStrip.Visible = statusBarToolStripMenuItem.Checked;
         }
 
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
+        private void CascadeToolStripMenuItem_Click (object sender, EventArgs e) {
+            LayoutMdi (MdiLayout.Cascade);
         }
 
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
+        private void TileVerticalToolStripMenuItem_Click (object sender, EventArgs e) {
+            LayoutMdi (MdiLayout.TileVertical);
         }
 
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
+        private void TileHorizontalToolStripMenuItem_Click (object sender, EventArgs e) {
+            LayoutMdi (MdiLayout.TileHorizontal);
         }
 
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
+        private void ArrangeIconsToolStripMenuItem_Click (object sender, EventArgs e) {
+            LayoutMdi (MdiLayout.ArrangeIcons);
         }
 
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Form childForm in MdiChildren)
-            {
-                childForm.Close();
+        private void CloseAllToolStripMenuItem_Click (object sender, EventArgs e) {
+            foreach (Form childForm in MdiChildren) {
+                childForm.Close ();
             }
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
+        private void toolStripMenuItem1_Click (object sender, EventArgs e) {
 
         }
 
-        private void primosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormPrimos fp = new FormPrimos();
+        private void primosToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormPrimos fp = new FormPrimos ();
             fp.MdiParent = this;
-            fp.Show();
+            fp.Show ();
         }
 
-        private void matricesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormMatrices fm = new FormMatrices();
+        private void matricesToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormMatrices fm = new FormMatrices ();
             fm.MdiParent = this;
-            fm.Show();
+            fm.Show ();
         }
 
-        private void cRUDToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormCrud fc = new FormCrud();
+        private void cRUDToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormCrud fc = new FormCrud ();
             fc.MdiParent = this;
-            fc.Show();
+            fc.Show ();
         }
 
-        private void numerosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormNumeros fn = new FormNumeros();
+        private void numerosToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormNumeros fn = new FormNumeros ();
             fn.MdiParent = this;
-            fn.Show();
+            fn.Show ();
         }
 
-        private void matrizOpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormMatrizOp fmp = new FormMatrizOp();
+        private void matrizOpToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormMatrizOp fmp = new FormMatrizOp ();
             fmp.MdiParent = this;
-            fmp.Show();
+            fmp.Show ();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void Menu_Load (object sender, EventArgs e) {
 
         }
 
-        private void mantenimientosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void reportesToolStripMenuItem_Click (object sender, EventArgs e) {
 
         }
 
-        private void Menu_MdiChildActivate(object sender, EventArgs e)
-        {
+        private void mantenimientosToolStripMenuItem_Click (object sender, EventArgs e) {
+
+        }
+
+        private void Menu_MdiChildActivate (object sender, EventArgs e) {
             if (ActiveMdiChild is FormBase) {
-                FormBase obj = (FormBase)ActiveMdiChild;
+                FormBase obj = (FormBase) ActiveMdiChild;
                 saveToolStripButton.Enabled = obj.puedeSalvar;
                 printToolStripButton.Enabled = obj.puedeImprimir;
                 printPreviewToolStripButton.Enabled = obj.puedeConsultar;
@@ -171,145 +138,127 @@ namespace Inventario
             }
         }
 
-        private void saveToolStripButton_Click(object sender, EventArgs e)
-        {
-            if (ActiveMdiChild is FormBase)
-            {
-                FormBase obj = (FormBase)ActiveMdiChild;
-                obj.Salvar();
+        private void saveToolStripButton_Click (object sender, EventArgs e) {
+            if (ActiveMdiChild is FormBase) {
+                FormBase obj = (FormBase) ActiveMdiChild;
+                obj.Salvar ();
             }
         }
 
-        private void printToolStripButton_Click(object sender, EventArgs e)
-        {
-            if (ActiveMdiChild is FormBase)
-            {
-                FormBase obj = (FormBase)ActiveMdiChild;
-                obj.Imprimir();
+        private void printToolStripButton_Click (object sender, EventArgs e) {
+            if (ActiveMdiChild is FormBase) {
+                FormBase obj = (FormBase) ActiveMdiChild;
+                obj.Imprimir ();
             }
         }
 
-        private void printPreviewToolStripButton_Click(object sender, EventArgs e)
-        {
-            if (ActiveMdiChild is FormBase)
-            {
-                FormBase obj = (FormBase)ActiveMdiChild;
-                obj.Consultar();
+        private void printPreviewToolStripButton_Click (object sender, EventArgs e) {
+            if (ActiveMdiChild is FormBase) {
+                FormBase obj = (FormBase) ActiveMdiChild;
+                obj.Consultar ();
             }
         }
 
-        private void deClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormConsultaDeCliente ConsultaDeCliente = new FormConsultaDeCliente();
+        private void deClienteToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormConsultaDeCliente ConsultaDeCliente = new FormConsultaDeCliente ();
             ConsultaDeCliente.MdiParent = this;
-            ConsultaDeCliente.Show();
+            ConsultaDeCliente.Show ();
         }
 
-        private void deDepartamentoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormConsultaDeDepartamento ConsultaDeDepartamento = new FormConsultaDeDepartamento();
+        private void deDepartamentoToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormConsultaDeDepartamento ConsultaDeDepartamento = new FormConsultaDeDepartamento ();
             ConsultaDeDepartamento.MdiParent = this;
-            ConsultaDeDepartamento.Show();
+            ConsultaDeDepartamento.Show ();
         }
 
-        private void deSuplidorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormConsultaDeSuplidor ConsultaDeSuplidor = new FormConsultaDeSuplidor();
+        private void deSuplidorToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormConsultaDeSuplidor ConsultaDeSuplidor = new FormConsultaDeSuplidor ();
             ConsultaDeSuplidor.MdiParent = this;
-            ConsultaDeSuplidor.Show();
+            ConsultaDeSuplidor.Show ();
         }
 
-        private void deClienteToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FormMantenimientoDeCliente MantenimientoDeCliente = new FormMantenimientoDeCliente();
+        private void deClienteToolStripMenuItem1_Click (object sender, EventArgs e) {
+            FormMantenimientoDeCliente MantenimientoDeCliente = new FormMantenimientoDeCliente ();
             MantenimientoDeCliente.MdiParent = this;
-            MantenimientoDeCliente.Show();
+            MantenimientoDeCliente.Show ();
         }
 
-        private void deDepartamentoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            
-            FormMantenimientoDeDepartamento MantenimientoDeDepartamento = new FormMantenimientoDeDepartamento();
+        private void deDepartamentoToolStripMenuItem1_Click (object sender, EventArgs e) {
+
+            FormMantenimientoDeDepartamento MantenimientoDeDepartamento = new FormMantenimientoDeDepartamento ();
             MantenimientoDeDepartamento.MdiParent = this;
-            MantenimientoDeDepartamento.Show();
+            MantenimientoDeDepartamento.Show ();
         }
 
-        private void deSuplidorToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FormMantenimientoDeSuplidor MantenimientoDeSuplidor = new FormMantenimientoDeSuplidor();
+        private void deSuplidorToolStripMenuItem1_Click (object sender, EventArgs e) {
+            FormMantenimientoDeSuplidor MantenimientoDeSuplidor = new FormMantenimientoDeSuplidor ();
             MantenimientoDeSuplidor.MdiParent = this;
-            MantenimientoDeSuplidor.Show();
+            MantenimientoDeSuplidor.Show ();
         }
 
-        private void toolStripMenuItem8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem6_Click(object sender, EventArgs e)
-        {
+        private void toolStripMenuItem8_Click (object sender, EventArgs e) {
 
         }
 
-        private void toolStripMenuItem7_Click(object sender, EventArgs e)
-        {
+        private void toolStripMenuItem6_Click (object sender, EventArgs e) {
 
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            FormReporte FormReporte = new FormReporte();
+        private void toolStripMenuItem7_Click (object sender, EventArgs e) {
+
+        }
+
+        private void toolStripMenuItem2_Click (object sender, EventArgs e) {
+            FormReporte FormReporte = new FormReporte ();
             FormReporte.MdiParent = this;
-            FormReporte.Show();
+            FormReporte.Show ();
         }
 
-        private void deProductoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormMantenimientoDeProducto FormMantenimientoDeProducto = new FormMantenimientoDeProducto();
+        private void deProductoToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormMantenimientoDeProducto FormMantenimientoDeProducto = new FormMantenimientoDeProducto ();
             FormMantenimientoDeProducto.MdiParent = this;
-            FormMantenimientoDeProducto.Show();
+            FormMantenimientoDeProducto.Show ();
         }
 
-        private void deUnidadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormMantenimientoUnidades FormMantenimientoUnidades = new FormMantenimientoUnidades();
+        private void deUnidadToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormMantenimientoUnidades FormMantenimientoUnidades = new FormMantenimientoUnidades ();
             FormMantenimientoUnidades.MdiParent = this;
-            FormMantenimientoUnidades.Show();
+            FormMantenimientoUnidades.Show ();
         }
 
-       /* public virtual bool validateForm(Control control, ErrorProvider errorProvider) {
-            bool containError = false;
-            if (control.Controls == 0) return false;
-            foreach (Control subControl in control.Controls)
-            {
-                if (subControl.Controls.Count > 0)
-                {
-                    bool ce = validateForm(subControl, errorProvider);
-                    if (ce)
-                    {
-                        containError = true;
-                    }
-                }
-                else
-                {
-                    if (subControl is TextBox) {
-                        TextBox textBox = (TextBox)subControl;
-                        if (textBox.Validated == true)
-                        {
-                            if (string.IsNullOrEmpty(textBox.Text.Trim()))
-                            {
-                                errorProvider.SetError(textBox, "Campo obligatorio");
-                                containError = true;
-                            }
-                            else
-                            {
-                                errorProvider.SetError(textBox, "");
-                            }
-                        }
-                    }
-                } return containError;
-            }
-            return true;
-        }*/
+        /* public virtual bool validateForm(Control control, ErrorProvider errorProvider) {
+             bool containError = false;
+             if (control.Controls == 0) return false;
+             foreach (Control subControl in control.Controls)
+             {
+                 if (subControl.Controls.Count > 0)
+                 {
+                     bool ce = validateForm(subControl, errorProvider);
+                     if (ce)
+                     {
+                         containError = true;
+                     }
+                 }
+                 else
+                 {
+                     if (subControl is TextBox) {
+                         TextBox textBox = (TextBox)subControl;
+                         if (textBox.Validated == true)
+                         {
+                             if (string.IsNullOrEmpty(textBox.Text.Trim()))
+                             {
+                                 errorProvider.SetError(textBox, "Campo obligatorio");
+                                 containError = true;
+                             }
+                             else
+                             {
+                                 errorProvider.SetError(textBox, "");
+                             }
+                         }
+                     }
+                 } return containError;
+             }
+             return true;
+         }*/
     }
 }

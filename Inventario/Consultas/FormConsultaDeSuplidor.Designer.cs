@@ -1,7 +1,5 @@
-﻿namespace Inventario
-{
-    partial class FormConsultaDeSuplidor
-    {
+namespace Inventario {
+    partial class FormConsultaDeSuplidor {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,13 +9,11 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
+        protected override void Dispose (bool disposing) {
+            if (disposing && (components != null)) {
+                components.Dispose ();
             }
-            base.Dispose(disposing);
+            base.Dispose (disposing);
         }
 
         #region Windows Form Designer generated code
@@ -26,14 +22,13 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.SuspendLayout();
+        private void InitializeComponent () {
+            this.dataGridView = new System.Windows.Forms.DataGridView ();
+            this.panel1.SuspendLayout ();
+            this.panel2.SuspendLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.dataGridView)).BeginInit ();
+            this.SuspendLayout ();
             // 
             // btnSalvar
             // 
@@ -42,7 +37,7 @@
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Click += new System.EventHandler (this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -50,13 +45,13 @@
             // 
             // label2
             // 
-            this.label2.Size = new System.Drawing.Size(172, 22);
+            this.label2.Size = new System.Drawing.Size (172, 22);
             this.label2.Text = "Buscar por nombre";
             // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.FlatAppearance.BorderSize = 0;
-            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            this.btnSeleccionar.Click += new System.EventHandler (this.btnSeleccionar_Click);
             // 
             // buttonCerrar
             // 
@@ -64,44 +59,44 @@
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(295, 27);
+            this.label1.Size = new System.Drawing.Size (295, 27);
             this.label1.Text = "     Consulta de suplidores";
             // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(193)))), ((int)(((byte)(233)))));
-            this.dataGridView.Location = new System.Drawing.Point(26, 157);
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) |
+                    System.Windows.Forms.AnchorStyles.Left) |
+                System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.BackgroundColor = System.Drawing.Color.FromArgb (((int) (((byte) (133)))), ((int) (((byte) (193)))), ((int) (((byte) (233)))));
+            this.dataGridView.Location = new System.Drawing.Point (26, 157);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 40;
-            this.dataGridView.Size = new System.Drawing.Size(572, 230);
+            this.dataGridView.Size = new System.Drawing.Size (572, 230);
             this.dataGridView.TabIndex = 15;
             // 
             // FormConsultaDeSuplidor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 455);
-            this.Controls.Add(this.dataGridView);
+            this.ClientSize = new System.Drawing.Size (785, 455);
+            this.Controls.Add (this.dataGridView);
             this.Name = "FormConsultaDeSuplidor";
             this.Text = "Consulta de suplidores";
-            this.Controls.SetChildIndex(this.dataGridView, 0);
-            this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.txtNombre, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            this.Controls.SetChildIndex (this.dataGridView, 0);
+            this.Controls.SetChildIndex (this.panel2, 0);
+            this.Controls.SetChildIndex (this.label2, 0);
+            this.Controls.SetChildIndex (this.txtNombre, 0);
+            this.Controls.SetChildIndex (this.panel1, 0);
+            this.panel1.ResumeLayout (false);
+            this.panel2.ResumeLayout (false);
+            this.panel2.PerformLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.dataGridView)).EndInit ();
+            this.ResumeLayout (false);
+            this.PerformLayout ();
 
         }
 

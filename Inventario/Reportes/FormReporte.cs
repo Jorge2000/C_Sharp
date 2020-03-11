@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,19 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Inventario.Reportes
-{
-    public partial class FormReporte : FormBase
-    {
-        public FormReporte()
-        {
-            InitializeComponent();
+namespace Inventario.Reportes {
+    public partial class FormReporte : FormBase {
+        public FormReporte () {
+            InitializeComponent ();
         }
 
-        private void FormReporte_Load(object sender, EventArgs e)
-        {
+        private void FormReporte_Load (object sender, EventArgs e) {
 
-            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport ();
         }
     }
 }
