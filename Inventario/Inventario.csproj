@@ -70,6 +70,11 @@
       <DependentUpon>FormConsultaUnidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles.cs" />
+    <Compile Include="DataSetCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCliente.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ExecutionDB.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
@@ -173,6 +178,12 @@
     <Compile Include="Procesos\FormProcesos.Designer.cs">
       <DependentUpon>FormProcesos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procesos\FormProcesosVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\FormProcesosVentas.Designer.cs">
+      <DependentUpon>FormProcesosVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\FormReporte.cs">
@@ -180,6 +191,12 @@
     </Compile>
     <Compile Include="Reportes\FormReporte.Designer.cs">
       <DependentUpon>FormReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormReporteCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FormReporteCliente.Designer.cs">
+      <DependentUpon>FormReporteCliente.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Consultas\FormConsulta.resx">
       <DependentUpon>FormConsulta.cs</DependentUpon>
@@ -241,6 +258,9 @@
     <EmbeddedResource Include="Procesos\FormProcesos.resx">
       <DependentUpon>FormProcesos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\FormProcesosVentas.resx">
+      <DependentUpon>FormProcesosVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -250,10 +270,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportCliente.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporte.resx">
       <DependentUpon>FormReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FormReporteCliente.resx">
+      <DependentUpon>FormReporteCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="DataSetCliente.xsc">
+      <DependentUpon>DataSetCliente.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCliente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCliente.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetCliente.xss">
+      <DependentUpon>DataSetCliente.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -270,9 +305,7 @@
       <Name>Utilidades</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -41,7 +41,9 @@ namespace Inventario {
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
             this.deClienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem ();
             this.deDepartamentoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem ();
+            this.deProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
             this.deSuplidorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem ();
+            this.deUnidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem ();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem ();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem ();
@@ -51,9 +53,6 @@ namespace Inventario {
             this.deDepartamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
             this.deSuplidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem ();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem ();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem ();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem ();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem ();
             this.primosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
             this.matricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
@@ -100,8 +99,7 @@ namespace Inventario {
             this.statusStrip = new System.Windows.Forms.StatusStrip ();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel ();
             this.toolTip = new System.Windows.Forms.ToolTip (this.components);
-            this.deUnidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
-            this.deProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
+            this.deVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ();
             this.menuStrip.SuspendLayout ();
             this.toolStrip.SuspendLayout ();
             this.statusStrip.SuspendLayout ();
@@ -258,12 +256,26 @@ namespace Inventario {
             this.deDepartamentoToolStripMenuItem1.Text = "de Departamento";
             this.deDepartamentoToolStripMenuItem1.Click += new System.EventHandler (this.deDepartamentoToolStripMenuItem1_Click);
             // 
+            // deProductoToolStripMenuItem
+            // 
+            this.deProductoToolStripMenuItem.Name = "deProductoToolStripMenuItem";
+            this.deProductoToolStripMenuItem.Size = new System.Drawing.Size (166, 22);
+            this.deProductoToolStripMenuItem.Text = "de Producto";
+            this.deProductoToolStripMenuItem.Click += new System.EventHandler (this.deProductoToolStripMenuItem_Click);
+            // 
             // deSuplidorToolStripMenuItem1
             // 
             this.deSuplidorToolStripMenuItem1.Name = "deSuplidorToolStripMenuItem1";
             this.deSuplidorToolStripMenuItem1.Size = new System.Drawing.Size (166, 22);
             this.deSuplidorToolStripMenuItem1.Text = "de Suplidor";
             this.deSuplidorToolStripMenuItem1.Click += new System.EventHandler (this.deSuplidorToolStripMenuItem1_Click);
+            // 
+            // deUnidadToolStripMenuItem
+            // 
+            this.deUnidadToolStripMenuItem.Name = "deUnidadToolStripMenuItem";
+            this.deUnidadToolStripMenuItem.Size = new System.Drawing.Size (166, 22);
+            this.deUnidadToolStripMenuItem.Text = "de Unidad";
+            this.deUnidadToolStripMenuItem.Click += new System.EventHandler (this.deUnidadToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -331,34 +343,12 @@ namespace Inventario {
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.DropDownItems.AddRange (new System.Windows.Forms.ToolStripItem[] {
-                this.toolStripMenuItem7,
-                    this.toolStripMenuItem8,
-                    this.toolStripMenuItem9
+                this.deVentasToolStripMenuItem
             });
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size (66, 20);
             this.toolStripMenuItem6.Text = "Procesos";
             this.toolStripMenuItem6.Click += new System.EventHandler (this.toolStripMenuItem6_Click);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size (166, 22);
-            this.toolStripMenuItem7.Text = "de Cliente";
-            this.toolStripMenuItem7.Click += new System.EventHandler (this.toolStripMenuItem7_Click);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size (166, 22);
-            this.toolStripMenuItem8.Text = "de Departamento";
-            this.toolStripMenuItem8.Click += new System.EventHandler (this.toolStripMenuItem8_Click);
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size (166, 22);
-            this.toolStripMenuItem9.Text = "de Suplidor";
             // 
             // toolStripMenuItem1
             // 
@@ -752,19 +742,12 @@ namespace Inventario {
             this.toolStripStatusLabel.Size = new System.Drawing.Size (39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // deUnidadToolStripMenuItem
+            // deVentasToolStripMenuItem
             // 
-            this.deUnidadToolStripMenuItem.Name = "deUnidadToolStripMenuItem";
-            this.deUnidadToolStripMenuItem.Size = new System.Drawing.Size (166, 22);
-            this.deUnidadToolStripMenuItem.Text = "de Unidad";
-            this.deUnidadToolStripMenuItem.Click += new System.EventHandler (this.deUnidadToolStripMenuItem_Click);
-            // 
-            // deProductoToolStripMenuItem
-            // 
-            this.deProductoToolStripMenuItem.Name = "deProductoToolStripMenuItem";
-            this.deProductoToolStripMenuItem.Size = new System.Drawing.Size (166, 22);
-            this.deProductoToolStripMenuItem.Text = "de Producto";
-            this.deProductoToolStripMenuItem.Click += new System.EventHandler (this.deProductoToolStripMenuItem_Click);
+            this.deVentasToolStripMenuItem.Name = "deVentasToolStripMenuItem";
+            this.deVentasToolStripMenuItem.Size = new System.Drawing.Size (152, 22);
+            this.deVentasToolStripMenuItem.Text = "de Ventas";
+            this.deVentasToolStripMenuItem.Click += new System.EventHandler (this.deVentasToolStripMenuItem_Click);
             // 
             // FormMenu
             // 
@@ -867,10 +850,8 @@ namespace Inventario {
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem deProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deUnidadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deVentasToolStripMenuItem;
     }
 }

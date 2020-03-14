@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
+using Inventario.Reportes;
+
 
 namespace Inventario {
     public partial class FormConsultaDeCliente : FormConsulta {
@@ -34,8 +36,16 @@ namespace Inventario {
             Codigo = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString ();
             DialogResult = DialogResult.OK;
             Close ();
-            MantenimientoDeCliente.Show ();
 
+        }
+
+        public override void Imprimir()
+        {
+            if (dataGridView.Rows.Count == 0) return;
+            object dataSet = dataGridView.DataSource;
+            FormReporteCliente ReporteCliente = new FormReporteCliente();
+            ReporteCliente.ds = dataSet;
+            ReporteCliente.Show();
         }
 
         private void btnBuscar_Click (object sender, EventArgs e) {
@@ -44,6 +54,11 @@ namespace Inventario {
 
         private void btnSeleccionar_Click (object sender, EventArgs e) {
             this.Seleccionar ();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Imprimir();
         }
 
     }

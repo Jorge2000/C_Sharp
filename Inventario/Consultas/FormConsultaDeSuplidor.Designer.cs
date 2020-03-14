@@ -27,6 +27,7 @@ namespace Inventario {
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView)).BeginInit ();
             this.SuspendLayout ();
             // 
@@ -69,12 +70,13 @@ namespace Inventario {
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) |
                     System.Windows.Forms.AnchorStyles.Left) |
                 System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView.BackgroundColor = System.Drawing.Color.FromArgb (((int) (((byte) (133)))), ((int) (((byte) (193)))), ((int) (((byte) (233)))));
-            this.dataGridView.Location = new System.Drawing.Point (26, 157);
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridView.Location = new System.Drawing.Point (17, 179);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 40;
-            this.dataGridView.Size = new System.Drawing.Size (572, 230);
+            this.dataGridView.Size = new System.Drawing.Size (581, 264);
             this.dataGridView.TabIndex = 15;
             // 
             // FormConsultaDeSuplidor
@@ -94,6 +96,7 @@ namespace Inventario {
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView)).EndInit ();
             this.ResumeLayout (false);
             this.PerformLayout ();

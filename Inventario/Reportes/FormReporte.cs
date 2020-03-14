@@ -15,7 +15,6 @@ namespace Inventario.Reportes {
 
         private void FormReporte_Load (object sender, EventArgs e) {
 
-            this.reportViewer1.RefreshReport ();
         }
     }
 }

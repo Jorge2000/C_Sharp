@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Inventario.Mantenimiento;
+using Inventario.Procesos;
 using Inventario.Reportes;
 
 namespace Inventario {
@@ -224,6 +225,12 @@ namespace Inventario {
             FormMantenimientoUnidades FormMantenimientoUnidades = new FormMantenimientoUnidades ();
             FormMantenimientoUnidades.MdiParent = this;
             FormMantenimientoUnidades.Show ();
+        }
+
+        private void deVentasToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormProcesosVentas ProcesosVentas = new FormProcesosVentas ();
+            ProcesosVentas.MdiParent = this;
+            ProcesosVentas.Show ();
         }
 
         /* public virtual bool validateForm(Control control, ErrorProvider errorProvider) {
