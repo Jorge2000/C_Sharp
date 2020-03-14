@@ -59,6 +59,7 @@ namespace Inventario {
             this.buttonCerrar.TabIndex = 5;
             this.buttonCerrar.Text = "Cerrar";
             this.buttonCerrar.UseVisualStyleBackColor = false;
+            this.buttonCerrar.Click += new System.EventHandler (this.buttonCerrar_Click_1);
             // 
             // errorProvider
             // 

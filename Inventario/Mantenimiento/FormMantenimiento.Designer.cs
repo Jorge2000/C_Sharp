@@ -28,9 +28,10 @@ namespace Inventario {
             this.btnBuscar = new System.Windows.Forms.Button ();
             this.btnSalvar = new System.Windows.Forms.Button ();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider (this.components);
-            ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider1)).BeginInit ();
             this.SuspendLayout ();
             // 
@@ -50,6 +51,7 @@ namespace Inventario {
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
             this.buttonCerrar.Location = new System.Drawing.Point (11, 311);
+            this.buttonCerrar.Click += new System.EventHandler (this.buttonCerrar_Click);
             // 
             // label1
             // 
@@ -113,10 +115,11 @@ namespace Inventario {
             this.ClientSize = new System.Drawing.Size (786, 362);
             this.Name = "FormMantenimiento";
             this.Text = "Mantenimientos";
-            ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
             this.panel1.ResumeLayout (false);
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider1)).EndInit ();
             this.ResumeLayout (false);
 

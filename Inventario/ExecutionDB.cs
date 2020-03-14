@@ -8,10 +8,10 @@ using Crud = Utilidades.Crud;
 
 namespace Utilidades {
     class ExecutionDB {
-        public static DataSet Ejecutar(string query) {
+        public static DataSet Ejecutar (string query) {
             DataSet DS = new DataSet ();
             try {
-                SqlConnection connect = new SqlConnection (@"server=DESKTOP-6HBE9KH\SQLEXPRESS;" +
+                SqlConnection connect = new SqlConnection (@"server=DESKTOP-HS5DH54;" +
                     "Trusted_Connection=yes;" +
                     "database=inventario;" +
                     "connection timeout=30");

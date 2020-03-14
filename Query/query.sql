@@ -75,7 +75,7 @@ AS
 
 
 
-CREATE PROCEDURE upsert_cliente
+CREATE PROCEDURE upsertCliente
     @codigo_cliente int,
     @nombre_cliente varchar(50),
     @email varchar(50),
@@ -91,7 +91,7 @@ AS
 
 -- 
 
-CREATE PROCEDURE upsert_producto
+CREATE PROCEDURE upsertProducto
    @codigo_producto int, @nombre_producto varchar(50), @codigo_departamento int, @codigo_suplidor int, @cantidad_existente int, @punto_reo int, @codigo_unidad int, @estado bit, @precio_de_venta int
 AS
     IF NOT EXISTS (SELECT codigo_producto FROM producto WHERE codigo_producto = @codigo_producto)
@@ -99,7 +99,7 @@ AS
     ELSE 
         UPDATE producto SET @nombre_producto = nombre_producto, @codigo_departamento = codigo_departamento, @codigo_suplidor = codigo_suplidor, @cantidad_existente = cantidad_existente, @punto_reo = punto_reo, @codigo_unidad = codigo_unidad, @estado = estado, @precio_de_venta = precio_de_venta WHERE codigo_producto =  @codigo_producto
 
-CREATE PROCEDURE upsert_unidad
+CREATE PROCEDURE upsertUnidad
    @codigo_unidad int,
    @nombre_unidad varchar(50),
    @estado bit
@@ -109,7 +109,7 @@ AS
     ELSE 
         UPDATE unidad SET nombre_unidad = @nombre_unidad, estado = @estado WHERE codigo_unidad = @codigo_unidad
 
-CREATE PROCEDURE upsert_suplidor
+CREATE PROCEDURE upsertSuplidor
     @codigo_suplidor int, @nombre_suplidor varchar(50), @email varchar(50), @telefono varchar(13), @estado bit
 AS
     IF NOT EXISTS (SELECT codigo_suplidor FROM suplidor WHERE codigo_suplidor = @codigo_suplidor)
@@ -118,7 +118,7 @@ AS
         UPDATE suplidor SET nombre_suplidor = @nombre_suplidor, email = @email, telefono = @telefono, estado = @estado WHERE codigo_suplidor =  @codigo_suplidor
  
 
-CREATE PROCEDURE upsert_departamento
+CREATE PROCEDURE upsertDepartamento
    @codigo_departamento int,
    @nombre_departamento varchar(50),
    @estado bit
@@ -135,25 +135,25 @@ AS
         DELETE FROM cliente WHERE codigo_cliente = @codigo_cliente
 
 
-CREATE PROCEDURE eliminar_producto
+CREATE PROCEDURE eliminarProducto
    @codigo_producto int
 AS
     IF EXISTS (SELECT codigo_producto FROM producto WHERE codigo_producto = @codigo_producto)
         DELETE FROM producto WHERE codigo_producto = @codigo_producto
 
-CREATE PROCEDURE eliminar_unidad
+CREATE PROCEDURE eliminarUnidad
    @codigo_unidad int
 AS
     IF EXISTS (SELECT codigo_unidad FROM unidad WHERE codigo_unidad = @codigo_unidad)
         DELETE FROM unidad WHERE codigo_unidad = @codigo_unidad
 
-CREATE PROCEDURE eliminar_departamento
+CREATE PROCEDURE eliminarDepartamento
    @codigo_departamento int
 AS
     IF EXISTS (SELECT codigo_departamento FROM departamento WHERE codigo_departamento = @codigo_departamento)
         DELETE FROM departamento WHERE codigo_departamento= @codigo_departamento
 
-CREATE PROCEDURE eliminar_suplidor
+CREATE PROCEDURE eliminarSuplidor
    @codigo_suplidor int
 AS
     IF EXISTS (SELECT codigo_suplidor FROM suplidor WHERE codigo_suplidor = @codigo_suplidor)

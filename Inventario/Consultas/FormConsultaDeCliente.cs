@@ -29,12 +29,13 @@ namespace Inventario {
         }
 
         public override void Seleccionar () {
+            FormMantenimientoDeCliente MantenimientoDeCliente = new FormMantenimientoDeCliente ();
             if (dataGridView.Rows.Count == 0) return;
             Codigo = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString ();
             DialogResult = DialogResult.OK;
-            FormMantenimientoDeCliente MantenimientoDeCliente = new FormMantenimientoDeCliente ();
             Close ();
             MantenimientoDeCliente.Show ();
+
         }
 
         private void btnBuscar_Click (object sender, EventArgs e) {

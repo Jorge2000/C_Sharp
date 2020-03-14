@@ -219,5 +219,18 @@ namespace Inventario.Mantenimiento {
         private void txtDepartamento_TextChanged (object sender, EventArgs e) {
 
         }
+
+        private void linkLabel1_LinkClicked (object sender, LinkLabelLinkClickedEventArgs e) {
+            Consultar ();
+        }
+
+        private void txtCodigo_TextChanged (object sender, EventArgs e) {
+            string codigo = clearString (txtCodigo);
+            if (string.IsNullOrEmpty (codigo)) {
+                Limpiar ();
+            } else {
+                SendKeys.Send ("{TAB}");
+            }
+        }
     }
 }

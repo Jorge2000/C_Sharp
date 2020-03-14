@@ -1,4 +1,4 @@
-﻿namespace Utilidades {
+namespace Utilidades {
     partial class textbox {
         /// <summary>
         /// Required designer variable.

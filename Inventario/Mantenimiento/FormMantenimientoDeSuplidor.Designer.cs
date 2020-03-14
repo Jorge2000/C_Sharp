@@ -27,14 +27,15 @@ namespace Inventario {
             this.label4 = new System.Windows.Forms.Label ();
             this.txtEmail = new System.Windows.Forms.TextBox ();
             this.label = new System.Windows.Forms.Label ();
-            this.label3 = new System.Windows.Forms.Label ();
             this.txtNombre = new System.Windows.Forms.TextBox ();
             this.txtCodigo = new System.Windows.Forms.TextBox ();
             this.checkBoxEstado = new System.Windows.Forms.CheckBox ();
             this.label2 = new System.Windows.Forms.Label ();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel ();
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
             this.SuspendLayout ();
             // 
             // btnSalvar
@@ -103,17 +104,6 @@ namespace Inventario {
             this.label.TabIndex = 21;
             this.label.Text = "Email";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label3.Location = new System.Drawing.Point (22, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size (72, 22);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Código";
-            // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -129,6 +119,7 @@ namespace Inventario {
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size (126, 29);
             this.txtCodigo.TabIndex = 18;
+            this.txtCodigo.TextChanged += new System.EventHandler (this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtCodigo_KeyPress);
             this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler (this.txtCodigo_Validating);
             // 
@@ -155,16 +146,29 @@ namespace Inventario {
             this.label2.TabIndex = 16;
             this.label2.Text = "Nombre";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel1.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.linkLabel1.Location = new System.Drawing.Point (22, 95);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size (72, 22);
+            this.linkLabel1.TabIndex = 45;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Código";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel1_LinkClicked);
+            // 
             // FormMantenimientoDeSuplidor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size (786, 375);
+            this.Controls.Add (this.linkLabel1);
             this.Controls.Add (this.txtTelefono);
             this.Controls.Add (this.label4);
             this.Controls.Add (this.txtEmail);
             this.Controls.Add (this.label);
-            this.Controls.Add (this.label3);
             this.Controls.Add (this.txtNombre);
             this.Controls.Add (this.txtCodigo);
             this.Controls.Add (this.checkBoxEstado);
@@ -177,15 +181,16 @@ namespace Inventario {
             this.Controls.SetChildIndex (this.checkBoxEstado, 0);
             this.Controls.SetChildIndex (this.txtCodigo, 0);
             this.Controls.SetChildIndex (this.txtNombre, 0);
-            this.Controls.SetChildIndex (this.label3, 0);
             this.Controls.SetChildIndex (this.label, 0);
             this.Controls.SetChildIndex (this.txtEmail, 0);
             this.Controls.SetChildIndex (this.label4, 0);
             this.Controls.SetChildIndex (this.txtTelefono, 0);
+            this.Controls.SetChildIndex (this.linkLabel1, 0);
             this.panel1.ResumeLayout (false);
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
             this.ResumeLayout (false);
             this.PerformLayout ();
 
@@ -197,10 +202,10 @@ namespace Inventario {
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.CheckBox checkBoxEstado;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

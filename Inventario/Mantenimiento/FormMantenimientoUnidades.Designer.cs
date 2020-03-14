@@ -23,14 +23,15 @@ namespace Inventario.Mantenimiento {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent () {
-            this.label3 = new System.Windows.Forms.Label ();
             this.txtNombre = new System.Windows.Forms.TextBox ();
             this.txtCodigo = new System.Windows.Forms.TextBox ();
             this.checkBoxEstado = new System.Windows.Forms.CheckBox ();
             this.label2 = new System.Windows.Forms.Label ();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel ();
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
             this.SuspendLayout ();
             // 
             // btnSalvar
@@ -57,18 +58,6 @@ namespace Inventario.Mantenimiento {
             // 
             this.label1.Size = new System.Drawing.Size (351, 27);
             this.label1.Text = "      Mantenimiento de unidades";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label3.Location = new System.Drawing.Point (23, 110);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size (72, 22);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Código";
-            this.label3.Click += new System.EventHandler (this.label3_Click);
             // 
             // txtNombre
             // 
@@ -114,12 +103,25 @@ namespace Inventario.Mantenimiento {
             this.label2.Text = "Nombre";
             this.label2.Click += new System.EventHandler (this.label2_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel1.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.linkLabel1.Location = new System.Drawing.Point (23, 106);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size (72, 22);
+            this.linkLabel1.TabIndex = 46;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Código";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel1_LinkClicked);
+            // 
             // FormMantenimientoUnidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size (786, 362);
-            this.Controls.Add (this.label3);
+            this.Controls.Add (this.linkLabel1);
             this.Controls.Add (this.txtNombre);
             this.Controls.Add (this.txtCodigo);
             this.Controls.Add (this.checkBoxEstado);
@@ -132,11 +134,12 @@ namespace Inventario.Mantenimiento {
             this.Controls.SetChildIndex (this.checkBoxEstado, 0);
             this.Controls.SetChildIndex (this.txtCodigo, 0);
             this.Controls.SetChildIndex (this.txtNombre, 0);
-            this.Controls.SetChildIndex (this.label3, 0);
+            this.Controls.SetChildIndex (this.linkLabel1, 0);
             this.panel1.ResumeLayout (false);
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
             this.ResumeLayout (false);
             this.PerformLayout ();
 
@@ -144,10 +147,10 @@ namespace Inventario.Mantenimiento {
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.CheckBox checkBoxEstado;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

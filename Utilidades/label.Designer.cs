@@ -1,4 +1,4 @@
-﻿namespace Utilidades {
+namespace Utilidades {
     partial class label {
         /// <summary>
         /// Required designer variable.

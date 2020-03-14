@@ -18,5 +18,9 @@ namespace Inventario {
             InitializeComponent ();
         }
 
+        private void buttonCerrar_Click (object sender, EventArgs e) {
+            Dispose ();
+        }
+
     }
 }

@@ -83,7 +83,12 @@ namespace Inventario.Mantenimiento {
         }
 
         private void txtCodigo_TextChanged (object sender, EventArgs e) {
-
+            string codigo = clearString (txtCodigo);
+            if (string.IsNullOrEmpty (codigo)) {
+                Limpiar ();
+            } else {
+                SendKeys.Send ("{TAB}");
+            }
         }
 
         private void btnSalvar_Click (object sender, EventArgs e) {
@@ -104,6 +109,10 @@ namespace Inventario.Mantenimiento {
 
         private void txtCodigo_Validating (object sender, CancelEventArgs e) {
             Consulta ();
+        }
+
+        private void linkLabel1_LinkClicked (object sender, LinkLabelLinkClickedEventArgs e) {
+            Consultar ();
         }
     }
 }

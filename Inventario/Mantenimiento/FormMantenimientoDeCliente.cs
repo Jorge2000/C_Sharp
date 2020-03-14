@@ -22,7 +22,6 @@ namespace Inventario {
             FormConsultaDeCliente ConsultaDeCliente = new FormConsultaDeCliente ();
             if (ConsultaDeCliente.ShowDialog () == DialogResult.OK) {
                 txtCodigo.Text = ConsultaDeCliente.Codigo;
-                SendKeys.Send ("{TAB}");
             }
             ConsultaDeCliente.Dispose ();
         }
@@ -122,6 +121,19 @@ namespace Inventario {
 
         private void buttonCerrar_Click (object sender, EventArgs e) {
             Dispose ();
+        }
+
+        private void txtCodigo_TextChanged (object sender, EventArgs e) {
+            string codigo = clearString (txtCodigo);
+            if (string.IsNullOrEmpty (codigo)) {
+                Limpiar ();
+            } else {
+                SendKeys.Send ("{TAB}");
+            }
+        }
+
+        private void linkLabel1_LinkClicked (object sender, LinkLabelLinkClickedEventArgs e) {
+            Consultar ();
         }
 
     }
