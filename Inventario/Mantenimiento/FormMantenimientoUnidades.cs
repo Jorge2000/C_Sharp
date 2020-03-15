@@ -48,7 +48,7 @@ namespace Inventario.Mantenimiento {
             }
         }
         public override void Consultar () {
-            FormConsultaUnidad ConsultaUnidad = new FormConsultaUnidad ();
+            FormConsultaDeUnidad ConsultaUnidad = new FormConsultaDeUnidad ();
             if (ConsultaUnidad.ShowDialog () == DialogResult.OK) {
                 txtCodigo.Text = ConsultaUnidad.Codigo;
                 SendKeys.Send ("{TAB}");

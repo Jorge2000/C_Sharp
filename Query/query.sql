@@ -223,39 +223,44 @@ EXEC consultarUnidad @codigo_unidad
 
 EXEC consultarProducto @codigo_producto 
 
-
-SELECT  producto.codigo_producto,
+CREATE PROCEDURE consultarProductoFull
+@codigo_producto int 
+AS
+IF @codigo_producto IS NULL
+  SELECT  producto.codigo_producto,
     producto.nombre_producto,
-    producto.studentdesc,
+    departamento.codigo_departamento,
     departamento.nombre_departamento,
     suplidor.nombre_suplidor,
     producto.cantidad_existente,
     unidad.nombre_unidad,
-    producto.precio_venta
-FROM producto
-INNER JOIN departamento
+    producto.precio_de_venta
+  FROM producto
+  INNER JOIN departamento
     ON producto.codigo_departamento = departamento.codigo_departamento
-INNER JOIN suplidor
+  INNER JOIN suplidor
     ON producto.codigo_suplidor = suplidor.codigo_suplidor
-INNER JOIN unidad
-    ON producto.codigo_unidad = unidad.codigo_unidad;
-
-
-SELECT  producto.codigo_producto,
+  INNER JOIN unidad
+    ON producto.codigo_unidad =  unidad.codigo_unidad
+ELSE
+  SELECT  producto.codigo_producto,
     producto.nombre_producto,
-    producto.studentdesc,
+    departamento.codigo_departamento,
     departamento.nombre_departamento,
     suplidor.nombre_suplidor,
     producto.cantidad_existente,
     unidad.nombre_unidad,
-    producto.precio_venta
-FROM producto
-INNER JOIN departamento
-    ON producto.codigo_departamento LIKE  ('%' || departamento.codigo_departamento || '%')
-INNER JOIN suplidor
-    ON producto.codigo_suplidor LIKE  ('%' || suplidor.codigo_suplidor || '%')
-INNER JOIN unidad
-    ON producto.codigo_unidad LIKE  ('%' || unidad.codigo_unidad || '%');       
+    producto.precio_de_venta
+  FROM producto
+  INNER JOIN departamento
+    ON producto.codigo_departamento = departamento.codigo_departamento
+  INNER JOIN suplidor
+    ON producto.codigo_suplidor = suplidor.codigo_suplidor
+  INNER JOIN unidad
+    ON producto.codigo_unidad =  unidad.codigo_unidad
+  WHERE producto.codigo_producto = @codigo_producto;
+
+
 
 
 CREATE PROCEDURE Facturas

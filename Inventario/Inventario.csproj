@@ -63,17 +63,37 @@
     <Compile Include="Consultas\FormConsultaDeProducto.Designer.cs">
       <DependentUpon>FormConsultaDeProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\FormConsultaUnidad.cs">
+    <Compile Include="Consultas\FormConsultaDeUnidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\FormConsultaUnidad.Designer.cs">
-      <DependentUpon>FormConsultaUnidad.cs</DependentUpon>
+    <Compile Include="Consultas\FormConsultaDeUnidad.Designer.cs">
+      <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles.cs" />
-    <Compile Include="DataSetCliente.Designer.cs">
+    <Compile Include="DataSetProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSetSuplidor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSuplidor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSetDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSetCliente.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetCliente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSetUnidad.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUnidad.xsd</DependentUpon>
     </Compile>
     <Compile Include="ExecutionDB.cs" />
     <Compile Include="FormBase.cs">
@@ -198,14 +218,38 @@
     <Compile Include="Reportes\FormReporteCliente.Designer.cs">
       <DependentUpon>FormReporteCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FormReporteDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FormReporteDepartamento.Designer.cs">
+      <DependentUpon>FormReporteDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormReporteProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FormReporteProducto.Designer.cs">
+      <DependentUpon>FormReporteProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormReporteSuplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FormReporteSuplidor.Designer.cs">
+      <DependentUpon>FormReporteSuplidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormReporteUnidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FormReporteUnidad.Designer.cs">
+      <DependentUpon>FormReporteUnidad.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Consultas\FormConsulta.resx">
       <DependentUpon>FormConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\FormConsultaDeProducto.resx">
       <DependentUpon>FormConsultaDeProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\FormConsultaUnidad.resx">
-      <DependentUpon>FormConsultaUnidad.cs</DependentUpon>
+    <EmbeddedResource Include="Consultas\FormConsultaDeUnidad.resx">
+      <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
@@ -270,24 +314,84 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReportCliente.rdlc" />
+    <EmbeddedResource Include="Reportes\FormReporteProducto.resx">
+      <DependentUpon>FormReporteProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FormReporteSuplidor.resx">
+      <DependentUpon>FormReporteSuplidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FormReporteUnidad.resx">
+      <DependentUpon>FormReporteUnidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportProducto.rdlc" />
+    <EmbeddedResource Include="Reports\ReportDepartamento.rdlc" />
+    <EmbeddedResource Include="Reportes\FormReporteDepartamento.resx">
+      <DependentUpon>FormReporteDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportCliente.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporte.resx">
       <DependentUpon>FormReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FormReporteCliente.resx">
       <DependentUpon>FormReporteCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSuplidor.rdlc" />
+    <EmbeddedResource Include="Reports\ReportUnidad.rdlc" />
     <None Include="app.config" />
-    <None Include="DataSetCliente.xsc">
+    <None Include="DataSetProducto.xsc">
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProducto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProducto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetProducto.xss">
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetSuplidor.xsc">
+      <DependentUpon>DataSetSuplidor.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetSuplidor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSuplidor.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DataSetSuplidor.xss">
+      <DependentUpon>DataSetSuplidor.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetDepartamento.xsc">
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DataSetDepartamento.xss">
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetCliente.xsc">
       <DependentUpon>DataSetCliente.xsd</DependentUpon>
     </None>
-    <None Include="DataSetCliente.xsd">
+    <None Include="DataSets\DataSetCliente.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetCliente.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSetCliente.xss">
+    <None Include="DataSets\DataSetCliente.xss">
       <DependentUpon>DataSetCliente.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetUnidad.xsc">
+      <DependentUpon>DataSetUnidad.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetUnidad.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUnidad.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DataSetUnidad.xss">
+      <DependentUpon>DataSetUnidad.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

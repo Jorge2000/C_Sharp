@@ -1,6 +1,6 @@
 ﻿namespace Inventario.Reportes
 {
-    partial class FormReporteCliente
+    partial class FormReporteDepartamento
     {
         /// <summary>
         /// Required designer variable.
@@ -42,10 +42,10 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Inventario.Reports.ReportCliente.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(17, 106);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Inventario.Reports.ReportDepartamento.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(18, 100);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(646, 381);
+            this.reportViewer1.Size = new System.Drawing.Size(623, 387);
             this.reportViewer1.TabIndex = 3;
             // 
             // dateTimePicker1
@@ -57,21 +57,21 @@
             this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
             this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 10F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(405, 67);
+            this.dateTimePicker1.Location = new System.Drawing.Point(400, 71);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(241, 23);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.TabIndex = 5;
             // 
-            // FormReporteCliente
+            // FormReporteDepartamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 499);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "FormReporteCliente";
-            this.Text = "FormReporteCliente";
-            this.Load += new System.EventHandler(this.FormReporteCliente_Load);
+            this.Name = "FormReporteDepartamento";
+            this.Text = "FormReporteDepartamento";
+            this.Load += new System.EventHandler(this.FormReporteDepartamento_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.reportViewer1, 0);

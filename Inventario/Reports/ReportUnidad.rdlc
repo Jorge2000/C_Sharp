@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
   <DataSources>
-    <DataSource Name="DataSetCliente">
+    <DataSource Name="DataSetUnidad">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>7398ea88-1574-4c8e-bf56-9b00f634f430</rd:DataSourceID>
+      <rd:DataSourceID>efffec9e-1c89-4d95-ba2e-f5a4a6816be8</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <Fields>
-        <Field Name="codigo_cliente">
-          <DataField>codigo_cliente</DataField>
+        <Field Name="codigo_unidad">
+          <DataField>codigo_unidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="nombre_cliente">
-          <DataField>nombre_cliente</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="email">
-          <DataField>email</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="telefono">
-          <DataField>telefono</DataField>
+        <Field Name="nombre_unidad">
+          <DataField>nombre_unidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="estado">
@@ -34,12 +26,12 @@
         </Field>
       </Fields>
       <Query>
-        <DataSourceName>DataSetCliente</DataSourceName>
+        <DataSourceName>DataSetUnidad</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <rd:DataSetInfo>
-        <rd:DataSetName>DataSetCliente</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Laura\Desktop\C_Sharp\Inventario\DataSetCliente.xsd</rd:SchemaPath>
+        <rd:DataSetName>DataSetUnidad</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Laura\Desktop\C_Sharp\Inventario\DataSetUnidad.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -53,19 +45,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.98425in</Width>
+              <Width>1.57106in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.98425in</Width>
+              <Width>2.19606in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.98425in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>0.98425in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>0.98425in</Width>
+              <Width>1.78981in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -74,26 +60,32 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox1">
+                    <Textbox Name="Textbox8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>codigo cliente</Value>
-                              <Style />
+                              <Value>codigo</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>#2499e7</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -104,26 +96,32 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox3">
+                    <Textbox Name="Textbox10">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>nombre cliente</Value>
-                              <Style />
+                              <Value>nombre</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>#2499e7</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -134,67 +132,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>email</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox7">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>telefono</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox9">
+                    <Textbox Name="Textbox12">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -202,18 +140,24 @@
                           <TextRuns>
                             <TextRun>
                               <Value>estado</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>#2499e7</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -229,21 +173,23 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="codigo_cliente">
+                    <Textbox Name="codigo_unidad">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!codigo_cliente.Value</Value>
+                              <Value>=Fields!codigo_unidad.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>codigo_cliente</rd:DefaultName>
+                      <rd:DefaultName>codigo_unidad</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -259,81 +205,23 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nombre_cliente">
+                    <Textbox Name="nombre_unidad">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nombre_cliente.Value</Value>
+                              <Value>=Fields!nombre_unidad.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nombre_cliente</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="email">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!email.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>email</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="telefono">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!telefono.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>telefono</rd:DefaultName>
+                      <rd:DefaultName>nombre_unidad</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -360,7 +248,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>estado</rd:DefaultName>
@@ -386,8 +276,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -401,10 +289,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>1.87008cm</Top>
-        <Left>2.66382cm</Left>
+        <Top>1.57903cm</Top>
+        <Left>1.36737cm</Left>
         <Height>1.2cm</Height>
-        <Width>12.5cm</Width>
+        <Width>14.11458cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -415,19 +303,19 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.78251in</Width>
+  <Width>6.5in</Width>
   <Page>
     <PageHeader>
-      <Height>2.68216cm</Height>
+      <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Image Name="Image1">
+        <Image Name="Image2">
           <Source>Embedded</Source>
-          <Value>inventory</Value>
+          <Value>img_2</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.57362cm</Top>
-          <Left>0.44132cm</Left>
+          <Top>0.36382cm</Top>
+          <Left>0.15293cm</Left>
           <Height>1.5cm</Height>
           <Width>1.5cm</Width>
           <Style>
@@ -436,6 +324,40 @@
             </Border>
           </Style>
         </Image>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Reporte de Departamentos</Value>
+                  <Style>
+                    <FontSize>24pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.73466cm</Top>
+          <Left>0.15293cm</Left>
+          <Height>1.12917cm</Height>
+          <Width>16.20414cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -447,6 +369,41 @@
       <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Gracias por su visita!</Value>
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontSize>16pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>1.1793cm</Top>
+          <Left>9.82346cm</Left>
+          <Height>0.94396cm</Height>
+          <Width>6.12349cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
@@ -463,11 +420,12 @@
     <Style />
   </Page>
   <EmbeddedImages>
-    <EmbeddedImage Name="inventory">
+    <EmbeddedImage Name="img_2">
       <MIMEType>image/png</MIMEType>
-      <ImageData>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQfkAwEEEidk6oPlAAABgklEQVRIx+3Vz0uUURTG8c9rDTP0w00tGqFF0WAE5kqwKJlFf0Hgwo20CqKtYiCFVLSpVZsCbWU7F4EQFGH4A3STBtFGkaggSGjxIqjMkGML72DqOzk5hpue5XnO/XLuPedw2W9FCbGDzkpvi5bMWaoGkDYhEsuqNwtOKfki5Yy8+Z1rajUGOj0Okdu6wT09SeVuVUYMCppcBy3egNiRagBlDcs5DWYMVi64MmDF/Z3v+yfAdi2rqw3wNKnpdX8BuCBfK+BybYBE1QwoP8sl7TKgQZPXIbpqUlHeAXBeynRwil54uwHImnFHrE3OM3DVT8NSuqU9UHDNZ6OgyysfHXVXm0/lNua804+MyBBoVDSErHrPcdGH4HQYN4Irzm0AImtg3iOt4SI3wFpw5vS5CU6G1SqtV795kKY0OwQKvm1ynngZchf9+N3YOonfKz7313/Uxv+APdmFXl1hWNY14JZZx6o8/ZC4yuQkHRdHBjVb2CXghPeRSKPDuwQshb9rX/ULFCxSDUx4oBoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDMtMDFUMDQ6MTg6MzkrMDA6MDAIVcZYAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTAzLTAxVDA0OjE4OjM5KzAwOjAweQh+5AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=</ImageData>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQfkAw4VNiE55h5nAAADBElEQVRo3tWYv0+TQRjHPwUaB2RQIokJHYwxJDSyOkvcmjjJKFGHrhAW/wXZWdzU0RAWjUI0AUud3OwAMvQPMKGKsJhCH4e3977vvX3fcu/dUezT5N6m791zn/s+z/0qDKF9RSw+35jyBWDTvSDscdMfgB20JwRbgAZCw0cgbAFu8N2PCrYA+EKwB/CE4ALgBcENwAOCK4Azgv060Ls6DgxgNwNhYACZfka8uHKwMacRQKH7zGsF9WWoFSgknlY21ArYxl7lzvArYBt7rd1QK2CaA2rEI2wjzNNxhVZLselpWNk8gnC/x481QF57jSC8uiyACU7o0OGEibgflyTMF4IFxqmxyziPHPrUFMgH8AXhKc8Qdi4jBLe64l/lmA63/YQgjz2hwDrHnLBBgcemzSo0aFDxoEAToQpAFaFp4meWzTCKm8w6AgjCKauscqrlUIZNskYbocUyy7QQ2qwx6QwQlX38FFmihXAWdhnhLFF0ALgXKzMBKuynCl9mC0HYp+JwMYmXKQAq6vs8TBFeh/MOoGQWhE+UU4QPwhOAiQbmDKCi3maNFW3kceGTqHEwR4A6grBFOdHBMsWY8GkZUfcDEAj/mbmw+gzvEYQDFoAiVX4itHnZ/YdHvTfPhXMBslNui1lNl5Xwm1eA67zgL8IvnnMFlRvByM94wxQww7vuuAMtvAJAfBpmp1ywCpR1B74AdOHL4W8KrJ6ofSEA+qSMluKzlOXjggB04aPNaKAAceGDNaCMIIyyODgAUClXCWsdIAi1wQEkBReaVMPblOmhNNrAolLb
+1MwAttljkdHEOzeAWh6AfO9MQgD8B7djBVDJ3TJ/i0yr03vyVdZ/iu4a95EZAoCxnu22H4DatlqxbcsMoPe6FrNrGW6Ty3Q2qiMARNvtDxZSAR7QIDi63M3VedJP39kTdTKnVVZnoDjchQAkd0NBLI+huv1BmAaghPD7vOqT2rGr97iW3zYQPlCixEeEdZMm2ZdTG5vhMPR2yB3TZunXczub5i1HHLFu3v1A7B+atFQkGAhC4QAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0wMy0xNFQyMTo1NDozMyswMDowMAd+a/EAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMDMtMTRUMjE6NTQ6MzMrMDA6MDB2I9NNAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportID>03fc3493-c4b3-4965-bbd8-323415323fbd</rd:ReportID>
+  <rd:ReportID>d8688a3c-5483-4e51-8c3c-fa63d3332420</rd:ReportID>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
 </Report>

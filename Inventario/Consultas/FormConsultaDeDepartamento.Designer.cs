@@ -23,13 +23,13 @@ namespace Inventario {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent () {
-            this.dataGridView = new System.Windows.Forms.DataGridView ();
-            this.panel1.SuspendLayout ();
-            this.panel2.SuspendLayout ();
-            ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.dataGridView)).BeginInit ();
-            this.SuspendLayout ();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.SuspendLayout();
             // 
             // btnSalvar
             // 
@@ -38,7 +38,7 @@ namespace Inventario {
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.Click += new System.EventHandler (this.btnBuscar_Click);
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -46,21 +46,26 @@ namespace Inventario {
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point (203, 78);
+            this.txtNombre.Location = new System.Drawing.Point(203, 78);
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Size = new System.Drawing.Size (172, 22);
+            this.label2.Size = new System.Drawing.Size(172, 22);
             this.label2.Text = "Buscar por nombre";
             // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.FlatAppearance.BorderSize = 0;
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point (645, 0);
+            this.panel1.Location = new System.Drawing.Point(645, 0);
             // 
             // buttonCerrar
             // 
@@ -68,46 +73,46 @@ namespace Inventario {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (345, 27);
+            this.label1.Size = new System.Drawing.Size(345, 27);
             this.label1.Text = "     Consulta de departamentos";
             // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) |
-                    System.Windows.Forms.AnchorStyles.Left) |
-                System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView.Location = new System.Drawing.Point (26, 179);
+            this.dataGridView.Location = new System.Drawing.Point(26, 179);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 40;
-            this.dataGridView.Size = new System.Drawing.Size (572, 264);
+            this.dataGridView.Size = new System.Drawing.Size(572, 264);
             this.dataGridView.TabIndex = 14;
             // 
             // FormConsultaDeDepartamento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size (786, 455);
-            this.Controls.Add (this.dataGridView);
+            this.ClientSize = new System.Drawing.Size(786, 455);
+            this.Controls.Add(this.dataGridView);
             this.Name = "FormConsultaDeDepartamento";
             this.Text = "Consulta de departamentos";
-            this.Controls.SetChildIndex (this.panel2, 0);
-            this.Controls.SetChildIndex (this.label2, 0);
-            this.Controls.SetChildIndex (this.txtNombre, 0);
-            this.Controls.SetChildIndex (this.panel1, 0);
-            this.Controls.SetChildIndex (this.dataGridView, 0);
-            this.panel1.ResumeLayout (false);
-            this.panel2.ResumeLayout (false);
-            this.panel2.PerformLayout ();
-            ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.dataGridView)).EndInit ();
-            this.ResumeLayout (false);
-            this.PerformLayout ();
+            this.Controls.SetChildIndex(this.panel2, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.txtNombre, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.dataGridView, 0);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

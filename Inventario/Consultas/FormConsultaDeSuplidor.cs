@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
+using Inventario.Reportes;
 
 namespace Inventario {
     public partial class FormConsultaDeSuplidor : FormConsulta {
@@ -27,7 +28,14 @@ namespace Inventario {
                 dataGridView.DataSource = DS.Tables[0];
             }
         }
-
+        public override void Imprimir()
+        {
+            if (dataGridView.Rows.Count == 0) return;
+            object dataSet = dataGridView.DataSource;
+            FormReporteSuplidor ReporteSuplidor = new FormReporteSuplidor();
+            ReporteSuplidor.ds = dataSet;
+            ReporteSuplidor.Show();
+        }
         public override void Seleccionar () {
             if (dataGridView.Rows.Count == 0) return;
             Codigo = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString ();
@@ -41,6 +49,11 @@ namespace Inventario {
 
         private void btnSeleccionar_Click (object sender, EventArgs e) {
             this.Seleccionar ();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Imprimir();
         }
     }
 }

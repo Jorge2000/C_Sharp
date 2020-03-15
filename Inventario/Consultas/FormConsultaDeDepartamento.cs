@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
+using Inventario.Reportes;
 
 namespace Inventario {
     public partial class FormConsultaDeDepartamento : FormConsulta {
@@ -33,6 +34,14 @@ namespace Inventario {
             if (countTable > 0) {
                 dataGridView.DataSource = DS.Tables[0];
             }
+        }
+        public override void Imprimir()
+        {
+            if (dataGridView.Rows.Count == 0) return;
+            object dataSet = dataGridView.DataSource;
+            FormReporteDepartamento ReporteDepartamento = new FormReporteDepartamento();
+            ReporteDepartamento.ds = dataSet;
+            ReporteDepartamento.Show();
         }
 
         private void label2_Click (object sender, EventArgs e) {
@@ -61,6 +70,11 @@ namespace Inventario {
 
         private void btnBuscar_Click (object sender, EventArgs e) {
 
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Imprimir();
         }
     }
 }

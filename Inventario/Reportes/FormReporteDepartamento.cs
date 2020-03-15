@@ -7,22 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
-using Inventario.DataSets;
-using Inventario;
 
 namespace Inventario.Reportes
 {
-    public partial class FormReporteCliente : FormReporte
+    public partial class FormReporteDepartamento : FormReporte
     {
-        public FormReporteCliente()
+        public FormReporteDepartamento()
         {
             InitializeComponent();
         }
-
         public object ds;
-
-
-        private void FormReporteCliente_Load(object sender, EventArgs e)
+        private void FormReporteDepartamento_Load(object sender, EventArgs e)
         {
             ReportDataSource rds = new ReportDataSource("DataSet1", ds);
             this.reportViewer1.LocalReport.DataSources.Clear();

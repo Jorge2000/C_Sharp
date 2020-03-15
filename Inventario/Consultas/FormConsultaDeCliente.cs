@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
 using Inventario.Reportes;
-
+using Inventario.DataSets;
 
 namespace Inventario {
     public partial class FormConsultaDeCliente : FormConsulta {

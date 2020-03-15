@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
+using Inventario.Reportes;
 
 namespace Inventario.Consultas {
-    public partial class FormConsultaUnidad : FormConsulta {
-        public FormConsultaUnidad () {
+    public partial class FormConsultaDeUnidad : FormConsulta {
+        public FormConsultaDeUnidad () {
             InitializeComponent ();
         }
 
@@ -28,6 +29,15 @@ namespace Inventario.Consultas {
             }
         }
 
+        public override void Imprimir()
+        {
+            if (dataGridView.Rows.Count == 0) return;
+            object dataSet = dataGridView.DataSource;
+            FormReporteUnidad ReporteUnidad = new FormReporteUnidad();
+            ReporteUnidad.ds = dataSet;
+            ReporteUnidad.Show();
+        }
+
         public override void Seleccionar () {
             if (dataGridView.Rows.Count == 0) return;
             Codigo = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString ();
@@ -41,6 +51,11 @@ namespace Inventario.Consultas {
 
         private void btnSeleccionar_Click (object sender, EventArgs e) {
             this.Seleccionar ();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Imprimir();
         }
     }
 }
