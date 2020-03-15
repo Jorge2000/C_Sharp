@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Inventario {
+namespace Inventario.DataSets {
     
     
     /// <summary>
