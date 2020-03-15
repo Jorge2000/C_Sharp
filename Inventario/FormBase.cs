@@ -22,6 +22,11 @@ namespace Inventario {
             buttonCerrar.FlatStyle = FlatStyle.Flat;
         }
 
+        public virtual void message(string messageTxt) {
+            MessageBox.Show(messageTxt, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
+        }
+
         public virtual void Limpiar () {
             MessageBox.Show ("Limpiando");
         }

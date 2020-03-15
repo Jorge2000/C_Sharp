@@ -70,7 +70,7 @@
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles.cs" />
-    <Compile Include="DataSetProducto.Designer.cs">
+    <Compile Include="DataSets\DataSetProducto.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetProducto.xsd</DependentUpon>
@@ -323,7 +323,7 @@
     <EmbeddedResource Include="Reportes\FormReporteUnidad.resx">
       <DependentUpon>FormReporteUnidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportProducto.rdlc" />
+    <EmbeddedResource Include="Reports\ReportProducto.rdlc" />
     <EmbeddedResource Include="Reports\ReportDepartamento.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporteDepartamento.resx">
       <DependentUpon>FormReporteDepartamento.cs</DependentUpon>
@@ -338,15 +338,15 @@
     <EmbeddedResource Include="Reports\ReportSuplidor.rdlc" />
     <EmbeddedResource Include="Reports\ReportUnidad.rdlc" />
     <None Include="app.config" />
-    <None Include="DataSetProducto.xsc">
+    <None Include="DataSets\DataSetProducto.xsc">
       <DependentUpon>DataSetProducto.xsd</DependentUpon>
     </None>
-    <None Include="DataSetProducto.xsd">
+    <None Include="DataSets\DataSetProducto.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetProducto.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSetProducto.xss">
+    <None Include="DataSets\DataSetProducto.xss">
       <DependentUpon>DataSetProducto.xsd</DependentUpon>
     </None>
     <None Include="DataSets\DataSetSuplidor.xsc">

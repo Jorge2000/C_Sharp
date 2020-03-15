@@ -94,13 +94,6 @@ namespace Inventario {
 
         private void btnSalvar_Click (object sender, EventArgs e) {
             Salvar ();
-            /*
-            validatingField("nombre",nombre, txtNombre);
-            validatingField("email",email,  txtEmail);
-            validatingField("código",codigo,  txtCodigo);
-            validatingField("teléfono",telefono,  txtTelefono);
-             */
-
         }
 
         private void txtCodigo_KeyPress (object sender, KeyPressEventArgs e) {
