@@ -277,3 +277,36 @@ AS
        CASE WHEN order = 1 THEN numero_factura END Desc,
        CASE WHEN order = 2 THEN fecha END ASC
        CASE WHEN order = 3 THEN nombre_cliente END ASC
+
+
+CREATE PROCEDURE actualizarVentas
+@codigo_cliente int, 
+@total float
+AS
+INSERT INTO ventas(fecha, codigo_cliente, estado) VALUES (GETDATE(), @codigo_cliente, 1 )
+
+
+CREATE PROCEDURE consultarVentas
+@numero_factura int
+AS 
+  SELECT venta.numero_factura, venta.fecha, cliente.nombre_cliente, producto.nombre_producto, detalles.cantidad_vendida, detalles.precio_de_venta, venta.estado
+  FROM venta
+  INNER JOIN Cliente
+    ON venta.codigo_cliente = cliente.nombre_cliente
+  INNER JOIN detalles
+    ON venta.codigo_cliente = detalles.numero_factura
+  INNER JOIN producto
+    ON detalles.codigo_producto = producto.codigo_producto
+  WHERE venta.numero_factura = @numero_factura
+
+
+CREATE PROCEDURE actualizarDetalles
+@numero_factura int,
+@codigo_producto int,
+@cantidad_vendida float,
+@precio_de_venta float
+AS
+INSERT INTO detalles (numero_factura, cantidad_vendida, codigo_producto, precio_de_venta) VALUES (@numero_factura, @cantidad_vendida, @codigo_producto, @precio_de_venta)
+UPDATE producto SET cantidad_existente = cantidad_existente - @cantidad_vendida WHERE codigo_producto = @codigo_producto
+
+  

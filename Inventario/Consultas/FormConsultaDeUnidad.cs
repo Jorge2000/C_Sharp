@@ -29,13 +29,12 @@ namespace Inventario.Consultas {
             }
         }
 
-        public override void Imprimir()
-        {
+        public override void Imprimir () {
             if (dataGridView.Rows.Count == 0) return;
             object dataSet = dataGridView.DataSource;
-            FormReporteUnidad ReporteUnidad = new FormReporteUnidad();
+            FormReporteUnidad ReporteUnidad = new FormReporteUnidad ();
             ReporteUnidad.ds = dataSet;
-            ReporteUnidad.Show();
+            ReporteUnidad.Show ();
         }
 
         public override void Seleccionar () {
@@ -53,9 +52,8 @@ namespace Inventario.Consultas {
             this.Seleccionar ();
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            Imprimir();
+        private void btnImprimir_Click (object sender, EventArgs e) {
+            Imprimir ();
         }
     }
 }

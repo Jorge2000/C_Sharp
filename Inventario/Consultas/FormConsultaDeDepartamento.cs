@@ -35,13 +35,12 @@ namespace Inventario {
                 dataGridView.DataSource = DS.Tables[0];
             }
         }
-        public override void Imprimir()
-        {
+        public override void Imprimir () {
             if (dataGridView.Rows.Count == 0) return;
             object dataSet = dataGridView.DataSource;
-            FormReporteDepartamento ReporteDepartamento = new FormReporteDepartamento();
+            FormReporteDepartamento ReporteDepartamento = new FormReporteDepartamento ();
             ReporteDepartamento.ds = dataSet;
-            ReporteDepartamento.Show();
+            ReporteDepartamento.Show ();
         }
 
         private void label2_Click (object sender, EventArgs e) {
@@ -72,9 +71,8 @@ namespace Inventario {
 
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            Imprimir();
+        private void btnImprimir_Click (object sender, EventArgs e) {
+            Imprimir ();
         }
     }
 }

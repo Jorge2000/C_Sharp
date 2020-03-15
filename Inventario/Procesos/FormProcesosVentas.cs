@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +19,7 @@ namespace Inventario.Procesos {
 
         }
 
-        public void LimpiarProducto() {
+        public void LimpiarProducto () {
             txtCodigoProducto.Text = "";
             txtNombreProducto.Text = "";
             txtPrecioProducto.Text = "";
@@ -51,30 +51,27 @@ namespace Inventario.Procesos {
             ConsultaDeCliente.Dispose ();
         }
 
-        public void ConsultaProducto() {
-            string codigo = clearString(txtCodigoProducto);
-            if (string.IsNullOrEmpty(codigo)) return;
+        public void ConsultaProducto () {
+            string codigo = clearString (txtCodigoProducto);
+            if (string.IsNullOrEmpty (codigo)) return;
 
-            string storeProcedureConsultarProducto = string.Format("EXEC consultarProducto {0}", codigo);
-            DS = Execution.Ejecutar(storeProcedureConsultarProducto);
+            string storeProcedureConsultarProducto = string.Format ("EXEC consultarProducto {0}", codigo);
+            DS = Execution.Ejecutar (storeProcedureConsultarProducto);
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
-            if (countTable > 0 && countRows > 0)
-            {
+            if (countTable > 0 && countRows > 0) {
                 DataRow row = DS.Tables[0].Rows[0];
-                txtNombreProducto.Text = row["nombre_producto"].ToString();
-                txtCantidadExistente.Text = row["cantidad_existente"].ToString();
-                txtPrecioProducto.Text = row["precio_de_venta"].ToString();
-            }        
+                txtNombreProducto.Text = row["nombre_producto"].ToString ();
+                txtCantidadExistente.Text = row["cantidad_existente"].ToString ();
+                txtPrecioProducto.Text = row["precio_de_venta"].ToString ();
+            }
         }
 
-        public void ConsultarProducto()
-        {
-        }
+        public void ConsultarProducto () { }
 
-       /* public void ConsultaProducto()
-        {
-        }*/
+        /* public void ConsultaProducto()
+         {
+         }*/
 
         public void fillCliente () {
             string codigo = clearString (txtCodigo);
@@ -86,22 +83,19 @@ namespace Inventario.Procesos {
 
         }
 
-        public void fillProducto() {
-            string codigo = clearString(txtCodigoProducto);
-            if (string.IsNullOrEmpty(codigo))
-            {
-                LimpiarProducto();
-            }
-            else
-            {
-                SendKeys.Send("{TAB}");
+        public void fillProducto () {
+            string codigo = clearString (txtCodigoProducto);
+            if (string.IsNullOrEmpty (codigo)) {
+                LimpiarProducto ();
+            } else {
+                SendKeys.Send ("{TAB}");
             }
         }
 
         public void nuevoProcesos () {
             dataGridView1.DataSource = null;
             LimpiarCliente ();
-            LimpiarProducto();
+            LimpiarProducto ();
         }
 
         private void txtCodigo_TextChanged_1 (object sender, EventArgs e) {
@@ -128,29 +122,24 @@ namespace Inventario.Procesos {
 
         }
 
-        private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
-        {
-            fillProducto();
+        private void txtCodigoProducto_TextChanged (object sender, EventArgs e) {
+            fillProducto ();
         }
 
-        private void txtCodigoProducto_Validating(object sender, CancelEventArgs e)
-        {
+        private void txtCodigoProducto_Validating (object sender, CancelEventArgs e) {
             // ConsultaProducto();
         }
 
-        private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            onlyInteger(sender, e);
+        private void txtCodigoProducto_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyInteger (sender, e);
         }
 
-        private void txtCantidadProducto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            onlyInteger(sender, e);
+        private void txtCantidadProducto_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyInteger (sender, e);
         }
 
-        private void txtPrecioProducto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            onlyInteger(sender, e);
+        private void txtPrecioProducto_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyInteger (sender, e);
         }
 
     }

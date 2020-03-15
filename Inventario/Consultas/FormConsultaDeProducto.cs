@@ -28,7 +28,7 @@ namespace Inventario.Consultas {
             if (string.IsNullOrEmpty (value)) {
                 query += "NULL";
             } else {
-                query += string.Format("'{0}'", value);
+                query += string.Format ("'{0}'", value);
             }
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
@@ -36,13 +36,12 @@ namespace Inventario.Consultas {
                 dataGridView.DataSource = DS.Tables[0];
             }
         }
-        public override void Imprimir()
-        {
+        public override void Imprimir () {
             if (dataGridView.Rows.Count == 0) return;
             object dataSet = dataGridView.DataSource;
-            FormReporteProducto ReporteProducto = new FormReporteProducto();
+            FormReporteProducto ReporteProducto = new FormReporteProducto ();
             ReporteProducto.ds = dataSet;
-            ReporteProducto.Show();
+            ReporteProducto.Show ();
         }
         private void btnBuscar_Click (object sender, EventArgs e) {
             this.Consultar ();
@@ -52,9 +51,8 @@ namespace Inventario.Consultas {
             this.Seleccionar ();
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            Imprimir();
+        private void btnImprimir_Click (object sender, EventArgs e) {
+            Imprimir ();
         }
     }
 }

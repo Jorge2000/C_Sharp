@@ -28,13 +28,12 @@ namespace Inventario {
                 dataGridView.DataSource = DS.Tables[0];
             }
         }
-        public override void Imprimir()
-        {
+        public override void Imprimir () {
             if (dataGridView.Rows.Count == 0) return;
             object dataSet = dataGridView.DataSource;
-            FormReporteSuplidor ReporteSuplidor = new FormReporteSuplidor();
+            FormReporteSuplidor ReporteSuplidor = new FormReporteSuplidor ();
             ReporteSuplidor.ds = dataSet;
-            ReporteSuplidor.Show();
+            ReporteSuplidor.Show ();
         }
         public override void Seleccionar () {
             if (dataGridView.Rows.Count == 0) return;
@@ -51,9 +50,8 @@ namespace Inventario {
             this.Seleccionar ();
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            Imprimir();
+        private void btnImprimir_Click (object sender, EventArgs e) {
+            Imprimir ();
         }
     }
 }

@@ -23,15 +23,15 @@ namespace Inventario.Reportes {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent () {
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
-            this.SuspendLayout();
+            this.panel1.SuspendLayout ();
+            this.panel2.SuspendLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
+            this.SuspendLayout ();
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(664, 0);
+            this.panel1.Location = new System.Drawing.Point (664, 0);
             // 
             // buttonCerrar
             // 
@@ -39,23 +39,22 @@ namespace Inventario.Reportes {
             // 
             // FormReporte
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 499);
+            this.ClientSize = new System.Drawing.Size (804, 499);
             this.Name = "FormReporte";
             this.Text = "FormReporte";
-            this.Load += new System.EventHandler(this.FormReporte_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
-            this.ResumeLayout(false);
+            this.Load += new System.EventHandler (this.FormReporte_Load);
+            this.panel1.ResumeLayout (false);
+            this.panel2.ResumeLayout (false);
+            this.panel2.PerformLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
+            this.ResumeLayout (false);
 
         }
 
         #endregion
-
 
     }
 }

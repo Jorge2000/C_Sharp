@@ -6,10 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Inventario.Consultas;
 using Inventario.Mantenimiento;
 using Inventario.Procesos;
 using Inventario.Reportes;
-using Inventario.Consultas;
 
 namespace Inventario {
     public partial class FormMenu : Form {
@@ -234,18 +234,16 @@ namespace Inventario {
             ProcesosVentas.Show ();
         }
 
-        private void deProductoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FormConsultaDeProducto ConsultaDeProducto = new FormConsultaDeProducto();
+        private void deProductoToolStripMenuItem1_Click (object sender, EventArgs e) {
+            FormConsultaDeProducto ConsultaDeProducto = new FormConsultaDeProducto ();
             ConsultaDeProducto.MdiParent = this;
-            ConsultaDeProducto.Show();
+            ConsultaDeProducto.Show ();
         }
 
-        private void deUnidadesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormConsultaDeUnidad ConsultaDeUnidades = new FormConsultaDeUnidad();
+        private void deUnidadesToolStripMenuItem_Click (object sender, EventArgs e) {
+            FormConsultaDeUnidad ConsultaDeUnidades = new FormConsultaDeUnidad ();
             ConsultaDeUnidades.MdiParent = this;
-            ConsultaDeUnidades.Show();
+            ConsultaDeUnidades.Show ();
         }
 
         /* public virtual bool validateForm(Control control, ErrorProvider errorProvider) {
