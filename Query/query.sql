@@ -292,12 +292,12 @@ SELECT TOP 1 * FROM venta ORDER BY numero_factura DESC
 CREATE PROCEDURE consultarVentas
 @numero_factura int
 AS 
-  SELECT venta.numero_factura, venta.fecha, cliente.nombre_cliente, producto.nombre_producto, detalles.cantidad_vendida, detalles.precio_de_venta, venta.estado
+  SELECT venta.numero_factura, venta.fecha, venta.total, cliente.nombre_cliente, producto.nombre_producto, detalles.cantidad_vendida, detalles.precio_de_venta, venta.estado
   FROM venta
-  INNER JOIN Cliente
-    ON venta.codigo_cliente = cliente.nombre_cliente
+  INNER JOIN cliente
+    ON venta.codigo_cliente = cliente.codigo_cliente
   INNER JOIN detalles
-    ON venta.codigo_cliente = detalles.numero_factura
+    ON venta.numero_factura = detalles.numero_factura
   INNER JOIN producto
     ON detalles.codigo_producto = producto.codigo_producto
   WHERE venta.numero_factura = @numero_factura
