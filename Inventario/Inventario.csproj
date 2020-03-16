@@ -70,6 +70,11 @@
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles.cs" />
+    <Compile Include="DataSetFactura.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFactura.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\DataSetProducto.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,6 +229,12 @@
     <Compile Include="Reportes\FormReporteDepartamento.Designer.cs">
       <DependentUpon>FormReporteDepartamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FormReporteFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FormReporteFactura.Designer.cs">
+      <DependentUpon>FormReporteFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\FormReporteProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +325,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\FormReporteFactura.resx">
+      <DependentUpon>FormReporteFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FormReporteProducto.resx">
       <DependentUpon>FormReporteProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +337,7 @@
     <EmbeddedResource Include="Reportes\FormReporteUnidad.resx">
       <DependentUpon>FormReporteUnidad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportFactura.rdlc" />
     <EmbeddedResource Include="Reports\ReportProducto.rdlc" />
     <EmbeddedResource Include="Reports\ReportDepartamento.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporteDepartamento.resx">
@@ -338,6 +353,17 @@
     <EmbeddedResource Include="Reports\ReportSuplidor.rdlc" />
     <EmbeddedResource Include="Reports\ReportUnidad.rdlc" />
     <None Include="app.config" />
+    <None Include="DataSetFactura.xsc">
+      <DependentUpon>DataSetFactura.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFactura.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFactura.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetFactura.xss">
+      <DependentUpon>DataSetFactura.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\DataSetProducto.xsc">
       <DependentUpon>DataSetProducto.xsd</DependentUpon>
     </None>

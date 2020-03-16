@@ -22,8 +22,8 @@ namespace Inventario {
             buttonCerrar.FlatStyle = FlatStyle.Flat;
         }
 
-        public virtual void message(string messageTxt) {
-            MessageBox.Show(messageTxt, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        public virtual void message (string messageTxt) {
+            MessageBox.Show (messageTxt, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return;
         }
 

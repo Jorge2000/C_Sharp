@@ -39,7 +39,7 @@ Create table departamento(
  );
  
  Create table detalles(
-   numero_factura int not null identity primary key,
+   numero_factura int not null foreign key references venta(numero_factura),
    cantidad_vendida int,
    codigo_producto int not null foreign key references producto(codigo_producto),
    precio_de_venta int
@@ -49,7 +49,8 @@ Create table departamento(
    numero_factura int not null identity primary key,
    fecha date,
    codigo_cliente int not null foreign key references cliente(codigo_cliente),
-   estado bit
+   estado bit,
+   total int
  );
  
  
@@ -263,6 +264,7 @@ ELSE
 
 
 
+
 CREATE PROCEDURE Facturas
     @fecha_inicial DataTime,
     @fecha_final DataTime,
@@ -270,9 +272,9 @@ CREATE PROCEDURE Facturas
     @order int = 1
 AS
     SELECT * FROM cliente.nombre_cliente
-        FROM ventas 
-        INNER JOIN cliente ON Ventas.codigo_cliente = cliente.codigo_cliente
-      WHERE ventas.fecha >= @fecha_inicial AND ventas.fecha_final <= @fecha_final AND (@codigo_cliente = 0 OR ventas.codigo_cliente = @codigo_cliente)
+        FROM venta 
+        INNER JOIN cliente ON venta.codigo_cliente = cliente.codigo_cliente
+      WHERE venta.fecha >= @fecha_inicial AND venta.fecha_final <= @fecha_final AND (@codigo_cliente = 0 OR venta.codigo_cliente = @codigo_cliente)
       ORDER BY 
        CASE WHEN order = 1 THEN numero_factura END Desc,
        CASE WHEN order = 2 THEN fecha END ASC
@@ -281,9 +283,10 @@ AS
 
 CREATE PROCEDURE actualizarVentas
 @codigo_cliente int, 
-@total float
+@total int
 AS
-INSERT INTO ventas(fecha, codigo_cliente, estado) VALUES (GETDATE(), @codigo_cliente, 1 )
+INSERT INTO venta(fecha, codigo_cliente, estado) VALUES (GETDATE(), @codigo_cliente, 1, @total )
+SELECT TOP 1 * FROM venta ORDER BY numero_factura DESC
 
 
 CREATE PROCEDURE consultarVentas
@@ -306,7 +309,10 @@ CREATE PROCEDURE actualizarDetalles
 @cantidad_vendida float,
 @precio_de_venta float
 AS
+SET IDENTITY_INSERT detalles ON
 INSERT INTO detalles (numero_factura, cantidad_vendida, codigo_producto, precio_de_venta) VALUES (@numero_factura, @cantidad_vendida, @codigo_producto, @precio_de_venta)
 UPDATE producto SET cantidad_existente = cantidad_existente - @cantidad_vendida WHERE codigo_producto = @codigo_producto
 
-  
+
+-- 
+ALTER TABLE venta ADD total int;
