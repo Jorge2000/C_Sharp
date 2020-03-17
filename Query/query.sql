@@ -38,22 +38,20 @@ Create table departamento(
    precio_de_venta int
  );
  
- Create table detalles(
-   numero_factura int not null foreign key references venta(numero_factura),
-   cantidad_vendida int,
-   codigo_producto int not null foreign key references producto(codigo_producto),
-   precio_de_venta int
- );
- 
- Create table venta(
+  Create table venta(
    numero_factura int not null identity primary key,
    fecha date,
    codigo_cliente int not null foreign key references cliente(codigo_cliente),
    estado bit,
    total int
  );
- 
- 
+
+ Create table detalles(
+   numero_factura int not null foreign key references venta(numero_factura),
+   cantidad_vendida int,
+   codigo_producto int not null foreign key references producto(codigo_producto),
+   precio_de_venta int
+ );
  
  CREATE PROCEDURE upsert_departameno
 	@codigo_departamento int,
@@ -243,6 +241,7 @@ IF @codigo_producto IS NULL
     ON producto.codigo_suplidor = suplidor.codigo_suplidor
   INNER JOIN unidad
     ON producto.codigo_unidad =  unidad.codigo_unidad
+  WHERE cantidad_existente > 0;
 ELSE
   SELECT  producto.codigo_producto,
     producto.nombre_producto,
@@ -259,7 +258,7 @@ ELSE
     ON producto.codigo_suplidor = suplidor.codigo_suplidor
   INNER JOIN unidad
     ON producto.codigo_unidad =  unidad.codigo_unidad
-  WHERE producto.codigo_producto = @codigo_producto;
+  WHERE producto.codigo_producto = @codigo_producto AND cantidad_existente > 0;
 
 
 
@@ -285,13 +284,23 @@ CREATE PROCEDURE actualizarVentas
 @codigo_cliente int, 
 @total int
 AS
-INSERT INTO venta(fecha, codigo_cliente, estado) VALUES (GETDATE(), @codigo_cliente, 1, @total )
+INSERT INTO venta(fecha, codigo_cliente, estado, total) VALUES (GETDATE(), @codigo_cliente, 1, @total )
 SELECT TOP 1 * FROM venta ORDER BY numero_factura DESC
 
 
 CREATE PROCEDURE consultarVentas
 @numero_factura int
 AS 
+  IF @numero_factura IS NULL
+  SELECT venta.numero_factura, venta.fecha, venta.total, cliente.nombre_cliente, producto.nombre_producto, detalles.cantidad_vendida, detalles.precio_de_venta, venta.estado
+  FROM venta
+  INNER JOIN cliente
+    ON venta.codigo_cliente = cliente.codigo_cliente
+  INNER JOIN detalles
+    ON venta.numero_factura = detalles.numero_factura
+  INNER JOIN producto
+    ON detalles.codigo_producto = producto.codigo_producto
+  ELSE
   SELECT venta.numero_factura, venta.fecha, venta.total, cliente.nombre_cliente, producto.nombre_producto, detalles.cantidad_vendida, detalles.precio_de_venta, venta.estado
   FROM venta
   INNER JOIN cliente
