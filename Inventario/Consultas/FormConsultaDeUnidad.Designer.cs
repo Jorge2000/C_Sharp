@@ -34,15 +34,23 @@ namespace Inventario.Consultas {
             // btnSalvar
             // 
             this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.TabIndex = 4;
             // 
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Click += new System.EventHandler (this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.ep.SetIconAlignment (this.btnEliminar, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+            this.btnEliminar.TabIndex = 5;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.TabIndex = 1;
             // 
             // label2
             // 
@@ -52,16 +60,19 @@ namespace Inventario.Consultas {
             // btnSeleccionar
             // 
             this.btnSeleccionar.FlatAppearance.BorderSize = 0;
+            this.btnSeleccionar.TabIndex = 3;
             this.btnSeleccionar.Click += new System.EventHandler (this.btnSeleccionar_Click);
             // 
             // btnImprimir
             // 
             this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.TabIndex = 4;
             this.btnImprimir.Click += new System.EventHandler (this.btnImprimir_Click);
             // 
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            this.buttonCerrar.TabIndex = 6;
             // 
             // dataGridView
             // 

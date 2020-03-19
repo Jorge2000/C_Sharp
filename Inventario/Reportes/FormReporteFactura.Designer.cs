@@ -35,6 +35,12 @@ namespace Inventario.Reportes {
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            this.buttonCerrar.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.Size = new System.Drawing.Size (255, 31);
+            this.label1.Text = "    Reporte de factura";
             // 
             // dataGridView1
             // 
@@ -56,7 +62,7 @@ namespace Inventario.Reportes {
             this.dateTimePicker1.Location = new System.Drawing.Point (396, 70);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size (241, 23);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePicker1.TabIndex = 1;
             // 
             // FormReporteFactura
             // 
@@ -66,7 +72,7 @@ namespace Inventario.Reportes {
             this.Controls.Add (this.dateTimePicker1);
             this.Controls.Add (this.dataGridView1);
             this.Name = "FormReporteFactura";
-            this.Text = "FormReporteFactura";
+            this.Text = "Reporte de factura";
             this.Load += new System.EventHandler (this.FormReporteFactura_Load);
             this.Controls.SetChildIndex (this.panel1, 0);
             this.Controls.SetChildIndex (this.panel2, 0);

@@ -23,6 +23,7 @@ namespace Inventario.Reportes {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent () {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager (typeof (FormReporte));
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
@@ -36,6 +37,12 @@ namespace Inventario.Reportes {
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            // 
+            // label1
+            // 
+            this.label1.Image = ((System.Drawing.Image) (resources.GetObject ("label1.Image")));
+            this.label1.Size = new System.Drawing.Size (134, 31);
+            this.label1.Text = "    Reporte";
             // 
             // FormReporte
             // 

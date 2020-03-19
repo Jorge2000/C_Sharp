@@ -23,6 +23,7 @@ namespace Inventario.Procesos {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent () {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager (typeof (FormProcesos));
             this.btnConsultar = new System.Windows.Forms.Button ();
             this.btnNuevo = new System.Windows.Forms.Button ();
             this.btnProcesar = new System.Windows.Forms.Button ();
@@ -54,7 +55,8 @@ namespace Inventario.Procesos {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (146, 27);
+            this.label1.Image = ((System.Drawing.Image) (resources.GetObject ("label1.Image")));
+            this.label1.Size = new System.Drawing.Size (156, 31);
             this.label1.Text = "     Procesos";
             // 
             // btnConsultar
@@ -64,21 +66,25 @@ namespace Inventario.Procesos {
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font ("Arial", 14F);
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
+            this.btnConsultar.Image = ((System.Drawing.Image) (resources.GetObject ("btnConsultar.Image")));
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultar.Location = new System.Drawing.Point (10, 243);
             this.btnConsultar.Margin = new System.Windows.Forms.Padding (0);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size (121, 42);
             this.btnConsultar.TabIndex = 18;
-            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.Text = "    Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             // 
             // btnNuevo
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb (((int) (((byte) (34)))), ((int) (((byte) (153)))), ((int) (((byte) (84)))));
+            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb (((int) (((byte) (41)))), ((int) (((byte) (128)))), ((int) (((byte) (185)))));
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font ("Arial", 14F);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Image = ((System.Drawing.Image) (resources.GetObject ("btnNuevo.Image")));
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point (10, 358);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding (0);
             this.btnNuevo.Name = "btnNuevo";
@@ -94,12 +100,14 @@ namespace Inventario.Procesos {
             this.btnProcesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcesar.Font = new System.Drawing.Font ("Arial", 14F);
             this.btnProcesar.ForeColor = System.Drawing.Color.White;
+            this.btnProcesar.Image = ((System.Drawing.Image) (resources.GetObject ("btnProcesar.Image")));
+            this.btnProcesar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProcesar.Location = new System.Drawing.Point (10, 189);
             this.btnProcesar.Margin = new System.Windows.Forms.Padding (0);
             this.btnProcesar.Name = "btnProcesar";
             this.btnProcesar.Size = new System.Drawing.Size (121, 42);
             this.btnProcesar.TabIndex = 16;
-            this.btnProcesar.Text = "Procesar";
+            this.btnProcesar.Text = "    Procesar";
             this.btnProcesar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
@@ -109,12 +117,14 @@ namespace Inventario.Procesos {
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font ("Arial", 14F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Image = ((System.Drawing.Image) (resources.GetObject ("btnEliminar.Image")));
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Location = new System.Drawing.Point (10, 301);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding (0);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size (121, 42);
             this.btnEliminar.TabIndex = 15;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "  Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // FormProcesos
@@ -123,7 +133,7 @@ namespace Inventario.Procesos {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size (784, 461);
             this.Name = "FormProcesos";
-            this.Text = "";
+            this.Text = "Procesos";
             this.panel1.ResumeLayout (false);
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();

@@ -34,6 +34,12 @@ namespace Inventario.Reportes {
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            this.buttonCerrar.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.Size = new System.Drawing.Size (336, 31);
+            this.label1.Text = "    Reporte de departamento";
             // 
             // reportViewer1
             // 
@@ -55,7 +61,7 @@ namespace Inventario.Reportes {
             this.dateTimePicker1.Location = new System.Drawing.Point (400, 71);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size (241, 23);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePicker1.TabIndex = 1;
             // 
             // FormReporteDepartamento
             // 
@@ -65,7 +71,7 @@ namespace Inventario.Reportes {
             this.Controls.Add (this.dateTimePicker1);
             this.Controls.Add (this.reportViewer1);
             this.Name = "FormReporteDepartamento";
-            this.Text = "FormReporteDepartamento";
+            this.Text = "Reporte de departamento";
             this.Load += new System.EventHandler (this.FormReporteDepartamento_Load);
             this.Controls.SetChildIndex (this.panel1, 0);
             this.Controls.SetChildIndex (this.panel2, 0);

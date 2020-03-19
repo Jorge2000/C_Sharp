@@ -42,6 +42,7 @@ namespace Inventario {
             // 
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.Location = new System.Drawing.Point (11, 209);
+            this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Click += new System.EventHandler (this.btnSalvar_Click);
             // 
             // btnBuscar
@@ -54,6 +55,7 @@ namespace Inventario {
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.Location = new System.Drawing.Point (11, 332);
+            this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Click += new System.EventHandler (this.btnEliminar_Click);
             // 
             // panel1
@@ -65,11 +67,12 @@ namespace Inventario {
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
             this.buttonCerrar.Location = new System.Drawing.Point (11, 391);
+            this.buttonCerrar.TabIndex = 9;
             this.buttonCerrar.Click += new System.EventHandler (this.buttonCerrar_Click);
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (334, 27);
+            this.label1.Size = new System.Drawing.Size (353, 31);
             this.label1.Text = "      Mantenimiento de clientes";
             // 
             // txtNombre
@@ -78,7 +81,7 @@ namespace Inventario {
             this.txtNombre.Location = new System.Drawing.Point (125, 154);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size (252, 29);
-            this.txtNombre.TabIndex = 10;
+            this.txtNombre.TabIndex = 2;
             // 
             // txtCodigo
             // 
@@ -86,7 +89,7 @@ namespace Inventario {
             this.txtCodigo.Location = new System.Drawing.Point (125, 93);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size (126, 29);
-            this.txtCodigo.TabIndex = 9;
+            this.txtCodigo.TabIndex = 1;
             this.txtCodigo.TextChanged += new System.EventHandler (this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtCodigo_KeyPress);
             this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler (this.txtCodigo_Validating);
@@ -99,7 +102,7 @@ namespace Inventario {
             this.checkBoxEstado.Location = new System.Drawing.Point (26, 332);
             this.checkBoxEstado.Name = "checkBoxEstado";
             this.checkBoxEstado.Size = new System.Drawing.Size (89, 26);
-            this.checkBoxEstado.TabIndex = 8;
+            this.checkBoxEstado.TabIndex = 5;
             this.checkBoxEstado.Text = "Estado";
             this.checkBoxEstado.UseVisualStyleBackColor = false;
             // 
@@ -120,7 +123,7 @@ namespace Inventario {
             this.txtEmail.Location = new System.Drawing.Point (125, 212);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size (252, 29);
-            this.txtEmail.TabIndex = 13;
+            this.txtEmail.TabIndex = 3;
             // 
             // label
             // 
@@ -139,7 +142,7 @@ namespace Inventario {
             this.txtTelefono.Location = new System.Drawing.Point (125, 270);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size (252, 29);
-            this.txtTelefono.TabIndex = 15;
+            this.txtTelefono.TabIndex = 4;
             // 
             // label4
             // 

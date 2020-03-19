@@ -672,7 +672,7 @@
         <Top>1.60549cm</Top>
         <Left>0.15293cm</Left>
         <Height>1.2cm</Height>
-        <Width>21.00863cm</Width>
+        <Width>21.00864cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -683,27 +683,13 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>8.33132in</Width>
+  <Width>8.33133in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Image Name="Image2">
-          <Source>Embedded</Source>
-          <Value>img_2</Value>
-          <Sizing>FitProportional</Sizing>
-          <Top>0.27358cm</Top>
-          <Left>0.78793cm</Left>
-          <Height>1.5cm</Height>
-          <Width>1.5cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
         <Textbox Name="Textbox2">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -724,10 +710,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.64442cm</Top>
-          <Left>0.15293cm</Left>
+          <Left>0cm</Left>
           <Height>1.12917cm</Height>
-          <Width>16.20414cm</Width>
-          <ZIndex>1</ZIndex>
+          <Width>21.16155cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -804,6 +789,10 @@
       <MIMEType>image/png</MIMEType>
       <ImageData>iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQfkAw4VNiE55h5nAAADBElEQVRo3tWYv0+TQRjHPwUaB2RQIokJHYwxJDSyOkvcmjjJKFGHrhAW/wXZWdzU0RAWjUI0AUud3OwAMvQPMKGKsJhCH4e3977vvX3fcu/dUezT5N6m791zn/s+z/0qDKF9RSw+35jyBWDTvSDscdMfgB20JwRbgAZCw0cgbAFu8N2PCrYA+EKwB/CE4ALgBcENwAOCK4Azgv060Ls6DgxgNwNhYACZfka8uHKwMacRQKH7zGsF9WWoFSgknlY21ArYxl7lzvArYBt7rd1QK2CaA2rEI2wjzNNxhVZLselpWNk8gnC/x481QF57jSC8uiyACU7o0OGEibgflyTMF4IFxqmxyziPHPrUFMgH8AXhKc8Qdi4jBLe64l/lmA63/YQgjz2hwDrHnLBBgcemzSo0aFDxoEAToQpAFaFp4meWzTCKm8w6AgjCKauscqrlUIZNskYbocUyy7QQ2qwx6QwQlX38FFmihXAWdhnhLFF0ALgXKzMBKuynCl9mC0HYp+JwMYmXKQAq6vs8TBFeh/MOoGQWhE+UU4QPwhOAiQbmDKCi3maNFW3kceGTqHEwR4A6grBFOdHBMsWY8GkZUfcDEAj/mbmw+gzvEYQDFoAiVX4itHnZ/YdHvTfPhXMBslNui1lNl5Xwm1eA67zgL8IvnnMFlRvByM94wxQww7vuuAMtvAJAfBpmp1ywCpR1B74AdOHL4W8KrJ6ofSEA+qSMluKzlOXjggB04aPNaKAAceGDNaCMIIyyODgAUClXCWsdIAi1wQEkBReaVMPblOmhNNrAolLb
 1MwAttljkdHEOzeAWh6AfO9MQgD8B7djBVDJ3TJ/i0yr03vyVdZ/iu4a95EZAoCxnu22H4DatlqxbcsMoPe6FrNrGW6Ty3Q2qiMARNvtDxZSAR7QIDi63M3VedJP39kTdTKnVVZnoDjchQAkd0NBLI+huv1BmAaghPD7vOqT2rGr97iW3zYQPlCixEeEdZMm2ZdTG5vhMPR2yB3TZunXczub5i1HHLFu3v1A7B+atFQkGAhC4QAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0wMy0xNFQyMTo1NDozMyswMDowMAd+a/EAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMDMtMTRUMjE6NTQ6MzMrMDA6MDB2I9NNAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="producto">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsSAAALEgHS3X78AAAChUlEQVRIx+2VbUvTURjGXeAHiHzhR6jP0UpJC4ZjS8uamtSb0OiBQmZYqOUaWdNN1+bmbHP2ICnYltOxnoxFRVKGDyMjSErnXJKbQevqXFt/3/Qi99eXHrgZnD9c132u+3fOcnK2ltylKtbu1NRe0Je13HCWNlw1lWgq1GIvdzOEt2nP1htOB5+m2r9F4Vxcgi0aQ9PMR+gsXROqA6W7NmRA8ebILO7Fl/+pbmFWffvOnGgiX3Ys7FwStL4eh8M3kq5L1m54xYks81Ec1DdaZBkwc8ZCccvLN/D29WN6KoInoWdwOdzwfPma/na89/6iaEaRtQEHyswp0vFgCFOTM+kaGvRh7Hl4zeDMoyCEwY6sDUgLB0oRp38UiUQyXaOBEPqFSd985nQ1Aw9/CYPtovKyOglRJC0UMd0dwAvRNavF2Ab7+0m4Y3HohwPovFj++3F9QSp8uRD+88qYobKwY12DJ+dEkbRwoIyExc4pXtdlxqxxL1bcR/CjtwqfbJXp3xWnGkPnds+V7Nf8H2FyThQtf+OQip1TnIKvWnVYcFVivE2HMaMOcbcw6TkEb41yYl2XkccliqSFA2XmjEXqfNlThUBrLQL2K3hnzpyCtdC+D+UqtTqbe6EgLRwoM5eERq6fRCy2hGQyiaDPlz4N9xMuLVqPFZjkXMA8DlQyYOcSYbwnHywVmVn0lKHzhNIpx0BBWiSD8M1qRKYjWF39iUHXLXz3ZPYTDhXqDhfrZd1yokhaJBPbtWYMi7vib9Kt7b1t3JPicyP3nconiqSFYiHTKdG9FZ/tmfyj5iI0HC0ybOilJedEkbRwoMycsbBzivOp34z/i1yiSFqsYqDMXHYsW4vrDy/xOal+0UvyAAAAAElFTkSuQmCC</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportID>55643a9a-9089-4ab6-8c6e-8df6f2e908c9</rd:ReportID>

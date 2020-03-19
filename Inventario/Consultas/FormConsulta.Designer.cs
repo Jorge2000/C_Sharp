@@ -23,6 +23,7 @@ namespace Inventario {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent () {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager (typeof (FormConsulta));
             this.btnSalvar = new System.Windows.Forms.Button ();
             this.btnBuscar = new System.Windows.Forms.Button ();
             this.btnEliminar = new System.Windows.Forms.Button ();
@@ -39,17 +40,17 @@ namespace Inventario {
             // panel1
             // 
             this.panel1.Controls.Add (this.btnImprimir);
-            this.panel1.Controls.Add (this.btnSeleccionar);
-            this.panel1.Controls.Add (this.btnSalvar);
-            this.panel1.Controls.Add (this.btnBuscar);
             this.panel1.Controls.Add (this.btnEliminar);
+            this.panel1.Controls.Add (this.btnBuscar);
+            this.panel1.Controls.Add (this.btnSalvar);
+            this.panel1.Controls.Add (this.btnSeleccionar);
             this.panel1.Location = new System.Drawing.Point (644, 0);
             this.panel1.Size = new System.Drawing.Size (141, 455);
+            this.panel1.Controls.SetChildIndex (this.btnSeleccionar, 0);
+            this.panel1.Controls.SetChildIndex (this.btnSalvar, 0);
+            this.panel1.Controls.SetChildIndex (this.btnBuscar, 0);
             this.panel1.Controls.SetChildIndex (this.buttonCerrar, 0);
             this.panel1.Controls.SetChildIndex (this.btnEliminar, 0);
-            this.panel1.Controls.SetChildIndex (this.btnBuscar, 0);
-            this.panel1.Controls.SetChildIndex (this.btnSalvar, 0);
-            this.panel1.Controls.SetChildIndex (this.btnSeleccionar, 0);
             this.panel1.Controls.SetChildIndex (this.btnImprimir, 0);
             // 
             // buttonCerrar
@@ -60,8 +61,9 @@ namespace Inventario {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (143, 27);
-            this.label1.Text = "     Consulta";
+            this.label1.Image = ((System.Drawing.Image) (resources.GetObject ("label1.Image")));
+            this.label1.Size = new System.Drawing.Size (143, 31);
+            this.label1.Text = "    Consulta";
             // 
             // btnSalvar
             // 
@@ -70,7 +72,9 @@ namespace Inventario {
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font ("Arial", 14F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point (11, 288);
+            this.btnSalvar.Image = ((System.Drawing.Image) (resources.GetObject ("btnSalvar.Image")));
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalvar.Location = new System.Drawing.Point (11, 285);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding (0);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size (121, 42);
@@ -86,12 +90,14 @@ namespace Inventario {
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font ("Arial", 14F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point (11, 179);
+            this.btnBuscar.Image = ((System.Drawing.Image) (resources.GetObject ("btnBuscar.Image")));
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point (11, 94);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding (0);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size (121, 42);
             this.btnBuscar.TabIndex = 10;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "   Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler (this.btnBuscar_Click);
             // 
@@ -102,12 +108,15 @@ namespace Inventario {
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font ("Arial", 14F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point (11, 345);
+            this.ep.SetIconAlignment (this.btnEliminar, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+            this.btnEliminar.Image = ((System.Drawing.Image) (resources.GetObject ("btnEliminar.Image")));
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point (11, 343);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding (0);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size (121, 42);
             this.btnEliminar.TabIndex = 9;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = " Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler (this.btnEliminar_Click);
             // 
@@ -137,12 +146,14 @@ namespace Inventario {
             this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeleccionar.Font = new System.Drawing.Font ("Arial", 14F);
             this.btnSeleccionar.ForeColor = System.Drawing.Color.White;
-            this.btnSeleccionar.Location = new System.Drawing.Point (11, 233);
+            this.btnSeleccionar.Image = ((System.Drawing.Image) (resources.GetObject ("btnSeleccionar.Image")));
+            this.btnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSeleccionar.Location = new System.Drawing.Point (11, 154);
             this.btnSeleccionar.Margin = new System.Windows.Forms.Padding (0);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size (121, 42);
             this.btnSeleccionar.TabIndex = 14;
-            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.Text = "Elegir";
             this.btnSeleccionar.UseVisualStyleBackColor = false;
             this.btnSeleccionar.Click += new System.EventHandler (this.btnSeleccionar_Click);
             // 
@@ -151,14 +162,16 @@ namespace Inventario {
             this.btnImprimir.BackColor = System.Drawing.Color.FromArgb (((int) (((byte) (244)))), ((int) (((byte) (208)))), ((int) (((byte) (63)))));
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font ("Arial", 14F);
+            this.btnImprimir.Font = new System.Drawing.Font ("Arial", 12F);
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point (10, 126);
+            this.btnImprimir.Image = ((System.Drawing.Image) (resources.GetObject ("btnImprimir.Image")));
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point (11, 213);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding (0);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size (121, 42);
+            this.btnImprimir.Size = new System.Drawing.Size (121, 55);
             this.btnImprimir.TabIndex = 15;
-            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.Text = "Generar Reporte";
             this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // FormConsulta

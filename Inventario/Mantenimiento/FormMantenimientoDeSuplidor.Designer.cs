@@ -46,11 +46,13 @@ namespace Inventario {
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Click += new System.EventHandler (this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Click += new System.EventHandler (this.btnEliminar_Click);
             // 
             // panel1
@@ -60,10 +62,11 @@ namespace Inventario {
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            this.buttonCerrar.TabIndex = 11;
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (367, 27);
+            this.label1.Size = new System.Drawing.Size (389, 31);
             this.label1.Text = "      Mantenimiento de Suplidores";
             // 
             // txtTelefono
@@ -72,7 +75,7 @@ namespace Inventario {
             this.txtTelefono.Location = new System.Drawing.Point (125, 269);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size (252, 29);
-            this.txtTelefono.TabIndex = 24;
+            this.txtTelefono.TabIndex = 5;
             // 
             // label4
             // 
@@ -91,7 +94,7 @@ namespace Inventario {
             this.txtEmail.Location = new System.Drawing.Point (125, 211);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size (252, 29);
-            this.txtEmail.TabIndex = 22;
+            this.txtEmail.TabIndex = 4;
             // 
             // label
             // 
@@ -110,7 +113,7 @@ namespace Inventario {
             this.txtNombre.Location = new System.Drawing.Point (125, 153);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size (252, 29);
-            this.txtNombre.TabIndex = 19;
+            this.txtNombre.TabIndex = 3;
             // 
             // txtCodigo
             // 
@@ -118,7 +121,7 @@ namespace Inventario {
             this.txtCodigo.Location = new System.Drawing.Point (125, 92);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size (126, 29);
-            this.txtCodigo.TabIndex = 18;
+            this.txtCodigo.TabIndex = 2;
             this.txtCodigo.TextChanged += new System.EventHandler (this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtCodigo_KeyPress);
             this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler (this.txtCodigo_Validating);
@@ -131,7 +134,7 @@ namespace Inventario {
             this.checkBoxEstado.Location = new System.Drawing.Point (26, 331);
             this.checkBoxEstado.Name = "checkBoxEstado";
             this.checkBoxEstado.Size = new System.Drawing.Size (89, 26);
-            this.checkBoxEstado.TabIndex = 17;
+            this.checkBoxEstado.TabIndex = 6;
             this.checkBoxEstado.Text = "Estado";
             this.checkBoxEstado.UseVisualStyleBackColor = false;
             // 
@@ -154,7 +157,7 @@ namespace Inventario {
             this.linkLabel1.Location = new System.Drawing.Point (22, 95);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size (72, 22);
-            this.linkLabel1.TabIndex = 45;
+            this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Código";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel1_LinkClicked);

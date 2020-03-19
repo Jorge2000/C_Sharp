@@ -11,10 +11,10 @@ namespace Utilidades {
             if (numero > 999 || numero <= 0) return "";
 
             string cadNum = numero.ToString ().PadLeft (3, '0');
-            int ud = Convert.ToInt16 (cadNum[2].ToString ());
-            int dc = Convert.ToInt16 (cadNum[1].ToString ());
-            int ct = Convert.ToInt16 (cadNum[0].ToString ());
-            int ud2 = Convert.ToInt16 (cadNum[1].ToString () + cadNum[2].ToString ());
+            int unidades = Convert.ToInt16 (cadNum[2].ToString ());
+            int decenas = Convert.ToInt16 (cadNum[1].ToString ());
+            int centenas = Convert.ToInt16 (cadNum[0].ToString ());
+            int unidades2 = Convert.ToInt16 (cadNum[1].ToString () + cadNum[2].ToString ());
 
             List<string> numInic = new List<string> {
                 null,
@@ -57,11 +57,11 @@ namespace Utilidades {
 
             string result = "";
 
-            if (ct > 0) result += numInic[ct] + (conEspacios ? " " : "") + "cientos";
-            if (ud2 <= 30 && ud2 != 0) result += (result == "" ? "" : " ") + numInic[ud2];
-            else if (ud2 > 30) {
-                result += (result == "" ? "" : " ") + numDec[dc];
-                if (ud > 0) result += " y " + numInic[ud];
+            if (centenas > 0) { result += numInic[centenas] + (conEspacios ? " " : "") + "cientos"; }
+            if (unidades2 <= 30 && unidades2 != 0) result += (result == "" ? "" : " ") + numInic[unidades2];
+            else if (unidades2 > 30) {
+                result += (result == "" ? "" : " ") + numDec[decenas];
+                if (unidades > 0) result += " y " + numInic[unidades];
             }
 
             //Arreglos

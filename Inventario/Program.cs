@@ -12,7 +12,7 @@ namespace Inventario {
         static void Main () {
             Application.EnableVisualStyles ();
             Application.SetCompatibleTextRenderingDefault (false);
-            Application.Run (new FormProcesosVentas());
+            Application.Run (new FormMenu ());
         }
     }
 }

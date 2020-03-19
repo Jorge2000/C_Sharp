@@ -47,11 +47,14 @@ namespace Inventario {
             // 
             // buttonCerrar
             // 
-            this.buttonCerrar.BackColor = System.Drawing.Color.FromArgb (((int) (((byte) (46)))), ((int) (((byte) (134)))), ((int) (((byte) (193)))));
+            this.buttonCerrar.BackColor = System.Drawing.Color.Gray;
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
             this.buttonCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCerrar.Font = new System.Drawing.Font ("Arial", 14F);
             this.buttonCerrar.ForeColor = System.Drawing.Color.White;
+            this.errorProvider.SetIconAlignment (this.buttonCerrar, System.Windows.Forms.ErrorIconAlignment.TopRight);
+            this.buttonCerrar.Image = ((System.Drawing.Image) (resources.GetObject ("buttonCerrar.Image")));
+            this.buttonCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCerrar.Location = new System.Drawing.Point (10, 448);
             this.buttonCerrar.Margin = new System.Windows.Forms.Padding (0);
             this.buttonCerrar.Name = "buttonCerrar";
@@ -78,15 +81,16 @@ namespace Inventario {
             // 
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font ("Arial", 18F);
+            this.label1.Font = new System.Drawing.Font ("Arial", 19F);
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Image = ((System.Drawing.Image) (resources.GetObject ("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point (12, 14);
+            this.label1.Location = new System.Drawing.Point (14, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size (162, 27);
+            this.label1.Size = new System.Drawing.Size (173, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "     Form base";
+            this.label1.Click += new System.EventHandler (this.label1_Click);
             // 
             // FormBase
             // 
@@ -97,6 +101,7 @@ namespace Inventario {
             this.ClientSize = new System.Drawing.Size (1023, 499);
             this.Controls.Add (this.panel2);
             this.Controls.Add (this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon) (resources.GetObject ("$this.Icon")));
             this.Name = "FormBase";
             this.Text = "FormBase";

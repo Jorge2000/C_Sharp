@@ -54,18 +54,17 @@ namespace Inventario.Procesos {
             ConsultaDeCliente.Dispose ();
         }
 
-        public void helperConsultaProducto(DataSet DS) {
+        public void helperConsultaProducto (DataSet DS) {
             DataRow row = DS.Tables[0].Rows[0];
-            string cantidadExistente = row["cantidad_existente"].ToString();
-            txtNombreProducto.Text = row["nombre_producto"].ToString();
-            txtPrecioProducto.Text = row["precio_de_venta"].ToString();
-            if (cantidadExistente == "0")
-            {
-                string messageTxt = string.Format(string.Format("Lo sentimos {0} pero aún no hemos abastecido los almacenes de este producto", clearString(txtNombre)));
-                message(messageTxt);
-                LimpiarProducto();
+            string cantidadExistente = row["cantidad_existente"].ToString ();
+            txtNombreProducto.Text = row["nombre_producto"].ToString ();
+            txtPrecioProducto.Text = row["precio_de_venta"].ToString ();
+            if (cantidadExistente == "0") {
+                string messageTxt = string.Format (string.Format ("Lo sentimos {0} pero aún no hemos abastecido los almacenes de este producto", clearString (txtNombre)));
+                message (messageTxt);
+                LimpiarProducto ();
                 return;
-            }        
+            }
         }
         public void ConsultaProducto () {
             string codigo = clearString (txtCodigoProducto);
@@ -76,7 +75,7 @@ namespace Inventario.Procesos {
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
             if (countTable > 0 && countRows > 0) {
-                helperConsultaProducto(DS);
+                helperConsultaProducto (DS);
             }
         }
 
@@ -132,7 +131,7 @@ namespace Inventario.Procesos {
 
         }
 
-        public bool validateDataGridView() {
+        public bool validateDataGridView () {
             return dataGridView1.Rows.Count == 0;
         }
 
@@ -215,7 +214,7 @@ namespace Inventario.Procesos {
             string precioVenta;
             for (int row = 0; row < dataGridView1.Rows.Count; row++) {
                 codigoProducto = dataGridView1.Rows[row].Cells[0].Value.ToString ();
-                cantidadVentida = dataGridView1.Rows[row].Cells[2].Value.ToString ()    ;
+                cantidadVentida = dataGridView1.Rows[row].Cells[2].Value.ToString ();
                 precioVenta = dataGridView1.Rows[row].Cells[3].Value.ToString ();
                 storeProceduresactualizarDetalles += string.Format ("EXEC actualizarDetalles @numero_factura = {0}, @codigo_producto = {1}, @cantidad_vendida = {2}, @precio_de_venta = {3}\n", numeroFactura, codigoProducto, cantidadVentida, precioVenta);
             }
@@ -224,11 +223,10 @@ namespace Inventario.Procesos {
         }
 
         public void procesarProductos () {
-            if (validateTextBoxsCliente() || validateDataGridView())
-            {
-                message("Debe tener un cliente y productos para procesar");
+            if (validateTextBoxsCliente () || validateDataGridView ()) {
+                message ("Debe tener un cliente y productos para procesar");
                 return;
-            }else {
+            } else {
                 string codigoCliente = clearString (txtCodigo);
                 string totalVenta = clearString (txtTotal);
                 string storeProcedureActualizarVentas = string.Format ("EXEC actualizarVentas @codigo_cliente={0}, @total={1}", codigoCliente, totalVenta);
@@ -237,7 +235,7 @@ namespace Inventario.Procesos {
                 DataRow row = DS.Tables[0].Rows[0];
                 string numeroFactura = row["numero_factura"].ToString ().Trim ();
                 actualizarDetalle (numeroFactura);
-                nuevoProcesos();
+                nuevoProcesos ();
             }
         }
 
@@ -314,7 +312,7 @@ namespace Inventario.Procesos {
         }
 
         private void btnProcesar_Click (object sender, EventArgs e) {
-            procesarProductos();
+            procesarProductos ();
         }
 
     }

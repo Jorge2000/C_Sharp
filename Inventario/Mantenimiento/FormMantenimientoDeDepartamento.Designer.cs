@@ -37,11 +37,13 @@ namespace Inventario.Mantenimiento {
             // btnSalvar
             // 
             this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Click += new System.EventHandler (this.btnSalvar_Click_1);
             // 
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Click += new System.EventHandler (this.btnBuscar_Click_1);
             // 
             // btnEliminar
@@ -52,11 +54,12 @@ namespace Inventario.Mantenimiento {
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            this.buttonCerrar.TabIndex = 7;
             this.buttonCerrar.Click += new System.EventHandler (this.buttonCerrar_Click_1);
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (413, 27);
+            this.label1.Size = new System.Drawing.Size (438, 31);
             this.label1.Text = "      Mantenimiento de departamentos";
             // 
             // txtNombre
@@ -65,7 +68,7 @@ namespace Inventario.Mantenimiento {
             this.txtNombre.Location = new System.Drawing.Point (126, 156);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size (177, 29);
-            this.txtNombre.TabIndex = 10;
+            this.txtNombre.TabIndex = 2;
             // 
             // txtCodigo
             // 
@@ -73,7 +76,7 @@ namespace Inventario.Mantenimiento {
             this.txtCodigo.Location = new System.Drawing.Point (126, 95);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size (177, 29);
-            this.txtCodigo.TabIndex = 9;
+            this.txtCodigo.TabIndex = 1;
             this.txtCodigo.TextChanged += new System.EventHandler (this.txtCodigo_TextChanged);
             this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler (this.txtCodigo_Validating_1);
             // 
@@ -85,7 +88,7 @@ namespace Inventario.Mantenimiento {
             this.checkBoxEstado.Location = new System.Drawing.Point (27, 213);
             this.checkBoxEstado.Name = "checkBoxEstado";
             this.checkBoxEstado.Size = new System.Drawing.Size (89, 26);
-            this.checkBoxEstado.TabIndex = 8;
+            this.checkBoxEstado.TabIndex = 3;
             this.checkBoxEstado.Text = "Estado";
             this.checkBoxEstado.UseVisualStyleBackColor = false;
             // 

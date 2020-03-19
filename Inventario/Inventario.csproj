@@ -70,6 +70,10 @@
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles.cs" />
+    <Compile Include="DataSetFactura.cs">
+      <DependentUpon>DataSetFactura.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSetFactura.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

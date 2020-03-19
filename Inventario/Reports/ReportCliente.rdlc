@@ -487,9 +487,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.60008cm</Top>
-          <Left>0.44132cm</Left>
+          <Left>0cm</Left>
           <Height>1.12917cm</Height>
-          <Width>16.20414cm</Width>
+          <Width>16.64546cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -500,21 +500,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Image Name="Image2">
-          <Source>Embedded</Source>
-          <Value>img_2</Value>
-          <Sizing>FitProportional</Sizing>
-          <Top>0.22924cm</Top>
-          <Left>0.44132cm</Left>
-          <Height>1.5cm</Height>
-          <Width>1.5cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
       </ReportItems>
       <Style>
         <Border>

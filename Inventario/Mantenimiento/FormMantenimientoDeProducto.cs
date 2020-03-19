@@ -16,7 +16,8 @@ namespace Inventario.Mantenimiento {
         }
 
         public void searchDataForegin (string tableName, string columna, string where, TextBox TextCodigo, TextBox TextName) {
-            string value = TextCodigo.Text;
+            string value = clearString (TextCodigo);
+            if (string.IsNullOrEmpty (value)) return;
             string query = string.Format ("SELECT {0} FROM {1} WHERE {2} = {3}", columna, tableName, where, value);
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
@@ -136,16 +137,6 @@ namespace Inventario.Mantenimiento {
 
         private void btnSalvar_Click (object sender, EventArgs e) {
             Salvar ();
-
-            // validatingField("nombre",nombre,  txtNombre);
-            // validatingField("código",codigo, txtCodigo);
-            // validatingField("codigo de departamento",codigoDepartamento, txtCodigoDpto);
-            // validatingField("código suplidor",codigoSuplidor, txtCodigoSuplidor);
-            // validatingField("código unidad", codigoUnidad, txtCodigoUnidad);
-            // validatingField("estado",estado,  txtEstado);
-            // validatingField("precio", precio, txtPrecio);
-            // validatingField("cantidad existente", cantidadExistente, txtCantidadExistente);
-
         }
 
         private void txtCodigo_KeyPress (object sender, KeyPressEventArgs e) {

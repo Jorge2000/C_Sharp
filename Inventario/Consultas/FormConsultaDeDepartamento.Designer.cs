@@ -34,19 +34,24 @@ namespace Inventario {
             // btnSalvar
             // 
             this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.TabIndex = 5;
             // 
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Click += new System.EventHandler (this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.ep.SetIconAlignment (this.btnEliminar, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+            this.btnEliminar.TabIndex = 6;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point (203, 78);
+            this.txtNombre.TabIndex = 1;
             // 
             // label2
             // 
@@ -57,10 +62,12 @@ namespace Inventario {
             // btnSeleccionar
             // 
             this.btnSeleccionar.FlatAppearance.BorderSize = 0;
+            this.btnSeleccionar.TabIndex = 3;
             // 
             // btnImprimir
             // 
             this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.TabIndex = 4;
             this.btnImprimir.Click += new System.EventHandler (this.btnImprimir_Click);
             // 
             // panel1
@@ -70,10 +77,11 @@ namespace Inventario {
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            this.buttonCerrar.TabIndex = 7;
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (345, 27);
+            this.label1.Size = new System.Drawing.Size (365, 31);
             this.label1.Text = "     Consulta de departamentos";
             // 
             // dataGridView
