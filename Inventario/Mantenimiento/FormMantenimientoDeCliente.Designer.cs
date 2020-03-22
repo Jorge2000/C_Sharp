@@ -29,9 +29,10 @@ namespace Inventario {
             this.label2 = new System.Windows.Forms.Label ();
             this.txtEmail = new System.Windows.Forms.TextBox ();
             this.label = new System.Windows.Forms.Label ();
-            this.txtTelefono = new System.Windows.Forms.TextBox ();
             this.label4 = new System.Windows.Forms.Label ();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel ();
+            this.comboBoxGenero = new System.Windows.Forms.ComboBox ();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox ();
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
@@ -136,14 +137,6 @@ namespace Inventario {
             this.label.TabIndex = 12;
             this.label.Text = "Email";
             // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.txtTelefono.Location = new System.Drawing.Point (125, 270);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size (252, 29);
-            this.txtTelefono.TabIndex = 4;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -168,13 +161,39 @@ namespace Inventario {
             this.linkLabel1.Text = "Código";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel1_LinkClicked);
             // 
+            // comboBoxGenero
+            // 
+            this.comboBoxGenero.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.comboBoxGenero.FormattingEnabled = true;
+            this.comboBoxGenero.Items.AddRange (new object[] {
+                "Selecciona un género",
+                "Femenino",
+                "Masculino"
+            });
+            this.comboBoxGenero.Location = new System.Drawing.Point (28, 374);
+            this.comboBoxGenero.Name = "comboBoxGenero";
+            this.comboBoxGenero.Size = new System.Drawing.Size (351, 30);
+            this.comboBoxGenero.TabIndex = 25;
+            this.comboBoxGenero.Text = "Selecciona un género";
+            this.comboBoxGenero.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.comboBoxGenero_KeyPress);
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.txtTelefono.Location = new System.Drawing.Point (125, 277);
+            this.txtTelefono.Mask = "(999)-000-0000";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size (252, 29);
+            this.txtTelefono.TabIndex = 4;
+            // 
             // FormMantenimientoDeCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size (785, 442);
-            this.Controls.Add (this.linkLabel1);
             this.Controls.Add (this.txtTelefono);
+            this.Controls.Add (this.comboBoxGenero);
+            this.Controls.Add (this.linkLabel1);
             this.Controls.Add (this.label4);
             this.Controls.Add (this.txtEmail);
             this.Controls.Add (this.label);
@@ -193,8 +212,9 @@ namespace Inventario {
             this.Controls.SetChildIndex (this.label, 0);
             this.Controls.SetChildIndex (this.txtEmail, 0);
             this.Controls.SetChildIndex (this.label4, 0);
-            this.Controls.SetChildIndex (this.txtTelefono, 0);
             this.Controls.SetChildIndex (this.linkLabel1, 0);
+            this.Controls.SetChildIndex (this.comboBoxGenero, 0);
+            this.Controls.SetChildIndex (this.txtTelefono, 0);
             this.panel1.ResumeLayout (false);
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();
@@ -213,8 +233,9 @@ namespace Inventario {
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label;
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ComboBox comboBoxGenero;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
     }
 }

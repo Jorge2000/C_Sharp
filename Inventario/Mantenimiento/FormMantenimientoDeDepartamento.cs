@@ -27,8 +27,7 @@ namespace Inventario.Mantenimiento {
             string estado = (checkBoxEstado.Checked) ? "1" : "0";
             string storeProcedureUpsertDepartamento = string.Format ("EXEC upsertDepartamento @codigo_departamento = {0}, @nombre_departamento = '{1}', @estado = {2}", codigo, nombre, estado);
             DS = Execution.Ejecutar (storeProcedureUpsertDepartamento);
-            DS = Execution.Ejecutar (storeProcedureUpsertDepartamento);
-            MessageBox.Show ("Accion realizada con exito");
+            messageSucess ();
             Limpiar ();
         }
 
@@ -38,9 +37,12 @@ namespace Inventario.Mantenimiento {
             if (!string.IsNullOrEmpty (codigo)) {
                 string storeProcedureEliminarDepartamento = string.Format ("EXEC eliminarDepartamento {0}", codigo);
                 DS = Execution.Ejecutar (storeProcedureEliminarDepartamento);
-                MessageBox.Show ("Accion realizada con exito");
-                Limpiar ();
+                messageWarning ();
+            } else {
+
+                message ("No ha especificado que Cliente desea eliminar");
             }
+            Limpiar ();
         }
 
         public void Consulta () {
@@ -78,10 +80,6 @@ namespace Inventario.Mantenimiento {
                 SendKeys.Send ("{TAB}");
             }
             ConsultaDeDepartamento.Dispose ();
-        }
-
-        public override void validatingField (string campo, string value, TextBox txtBox) {
-            base.validatingField (campo, value, txtBox);
         }
 
         public override string clearString (TextBox str) {

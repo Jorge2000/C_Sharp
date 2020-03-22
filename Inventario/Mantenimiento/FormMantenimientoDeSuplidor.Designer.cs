@@ -23,7 +23,6 @@ namespace Inventario {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent () {
-            this.txtTelefono = new System.Windows.Forms.TextBox ();
             this.label4 = new System.Windows.Forms.Label ();
             this.txtEmail = new System.Windows.Forms.TextBox ();
             this.label = new System.Windows.Forms.Label ();
@@ -32,6 +31,8 @@ namespace Inventario {
             this.checkBoxEstado = new System.Windows.Forms.CheckBox ();
             this.label2 = new System.Windows.Forms.Label ();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel ();
+            this.comboBoxGenero = new System.Windows.Forms.ComboBox ();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox ();
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
@@ -41,41 +42,37 @@ namespace Inventario {
             // btnSalvar
             // 
             this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.Location = new System.Drawing.Point (11, 193);
             this.btnSalvar.Click += new System.EventHandler (this.btnSalvar_Click);
             // 
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.Location = new System.Drawing.Point (11, 254);
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Click += new System.EventHandler (this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.Location = new System.Drawing.Point (11, 316);
             this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Click += new System.EventHandler (this.btnEliminar_Click);
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size (141, 375);
+            this.panel1.Size = new System.Drawing.Size (141, 430);
             // 
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            this.buttonCerrar.Location = new System.Drawing.Point (11, 375);
             this.buttonCerrar.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.Size = new System.Drawing.Size (389, 31);
             this.label1.Text = "      Mantenimiento de Suplidores";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.txtTelefono.Location = new System.Drawing.Point (125, 269);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size (252, 29);
-            this.txtTelefono.TabIndex = 5;
             // 
             // label4
             // 
@@ -162,13 +159,39 @@ namespace Inventario {
             this.linkLabel1.Text = "Código";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel1_LinkClicked);
             // 
+            // comboBoxGenero
+            // 
+            this.comboBoxGenero.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.comboBoxGenero.FormattingEnabled = true;
+            this.comboBoxGenero.Items.AddRange (new object[] {
+                "Selecciona un género",
+                "Femenino",
+                "Masculino"
+            });
+            this.comboBoxGenero.Location = new System.Drawing.Point (28, 375);
+            this.comboBoxGenero.Name = "comboBoxGenero";
+            this.comboBoxGenero.Size = new System.Drawing.Size (351, 30);
+            this.comboBoxGenero.TabIndex = 24;
+            this.comboBoxGenero.Text = "Selecciona un género";
+            this.comboBoxGenero.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.comboBoxGenero_KeyPress);
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.txtTelefono.Location = new System.Drawing.Point (125, 273);
+            this.txtTelefono.Mask = "(999)-000-0000";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size (252, 29);
+            this.txtTelefono.TabIndex = 5;
+            // 
             // FormMantenimientoDeSuplidor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size (786, 375);
-            this.Controls.Add (this.linkLabel1);
+            this.ClientSize = new System.Drawing.Size (786, 430);
             this.Controls.Add (this.txtTelefono);
+            this.Controls.Add (this.comboBoxGenero);
+            this.Controls.Add (this.linkLabel1);
             this.Controls.Add (this.label4);
             this.Controls.Add (this.txtEmail);
             this.Controls.Add (this.label);
@@ -187,8 +210,9 @@ namespace Inventario {
             this.Controls.SetChildIndex (this.label, 0);
             this.Controls.SetChildIndex (this.txtEmail, 0);
             this.Controls.SetChildIndex (this.label4, 0);
-            this.Controls.SetChildIndex (this.txtTelefono, 0);
             this.Controls.SetChildIndex (this.linkLabel1, 0);
+            this.Controls.SetChildIndex (this.comboBoxGenero, 0);
+            this.Controls.SetChildIndex (this.txtTelefono, 0);
             this.panel1.ResumeLayout (false);
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();
@@ -201,7 +225,6 @@ namespace Inventario {
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label;
@@ -210,5 +233,7 @@ namespace Inventario {
         private System.Windows.Forms.CheckBox checkBoxEstado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ComboBox comboBoxGenero;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
     }
 }

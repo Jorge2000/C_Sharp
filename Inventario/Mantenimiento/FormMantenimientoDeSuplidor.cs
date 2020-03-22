@@ -23,7 +23,10 @@ namespace Inventario {
             if (!string.IsNullOrEmpty (codigo)) {
                 string storeProcedureEliminarSuplidor = string.Format ("EXEC eliminarSuplidor {0}", codigo);
                 DS = Execution.Ejecutar (storeProcedureEliminarSuplidor);
-                MessageBox.Show ("Accion realizada con exito");
+                messageWarning ();
+            } else {
+
+                message ("No ha especificado que Cliente desea eliminar");
             }
             Limpiar ();
         }
@@ -34,20 +37,26 @@ namespace Inventario {
             txtEmail.Text = "";
             txtTelefono.Text = "";
             checkBoxEstado.Checked = false;
+            comboBoxGenero.Text = "Selecciona un g�nero";
+
         }
 
         public override void Salvar () {
             if (Controles.ValidarForm (this, ep, false)) return;
             string nombre = clearString (txtNombre);
+            string genero = comboBoxGenero.Text;
             string email = clearString (txtEmail);
             string codigo = clearString (txtCodigo);
-            string telefono = clearString (txtTelefono);
+            string telefono = txtTelefono.Text;
             string estado = (checkBoxEstado.Checked) ? "1" : "0";
-            string storeProcedureUpsertSuplidor = string.Format ("EXEC upsertSuplidor @codigo_suplidor = {0}, @nombre_suplidor = '{1}', @email = '{2}', @telefono =  '{3}', @estado = {4}", codigo, nombre, email, telefono, estado);
+            string storeProcedureUpsertSuplidor = string.Format ("EXEC upsertSuplidor @codigo_suplidor = {0}, @nombre_suplidor = '{1}', @sexo = '{2}', @email = '{3}', @telefono =  '{4}', @estado = {5}", codigo, nombre, genero, email, telefono, estado);
 
-            DS = Execution.Ejecutar (storeProcedureUpsertSuplidor);
-            MessageBox.Show ("Accion realizada con exito");
-            Limpiar ();
+            if (IsValidEmail (email) && isValidComboBox (comboBoxGenero) && isValidPhone (txtTelefono)) {
+                DS = Execution.Ejecutar (storeProcedureUpsertSuplidor);
+                messageSucess ();
+                Limpiar ();
+            }
+
         }
 
         public override void Consultar () {
@@ -74,6 +83,7 @@ namespace Inventario {
                 txtNombre.Text = row["nombre_suplidor"].ToString ();
                 txtEmail.Text = row["email"].ToString ();
                 checkBoxEstado.Checked = Convert.ToBoolean (row["estado"]);
+                comboBoxGenero.Text = row["sexo"].ToString ().Trim ();
             }
 
         }
@@ -114,6 +124,10 @@ namespace Inventario {
             } else {
                 SendKeys.Send ("{TAB}");
             }
+        }
+
+        private void comboBoxGenero_KeyPress (object sender, KeyPressEventArgs e) {
+            e.Handled = true;
         }
     }
 }

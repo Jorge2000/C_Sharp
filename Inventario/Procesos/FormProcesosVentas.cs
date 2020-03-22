@@ -183,10 +183,11 @@ namespace Inventario.Procesos {
             if (countTable > 0 && countRows > 0) {
                 DataRow row = DS.Tables[0].Rows[0];
                 string nombreProducto = row["nombre_producto"].ToString ();
+                int puntoDeReorden = Convert.ToInt16 (row["punto_reo"].ToString ());
                 int cantidadExistente = Convert.ToInt16 (row["cantidad_existente"].ToString ());
-                int cantidadAVenderInt = Convert.ToInt16 (cantidadAVender);
-                if (cantidadAVenderInt > cantidadExistente) {
-                    string messageText = string.Format ("Est�s intentando vender una cantidad que excede la cantidad existente del producto: {0}\nla cantidad existente es de ${1}", nombreProducto, cantidadExistente);
+                Int32 cantidadAVenderInt = Convert.ToInt32 (cantidadAVender);
+                if ((cantidadExistente - cantidadAVenderInt) > puntoDeReorden) {
+                    string messageText = string.Format ("Est�s intentando vender una cantidad que excede el punto de reorden del producto: {0}\nEl punto de reorden es: {1}", nombreProducto, puntoDeReorden);
                     message (messageText);
                     txtCantidadAVender.Text = "";
 
@@ -216,7 +217,7 @@ namespace Inventario.Procesos {
                 codigoProducto = dataGridView1.Rows[row].Cells[0].Value.ToString ();
                 cantidadVentida = dataGridView1.Rows[row].Cells[2].Value.ToString ();
                 precioVenta = dataGridView1.Rows[row].Cells[3].Value.ToString ();
-                storeProceduresactualizarDetalles += string.Format ("EXEC actualizarDetalles @numero_factura = {0}, @codigo_producto = {1}, @cantidad_vendida = {2}, @precio_de_venta = {3}\n", numeroFactura, codigoProducto, cantidadVentida, precioVenta);
+                storeProceduresactualizarDetalles += string.Format ("EXEC upsertDetalles @numero_factura = {0}, @codigo_producto = {1}, @cantidad_vendida = {2}, @precio_de_venta = {3}\n", numeroFactura, codigoProducto, cantidadVentida, precioVenta);
             }
             MessageBox.Show (storeProceduresactualizarDetalles);
             DS = Execution.Ejecutar (storeProceduresactualizarDetalles);
@@ -229,7 +230,7 @@ namespace Inventario.Procesos {
             } else {
                 string codigoCliente = clearString (txtCodigo);
                 string totalVenta = clearString (txtTotal);
-                string storeProcedureActualizarVentas = string.Format ("EXEC actualizarVentas @codigo_cliente={0}, @total={1}", codigoCliente, totalVenta);
+                string storeProcedureActualizarVentas = string.Format ("EXEC upsertVentas @codigo_cliente={0}, @total={1}", codigoCliente, totalVenta);
                 MessageBox.Show (storeProcedureActualizarVentas);
                 DS = Execution.Ejecutar (storeProcedureActualizarVentas);
                 DataRow row = DS.Tables[0].Rows[0];
@@ -313,6 +314,10 @@ namespace Inventario.Procesos {
 
         private void btnProcesar_Click (object sender, EventArgs e) {
             procesarProductos ();
+        }
+
+        private void txtCantidadAVender_TextChanged (object sender, EventArgs e) {
+            tryConvertInt (sender, e);
         }
 
     }

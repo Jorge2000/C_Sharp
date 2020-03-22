@@ -155,6 +155,7 @@ namespace Inventario.Procesos {
             this.txtCantidadAVender.Name = "txtCantidadAVender";
             this.txtCantidadAVender.Size = new System.Drawing.Size (154, 29);
             this.txtCantidadAVender.TabIndex = 7;
+            this.txtCantidadAVender.TextChanged += new System.EventHandler (this.txtCantidadAVender_TextChanged);
             this.txtCantidadAVender.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtCantidadProducto_KeyPress);
             this.txtCantidadAVender.Validating += new System.ComponentModel.CancelEventHandler (this.txtCantidadAVender_Validating);
             // 

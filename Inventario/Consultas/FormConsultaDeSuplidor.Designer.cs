@@ -51,6 +51,7 @@ namespace Inventario {
             // txtNombre
             // 
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.TextChanged += new System.EventHandler (this.txtNombre_TextChanged);
             // 
             // label2
             // 

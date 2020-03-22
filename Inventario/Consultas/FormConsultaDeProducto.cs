@@ -13,6 +13,7 @@ namespace Inventario.Consultas {
     public partial class FormConsultaDeProducto : FormConsulta {
         public FormConsultaDeProducto () {
             InitializeComponent ();
+            this.Consultar ();
         }
 
         public override void Seleccionar () {
@@ -53,6 +54,10 @@ namespace Inventario.Consultas {
 
         private void btnImprimir_Click (object sender, EventArgs e) {
             Imprimir ();
+        }
+
+        private void txtNombre_TextChanged (object sender, EventArgs e) {
+            this.Consultar ();
         }
     }
 }

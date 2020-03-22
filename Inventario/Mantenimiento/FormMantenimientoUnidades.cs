@@ -28,7 +28,7 @@ namespace Inventario.Mantenimiento {
             string storeProcedureUpsertUnidad = string.Format ("EXEC upsertUnidad @codigo_unidad = {0}, @nombre_unidad = '{1}', @estado = {2}", codigo, nombre, estado);
 
             DS = Execution.Ejecutar (storeProcedureUpsertUnidad);
-            MessageBox.Show ("Accion realizada con exito");
+            messageSucess ();
 
             Limpiar ();
         }
@@ -61,7 +61,10 @@ namespace Inventario.Mantenimiento {
             if (!string.IsNullOrEmpty (codigo)) {
                 string storeProcedureEliminarUnidad = string.Format ("EXEC eliminarUnidad {0}", codigo);
                 DS = Execution.Ejecutar (storeProcedureEliminarUnidad);
-                MessageBox.Show ("Accion realizada con exito");
+                messageWarning ();
+            } else {
+
+                message ("No ha especificado que Cliente desea eliminar");
             }
             Limpiar ();
         }

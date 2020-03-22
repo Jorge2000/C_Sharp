@@ -27,6 +27,26 @@ namespace Inventario {
             return;
         }
 
+        public virtual void messageSucess () {
+            MessageBox.Show ("Acci�n realizada con exito", "Acci�n Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void tryConvertInt (object sender, EventArgs e) {
+            var textbox = sender as TextBox;
+            int value;
+            if (int.TryParse (textbox.Text, out value)) {
+                if (value > 255) {
+                    textbox.Text = "255";
+                } else if (value < 0) {
+                    textbox.Text = "0";
+                }
+            }
+        }
+
+        public virtual void messageWarning () {
+            MessageBox.Show ("Acaba de eliminar dicho elemento", "Eliminaci�n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
         public virtual void Limpiar () {
             MessageBox.Show ("Limpiando");
         }
@@ -52,17 +72,26 @@ namespace Inventario {
                 var addr = new System.Net.Mail.MailAddress (email);
                 return addr.Address == email;
             } catch {
+                message ("El email que ingreso no es valido");
                 return false;
             }
         }
 
-        public virtual void validatingField (string campo, string value, TextBox txtBox) {
-            if (string.IsNullOrEmpty (value)) {
-                errorProvider.SetError (txtBox, "El campo " + campo + " no puede estar vacios");
-            } else {
-                errorProvider.SetError (txtBox, "");
+        public virtual bool isValidComboBox (ComboBox combobox) {
+            string genero = combobox.Text;
+            bool isValid = genero == "Masculino" || genero == "Femenino";
+            if (!isValid) {
+                message ("Debe de elegir un genero");
             }
+            return isValid;
+        }
 
+        public virtual bool isValidPhone (MaskedTextBox phone) {
+            bool isValid = phone.MaskCompleted;
+            if (!isValid) {
+                message ("Debe de completar el campo telefono");
+            }
+            return isValid;
         }
 
         public virtual string clearString (TextBox str) {
@@ -85,14 +114,16 @@ namespace Inventario {
             e.Handled = !(char.IsLetter (e.KeyChar) || e.KeyChar == (char) Keys.Back);
         }
 
-        public virtual void onlyFloat (object sender, KeyPressEventArgs e) {
-            if (!char.IsControl (e.KeyChar) && !char.IsDigit (e.KeyChar) &&
-                (e.KeyChar != '.')) {
+        public virtual void onlyFloat (object sender, KeyPressEventArgs e, TextBox txtBox) {
+            if (!char.IsControl (e.KeyChar) &&
+                !char.IsDigit (e.KeyChar) &&
+                e.KeyChar != '.') {
                 e.Handled = true;
             }
 
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf ('.') > -1)) {
+            if (e.KeyChar == '.' &&
+                (sender as TextBox).Text.IndexOf ('.') > -1) {
                 e.Handled = true;
             }
 

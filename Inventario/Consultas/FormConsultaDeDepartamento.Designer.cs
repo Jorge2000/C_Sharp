@@ -52,6 +52,7 @@ namespace Inventario {
             // 
             this.txtNombre.Location = new System.Drawing.Point (203, 78);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.TextChanged += new System.EventHandler (this.txtNombre_TextChanged_1);
             // 
             // label2
             // 

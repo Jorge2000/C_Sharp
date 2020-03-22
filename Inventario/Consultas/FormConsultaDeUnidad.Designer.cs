@@ -51,6 +51,7 @@ namespace Inventario.Consultas {
             // txtNombre
             // 
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.TextChanged += new System.EventHandler (this.txtNombre_TextChanged);
             // 
             // label2
             // 
@@ -73,6 +74,11 @@ namespace Inventario.Consultas {
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
             this.buttonCerrar.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.Size = new System.Drawing.Size (296, 31);
+            this.label1.Text = "    Consulta de Unidades";
             // 
             // dataGridView
             // 

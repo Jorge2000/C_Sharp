@@ -15,6 +15,39 @@ namespace Inventario.Mantenimiento {
             InitializeComponent ();
         }
 
+        public void consultarDepartamento () {
+            FormConsultaDeDepartamento ConsultaDeDepartamento = new FormConsultaDeDepartamento ();
+            if (ConsultaDeDepartamento.ShowDialog () == DialogResult.OK) {
+                txtCodigoDpto.Text = ConsultaDeDepartamento.Codigo;
+                SendKeys.Send ("{TAB}");
+            }
+            ConsultaDeDepartamento.Dispose ();
+            searchDataForegin ("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
+
+        }
+
+        public void consultarSuplidor () {
+            FormConsultaDeSuplidor ConsultaDeSuplidor = new FormConsultaDeSuplidor ();
+            if (ConsultaDeSuplidor.ShowDialog () == DialogResult.OK) {
+                txtCodigoSuplidor.Text = ConsultaDeSuplidor.Codigo;
+                SendKeys.Send ("{TAB}");
+            }
+            ConsultaDeSuplidor.Dispose ();
+            searchDataForegin ("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
+
+        }
+
+        public void consultarUnidad () {
+            FormConsultaDeUnidad ConsultaDeUnidad = new FormConsultaDeUnidad ();
+            if (ConsultaDeUnidad.ShowDialog () == DialogResult.OK) {
+                txtCodigoUnidad.Text = ConsultaDeUnidad.Codigo;
+                SendKeys.Send ("{TAB}");
+            }
+            ConsultaDeUnidad.Dispose ();
+            searchDataForegin ("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
+
+        }
+
         public void searchDataForegin (string tableName, string columna, string where, TextBox TextCodigo, TextBox TextName) {
             string value = clearString (TextCodigo);
             if (string.IsNullOrEmpty (value)) return;
@@ -43,10 +76,20 @@ namespace Inventario.Mantenimiento {
             txtPrecio.Text = "";
             checkBoxEstado.Checked = false;
             txtCodigo.Text = "";
+            txtSuplidor.Text = "";
+            txtUnidad.Text = "";
+        }
+
+        public bool validatePuntoDeReorden () {
+            float punto_reo = float.Parse (clearString (txtPunReo));
+            float cantidadExistente = float.Parse (clearString (txtCantidadExistente));
+            return cantidadExistente <= punto_reo;
         }
 
         public override void Salvar () {
             if (Controles.ValidarForm (this, ep, false)) return;
+            if (validatePuntoDeReorden ()) message ("El producto no supera el punto de reoden");
+            return;
             string codigo = clearString (txtCodigo);
             string nombre = clearString (txtNombre);
             string codigoDepartamento = clearString (txtCodigoDpto);
@@ -58,8 +101,9 @@ namespace Inventario.Mantenimiento {
             string precio = clearString (txtPrecio);
 
             string storeProcedureUpsertProducto = string.Format ("EXEC upsertProducto @codigo_producto = {0}, @nombre_producto = '{1}',@codigo_departamento = {2}, @codigo_suplidor = {3}, @cantidad_existente = {4}, @punto_reo = {5}, @codigo_unidad = {6}, @estado = {7},  @precio_de_venta = {8}", codigo, nombre, codigoDepartamento, codigoSuplidor, cantidadExistente, punto_reo, codigoUnidad, estado, precio);
+            MessageBox.Show (storeProcedureUpsertProducto);
             DS = Execution.Ejecutar (storeProcedureUpsertProducto);
-            MessageBox.Show ("Accion realizada con exito");
+            messageSucess ();
             Limpiar ();
         }
 
@@ -102,21 +146,16 @@ namespace Inventario.Mantenimiento {
             if (!string.IsNullOrEmpty (codigo)) {
                 string storeProcedureEliminarProducto = string.Format ("EXEC eliminarProducto {0}", codigo);
                 DS = Execution.Ejecutar (storeProcedureEliminarProducto);
-                MessageBox.Show ("Accion realizada con exito");
+                messageWarning ();
+            } else {
+
+                message ("No ha especificado que Cliente desea eliminar");
             }
             Limpiar ();
         }
 
-        public override void onlyFloat (object sender, KeyPressEventArgs e) {
-            base.onlyFloat (sender, e);
-        }
-
         public override void onlyInteger (object sender, KeyPressEventArgs e) {
             base.onlyInteger (sender, e);
-        }
-
-        public override void validatingField (string campo, string value, TextBox txtBox) {
-            base.validatingField (campo, value, txtBox);
         }
 
         private void label2_Click (object sender, EventArgs e) {
@@ -160,11 +199,11 @@ namespace Inventario.Mantenimiento {
         }
 
         private void txtPrecio_KeyPress (object sender, KeyPressEventArgs e) {
-            onlyFloat (sender, e);
+            onlyFloat (sender, e, txtPrecio);
         }
 
         private void txtCantidadExistente_KeyPress (object sender, KeyPressEventArgs e) {
-            onlyInteger (sender, e);
+            onlyFloat (sender, e, txtCantidadExistente);
         }
 
         private void btnEliminar_Click (object sender, EventArgs e) {
@@ -222,6 +261,22 @@ namespace Inventario.Mantenimiento {
             } else {
                 SendKeys.Send ("{TAB}");
             }
+        }
+
+        private void txtPunReo_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyFloat (sender, e, txtPunReo);
+        }
+
+        private void linkLabel4_LinkClicked (object sender, LinkLabelLinkClickedEventArgs e) {
+            consultarUnidad ();
+        }
+
+        private void linkLabel3_LinkClicked (object sender, LinkLabelLinkClickedEventArgs e) {
+            consultarSuplidor ();
+        }
+
+        private void linkLabel2_LinkClicked (object sender, LinkLabelLinkClickedEventArgs e) {
+            consultarDepartamento ();
         }
     }
 }

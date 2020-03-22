@@ -32,6 +32,7 @@ namespace Inventario {
             txtEmail.Text = "";
             txtTelefono.Text = "";
             checkBoxEstado.Checked = false;
+            comboBoxGenero.Text = "Selecciona un género";
         }
 
         public void Consulta () {
@@ -47,8 +48,9 @@ namespace Inventario {
                 DataRow row = DS.Tables[0].Rows[0];
                 txtNombre.Text = row["nombre_cliente"].ToString ().Trim ();
                 txtEmail.Text = row["email"].ToString ().Trim ();
-                txtTelefono.Text = row["telefono"].ToString ().Trim ();
+                txtTelefono.Text = row["telefono"].ToString ();
                 checkBoxEstado.Checked = Convert.ToBoolean (row["estado"]);
+                comboBoxGenero.Text = row["sexo"].ToString ().Trim ();
 
             }
 
@@ -58,16 +60,18 @@ namespace Inventario {
 
             if (Controles.ValidarForm (this, ep, false)) return;
             string nombre = clearString (txtNombre);
+            string genero = comboBoxGenero.Text;
             string email = clearString (txtEmail);
             string codigo = clearString (txtCodigo);
-            string telefono = clearString (txtTelefono);
+            string telefono = txtTelefono.Text;
             string estado = (checkBoxEstado.Checked) ? "1" : "0";
-            string storeProcedureUpsertCliente = string.Format ("EXEC upsertCliente @codigo_cliente = {0}, @nombre_cliente = '{1}', @email = '{2}', @telefono = '{3}', @estado = {4}", codigo, nombre, email, telefono, estado);
-            if (IsValidEmail (email)) {
+            string storeProcedureUpsertCliente = string.Format ("EXEC upsertCliente @codigo_cliente = {0}, @nombre_cliente = '{1}', @sexo = '{2}', @email = '{3}', @telefono = '{4}', @estado = {5}", codigo, nombre, genero, email, telefono, estado);
+            if (IsValidEmail (email) && isValidComboBox (comboBoxGenero) && isValidPhone (txtTelefono)) {
                 DS = Execution.Ejecutar (storeProcedureUpsertCliente);
-                MessageBox.Show ("Accion realizada con exito");
+                messageSucess ();
+                Limpiar ();
             }
-            Limpiar ();
+
         }
 
         public override void Eliminar () {
@@ -75,17 +79,16 @@ namespace Inventario {
             if (!string.IsNullOrEmpty (codigo)) {
                 string storeProcedureEliminarCliente = string.Format ("EXEC eliminarCliente {0}", codigo);
                 DS = Execution.Ejecutar (storeProcedureEliminarCliente);
-                MessageBox.Show ("Accion realizada con exito");
+                messageWarning ();
+            } else {
+
+                message ("No ha especificado que Cliente desea eliminar");
             }
             Limpiar ();
         }
 
         public override void onlyInteger (object sender, KeyPressEventArgs e) {
             base.onlyInteger (sender, e);
-        }
-
-        public override void validatingField (string campo, string value, TextBox txtBox) {
-            base.validatingField (campo, value, txtBox);
         }
 
         public override string clearString (TextBox str) {
@@ -127,6 +130,10 @@ namespace Inventario {
 
         private void linkLabel1_LinkClicked (object sender, LinkLabelLinkClickedEventArgs e) {
             Consultar ();
+        }
+
+        private void comboBoxGenero_KeyPress (object sender, KeyPressEventArgs e) {
+            e.Handled = true;
         }
 
     }

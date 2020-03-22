@@ -60,6 +60,7 @@ namespace Inventario.Reportes {
             this.dateTimePicker1.Font = new System.Drawing.Font ("Arial", 10F);
             this.dateTimePicker1.Location = new System.Drawing.Point (405, 67);
             this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size (241, 23);
             this.dateTimePicker1.TabIndex = 1;
             // 

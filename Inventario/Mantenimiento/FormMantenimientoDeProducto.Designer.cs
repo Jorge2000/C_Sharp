@@ -28,14 +28,11 @@ namespace Inventario.Mantenimiento {
             this.txtNombre = new System.Windows.Forms.TextBox ();
             this.txtCodigo = new System.Windows.Forms.TextBox ();
             this.label2 = new System.Windows.Forms.Label ();
-            this.label5 = new System.Windows.Forms.Label ();
-            this.label6 = new System.Windows.Forms.Label ();
             this.label7 = new System.Windows.Forms.Label ();
             this.txtCodigoDpto = new System.Windows.Forms.TextBox ();
             this.txtCodigoSuplidor = new System.Windows.Forms.TextBox ();
             this.txtPunReo = new System.Windows.Forms.TextBox ();
             this.label8 = new System.Windows.Forms.Label ();
-            this.label9 = new System.Windows.Forms.Label ();
             this.txtCodigoUnidad = new System.Windows.Forms.TextBox ();
             this.txtCantidadExistente = new System.Windows.Forms.TextBox ();
             this.checkBoxEstado = new System.Windows.Forms.CheckBox ();
@@ -46,6 +43,9 @@ namespace Inventario.Mantenimiento {
             this.txtUnidad = new System.Windows.Forms.TextBox ();
             this.label12 = new System.Windows.Forms.Label ();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel ();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel ();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel ();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel ();
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
@@ -141,35 +141,12 @@ namespace Inventario.Mantenimiento {
             this.label2.Text = "Nombre";
             this.label2.Click += new System.EventHandler (this.label2_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label5.Location = new System.Drawing.Point (26, 152);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size (123, 22);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Código Dpto.";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label6.Location = new System.Drawing.Point (22, 199);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size (147, 22);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Código Suplidor";
-            this.label6.Click += new System.EventHandler (this.label6_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label7.Location = new System.Drawing.Point (22, 248);
+            this.label7.Location = new System.Drawing.Point (22, 296);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size (168, 22);
             this.label7.TabIndex = 28;
@@ -203,6 +180,7 @@ namespace Inventario.Mantenimiento {
             this.txtPunReo.Name = "txtPunReo";
             this.txtPunReo.Size = new System.Drawing.Size (68, 29);
             this.txtPunReo.TabIndex = 11;
+            this.txtPunReo.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtPunReo_KeyPress);
             // 
             // label8
             // 
@@ -215,34 +193,23 @@ namespace Inventario.Mantenimiento {
             this.label8.TabIndex = 32;
             this.label8.Text = "PunReo";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label9.Location = new System.Drawing.Point (24, 299);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size (136, 22);
-            this.label9.TabIndex = 35;
-            this.label9.Text = "Código Unidad";
-            // 
             // txtCodigoUnidad
             // 
             this.txtCodigoUnidad.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.txtCodigoUnidad.Location = new System.Drawing.Point (193, 296);
+            this.txtCodigoUnidad.Location = new System.Drawing.Point (193, 246);
             this.txtCodigoUnidad.Name = "txtCodigoUnidad";
             this.txtCodigoUnidad.Size = new System.Drawing.Size (68, 29);
-            this.txtCodigoUnidad.TabIndex = 9;
+            this.txtCodigoUnidad.TabIndex = 7;
             this.txtCodigoUnidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtCodigoUnidad_KeyPress);
             this.txtCodigoUnidad.Validating += new System.ComponentModel.CancelEventHandler (this.txtCodigoUnidad_Validating);
             // 
             // txtCantidadExistente
             // 
             this.txtCantidadExistente.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.txtCantidadExistente.Location = new System.Drawing.Point (193, 245);
+            this.txtCantidadExistente.Location = new System.Drawing.Point (193, 293);
             this.txtCantidadExistente.Name = "txtCantidadExistente";
             this.txtCantidadExistente.Size = new System.Drawing.Size (68, 29);
-            this.txtCantidadExistente.TabIndex = 7;
+            this.txtCantidadExistente.TabIndex = 9;
             this.txtCantidadExistente.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtCantidadExistente_KeyPress);
             // 
             // checkBoxEstado
@@ -259,10 +226,10 @@ namespace Inventario.Mantenimiento {
             // 
             // txtDepartamento
             // 
-            this.txtDepartamento.Enabled = false;
             this.txtDepartamento.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.txtDepartamento.Location = new System.Drawing.Point (441, 147);
             this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.ReadOnly = true;
             this.txtDepartamento.Size = new System.Drawing.Size (198, 29);
             this.txtDepartamento.TabIndex = 4;
             this.txtDepartamento.TextChanged += new System.EventHandler (this.txtDepartamento_TextChanged);
@@ -281,10 +248,10 @@ namespace Inventario.Mantenimiento {
             // 
             // txtSuplidor
             // 
-            this.txtSuplidor.Enabled = false;
             this.txtSuplidor.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.txtSuplidor.Location = new System.Drawing.Point (441, 196);
             this.txtSuplidor.Name = "txtSuplidor";
+            this.txtSuplidor.ReadOnly = true;
             this.txtSuplidor.Size = new System.Drawing.Size (198, 29);
             this.txtSuplidor.TabIndex = 6;
             this.txtSuplidor.Validating += new System.ComponentModel.CancelEventHandler (this.txtSuplidor_Validating);
@@ -302,10 +269,10 @@ namespace Inventario.Mantenimiento {
             // 
             // txtUnidad
             // 
-            this.txtUnidad.Enabled = false;
             this.txtUnidad.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.txtUnidad.Location = new System.Drawing.Point (441, 245);
             this.txtUnidad.Name = "txtUnidad";
+            this.txtUnidad.ReadOnly = true;
             this.txtUnidad.Size = new System.Drawing.Size (198, 29);
             this.txtUnidad.TabIndex = 8;
             this.txtUnidad.Validating += new System.ComponentModel.CancelEventHandler (this.txtUnidad_Validating);
@@ -334,11 +301,53 @@ namespace Inventario.Mantenimiento {
             this.linkLabel1.Text = "Código";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel1_LinkClicked);
             // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel2.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.linkLabel2.Location = new System.Drawing.Point (28, 156);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size (123, 22);
+            this.linkLabel2.TabIndex = 45;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Código Dpto.";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel2_LinkClicked);
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel3.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.linkLabel3.Location = new System.Drawing.Point (28, 202);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size (147, 22);
+            this.linkLabel3.TabIndex = 46;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Código Suplidor";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel3_LinkClicked);
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel4.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.linkLabel4.Location = new System.Drawing.Point (24, 253);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size (136, 22);
+            this.linkLabel4.TabIndex = 47;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Código Unidad";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel4_LinkClicked);
+            // 
             // FormMantenimientoDeProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size (786, 447);
+            this.Controls.Add (this.linkLabel4);
+            this.Controls.Add (this.linkLabel3);
+            this.Controls.Add (this.linkLabel2);
             this.Controls.Add (this.linkLabel1);
             this.Controls.Add (this.txtUnidad);
             this.Controls.Add (this.label12);
@@ -348,15 +357,12 @@ namespace Inventario.Mantenimiento {
             this.Controls.Add (this.label10);
             this.Controls.Add (this.checkBoxEstado);
             this.Controls.Add (this.txtCantidadExistente);
-            this.Controls.Add (this.label9);
             this.Controls.Add (this.txtCodigoUnidad);
             this.Controls.Add (this.txtPunReo);
             this.Controls.Add (this.label8);
             this.Controls.Add (this.txtCodigoSuplidor);
             this.Controls.Add (this.txtCodigoDpto);
             this.Controls.Add (this.label7);
-            this.Controls.Add (this.label6);
-            this.Controls.Add (this.label5);
             this.Controls.Add (this.txtPrecio);
             this.Controls.Add (this.label4);
             this.Controls.Add (this.txtNombre);
@@ -371,15 +377,12 @@ namespace Inventario.Mantenimiento {
             this.Controls.SetChildIndex (this.txtNombre, 0);
             this.Controls.SetChildIndex (this.label4, 0);
             this.Controls.SetChildIndex (this.txtPrecio, 0);
-            this.Controls.SetChildIndex (this.label5, 0);
-            this.Controls.SetChildIndex (this.label6, 0);
             this.Controls.SetChildIndex (this.label7, 0);
             this.Controls.SetChildIndex (this.txtCodigoDpto, 0);
             this.Controls.SetChildIndex (this.txtCodigoSuplidor, 0);
             this.Controls.SetChildIndex (this.label8, 0);
             this.Controls.SetChildIndex (this.txtPunReo, 0);
             this.Controls.SetChildIndex (this.txtCodigoUnidad, 0);
-            this.Controls.SetChildIndex (this.label9, 0);
             this.Controls.SetChildIndex (this.txtCantidadExistente, 0);
             this.Controls.SetChildIndex (this.checkBoxEstado, 0);
             this.Controls.SetChildIndex (this.label10, 0);
@@ -389,6 +392,9 @@ namespace Inventario.Mantenimiento {
             this.Controls.SetChildIndex (this.label12, 0);
             this.Controls.SetChildIndex (this.txtUnidad, 0);
             this.Controls.SetChildIndex (this.linkLabel1, 0);
+            this.Controls.SetChildIndex (this.linkLabel2, 0);
+            this.Controls.SetChildIndex (this.linkLabel3, 0);
+            this.Controls.SetChildIndex (this.linkLabel4, 0);
             this.panel1.ResumeLayout (false);
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();
@@ -406,14 +412,11 @@ namespace Inventario.Mantenimiento {
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCodigoDpto;
         private System.Windows.Forms.TextBox txtCodigoSuplidor;
         private System.Windows.Forms.TextBox txtPunReo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCodigoUnidad;
         private System.Windows.Forms.TextBox txtCantidadExistente;
         private System.Windows.Forms.CheckBox checkBoxEstado;
@@ -424,5 +427,8 @@ namespace Inventario.Mantenimiento {
         private System.Windows.Forms.TextBox txtUnidad;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel4;
     }
 }
