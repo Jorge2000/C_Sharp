@@ -317,7 +317,7 @@ namespace Inventario.Procesos {
         }
 
         private void txtCantidadAVender_TextChanged (object sender, EventArgs e) {
-            tryConvertInt (sender, e);
+            limitadorDeCantidad(sender, e, 150);
         }
 
     }

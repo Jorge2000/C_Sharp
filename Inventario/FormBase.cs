@@ -31,12 +31,14 @@ namespace Inventario {
             MessageBox.Show ("Acci�n realizada con exito", "Acci�n Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void tryConvertInt (object sender, EventArgs e) {
+        public virtual void limitadorDeCantidad (object sender, EventArgs e, int cantidad) {
             var textbox = sender as TextBox;
             int value;
             if (int.TryParse (textbox.Text, out value)) {
-                if (value > 255) {
-                    textbox.Text = "255";
+                if (value > cantidad)
+                {
+                    message("La Maxima cantidad que se puede ingresar es " + cantidad);
+                    textbox.Text = cantidad +"";
                 } else if (value < 0) {
                     textbox.Text = "0";
                 }

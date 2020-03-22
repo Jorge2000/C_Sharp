@@ -78,6 +78,7 @@ namespace Inventario.Mantenimiento {
             txtCodigo.Text = "";
             txtSuplidor.Text = "";
             txtUnidad.Text = "";
+            txtDepartamento.Text = "";
         }
 
         public bool validatePuntoDeReorden () {
@@ -88,8 +89,7 @@ namespace Inventario.Mantenimiento {
 
         public override void Salvar () {
             if (Controles.ValidarForm (this, ep, false)) return;
-            if (validatePuntoDeReorden ()) message ("El producto no supera el punto de reoden");
-            return;
+            if (validatePuntoDeReorden()) { message("El producto no supera el punto de reoden"); return; }
             string codigo = clearString (txtCodigo);
             string nombre = clearString (txtNombre);
             string codigoDepartamento = clearString (txtCodigoDpto);
@@ -115,20 +115,21 @@ namespace Inventario.Mantenimiento {
             DS = Execution.Ejecutar (storeProcedureConsultarProducto);
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
-            if (countTable > 0 && countRows > 0) {
+            if (countTable > 0 && countRows > 0)
+            {
                 DataRow row = DS.Tables[0].Rows[0];
-                txtNombre.Text = row["nombre_producto"].ToString ();
-                txtCodigoDpto.Text = row["codigo_departamento"].ToString ();
-                txtCodigoSuplidor.Text = row["codigo_suplidor"].ToString ();
-                txtCantidadExistente.Text = row["cantidad_existente"].ToString ();
-                txtPunReo.Text = row["punto_reo"].ToString ();
-                txtCodigoUnidad.Text = row["codigo_unidad"].ToString ();
-                txtPrecio.Text = row["precio_de_venta"].ToString ();
-                checkBoxEstado.Checked = Convert.ToBoolean (row["estado"].ToString ());
+                txtNombre.Text = row["nombre_producto"].ToString();
+                txtCodigoDpto.Text = row["codigo_departamento"].ToString();
+                txtCodigoSuplidor.Text = row["codigo_suplidor"].ToString();
+                txtCantidadExistente.Text = row["cantidad_existente"].ToString();
+                txtPunReo.Text = row["punto_reo"].ToString();
+                txtCodigoUnidad.Text = row["codigo_unidad"].ToString();
+                txtPrecio.Text = row["precio_de_venta"].ToString();
+                checkBoxEstado.Checked = Convert.ToBoolean(row["estado"].ToString());
 
-                searchDataForegin ("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
-                searchDataForegin ("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
-                searchDataForegin ("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
+                searchDataForegin("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
+                searchDataForegin("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
+                searchDataForegin("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
             }
         }
 
@@ -187,7 +188,7 @@ namespace Inventario.Mantenimiento {
         }
 
         private void txtCodigoSuplidor_TextChanged (object sender, EventArgs e) {
-
+            searchDataForegin("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
         }
 
         private void txtCodigoSuplidor_KeyPress (object sender, KeyPressEventArgs e) {
@@ -277,6 +278,31 @@ namespace Inventario.Mantenimiento {
 
         private void linkLabel2_LinkClicked (object sender, LinkLabelLinkClickedEventArgs e) {
             consultarDepartamento ();
+        }
+
+        private void txtCodigoDpto_TextChanged(object sender, EventArgs e)
+        {
+            searchDataForegin("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
+        }
+
+        private void txtCodigoUnidad_TextChanged(object sender, EventArgs e)
+        {
+            searchDataForegin("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
+        }
+
+        private void txtCantidadExistente_TextChanged(object sender, EventArgs e)
+        {
+            limitadorDeCantidad(sender, e, 190);
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            limitadorDeCantidad(sender, e, 1000);
+        }
+
+        private void txtPunReo_TextChanged(object sender, EventArgs e)
+        {
+            limitadorDeCantidad(sender, e, 20);
         }
     }
 }
