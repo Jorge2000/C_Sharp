@@ -22,7 +22,7 @@ namespace Inventario {
             buttonCerrar.FlatStyle = FlatStyle.Flat;
         }
 
-        public virtual void message (string messageTxt) {
+        public virtual void messageExlamation (string messageTxt) {
             MessageBox.Show (messageTxt, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return;
         }
@@ -31,14 +31,13 @@ namespace Inventario {
             MessageBox.Show ("Acci�n realizada con exito", "Acci�n Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public virtual void limitadorDeCantidad (object sender, EventArgs e, int cantidad) {
+        public virtual void limitadorDeCantidad (object sender, EventArgs e, string message, int cantidad) {
             var textbox = sender as TextBox;
             int value;
             if (int.TryParse (textbox.Text, out value)) {
-                if (value > cantidad)
-                {
-                    message("La Maxima cantidad que se puede ingresar es " + cantidad);
-                    textbox.Text = cantidad +"";
+                if (value > cantidad) {
+                    messageExlamation ("message " + cantidad);
+                    textbox.Text = cantidad + "";
                 } else if (value < 0) {
                     textbox.Text = "0";
                 }
@@ -68,22 +67,37 @@ namespace Inventario {
         public virtual void Imprimir () {
             MessageBox.Show ("Imprimiendo...");
         }
+        public virtual bool validarCamposEspeciales (DateTimePicker fecha, ComboBox combobox, string email) {
+            return isValidDate (fecha) && isValidComboBox (combobox) && isValidEmail (email);
 
-        public virtual bool IsValidEmail (string email) {
+        }
+        public virtual bool isValidEmail (string email) {
             try {
                 var addr = new System.Net.Mail.MailAddress (email);
                 return addr.Address == email;
             } catch {
-                message ("El email que ingreso no es valido");
+                messageExlamation ("El email que ingreso no es valido");
                 return false;
             }
+        }
+
+        public virtual bool isValidDate (DateTimePicker fecha) {
+            int fechaNacimiento = DateTime.Parse (fecha.Text).Year;
+            int hoy = DateTime.Today.Year;
+            int age = hoy - fechaNacimiento;
+            bool isValid = age < 18;
+            if (isValid) {
+                messageExlamation ("Solamente aceptamos personas mayores de edad");
+            }
+            return isValid;
+
         }
 
         public virtual bool isValidComboBox (ComboBox combobox) {
             string genero = combobox.Text;
             bool isValid = genero == "Masculino" || genero == "Femenino";
             if (!isValid) {
-                message ("Debe de elegir un genero");
+                messageExlamation ("Debe de elegir un genero");
             }
             return isValid;
         }
@@ -91,7 +105,7 @@ namespace Inventario {
         public virtual bool isValidPhone (MaskedTextBox phone) {
             bool isValid = phone.MaskCompleted;
             if (!isValid) {
-                message ("Debe de completar el campo telefono");
+                messageExlamation ("Debe de completar el campo telefono");
             }
             return isValid;
         }

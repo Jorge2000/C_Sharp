@@ -33,6 +33,7 @@ namespace Inventario {
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.comboBoxGenero = new System.Windows.Forms.ComboBox();
             this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.dateTimePickerFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
@@ -43,7 +44,7 @@ namespace Inventario {
             // 
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.Font = new System.Drawing.Font("Arial", 11F);
-            this.btnSalvar.Location = new System.Drawing.Point(11, 209);
+            this.btnSalvar.Location = new System.Drawing.Point(11, 276);
             this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "        Salvar          Cliente";
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -52,7 +53,7 @@ namespace Inventario {
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 11F);
-            this.btnBuscar.Location = new System.Drawing.Point(11, 270);
+            this.btnBuscar.Location = new System.Drawing.Point(11, 337);
             this.btnBuscar.Text = "        Buscar          Cliente";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -60,7 +61,7 @@ namespace Inventario {
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 11F);
-            this.btnEliminar.Location = new System.Drawing.Point(11, 332);
+            this.btnEliminar.Location = new System.Drawing.Point(11, 399);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "        Eliminar          Cliente";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -68,12 +69,12 @@ namespace Inventario {
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(644, 0);
-            this.panel1.Size = new System.Drawing.Size(141, 442);
+            this.panel1.Size = new System.Drawing.Size(141, 508);
             // 
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
-            this.buttonCerrar.Location = new System.Drawing.Point(11, 391);
+            this.buttonCerrar.Location = new System.Drawing.Point(11, 458);
             this.buttonCerrar.TabIndex = 9;
             this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
@@ -191,11 +192,22 @@ namespace Inventario {
             this.txtTelefono.Size = new System.Drawing.Size(252, 29);
             this.txtTelefono.TabIndex = 4;
             // 
+            // dateTimePickerFechaNacimiento
+            // 
+            this.dateTimePickerFechaNacimiento.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePickerFechaNacimiento.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.dateTimePickerFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerFechaNacimiento.Location = new System.Drawing.Point(30, 432);
+            this.dateTimePickerFechaNacimiento.Name = "dateTimePickerFechaNacimiento";
+            this.dateTimePickerFechaNacimiento.Size = new System.Drawing.Size(344, 29);
+            this.dateTimePickerFechaNacimiento.TabIndex = 26;
+            // 
             // FormMantenimientoDeCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 442);
+            this.ClientSize = new System.Drawing.Size(785, 508);
+            this.Controls.Add(this.dateTimePickerFechaNacimiento);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.comboBoxGenero);
             this.Controls.Add(this.linkLabel1);
@@ -220,6 +232,7 @@ namespace Inventario {
             this.Controls.SetChildIndex(this.linkLabel1, 0);
             this.Controls.SetChildIndex(this.comboBoxGenero, 0);
             this.Controls.SetChildIndex(this.txtTelefono, 0);
+            this.Controls.SetChildIndex(this.dateTimePickerFechaNacimiento, 0);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -242,5 +255,6 @@ namespace Inventario {
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ComboBox comboBoxGenero;
         private System.Windows.Forms.MaskedTextBox txtTelefono;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFechaNacimiento;
     }
 }

@@ -87,9 +87,7 @@ namespace Inventario.Mantenimiento {
             return cantidadExistente <= punto_reo;
         }
 
-        public override void Salvar () {
-            if (Controles.ValidarForm (this, ep, false)) return;
-            if (validatePuntoDeReorden()) { message("El producto no supera el punto de reoden"); return; }
+        public string makeStoreProcedure () {
             string codigo = clearString (txtCodigo);
             string nombre = clearString (txtNombre);
             string codigoDepartamento = clearString (txtCodigoDpto);
@@ -99,12 +97,33 @@ namespace Inventario.Mantenimiento {
             string codigoUnidad = clearString (txtCodigoUnidad);
             string estado = (checkBoxEstado.Checked) ? "1" : "0";
             string precio = clearString (txtPrecio);
-
             string storeProcedureUpsertProducto = string.Format ("EXEC upsertProducto @codigo_producto = {0}, @nombre_producto = '{1}',@codigo_departamento = {2}, @codigo_suplidor = {3}, @cantidad_existente = {4}, @punto_reo = {5}, @codigo_unidad = {6}, @estado = {7},  @precio_de_venta = {8}", codigo, nombre, codigoDepartamento, codigoSuplidor, cantidadExistente, punto_reo, codigoUnidad, estado, precio);
-            MessageBox.Show (storeProcedureUpsertProducto);
+            return storeProcedureUpsertProducto;
+
+        }
+
+        public override void Salvar () {
+            if (Controles.ValidarForm (this, ep, false)) return;
+            if (validatePuntoDeReorden ()) { messageExlamation ("El producto no supera el punto de reoden"); return; }
+            string storeProcedureUpsertProducto = makeStoreProcedure ();
             DS = Execution.Ejecutar (storeProcedureUpsertProducto);
             messageSucess ();
             Limpiar ();
+        }
+
+        public void fillCampos (DataSet DS) {
+            DataRow row = DS.Tables[0].Rows[0];
+            txtNombre.Text = row["nombre_producto"].ToString ();
+            txtCodigoDpto.Text = row["codigo_departamento"].ToString ();
+            txtCodigoSuplidor.Text = row["codigo_suplidor"].ToString ();
+            txtCantidadExistente.Text = row["cantidad_existente"].ToString ();
+            txtPunReo.Text = row["punto_reo"].ToString ();
+            txtCodigoUnidad.Text = row["codigo_unidad"].ToString ();
+            txtPrecio.Text = row["precio_de_venta"].ToString ();
+            checkBoxEstado.Checked = Convert.ToBoolean (row["estado"].ToString ());
+            searchDataForegin ("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
+            searchDataForegin ("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
+            searchDataForegin ("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
         }
 
         public void Consulta () {
@@ -115,21 +134,8 @@ namespace Inventario.Mantenimiento {
             DS = Execution.Ejecutar (storeProcedureConsultarProducto);
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
-            if (countTable > 0 && countRows > 0)
-            {
-                DataRow row = DS.Tables[0].Rows[0];
-                txtNombre.Text = row["nombre_producto"].ToString();
-                txtCodigoDpto.Text = row["codigo_departamento"].ToString();
-                txtCodigoSuplidor.Text = row["codigo_suplidor"].ToString();
-                txtCantidadExistente.Text = row["cantidad_existente"].ToString();
-                txtPunReo.Text = row["punto_reo"].ToString();
-                txtCodigoUnidad.Text = row["codigo_unidad"].ToString();
-                txtPrecio.Text = row["precio_de_venta"].ToString();
-                checkBoxEstado.Checked = Convert.ToBoolean(row["estado"].ToString());
-
-                searchDataForegin("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
-                searchDataForegin("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
-                searchDataForegin("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
+            if (countTable > 0 && countRows > 0) {
+                fillCampos (DS);
             }
         }
 
@@ -150,7 +156,7 @@ namespace Inventario.Mantenimiento {
                 messageWarning ();
             } else {
 
-                message ("No ha especificado que Cliente desea eliminar");
+                messageExlamation ("No ha especificado que Cliente desea eliminar");
             }
             Limpiar ();
         }
@@ -188,7 +194,7 @@ namespace Inventario.Mantenimiento {
         }
 
         private void txtCodigoSuplidor_TextChanged (object sender, EventArgs e) {
-            searchDataForegin("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
+            searchDataForegin ("suplidor", "nombre_suplidor", "codigo_suplidor", txtCodigoSuplidor, txtSuplidor);
         }
 
         private void txtCodigoSuplidor_KeyPress (object sender, KeyPressEventArgs e) {
@@ -280,29 +286,28 @@ namespace Inventario.Mantenimiento {
             consultarDepartamento ();
         }
 
-        private void txtCodigoDpto_TextChanged(object sender, EventArgs e)
-        {
-            searchDataForegin("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
+        private void txtCodigoDpto_TextChanged (object sender, EventArgs e) {
+            searchDataForegin ("departamento", "nombre_departamento", "codigo_departamento", txtCodigoDpto, txtDepartamento);
         }
 
-        private void txtCodigoUnidad_TextChanged(object sender, EventArgs e)
-        {
-            searchDataForegin("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
+        private void txtCodigoUnidad_TextChanged (object sender, EventArgs e) {
+            searchDataForegin ("unidad", "nombre_unidad", "codigo_unidad", txtCodigoUnidad, txtUnidad);
         }
 
-        private void txtCantidadExistente_TextChanged(object sender, EventArgs e)
-        {
-            limitadorDeCantidad(sender, e, 190);
+        private void txtCantidadExistente_TextChanged (object sender, EventArgs e) {
+            limitadorDeCantidad (sender, e, "El n�mero m�ximo de existencia de un producto es ", 190);
         }
 
-        private void txtPrecio_TextChanged(object sender, EventArgs e)
-        {
-            limitadorDeCantidad(sender, e, 1000);
+        private void txtPrecio_TextChanged (object sender, EventArgs e) {
+            limitadorDeCantidad (sender, e, "El mayor precio que puede tener un producto es de ", 1000);
         }
 
-        private void txtPunReo_TextChanged(object sender, EventArgs e)
-        {
-            limitadorDeCantidad(sender, e, 20);
+        private void txtPunReo_TextChanged (object sender, EventArgs e) {
+            limitadorDeCantidad (sender, e, "El m�ximo punto de reorden es de ", 20);
+        }
+
+        private void FormMantenimientoDeProducto_Load (object sender, EventArgs e) {
+
         }
     }
 }

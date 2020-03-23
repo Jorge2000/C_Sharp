@@ -23,77 +23,77 @@ namespace Inventario.Mantenimiento {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent () {
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.checkBoxEstado = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
-            this.SuspendLayout();
+            this.txtNombre = new System.Windows.Forms.TextBox ();
+            this.txtCodigo = new System.Windows.Forms.TextBox ();
+            this.checkBoxEstado = new System.Windows.Forms.CheckBox ();
+            this.label2 = new System.Windows.Forms.Label ();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel ();
+            this.panel1.SuspendLayout ();
+            this.panel2.SuspendLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
+            this.SuspendLayout ();
             // 
             // btnSalvar
             // 
             this.btnSalvar.FlatAppearance.BorderSize = 0;
-            this.btnSalvar.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnSalvar.Font = new System.Drawing.Font ("Arial", 11F);
             this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "         Salvar            Dpto.";
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
+            this.btnSalvar.Click += new System.EventHandler (this.btnSalvar_Click_1);
             // 
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnBuscar.Font = new System.Drawing.Font ("Arial", 11F);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "        Buscar            Dpto.";
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
+            this.btnBuscar.Click += new System.EventHandler (this.btnBuscar_Click_1);
             // 
             // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial", 11F);
+            this.btnEliminar.Font = new System.Drawing.Font ("Arial", 11F);
             this.btnEliminar.Text = "        Eliminar          Dpto.";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            this.btnEliminar.Click += new System.EventHandler (this.btnEliminar_Click_1);
             // 
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
             this.buttonCerrar.TabIndex = 7;
-            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click_1);
+            this.buttonCerrar.Click += new System.EventHandler (this.buttonCerrar_Click_1);
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(438, 31);
+            this.label1.Size = new System.Drawing.Size (438, 31);
             this.label1.Text = "      Mantenimiento de departamentos";
             // 
             // txtNombre
             // 
-            this.txtNombre.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(126, 156);
+            this.txtNombre.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.txtNombre.Location = new System.Drawing.Point (126, 156);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(177, 29);
+            this.txtNombre.Size = new System.Drawing.Size (177, 29);
             this.txtNombre.TabIndex = 2;
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(126, 95);
+            this.txtCodigo.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.txtCodigo.Location = new System.Drawing.Point (126, 95);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(177, 29);
+            this.txtCodigo.Size = new System.Drawing.Size (177, 29);
             this.txtCodigo.TabIndex = 1;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
-            this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigo_Validating_1);
+            this.txtCodigo.TextChanged += new System.EventHandler (this.txtCodigo_TextChanged);
+            this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler (this.txtCodigo_Validating_1);
             // 
             // checkBoxEstado
             // 
             this.checkBoxEstado.AutoSize = true;
             this.checkBoxEstado.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxEstado.Font = new System.Drawing.Font("Arial", 14F);
-            this.checkBoxEstado.Location = new System.Drawing.Point(27, 213);
+            this.checkBoxEstado.Font = new System.Drawing.Font ("Arial", 14F);
+            this.checkBoxEstado.Location = new System.Drawing.Point (27, 213);
             this.checkBoxEstado.Name = "checkBoxEstado";
-            this.checkBoxEstado.Size = new System.Drawing.Size(89, 26);
+            this.checkBoxEstado.Size = new System.Drawing.Size (89, 26);
             this.checkBoxEstado.TabIndex = 3;
             this.checkBoxEstado.Text = "Estado";
             this.checkBoxEstado.UseVisualStyleBackColor = false;
@@ -102,10 +102,10 @@ namespace Inventario.Mantenimiento {
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 163);
+            this.label2.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label2.Location = new System.Drawing.Point (23, 163);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 22);
+            this.label2.Size = new System.Drawing.Size (78, 22);
             this.label2.TabIndex = 7;
             this.label2.Text = "Nombre";
             // 
@@ -113,41 +113,41 @@ namespace Inventario.Mantenimiento {
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.linkLabel1.Location = new System.Drawing.Point(23, 98);
+            this.linkLabel1.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.linkLabel1.Location = new System.Drawing.Point (23, 98);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(72, 22);
+            this.linkLabel1.Size = new System.Drawing.Size (72, 22);
             this.linkLabel1.TabIndex = 17;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Código";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel1_LinkClicked);
             // 
             // FormMantenimientoDeDepartamento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 362);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtCodigo);
-            this.Controls.Add(this.checkBoxEstado);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size (786, 362);
+            this.Controls.Add (this.linkLabel1);
+            this.Controls.Add (this.txtNombre);
+            this.Controls.Add (this.txtCodigo);
+            this.Controls.Add (this.checkBoxEstado);
+            this.Controls.Add (this.label2);
             this.Name = "FormMantenimientoDeDepartamento";
             this.Text = "Mantenimiento de departamentos";
-            this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.checkBoxEstado, 0);
-            this.Controls.SetChildIndex(this.txtCodigo, 0);
-            this.Controls.SetChildIndex(this.txtNombre, 0);
-            this.Controls.SetChildIndex(this.linkLabel1, 0);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            this.Controls.SetChildIndex (this.panel1, 0);
+            this.Controls.SetChildIndex (this.panel2, 0);
+            this.Controls.SetChildIndex (this.label2, 0);
+            this.Controls.SetChildIndex (this.checkBoxEstado, 0);
+            this.Controls.SetChildIndex (this.txtCodigo, 0);
+            this.Controls.SetChildIndex (this.txtNombre, 0);
+            this.Controls.SetChildIndex (this.linkLabel1, 0);
+            this.panel1.ResumeLayout (false);
+            this.panel2.ResumeLayout (false);
+            this.panel2.PerformLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
+            this.ResumeLayout (false);
+            this.PerformLayout ();
 
         }
 

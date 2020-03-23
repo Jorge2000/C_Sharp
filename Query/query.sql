@@ -37,11 +37,11 @@ GO
    nombre_producto varchar(50),
    codigo_departamento int not null,
    codigo_suplidor int not null,
-   cantidad_existente int,
-   punto_reo int,
+   cantidad_existente float(2),
+   punto_reo float(2),
    codigo_unidad int not null,
    estado bit,
-   precio_de_venta int
+   precio_de_venta money
  )
 GO
 
@@ -74,7 +74,7 @@ Create table venta(
    fecha date,
    codigo_cliente int not null,
    estado bit,
-   total int
+   total float(2)
  );
 GO
 
@@ -88,9 +88,9 @@ GO
 
 Create table detalles(
    numero_factura int not null,
-   cantidad_vendida int,
+   cantidad_vendida float(2),
    codigo_producto int not null,
-   precio_de_venta int);
+   precio_de_venta float(2));
 GO
 
 ALTER TABLE detalles
@@ -115,18 +115,27 @@ CREATE PROCEDURE upsertCliente
     @sexo varchar(50),
     @email varchar(50),
     @telefono varchar(50),
-    @estado bit
+    @estado bit,
+    @fecha_de_nacimiento date
 AS
 	SET IDENTITY_INSERT cliente ON
     IF NOT EXISTS (SELECT codigo_cliente FROM cliente WHERE codigo_cliente = @codigo_cliente)
-        INSERT INTO cliente (codigo_cliente, nombre_cliente,sexo, email, telefono, estado) VALUES (@codigo_cliente, @nombre_cliente, @sexo, @email, @telefono, @estado)
+        INSERT INTO cliente (codigo_cliente, nombre_cliente,sexo, email, telefono, estado, fecha_de_nacimiento) VALUES (@codigo_cliente, @nombre_cliente, @sexo, @email, @telefono, @estado, @fecha_de_nacimiento)
     ELSE 
-        UPDATE cliente SET nombre_cliente =  @nombre_cliente, sexo = @sexo, email =  @email, telefono =  @telefono, estado =  @estado WHERE codigo_cliente =  @codigo_cliente
+        UPDATE cliente SET nombre_cliente =  @nombre_cliente, sexo = @sexo, email =  @email, telefono =  @telefono, estado =  @estado, fecha_de_nacimiento = @fecha_de_nacimiento WHERE codigo_cliente =  @codigo_cliente
     SELECT @codigo_cliente AS codigo_cliente
 GO
 
 CREATE PROCEDURE upsertProducto
-   @codigo_producto int, @nombre_producto varchar(50), @codigo_departamento int, @codigo_suplidor int, @cantidad_existente int, @punto_reo int, @codigo_unidad int, @estado bit, @precio_de_venta int
+   @codigo_producto int, 
+   @nombre_producto varchar(50), 
+   @codigo_departamento int, 
+   @codigo_suplidor int, 
+   @cantidad_existente float(2), 
+   @punto_reo float(2), 
+   @codigo_unidad int, 
+   @estado bit, 
+   @precio_de_venta money
 AS
 	SET IDENTITY_INSERT producto ON
     IF NOT EXISTS (SELECT codigo_producto FROM producto WHERE codigo_producto = @codigo_producto)
@@ -148,13 +157,19 @@ AS
 GO
 
 CREATE PROCEDURE upsertSuplidor
-    @codigo_suplidor int, @nombre_suplidor varchar(50), @sexo varchar(50), @email varchar(50), @telefono varchar(50), @estado bit
+    @codigo_suplidor int, 
+    @nombre_suplidor varchar(50), 
+    @sexo varchar(50), 
+    @email varchar(50), 
+    @telefono varchar(50), 
+    @estado bit,
+    @fecha_de_nacimiento date
 AS
 	SET IDENTITY_INSERT suplidor ON
     IF NOT EXISTS (SELECT codigo_suplidor FROM suplidor WHERE codigo_suplidor = @codigo_suplidor)
-        INSERT INTO suplidor (codigo_suplidor, nombre_suplidor,sexo, email, telefono, estado) VALUES (@codigo_suplidor, @nombre_suplidor,@sexo, @email, @telefono, @estado)
+        INSERT INTO suplidor (codigo_suplidor, nombre_suplidor,sexo, email, telefono, estado, fecha_de_nacimiento) VALUES (@codigo_suplidor, @nombre_suplidor,@sexo, @email, @telefono, @estado, @fecha_de_nacimiento)
     ELSE 
-        UPDATE suplidor SET nombre_suplidor = @nombre_suplidor, sexo = @sexo, email = @email, telefono = @telefono, estado = @estado WHERE codigo_suplidor =  @codigo_suplidor
+        UPDATE suplidor SET nombre_suplidor = @nombre_suplidor, sexo = @sexo, email = @email, telefono = @telefono, estado = @estado, fecha_de_nacimiento = @fecha_de_nacimiento WHERE codigo_suplidor =  @codigo_suplidor
 GO
 
 CREATE PROCEDURE upsertDepartamento
@@ -167,6 +182,17 @@ AS
         INSERT INTO departamento (codigo_departamento, nombre_departamento , estado) VALUES (@codigo_departamento, @nombre_departamento , @estado)
     ELSE 
         UPDATE departamento SET nombre_departamento = @nombre_departamento, estado = @estado WHERE codigo_departamento =  @codigo_departamento
+GO
+
+CREATE PROCEDURE upsertDetalles
+@numero_factura int,
+@codigo_producto int,
+@cantidad_vendida float,
+@precio_de_venta money
+AS
+  SET IDENTITY_INSERT detalles ON
+  INSERT INTO detalles (numero_factura, cantidad_vendida, codigo_producto, precio_de_venta) VALUES (@numero_factura, @cantidad_vendida, @codigo_producto, @precio_de_venta)
+  UPDATE producto SET cantidad_existente = cantidad_existente - @cantidad_vendida WHERE codigo_producto = @codigo_producto
 GO
 
 CREATE PROCEDURE eliminarCliente
@@ -295,7 +321,7 @@ GO
 
 CREATE PROCEDURE upsertVentas
 @codigo_cliente int, 
-@total float
+@total money
 AS
   INSERT INTO venta(fecha, codigo_cliente, estado, total) VALUES (GETDATE(), @codigo_cliente, 1, @total )
   SELECT TOP 1 * FROM venta ORDER BY numero_factura DESC
@@ -325,13 +351,3 @@ AS
   WHERE venta.numero_factura = @numero_factura
 GO
 
-CREATE PROCEDURE upsertDetalles
-@numero_factura int,
-@codigo_producto int,
-@cantidad_vendida float,
-@precio_de_venta float
-AS
-  SET IDENTITY_INSERT detalles ON
-  INSERT INTO detalles (numero_factura, cantidad_vendida, codigo_producto, precio_de_venta) VALUES (@numero_factura, @cantidad_vendida, @codigo_producto, @precio_de_venta)
-  UPDATE producto SET cantidad_existente = cantidad_existente - @cantidad_vendida WHERE codigo_producto = @codigo_producto
-GO

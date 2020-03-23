@@ -7,15 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
+using System.Globalization;
 
 namespace Inventario {
     public partial class FormMantenimientoDeCliente : FormMantenimiento {
         public FormMantenimientoDeCliente () {
             InitializeComponent ();
-        }
-
-        public override bool IsValidEmail (string email) {
-            return base.IsValidEmail (email);
+            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays(-1);
         }
 
         public override void Consultar () {
@@ -33,6 +31,19 @@ namespace Inventario {
             txtTelefono.Text = "";
             checkBoxEstado.Checked = false;
             comboBoxGenero.Text = "Selecciona un género";
+            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays(-1);
+        }
+
+        public void fillCampos (DataSet DS) {
+            DataRow row = DS.Tables[0].Rows[0];
+            txtNombre.Text = row["nombre_cliente"].ToString ().Trim ();
+            txtEmail.Text = row["email"].ToString ().Trim ();
+            txtTelefono.Text = row["telefono"].ToString ();
+            checkBoxEstado.Checked = Convert.ToBoolean (row["estado"]);
+            comboBoxGenero.Text = row["sexo"].ToString ().Trim ();
+            string fechaNacimiento = row["fecha_de_nacimiento"].ToString().Trim();
+            string date = Convert.ToDateTime(fechaNacimiento).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            dateTimePickerFechaNacimiento.Value = DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
         }
 
         public void Consulta () {
@@ -45,28 +56,30 @@ namespace Inventario {
             int countRows = DS.Tables[0].Rows.Count;
 
             if (countTable > 0 && countRows > 0) {
-                DataRow row = DS.Tables[0].Rows[0];
-                txtNombre.Text = row["nombre_cliente"].ToString ().Trim ();
-                txtEmail.Text = row["email"].ToString ().Trim ();
-                txtTelefono.Text = row["telefono"].ToString ();
-                checkBoxEstado.Checked = Convert.ToBoolean (row["estado"]);
-                comboBoxGenero.Text = row["sexo"].ToString ().Trim ();
-
+                fillCampos (DS);
             }
 
         }
 
-        public override void Salvar () {
-
-            if (Controles.ValidarForm (this, ep, false)) return;
+        public string makeProcedure () {
             string nombre = clearString (txtNombre);
             string genero = comboBoxGenero.Text;
             string email = clearString (txtEmail);
             string codigo = clearString (txtCodigo);
             string telefono = txtTelefono.Text;
             string estado = (checkBoxEstado.Checked) ? "1" : "0";
-            string storeProcedureUpsertCliente = string.Format ("EXEC upsertCliente @codigo_cliente = {0}, @nombre_cliente = '{1}', @sexo = '{2}', @email = '{3}', @telefono = '{4}', @estado = {5}", codigo, nombre, genero, email, telefono, estado);
-            if (IsValidEmail (email) && isValidComboBox (comboBoxGenero) && isValidPhone (txtTelefono)) {
+            string fechaNacimiento = dateTimePickerFechaNacimiento.Value.Date.ToString ("yyyy-MM-dd");
+            string storeProcedureUpsertCliente = string.Format ("EXEC upsertCliente @codigo_cliente = {0}, @nombre_cliente = '{1}', @sexo = '{2}', @email = '{3}', @telefono = '{4}', @estado = {5}, @fecha_de_nacimiento = '{6}'", codigo, nombre, genero, email, telefono, estado, fechaNacimiento);
+            return storeProcedureUpsertCliente;
+        }
+
+        public override void Salvar () {
+
+            if (Controles.ValidarForm (this, ep, false)) return;
+            string email = clearString (txtEmail);
+            string storeProcedureUpsertCliente = makeProcedure ();
+            bool isValidCamposEspeciales = validarCamposEspeciales (dateTimePickerFechaNacimiento, comboBoxGenero, email);
+            if (isValidCamposEspeciales) {
                 DS = Execution.Ejecutar (storeProcedureUpsertCliente);
                 messageSucess ();
                 Limpiar ();
@@ -82,7 +95,7 @@ namespace Inventario {
                 messageWarning ();
             } else {
 
-                message ("No ha especificado que Cliente desea eliminar");
+                messageExlamation ("No ha especificado que Cliente desea eliminar");
             }
             Limpiar ();
         }

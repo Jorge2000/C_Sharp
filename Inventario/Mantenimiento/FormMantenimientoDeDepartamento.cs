@@ -40,7 +40,7 @@ namespace Inventario.Mantenimiento {
                 messageWarning ();
             } else {
 
-                message ("No ha especificado que Cliente desea eliminar");
+                messageExlamation ("No ha especificado que Cliente desea eliminar");
             }
             Limpiar ();
         }

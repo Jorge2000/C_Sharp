@@ -61,7 +61,7 @@ namespace Inventario.Procesos {
             txtPrecioProducto.Text = row["precio_de_venta"].ToString ();
             if (cantidadExistente == "0") {
                 string messageTxt = string.Format (string.Format ("Lo sentimos {0} pero aún no hemos abastecido los almacenes de este producto", clearString (txtNombre)));
-                message (messageTxt);
+                messageExlamation (messageTxt);
                 LimpiarProducto ();
                 return;
             }
@@ -149,7 +149,7 @@ namespace Inventario.Procesos {
         }
 
         public void agregarProductos () {
-            if (validateTextBoxs ()) { message ("Debe de llenar todos los campos"); return; }
+            if (validateTextBoxs ()) { messageExlamation ("Debe de llenar todos los campos"); return; }
             string codigo = clearString (txtCodigoProducto);
             string nombreProducto = clearString (txtNombreProducto);
             string cantidadAVender = clearString (txtCantidadAVender);
@@ -188,7 +188,7 @@ namespace Inventario.Procesos {
                 Int32 cantidadAVenderInt = Convert.ToInt32 (cantidadAVender);
                 if ((cantidadExistente - cantidadAVenderInt) > puntoDeReorden) {
                     string messageText = string.Format ("Est�s intentando vender una cantidad que excede el punto de reorden del producto: {0}\nEl punto de reorden es: {1}", nombreProducto, puntoDeReorden);
-                    message (messageText);
+                    messageExlamation (messageText);
                     txtCantidadAVender.Text = "";
 
                 }
@@ -225,7 +225,7 @@ namespace Inventario.Procesos {
 
         public void procesarProductos () {
             if (validateTextBoxsCliente () || validateDataGridView ()) {
-                message ("Debe tener un cliente y productos para procesar");
+                messageExlamation ("Debe tener un cliente y productos para procesar");
                 return;
             } else {
                 string codigoCliente = clearString (txtCodigo);
@@ -317,7 +317,7 @@ namespace Inventario.Procesos {
         }
 
         private void txtCantidadAVender_TextChanged (object sender, EventArgs e) {
-            limitadorDeCantidad(sender, e, 150);
+            limitadorDeCantidad (sender, e, "La mayor cantidad que se puede vender es de ", 20);
         }
 
     }
