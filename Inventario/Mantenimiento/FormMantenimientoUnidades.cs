@@ -43,8 +43,8 @@ namespace Inventario.Mantenimiento {
             int countRows = DS.Tables[0].Rows.Count;
             if (countTable > 0 && countRows > 0) {
                 DataRow row = DS.Tables[0].Rows[0];
-                txtNombre.Text = row["nombre_unidad"].ToString ().Trim ();;
-                checkBoxEstado.Checked = Convert.ToBoolean (row["estado"]);;
+                txtNombre.Text = row["nombre_unidad"].ToString ().Trim ();
+                checkBoxEstado.Checked = Convert.ToBoolean (row["estado"]);
             }
         }
         public override void Consultar () {

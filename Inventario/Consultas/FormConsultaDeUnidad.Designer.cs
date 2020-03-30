@@ -24,6 +24,8 @@ namespace Inventario.Consultas {
         /// </summary>
         private void InitializeComponent () {
             this.dataGridView = new System.Windows.Forms.DataGridView ();
+            this.comboBoxEstado = new System.Windows.Forms.ComboBox ();
+            this.label4 = new System.Windows.Forms.Label ();
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
@@ -56,11 +58,13 @@ namespace Inventario.Consultas {
             // 
             // txtNombre
             // 
+            this.txtNombre.Location = new System.Drawing.Point (12, 128);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.TextChanged += new System.EventHandler (this.txtNombre_TextChanged);
             // 
             // label2
             // 
+            this.label2.Location = new System.Drawing.Point (19, 92);
             this.label2.Size = new System.Drawing.Size (163, 22);
             this.label2.Text = "Buscar por unidad";
             // 
@@ -78,6 +82,10 @@ namespace Inventario.Consultas {
             this.btnImprimir.TabIndex = 4;
             this.btnImprimir.Click += new System.EventHandler (this.btnImprimir_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point (474, 0);
+            // 
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
@@ -90,25 +98,60 @@ namespace Inventario.Consultas {
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point (12, 179);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size (611, 264);
+            this.dataGridView.Size = new System.Drawing.Size (396, 264);
             this.dataGridView.TabIndex = 14;
+            // 
+            // comboBoxEstado
+            // 
+            this.comboBoxEstado.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.comboBoxEstado.FormattingEnabled = true;
+            this.comboBoxEstado.Items.AddRange (new object[] {
+                "Todos",
+                "Activo",
+                "Inactivo"
+            });
+            this.comboBoxEstado.Location = new System.Drawing.Point (188, 127);
+            this.comboBoxEstado.Name = "comboBoxEstado";
+            this.comboBoxEstado.Size = new System.Drawing.Size (214, 30);
+            this.comboBoxEstado.TabIndex = 21;
+            this.comboBoxEstado.Text = "Todos";
+            this.comboBoxEstado.SelectedIndexChanged += new System.EventHandler (this.comboBoxEstado_SelectedIndexChanged);
+            this.comboBoxEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.comboBoxEstado_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label4.Location = new System.Drawing.Point (213, 92);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size (165, 22);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Buscar por estado";
             // 
             // FormConsultaDeUnidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size (785, 455);
+            this.ClientSize = new System.Drawing.Size (615, 455);
+            this.Controls.Add (this.comboBoxEstado);
+            this.Controls.Add (this.label4);
             this.Controls.Add (this.dataGridView);
+            this.LabelonParent = "    Consulta de Unidades";
             this.Name = "FormConsultaDeUnidad";
             this.Text = "Consulta de Unidad";
+            this.Load += new System.EventHandler (this.FormConsultaDeUnidad_Load);
             this.Controls.SetChildIndex (this.panel2, 0);
             this.Controls.SetChildIndex (this.label2, 0);
             this.Controls.SetChildIndex (this.txtNombre, 0);
             this.Controls.SetChildIndex (this.panel1, 0);
             this.Controls.SetChildIndex (this.dataGridView, 0);
+            this.Controls.SetChildIndex (this.label4, 0);
+            this.Controls.SetChildIndex (this.comboBoxEstado, 0);
             this.panel1.ResumeLayout (false);
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();
@@ -123,5 +166,7 @@ namespace Inventario.Consultas {
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.ComboBox comboBoxEstado;
+        public System.Windows.Forms.Label label4;
     }
 }

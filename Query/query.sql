@@ -5,6 +5,13 @@ Create table departamento(
  );
 GO
 
+ Create table usuarios(
+   codigo_usuario int not null identity primary key,
+   nombre_usuario varchar(50),
+   contrasena  varchar(50)
+ );
+ GO;
+ 
  Create table suplidor(
    codigo_suplidor int not null identity primary key,
    nombre_suplidor varchar(50),
@@ -351,3 +358,9 @@ AS
   WHERE venta.numero_factura = @numero_factura
 GO
 
+CREATE PROCEDURE consultarUsuario
+@contrasena varchar(50),
+@nombre_usuario varchar(50)
+AS
+  SELECT * FROM usuarios WHERE nombre_usuario = @nombre_usuario AND contrasena = @contrasena;
+GO

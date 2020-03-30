@@ -24,18 +24,19 @@ namespace Inventario {
         }
 
         public override void Consultar () {
-            string query = "SELECT * FROM departamento ";
+            string query = "SELECT * FROM departamento WHERE ";
             string value = clearString (txtNombre);
             if (!string.IsNullOrEmpty (value)) {
-                query += string.Format (" WHERE nombre_departamento LIKE('%{0}%')", value);
-
+                query += string.Format (" ( nombre_departamento LIKE('%{0}%')) AND ", value);
             }
+            query += whereEstado (comboBoxEstado);
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
             if (countTable > 0) {
                 dataGridView.DataSource = DS.Tables[0];
             }
         }
+
         public override void Imprimir () {
             if (dataGridView.Rows.Count == 0) return;
             object dataSet = dataGridView.DataSource;
@@ -78,6 +79,18 @@ namespace Inventario {
 
         private void txtNombre_TextChanged_1 (object sender, EventArgs e) {
             this.Consultar ();
+        }
+
+        private void label2_Click_1 (object sender, EventArgs e) {
+
+        }
+
+        private void comboBoxEstado_SelectedIndexChanged (object sender, EventArgs e) {
+            this.Consultar ();
+        }
+
+        private void comboBoxEstado_KeyPress (object sender, KeyPressEventArgs e) {
+            e.Handled = true;
         }
     }
 }

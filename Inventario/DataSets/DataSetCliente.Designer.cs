@@ -285,6 +285,8 @@ namespace Inventario.DataSets {
 
             private global::System.Data.DataColumn columnestado;
 
+            private global::System.Data.DataColumn columnfecha_de_nacimiento;
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable () {
@@ -359,6 +361,14 @@ namespace Inventario.DataSets {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fecha_de_nacimientoColumn {
+                get {
+                    return this.columnfecha_de_nacimiento;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable (false)]
             public int Count {
                 get {
@@ -394,14 +404,15 @@ namespace Inventario.DataSets {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row (string codigo_cliente, string nombre_cliente, string email, string telefono, string estado) {
+            public DataTable1Row AddDataTable1Row (string codigo_cliente, string nombre_cliente, string email, string telefono, string estado, string fecha_de_nacimiento) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row) (this.NewRow ()));
                 object[] columnValuesArray = new object[] {
                     codigo_cliente,
                     nombre_cliente,
                     email,
                     telefono,
-                    estado
+                    estado,
+                    fecha_de_nacimiento
                 };
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add (rowDataTable1Row);
@@ -430,6 +441,7 @@ namespace Inventario.DataSets {
                 this.columnemail = base.Columns["email"];
                 this.columntelefono = base.Columns["telefono"];
                 this.columnestado = base.Columns["estado"];
+                this.columnfecha_de_nacimiento = base.Columns["fecha_de_nacimiento"];
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
@@ -445,6 +457,8 @@ namespace Inventario.DataSets {
                 base.Columns.Add (this.columntelefono);
                 this.columnestado = new global::System.Data.DataColumn ("estado", typeof (string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add (this.columnestado);
+                this.columnfecha_de_nacimiento = new global::System.Data.DataColumn ("fecha_de_nacimiento", typeof (string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add (this.columnfecha_de_nacimiento);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
@@ -661,6 +675,21 @@ namespace Inventario.DataSets {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fecha_de_nacimiento {
+                get {
+                    try {
+                        return ((string) (this [this.tableDataTable1.fecha_de_nacimientoColumn]));
+                    } catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException ("The value for column \'fecha_de_nacimiento\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this [this.tableDataTable1.fecha_de_nacimientoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Iscodigo_clienteNull () {
                 return this.IsNull (this.tableDataTable1.codigo_clienteColumn);
             }
@@ -717,6 +746,18 @@ namespace Inventario.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetestadoNull () {
                 this [this.tableDataTable1.estadoColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfecha_de_nacimientoNull () {
+                return this.IsNull (this.tableDataTable1.fecha_de_nacimientoColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfecha_de_nacimientoNull () {
+                this [this.tableDataTable1.fecha_de_nacimientoColumn] = global::System.Convert.DBNull;
             }
         }
 

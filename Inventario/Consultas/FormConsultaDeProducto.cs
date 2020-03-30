@@ -24,12 +24,38 @@ namespace Inventario.Consultas {
         }
 
         public override void Consultar () {
-            string query = "EXEC consultarProductoFull ";
-            string value = clearString (txtNombre);
-            if (string.IsNullOrEmpty (value)) {
-                query += "NULL";
-            } else {
-                query += string.Format ("'{0}'", value);
+            string query = @"
+                        SELECT  producto.codigo_producto,
+                            producto.nombre_producto,
+                            departamento.codigo_departamento,
+                            departamento.nombre_departamento,
+                            suplidor.nombre_suplidor,
+                            producto.cantidad_existente,
+                            unidad.nombre_unidad,
+                            producto.precio_de_venta
+                        FROM producto
+                            INNER JOIN departamento
+                                ON producto.codigo_departamento = departamento.codigo_departamento
+                            INNER JOIN suplidor
+                                ON producto.codigo_suplidor = suplidor.codigo_suplidor
+                            INNER JOIN unidad
+                                ON producto.codigo_unidad =  unidad.codigo_unidad
+                        WHERE ";
+            string nombreProducto = clearString (txtNombre);
+            if (!string.IsNullOrEmpty (nombreProducto)) {
+                query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", nombreProducto);
+            }
+            string nombreDepartamento = clearString (txtDepartamento);
+            if (!string.IsNullOrEmpty (nombreDepartamento)) {
+                query += string.Format (" ( nombre_departamento LIKE('%{0}%')) AND ", nombreDepartamento);
+            }
+            string nombreProducto = clearString (txtNombre);
+            if (!string.IsNullOrEmpty (nombreProducto)) {
+                query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", nombreProducto);
+            }
+            string nombreProducto = clearString (txtNombre);
+            if (!string.IsNullOrEmpty (nombreProducto)) {
+                query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", nombreProducto);
             }
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;

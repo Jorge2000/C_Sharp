@@ -31,6 +31,10 @@ namespace Inventario.Reportes {
             ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
             this.SuspendLayout ();
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point (1001, 0);
+            // 
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
@@ -46,7 +50,7 @@ namespace Inventario.Reportes {
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Inventario.Reports.ReportProducto.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point (17, 101);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size (620, 388);
+            this.reportViewer1.Size = new System.Drawing.Size (960, 388);
             this.reportViewer1.TabIndex = 3;
             // 
             // dateTimePicker1
@@ -58,7 +62,7 @@ namespace Inventario.Reportes {
             this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
             this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font ("Arial", 10F);
-            this.dateTimePicker1.Location = new System.Drawing.Point (396, 72);
+            this.dateTimePicker1.Location = new System.Drawing.Point (736, 72);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size (241, 23);
             this.dateTimePicker1.TabIndex = 1;
@@ -67,7 +71,7 @@ namespace Inventario.Reportes {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size (804, 499);
+            this.ClientSize = new System.Drawing.Size (1141, 499);
             this.Controls.Add (this.dateTimePicker1);
             this.Controls.Add (this.reportViewer1);
             this.Name = "FormReporteProducto";

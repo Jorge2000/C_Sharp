@@ -17,18 +17,19 @@ namespace Inventario {
         }
 
         public override void Consultar () {
-            string query = "SELECT * FROM suplidor ";
+            string query = "SELECT * FROM suplidor WHERE ";
             string value = clearString (txtNombre);
             if (!string.IsNullOrEmpty (value)) {
-                query += string.Format (" WHERE nombre_suplidor LIKE('%{0}%')", value);
-
+                query += string.Format (" ( nombre_suplidor LIKE('%{0}%')) AND ", value);
             }
+            query += whereEstado (comboBoxEstado) + " AND " + whereGenero (comboBoxGenero);
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
             if (countTable > 0) {
                 dataGridView.DataSource = DS.Tables[0];
             }
         }
+
         public override void Imprimir () {
             if (dataGridView.Rows.Count == 0) return;
             object dataSet = dataGridView.DataSource;
@@ -56,6 +57,22 @@ namespace Inventario {
         }
 
         private void txtNombre_TextChanged (object sender, EventArgs e) {
+            this.Consultar ();
+        }
+
+        private void comboBoxGenero_KeyPress (object sender, KeyPressEventArgs e) {
+            e.Handled = true;
+        }
+
+        private void comboBoxEstado_KeyPress (object sender, KeyPressEventArgs e) {
+            e.Handled = true;
+        }
+
+        private void comboBoxGenero_SelectedIndexChanged (object sender, EventArgs e) {
+            this.Consultar ();
+        }
+
+        private void comboBoxEstado_SelectedIndexChanged (object sender, EventArgs e) {
             this.Consultar ();
         }
     }

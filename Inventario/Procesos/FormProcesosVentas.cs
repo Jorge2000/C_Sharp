@@ -27,6 +27,7 @@ namespace Inventario.Procesos {
             txtNombreProducto.Text = "";
             txtPrecioProducto.Text = "";
             txtCantidadAVender.Text = "";
+            txtUnidad.Text = "";
         }
 
         public void ConsultaCliente () {
@@ -42,6 +43,9 @@ namespace Inventario.Procesos {
                 DataRow row = DS.Tables[0].Rows[0];
                 txtNombre.Text = row["nombre_cliente"].ToString ().Trim ();
 
+            } else {
+
+                txtNombre.Text = "";
             }
 
         }
@@ -54,18 +58,34 @@ namespace Inventario.Procesos {
             ConsultaDeCliente.Dispose ();
         }
 
+        public void searchUnidad (string codigo) {
+            string storeProcedureConsultarUnidad = string.Format ("EXEC consultarUnidad {0}", codigo);
+            DS = Execution.Ejecutar (storeProcedureConsultarUnidad);
+            int countTable = DS.Tables.Count;
+            int countRows = DS.Tables[0].Rows.Count;
+            if (countTable > 0 && countRows > 0) {
+                DataRow row = DS.Tables[0].Rows[0];
+                txtUnidad.Text = row["nombre_unidad"].ToString ().Trim ();
+            }
+
+        }
+
         public void helperConsultaProducto (DataSet DS) {
             DataRow row = DS.Tables[0].Rows[0];
             string cantidadExistente = row["cantidad_existente"].ToString ();
             txtNombreProducto.Text = row["nombre_producto"].ToString ();
             txtPrecioProducto.Text = row["precio_de_venta"].ToString ();
-            if (cantidadExistente == "0") {
+            string codigoUnidad = row["codigo_unidad"].ToString ();
+            searchUnidad (codigoUnidad);
+
+            if (cantidadExistente == "20") {
                 string messageTxt = string.Format (string.Format ("Lo sentimos {0} pero aún no hemos abastecido los almacenes de este producto", clearString (txtNombre)));
                 messageExlamation (messageTxt);
                 LimpiarProducto ();
                 return;
             }
         }
+
         public void ConsultaProducto () {
             string codigo = clearString (txtCodigoProducto);
             if (string.IsNullOrEmpty (codigo)) return;
@@ -142,7 +162,7 @@ namespace Inventario.Procesos {
         public void calculateTotal () {
             int sum = 0;
             for (int row = 0; row < dataGridView1.Rows.Count; row++) {
-                sum += Convert.ToInt32 (dataGridView1.Rows[row].Cells[4].Value);
+                sum += Convert.ToInt32 (dataGridView1.Rows[row].Cells[5].Value);
             }
             txtTotal.Text = sum.ToString ();
 
@@ -152,11 +172,12 @@ namespace Inventario.Procesos {
             if (validateTextBoxs ()) { messageExlamation ("Debe de llenar todos los campos"); return; }
             string codigo = clearString (txtCodigoProducto);
             string nombreProducto = clearString (txtNombreProducto);
+            string unidadProducto = clearString (txtUnidad);
             string cantidadAVender = clearString (txtCantidadAVender);
             string precioProducto = clearString (txtPrecioProducto);
             string importe = (Int16.Parse (cantidadAVender) * Int16.Parse (precioProducto)).ToString ();
 
-            table.Rows.Add (codigo, nombreProducto, cantidadAVender, precioProducto, importe);
+            table.Rows.Add (codigo, nombreProducto, unidadProducto, cantidadAVender, precioProducto, importe);
             dataGridView1.DataSource = table;
             calculateTotal ();
             LimpiarProducto ();
@@ -168,6 +189,22 @@ namespace Inventario.Procesos {
                 dataGridView1.Rows.RemoveAt (item.Index);
             }
             calculateTotal ();
+        }
+
+        public void calcularCantidad (DataRow row, string cantidadAVender) {
+            string nombreProducto = row["nombre_producto"].ToString ();
+            int puntoDeReorden = Convert.ToInt16 (row["punto_reo"].ToString ());
+            int cantidadExistente = Convert.ToInt16 (row["cantidad_existente"].ToString ());
+            Int32 cantidadAVenderInt = Convert.ToInt32 (cantidadAVender);
+            int cantidadRestante = (cantidadExistente - cantidadAVenderInt);
+            int cantidadDisponible = cantidadExistente - puntoDeReorden;
+
+            if (cantidadRestante < puntoDeReorden) {
+                string messageText = string.Format ("Esta intentando vender una cantidad que excede el punto de reorden del producto: {0}\nEl punto de reorden es: {1}\nLa cantidad maxima que esta disponible es {2}", nombreProducto, puntoDeReorden, cantidadDisponible);
+                messageExlamation (messageText);
+                txtCantidadAVender.Text = cantidadDisponible + "";
+            }
+
         }
 
         public void validarCantidad () {
@@ -182,23 +219,15 @@ namespace Inventario.Procesos {
             int countRows = DS.Tables[0].Rows.Count;
             if (countTable > 0 && countRows > 0) {
                 DataRow row = DS.Tables[0].Rows[0];
-                string nombreProducto = row["nombre_producto"].ToString ();
-                int puntoDeReorden = Convert.ToInt16 (row["punto_reo"].ToString ());
-                int cantidadExistente = Convert.ToInt16 (row["cantidad_existente"].ToString ());
-                Int32 cantidadAVenderInt = Convert.ToInt32 (cantidadAVender);
-                if ((cantidadExistente - cantidadAVenderInt) > puntoDeReorden) {
-                    string messageText = string.Format ("Est�s intentando vender una cantidad que excede el punto de reorden del producto: {0}\nEl punto de reorden es: {1}", nombreProducto, puntoDeReorden);
-                    messageExlamation (messageText);
-                    txtCantidadAVender.Text = "";
-
-                }
+                calcularCantidad (row, cantidadAVender);
             }
 
         }
 
         public void addColumns () {
-            table.Columns.Add ("C�digo", typeof (string));
+            table.Columns.Add ("Codigo", typeof (string));
             table.Columns.Add ("Producto", typeof (string));
+            table.Columns.Add ("Unidad", typeof (string));
             table.Columns.Add ("Cantidad", typeof (string));
             table.Columns.Add ("Precio", typeof (string));
             table.Columns.Add ("Importe", typeof (string));
@@ -213,13 +242,14 @@ namespace Inventario.Procesos {
             string codigoProducto;
             string cantidadVentida;
             string precioVenta;
+            string unidadProducto;
             for (int row = 0; row < dataGridView1.Rows.Count; row++) {
                 codigoProducto = dataGridView1.Rows[row].Cells[0].Value.ToString ();
-                cantidadVentida = dataGridView1.Rows[row].Cells[2].Value.ToString ();
-                precioVenta = dataGridView1.Rows[row].Cells[3].Value.ToString ();
-                storeProceduresactualizarDetalles += string.Format ("EXEC upsertDetalles @numero_factura = {0}, @codigo_producto = {1}, @cantidad_vendida = {2}, @precio_de_venta = {3}\n", numeroFactura, codigoProducto, cantidadVentida, precioVenta);
+                unidadProducto = dataGridView1.Rows[row].Cells[2].Value.ToString ();
+                cantidadVentida = dataGridView1.Rows[row].Cells[3].Value.ToString ();
+                precioVenta = dataGridView1.Rows[row].Cells[4].Value.ToString ();
+                storeProceduresactualizarDetalles += string.Format ("EXEC upsertDetalles @numero_factura = {0}, @codigo_producto = {1}, @unidad_producto = {4}, @cantidad_vendida = {2}, @precio_de_venta = {3}\n", numeroFactura, codigoProducto, cantidadVentida, precioVenta, unidadProducto);
             }
-            MessageBox.Show (storeProceduresactualizarDetalles);
             DS = Execution.Ejecutar (storeProceduresactualizarDetalles);
         }
 
@@ -231,7 +261,6 @@ namespace Inventario.Procesos {
                 string codigoCliente = clearString (txtCodigo);
                 string totalVenta = clearString (txtTotal);
                 string storeProcedureActualizarVentas = string.Format ("EXEC upsertVentas @codigo_cliente={0}, @total={1}", codigoCliente, totalVenta);
-                MessageBox.Show (storeProcedureActualizarVentas);
                 DS = Execution.Ejecutar (storeProcedureActualizarVentas);
                 DataRow row = DS.Tables[0].Rows[0];
                 string numeroFactura = row["numero_factura"].ToString ().Trim ();
@@ -317,7 +346,7 @@ namespace Inventario.Procesos {
         }
 
         private void txtCantidadAVender_TextChanged (object sender, EventArgs e) {
-            limitadorDeCantidad (sender, e, "La mayor cantidad que se puede vender es de ", 20);
+            limitadorDeCantidad (sender, e, "La mayor cantidad que el sistema puede vender es de ", 20);
         }
 
     }

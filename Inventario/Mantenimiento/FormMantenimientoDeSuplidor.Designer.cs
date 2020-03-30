@@ -28,12 +28,13 @@ namespace Inventario {
             this.label = new System.Windows.Forms.Label ();
             this.txtNombre = new System.Windows.Forms.TextBox ();
             this.txtCodigo = new System.Windows.Forms.TextBox ();
-            this.checkBoxEstado = new System.Windows.Forms.CheckBox ();
             this.label2 = new System.Windows.Forms.Label ();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel ();
-            this.comboBoxGenero = new System.Windows.Forms.ComboBox ();
             this.txtTelefono = new System.Windows.Forms.MaskedTextBox ();
+            this.label3 = new System.Windows.Forms.Label ();
             this.dateTimePickerFechaNacimiento = new System.Windows.Forms.DateTimePicker ();
+            this.comboBoxGenero = new System.Windows.Forms.ComboBox ();
+            this.checkBoxEstado = new System.Windows.Forms.CheckBox ();
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
@@ -130,18 +131,6 @@ namespace Inventario {
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtCodigo_KeyPress);
             this.txtCodigo.Validating += new System.ComponentModel.CancelEventHandler (this.txtCodigo_Validating);
             // 
-            // checkBoxEstado
-            // 
-            this.checkBoxEstado.AutoSize = true;
-            this.checkBoxEstado.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxEstado.Font = new System.Drawing.Font ("Arial", 14F);
-            this.checkBoxEstado.Location = new System.Drawing.Point (26, 331);
-            this.checkBoxEstado.Name = "checkBoxEstado";
-            this.checkBoxEstado.Size = new System.Drawing.Size (89, 26);
-            this.checkBoxEstado.TabIndex = 6;
-            this.checkBoxEstado.Text = "Estado";
-            this.checkBoxEstado.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -166,22 +155,6 @@ namespace Inventario {
             this.linkLabel1.Text = "Código";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler (this.linkLabel1_LinkClicked);
             // 
-            // comboBoxGenero
-            // 
-            this.comboBoxGenero.Font = new System.Drawing.Font ("Arial", 14.25F);
-            this.comboBoxGenero.FormattingEnabled = true;
-            this.comboBoxGenero.Items.AddRange (new object[] {
-                "Selecciona un género",
-                "Femenino",
-                "Masculino"
-            });
-            this.comboBoxGenero.Location = new System.Drawing.Point (28, 375);
-            this.comboBoxGenero.Name = "comboBoxGenero";
-            this.comboBoxGenero.Size = new System.Drawing.Size (351, 30);
-            this.comboBoxGenero.TabIndex = 24;
-            this.comboBoxGenero.Text = "Selecciona un género";
-            this.comboBoxGenero.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.comboBoxGenero_KeyPress);
-            // 
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font ("Arial", 14.25F);
@@ -191,45 +164,87 @@ namespace Inventario {
             this.txtTelefono.Size = new System.Drawing.Size (252, 29);
             this.txtTelefono.TabIndex = 5;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font ("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label3.Location = new System.Drawing.Point (24, 339);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size (189, 22);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Fecha de Nacimiento";
+            // 
             // dateTimePickerFechaNacimiento
             // 
+            this.dateTimePickerFechaNacimiento.CustomFormat = "yyyy-MM-dd";
             this.dateTimePickerFechaNacimiento.Font = new System.Drawing.Font ("Arial", 14.25F);
-            this.dateTimePickerFechaNacimiento.Location = new System.Drawing.Point (26, 443);
+            this.dateTimePickerFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerFechaNacimiento.Location = new System.Drawing.Point (219, 334);
             this.dateTimePickerFechaNacimiento.Name = "dateTimePickerFechaNacimiento";
-            this.dateTimePickerFechaNacimiento.Size = new System.Drawing.Size (344, 29);
-            this.dateTimePickerFechaNacimiento.TabIndex = 27;
+            this.dateTimePickerFechaNacimiento.Size = new System.Drawing.Size (155, 29);
+            this.dateTimePickerFechaNacimiento.TabIndex = 28;
+            // 
+            // comboBoxGenero
+            // 
+            this.comboBoxGenero.Font = new System.Drawing.Font ("Arial", 14.25F);
+            this.comboBoxGenero.FormattingEnabled = true;
+            this.comboBoxGenero.Items.AddRange (new object[] {
+                "Selecciona un género",
+                "Femenino",
+                "Masculino"
+            });
+            this.comboBoxGenero.Location = new System.Drawing.Point (27, 389);
+            this.comboBoxGenero.Name = "comboBoxGenero";
+            this.comboBoxGenero.Size = new System.Drawing.Size (351, 30);
+            this.comboBoxGenero.TabIndex = 29;
+            this.comboBoxGenero.Text = "Selecciona un género";
+            // 
+            // checkBoxEstado
+            // 
+            this.checkBoxEstado.AutoSize = true;
+            this.checkBoxEstado.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxEstado.Font = new System.Drawing.Font ("Arial", 14F);
+            this.checkBoxEstado.Location = new System.Drawing.Point (28, 447);
+            this.checkBoxEstado.Name = "checkBoxEstado";
+            this.checkBoxEstado.Size = new System.Drawing.Size (89, 26);
+            this.checkBoxEstado.TabIndex = 30;
+            this.checkBoxEstado.Text = "Estado";
+            this.checkBoxEstado.UseVisualStyleBackColor = false;
             // 
             // FormMantenimientoDeSuplidor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size (786, 515);
+            this.Controls.Add (this.label3);
             this.Controls.Add (this.dateTimePickerFechaNacimiento);
-            this.Controls.Add (this.txtTelefono);
             this.Controls.Add (this.comboBoxGenero);
+            this.Controls.Add (this.checkBoxEstado);
+            this.Controls.Add (this.txtTelefono);
             this.Controls.Add (this.linkLabel1);
             this.Controls.Add (this.label4);
             this.Controls.Add (this.txtEmail);
             this.Controls.Add (this.label);
             this.Controls.Add (this.txtNombre);
             this.Controls.Add (this.txtCodigo);
-            this.Controls.Add (this.checkBoxEstado);
             this.Controls.Add (this.label2);
             this.Name = "FormMantenimientoDeSuplidor";
             this.Text = "";
             this.Controls.SetChildIndex (this.panel1, 0);
             this.Controls.SetChildIndex (this.panel2, 0);
             this.Controls.SetChildIndex (this.label2, 0);
-            this.Controls.SetChildIndex (this.checkBoxEstado, 0);
             this.Controls.SetChildIndex (this.txtCodigo, 0);
             this.Controls.SetChildIndex (this.txtNombre, 0);
             this.Controls.SetChildIndex (this.label, 0);
             this.Controls.SetChildIndex (this.txtEmail, 0);
             this.Controls.SetChildIndex (this.label4, 0);
             this.Controls.SetChildIndex (this.linkLabel1, 0);
-            this.Controls.SetChildIndex (this.comboBoxGenero, 0);
             this.Controls.SetChildIndex (this.txtTelefono, 0);
+            this.Controls.SetChildIndex (this.checkBoxEstado, 0);
+            this.Controls.SetChildIndex (this.comboBoxGenero, 0);
             this.Controls.SetChildIndex (this.dateTimePickerFechaNacimiento, 0);
+            this.Controls.SetChildIndex (this.label3, 0);
             this.panel1.ResumeLayout (false);
             this.panel2.ResumeLayout (false);
             this.panel2.PerformLayout ();
@@ -247,11 +262,12 @@ namespace Inventario {
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.CheckBox checkBoxEstado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.ComboBox comboBoxGenero;
         private System.Windows.Forms.MaskedTextBox txtTelefono;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaNacimiento;
+        private System.Windows.Forms.ComboBox comboBoxGenero;
+        private System.Windows.Forms.CheckBox checkBoxEstado;
     }
 }

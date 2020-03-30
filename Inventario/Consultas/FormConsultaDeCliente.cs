@@ -18,12 +18,12 @@ namespace Inventario {
         }
 
         public override void Consultar () {
-            string query = "SELECT * FROM cliente ";
+            string query = "SELECT * FROM cliente WHERE ";
             string value = clearString (txtNombre);
             if (!string.IsNullOrEmpty (value)) {
-                query += string.Format (" WHERE nombre_cliente LIKE('%{0}%')", value);
-
+                query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", value);
             }
+            query += whereEstado (comboBoxEstado) + " AND " + whereGenero (comboBoxGenero);
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
             if (countTable > 0) {
@@ -62,6 +62,26 @@ namespace Inventario {
 
         private void txtNombre_TextChanged (object sender, EventArgs e) {
             this.Consultar ();
+        }
+
+        private void label7_Click (object sender, EventArgs e) {
+
+        }
+
+        private void comboBoxGenero_SelectedIndexChanged (object sender, EventArgs e) {
+            this.Consultar ();
+        }
+
+        private void comboBoxEstado_SelectedIndexChanged (object sender, EventArgs e) {
+            this.Consultar ();
+        }
+
+        private void comboBoxGenero_KeyPress (object sender, KeyPressEventArgs e) {
+            e.Handled = true;
+        }
+
+        private void comboBoxEstado_KeyPress (object sender, KeyPressEventArgs e) {
+            e.Handled = true;
         }
 
     }

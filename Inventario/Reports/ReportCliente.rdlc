@@ -32,6 +32,10 @@
           <DataField>estado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="fecha_de_nacimiento">
+          <DataField>fecha_de_nacimiento</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSetCliente</DataSourceName>
@@ -39,7 +43,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetCliente</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Laura\Desktop\C_Sharp\Inventario\DataSetCliente.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Intellisys\Desktop\C_Sharp\Inventario\DataSetCliente.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -53,19 +57,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.61758in</Width>
+              <Width>0.86758in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.68008in</Width>
+              <Width>1.91966in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.03425in</Width>
+              <Width>2.3676in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.34675in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.59675in</Width>
+              <Width>1.29675in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.68008in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -202,6 +209,42 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#60b4f1</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Fecha de Nacimiento</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -387,6 +430,40 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="fecha_de_nacimiento">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!fecha_de_nacimiento.Value</Value>
+                              <Style>
+                                <Format>yyyy-MM-dd</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>fecha_de_nacimiento</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="estado">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -428,6 +505,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -440,11 +518,16 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
+        <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>DataSet1</DataSetName>
+        <PageBreak>
+          <BreakLocation>StartAndEnd</BreakLocation>
+        </PageBreak>
         <Top>0.73237cm</Top>
         <Left>0.12382cm</Left>
         <Height>1.2cm</Height>
-        <Width>15.93954cm</Width>
+        <Width>21.53517cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -460,7 +543,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>6.55333in</Width>
+  <Width>8.66258in</Width>
   <Page>
     <PageHeader>
       <Height>2.04716cm</Height>
@@ -489,7 +572,7 @@
           <Top>0.60008cm</Top>
           <Left>0cm</Left>
           <Height>1.12917cm</Height>
-          <Width>16.64546cm</Width>
+          <Width>22.00292cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -532,7 +615,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
           <Top>1.27812cm</Top>
-          <Left>10.20446cm</Left>
+          <Left>15.5355cm</Left>
           <Height>0.94396cm</Height>
           <Width>6.12349cm</Width>
           <Style>

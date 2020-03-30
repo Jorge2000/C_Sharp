@@ -44,5 +44,42 @@ namespace Inventario {
         private void btnSeleccionar_Click (object sender, EventArgs e) {
             this.Seleccionar ();
         }
+
+        public virtual string whereGenero (ComboBox ComboBoxgenero) {
+            string genero = ComboBoxgenero.Text;
+            string condition = "";
+            switch (genero) {
+                case "Masculino":
+                    condition += " (sexo = 'Masculino') ";
+                    break;
+                case "Femenino":
+                    condition += " (sexo = 'Femenino') ";
+                    break;
+                default:
+                    condition += " (sexo = 'Masculino' OR sexo = 'Femenino') ";
+                    break;
+            }
+            return condition;
+
+        }
+
+        public virtual string whereEstado (ComboBox ComboBoxEstado) {
+            string estado = ComboBoxEstado.Text;
+            string condition = "";
+            switch (estado) {
+                case "Activo":
+                    condition += " (estado = 1) ";
+                    break;
+                case "Inactivo":
+                    condition += " (estado = 0) ";
+                    break;
+                default:
+                    condition += " (estado = 1 OR estado = 0) ";
+                    break;
+            }
+            return condition;
+
+        }
+
     }
 }

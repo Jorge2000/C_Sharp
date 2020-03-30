@@ -13,7 +13,7 @@ namespace Inventario {
     public partial class FormMantenimientoDeSuplidor : FormMantenimiento {
         public FormMantenimientoDeSuplidor () {
             InitializeComponent ();
-            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays(-1);
+            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays (-1);
         }
 
         public override void Eliminar () {
@@ -36,7 +36,7 @@ namespace Inventario {
             txtTelefono.Text = "";
             checkBoxEstado.Checked = false;
             comboBoxGenero.Text = "Selecciona un g�nero";
-            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays(-1);
+            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays (-1);
         }
 
         public string makeProcedure () {
@@ -46,8 +46,8 @@ namespace Inventario {
             string codigo = clearString (txtCodigo);
             string telefono = txtTelefono.Text;
             string estado = (checkBoxEstado.Checked) ? "1" : "0";
-            string fechaNacimiento = dateTimePickerFechaNacimiento.Value.Date.ToString("yyyy-MM-DD");
-            string storeProcedureUpsertSuplidor = string.Format("EXEC upsertSuplidor @codigo_suplidor = {0}, @nombre_suplidor = '{1}', @sexo = '{2}', @email = '{3}', @telefono =  '{4}', @estado = {5}, @fecha_de_nacimiento = '{6}'", codigo, nombre, genero, email, telefono, estado, fechaNacimiento);
+            string fechaNacimiento = dateTimePickerFechaNacimiento.Value.Date.ToString ("yyyy-MM-dd");
+            string storeProcedureUpsertSuplidor = string.Format ("EXEC upsertSuplidor @codigo_suplidor = {0}, @nombre_suplidor = '{1}', @sexo = '{2}', @email = '{3}', @telefono =  '{4}', @estado = {5}, @fecha_de_nacimiento = '{6}'", codigo, nombre, genero, email, telefono, estado, fechaNacimiento);
             return storeProcedureUpsertSuplidor;
         }
 
@@ -55,7 +55,7 @@ namespace Inventario {
             if (Controles.ValidarForm (this, ep, false)) return;
             string email = clearString (txtEmail);
             string storeProcedureUpsertSuplidor = makeProcedure ();
-            bool isValidCamposEspeciales = validarCamposEspeciales (dateTimePickerFechaNacimiento, comboBoxGenero, email);
+            bool isValidCamposEspeciales = validarCamposEspeciales (dateTimePickerFechaNacimiento, comboBoxGenero, email, txtTelefono);
             if (isValidCamposEspeciales) {
                 DS = Execution.Ejecutar (storeProcedureUpsertSuplidor);
                 messageSucess ();
@@ -80,8 +80,9 @@ namespace Inventario {
             txtEmail.Text = row["email"].ToString ();
             checkBoxEstado.Checked = Convert.ToBoolean (row["estado"]);
             comboBoxGenero.Text = row["sexo"].ToString ().Trim ();
-            string fechaNacimiento = row["fecha_de_nacimiento"].ToString().Trim();
-            dateTimePickerFechaNacimiento.Value = DateTime.ParseExact(fechaNacimiento, "yyyy-MM-DD", CultureInfo.InvariantCulture);
+            string fechaNacimiento = row["fecha_de_nacimiento"].ToString ().Trim ();
+            string date = Convert.ToDateTime (fechaNacimiento).ToString ("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            dateTimePickerFechaNacimiento.Value = DateTime.ParseExact (date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
         }
 
         public void Consulta () {

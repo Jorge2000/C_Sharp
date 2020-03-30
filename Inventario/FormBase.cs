@@ -14,6 +14,11 @@ namespace Inventario {
         public bool puedeEliminar { set; get; }
         public bool puedeConsultar { set; get; }
         public bool puedeImprimir { set; get; }
+        public string LabelonParent {
+            get { return label1.Text; }
+            set { label1.Text = value; }
+        }
+
         public DataSet DS = new DataSet ();
         public ErrorProvider ep = new ErrorProvider ();
 
@@ -28,7 +33,7 @@ namespace Inventario {
         }
 
         public virtual void messageSucess () {
-            MessageBox.Show ("Acci�n realizada con exito", "Acci�n Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show ("Accion realizada con exito", "Accion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public virtual void limitadorDeCantidad (object sender, EventArgs e, string message, int cantidad) {
@@ -36,7 +41,7 @@ namespace Inventario {
             int value;
             if (int.TryParse (textbox.Text, out value)) {
                 if (value > cantidad) {
-                    messageExlamation ("message " + cantidad);
+                    messageExlamation (message + cantidad);
                     textbox.Text = cantidad + "";
                 } else if (value < 0) {
                     textbox.Text = "0";
@@ -67,8 +72,8 @@ namespace Inventario {
         public virtual void Imprimir () {
             MessageBox.Show ("Imprimiendo...");
         }
-        public virtual bool validarCamposEspeciales (DateTimePicker fecha, ComboBox combobox, string email) {
-            return isValidDate (fecha) && isValidComboBox (combobox) && isValidEmail (email);
+        public virtual bool validarCamposEspeciales (DateTimePicker fecha, ComboBox combobox, string email, MaskedTextBox phone) {
+            return isValidDate (fecha) && isValidComboBox (combobox) && isValidEmail (email) && isValidPhone (phone);
 
         }
         public virtual bool isValidEmail (string email) {
@@ -81,12 +86,16 @@ namespace Inventario {
             }
         }
 
+        public virtual bool checkFechaCaucidad () {
+            return true;
+        }
+
         public virtual bool isValidDate (DateTimePicker fecha) {
-            int fechaNacimiento = DateTime.Parse (fecha.Text).Year;
-            int hoy = DateTime.Today.Year;
-            int age = hoy - fechaNacimiento;
-            bool isValid = age < 18;
-            if (isValid) {
+            int anoDeNacimiento = DateTime.Parse (fecha.Text).Year;
+            int anoDeActual = DateTime.Today.Year;
+            int edad = anoDeActual - anoDeNacimiento;
+            bool isValid = edad > 18;
+            if (!isValid) {
                 messageExlamation ("Solamente aceptamos personas mayores de edad");
             }
             return isValid;

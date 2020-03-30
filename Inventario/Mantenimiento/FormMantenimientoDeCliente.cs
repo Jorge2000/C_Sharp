@@ -13,7 +13,7 @@ namespace Inventario {
     public partial class FormMantenimientoDeCliente : FormMantenimiento {
         public FormMantenimientoDeCliente () {
             InitializeComponent ();
-            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays(-1);
+            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays (-1);
         }
 
         public override void Consultar () {
@@ -31,7 +31,7 @@ namespace Inventario {
             txtTelefono.Text = "";
             checkBoxEstado.Checked = false;
             comboBoxGenero.Text = "Selecciona un género";
-            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays(-1);
+            dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays (-1);
         }
 
         public void fillCampos (DataSet DS) {
@@ -41,9 +41,9 @@ namespace Inventario {
             txtTelefono.Text = row["telefono"].ToString ();
             checkBoxEstado.Checked = Convert.ToBoolean (row["estado"]);
             comboBoxGenero.Text = row["sexo"].ToString ().Trim ();
-            string fechaNacimiento = row["fecha_de_nacimiento"].ToString().Trim();
-            string date = Convert.ToDateTime(fechaNacimiento).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
-            dateTimePickerFechaNacimiento.Value = DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            string fechaNacimiento = row["fecha_de_nacimiento"].ToString ().Trim ();
+            string date = Convert.ToDateTime (fechaNacimiento).ToString ("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            dateTimePickerFechaNacimiento.Value = DateTime.ParseExact (date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
         }
 
         public void Consulta () {
@@ -78,7 +78,7 @@ namespace Inventario {
             if (Controles.ValidarForm (this, ep, false)) return;
             string email = clearString (txtEmail);
             string storeProcedureUpsertCliente = makeProcedure ();
-            bool isValidCamposEspeciales = validarCamposEspeciales (dateTimePickerFechaNacimiento, comboBoxGenero, email);
+            bool isValidCamposEspeciales = validarCamposEspeciales (dateTimePickerFechaNacimiento, comboBoxGenero, email, txtTelefono);
             if (isValidCamposEspeciales) {
                 DS = Execution.Ejecutar (storeProcedureUpsertCliente);
                 messageSucess ();
@@ -147,6 +147,22 @@ namespace Inventario {
 
         private void comboBoxGenero_KeyPress (object sender, KeyPressEventArgs e) {
             e.Handled = true;
+        }
+
+        private void label3_Click (object sender, EventArgs e) {
+
+        }
+
+        private void checkBoxEstado_CheckedChanged (object sender, EventArgs e) {
+
+        }
+
+        private void dateTimePickerFechaNacimiento_ValueChanged (object sender, EventArgs e) {
+
+        }
+
+        private void comboBoxGenero_SelectedIndexChanged (object sender, EventArgs e) {
+
         }
 
     }

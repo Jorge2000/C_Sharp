@@ -32,7 +32,7 @@ namespace Inventario.Reportes {
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point (664, 0);
+            this.panel1.Location = new System.Drawing.Point (977, 0);
             // 
             // buttonCerrar
             // 
@@ -44,11 +44,15 @@ namespace Inventario.Reportes {
             this.label1.Size = new System.Drawing.Size (134, 31);
             this.label1.Text = "    Reporte";
             // 
+            // panel2
+            // 
+            this.panel2.Size = new System.Drawing.Size (1117, 52);
+            // 
             // FormReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size (804, 499);
+            this.ClientSize = new System.Drawing.Size (1117, 499);
             this.Name = "FormReporte";
             this.Text = "FormReporte";
             this.Load += new System.EventHandler (this.FormReporte_Load);

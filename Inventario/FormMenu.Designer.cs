@@ -690,7 +690,7 @@ namespace Inventario {
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FormMenu";
-            this.Text = "Menu";
+            this.Text = "INVENTARIO CORONA © - Menú";
             this.Load += new System.EventHandler (this.Menu_Load);
             this.MdiChildActivate += new System.EventHandler (this.Menu_MdiChildActivate);
             this.menuStrip.ResumeLayout (false);
