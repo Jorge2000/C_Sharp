@@ -20,7 +20,7 @@
 ![image](https://user-images.githubusercontent.com/24766287/77972041-54c87f00-72be-11ea-8951-c0d89ea446f3.png)
 
 
-# 1. [Login]()
-# 2. [Mantenimientos con Consultas]()
-# 3. [Reportes]()
-# 4. [Procesos de ventas]()
+# 1. [Login](https://github.com/Jorge2000/C_Sharp/blob/master/Docs/Login.md)
+# 2. [Mantenimientos con Consultas](https://github.com/Jorge2000/C_Sharp/blob/master/Docs/Mantenimientos%20y%20Consultas.md)
+# 3. [Reportes](https://github.com/Jorge2000/C_Sharp/blob/master/Docs/Reportes.md)
+# 4. [Procesos de Ventas](https://github.com/Jorge2000/C_Sharp/blob/master/Docs/Proceso%20de%20ventas.md)
