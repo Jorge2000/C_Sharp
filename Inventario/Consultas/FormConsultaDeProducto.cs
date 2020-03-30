@@ -40,8 +40,8 @@ namespace Inventario.Consultas {
                                 ON producto.codigo_suplidor = suplidor.codigo_suplidor
                             INNER JOIN unidad
                                 ON producto.codigo_unidad =  unidad.codigo_unidad
-                        WHERE ";
-            string nombreProducto = clearString (txtNombre);
+                        ";
+            /*string nombreProducto = clearString (txtNombre);
             if (!string.IsNullOrEmpty (nombreProducto)) {
                 query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", nombreProducto);
             }
@@ -56,7 +56,7 @@ namespace Inventario.Consultas {
             string nombreProducto = clearString (txtNombre);
             if (!string.IsNullOrEmpty (nombreProducto)) {
                 query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", nombreProducto);
-            }
+            }*/
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
             if (countTable > 0) {
