@@ -23,4 +23,4 @@
 # 1. [Login](https://github.com/Jorge2000/C_Sharp/blob/master/Docs/Login.md)
 # 2. [Mantenimientos con Consultas](https://github.com/Jorge2000/C_Sharp/blob/master/Docs/Mantenimientos%20y%20Consultas.md)
 # 3. [Reportes](https://github.com/Jorge2000/C_Sharp/blob/master/Docs/Reportes.md)
-# 4. [Procesos de Ventas](https://github.com/Jorge2000/C_Sharp/blob/master/Docs/Proceso%20de%20ventas.md)
+# 4. [Procesos de Ventas](https://github.com/Jorge2000/C_Sharp/blob/master/Docs/Proceso%20de%20Ventas.md)
