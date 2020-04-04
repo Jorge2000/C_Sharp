@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
+using System.Text.RegularExpressions;
 using Inventario.Reportes;
 
 namespace Inventario.Consultas {
@@ -21,6 +22,30 @@ namespace Inventario.Consultas {
             Codigo = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString ();
             DialogResult = DialogResult.OK;
             Close ();
+        }
+
+        public string condicionarWhere (string query) {
+            string[] separatingStrings = { ")(" };
+            string[] conditions = query.Split (separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+            string where = "";
+            foreach (string condition in conditions) {
+                where += condition + " AND ";
+            }
+            return where.Remove (where.Length - 4);
+        }
+
+        public string formulateWhere (TextBox txtCampos, string columna) {
+            string valor = clearString (txtCampos);
+            return string.Format ("({0} LIKE('%{1}%'))", columna, valor);
+        }
+
+        public string concatWhere() {
+            string where = " WHERE ";
+            where += formulateWhere(txtNombre, "producto.nombre_producto");
+            where += formulateWhere(txtDepartamento, "departamento.nombre_departamento");
+            where += formulateWhere(txtSuplidor, "suplidor.nombre_suplidor");
+            where += formulateWhere(txtUnidad, "unidad.nombre_unidad");
+            return where;
         }
 
         public override void Consultar () {
@@ -39,30 +64,17 @@ namespace Inventario.Consultas {
                             INNER JOIN suplidor
                                 ON producto.codigo_suplidor = suplidor.codigo_suplidor
                             INNER JOIN unidad
-                                ON producto.codigo_unidad =  unidad.codigo_unidad
-                        ";
-            /*string nombreProducto = clearString (txtNombre);
-            if (!string.IsNullOrEmpty (nombreProducto)) {
-                query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", nombreProducto);
-            }
-            string nombreDepartamento = clearString (txtDepartamento);
-            if (!string.IsNullOrEmpty (nombreDepartamento)) {
-                query += string.Format (" ( nombre_departamento LIKE('%{0}%')) AND ", nombreDepartamento);
-            }
-            string nombreProducto = clearString (txtNombre);
-            if (!string.IsNullOrEmpty (nombreProducto)) {
-                query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", nombreProducto);
-            }
-            string nombreProducto = clearString (txtNombre);
-            if (!string.IsNullOrEmpty (nombreProducto)) {
-                query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", nombreProducto);
-            }*/
+                                ON producto.codigo_unidad =  unidad.codigo_unidad";
+
+            string where = concatWhere();
+            query += condicionarWhere(where);
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
             if (countTable > 0) {
                 dataGridView.DataSource = DS.Tables[0];
             }
         }
+        
         public override void Imprimir () {
             if (dataGridView.Rows.Count == 0) return;
             object dataSet = dataGridView.DataSource;
@@ -70,6 +82,7 @@ namespace Inventario.Consultas {
             ReporteProducto.ds = dataSet;
             ReporteProducto.Show ();
         }
+        
         private void btnBuscar_Click (object sender, EventArgs e) {
             this.Consultar ();
         }
@@ -83,6 +96,18 @@ namespace Inventario.Consultas {
         }
 
         private void txtNombre_TextChanged (object sender, EventArgs e) {
+            this.Consultar ();
+        }
+
+        private void txtDepartamento_TextChanged (object sender, EventArgs e) {
+            this.Consultar ();
+        }
+
+        private void txtSuplidor_TextChanged (object sender, EventArgs e) {
+            this.Consultar ();
+        }
+
+        private void txtUnidad_TextChanged (object sender, EventArgs e) {
             this.Consultar ();
         }
     }

@@ -158,6 +158,7 @@ namespace Inventario.Consultas {
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size (237, 29);
             this.txtDepartamento.TabIndex = 22;
+            this.txtDepartamento.TextChanged += new System.EventHandler (this.txtDepartamento_TextChanged);
             // 
             // label3
             // 
@@ -177,6 +178,7 @@ namespace Inventario.Consultas {
             this.txtSuplidor.Name = "txtSuplidor";
             this.txtSuplidor.Size = new System.Drawing.Size (237, 29);
             this.txtSuplidor.TabIndex = 24;
+            this.txtSuplidor.TextChanged += new System.EventHandler (this.txtSuplidor_TextChanged);
             // 
             // label5
             // 
@@ -196,6 +198,7 @@ namespace Inventario.Consultas {
             this.txtUnidad.Name = "txtUnidad";
             this.txtUnidad.Size = new System.Drawing.Size (237, 29);
             this.txtUnidad.TabIndex = 26;
+            this.txtUnidad.TextChanged += new System.EventHandler (this.txtUnidad_TextChanged);
             // 
             // label6
             // 
