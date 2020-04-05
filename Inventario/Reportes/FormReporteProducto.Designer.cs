@@ -23,17 +23,16 @@ namespace Inventario.Reportes {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent () {
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer ();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker ();
-            this.panel1.SuspendLayout ();
-            this.panel2.SuspendLayout ();
-            ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
-            this.SuspendLayout ();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
+            this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point (1001, 0);
+            this.panel1.Location = new System.Drawing.Point(1001, 0);
             // 
             // buttonCerrar
             // 
@@ -42,57 +41,46 @@ namespace Inventario.Reportes {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (278, 31);
+            this.label1.Size = new System.Drawing.Size(296, 30);
             this.label1.Text = "    Reporte de producto";
+            // 
+            // panel2
+            // 
+            this.panel2.Size = new System.Drawing.Size(1005, 52);
             // 
             // reportViewer1
             // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Inventario.Reports.ReportProducto.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point (17, 101);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size (960, 388);
+            this.reportViewer1.Size = new System.Drawing.Size(1001, 499);
             this.reportViewer1.TabIndex = 3;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font ("Arial", 14.25F);
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.White;
-            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.White;
-            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.Transparent;
-            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Font = new System.Drawing.Font ("Arial", 10F);
-            this.dateTimePicker1.Location = new System.Drawing.Point (736, 72);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size (241, 23);
-            this.dateTimePicker1.TabIndex = 1;
             // 
             // FormReporteProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size (1141, 499);
-            this.Controls.Add (this.dateTimePicker1);
-            this.Controls.Add (this.reportViewer1);
+            this.ClientSize = new System.Drawing.Size(1141, 499);
+            this.Controls.Add(this.reportViewer1);
+            this.LabelonParent = "    Reporte de producto";
             this.Name = "FormReporteProducto";
             this.Text = "Reporte de producto";
-            this.Load += new System.EventHandler (this.FormReporteProducto_Load);
-            this.Controls.SetChildIndex (this.panel1, 0);
-            this.Controls.SetChildIndex (this.panel2, 0);
-            this.Controls.SetChildIndex (this.reportViewer1, 0);
-            this.Controls.SetChildIndex (this.dateTimePicker1, 0);
-            this.panel1.ResumeLayout (false);
-            this.panel2.ResumeLayout (false);
-            this.panel2.PerformLayout ();
-            ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
-            this.ResumeLayout (false);
+            this.Load += new System.EventHandler(this.FormReporteProducto_Load);
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.panel2, 0);
+            this.Controls.SetChildIndex(this.reportViewer1, 0);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
+            this.ResumeLayout(false);
 
         }
 
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

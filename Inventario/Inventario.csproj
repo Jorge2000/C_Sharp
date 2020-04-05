@@ -77,13 +77,19 @@
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles.cs" />
-    <Compile Include="DataSetFactura.cs">
-      <DependentUpon>DataSetFactura.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSetFactura.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetFactura.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSetDepartamento.cs">
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSets\DataSetDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\DataSetProducto.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -94,11 +100,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetSuplidor.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSets\DataSetDepartamento.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\DataSetCliente.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -146,6 +147,18 @@
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReporteFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReporteFactura.Designer.cs">
+      <DependentUpon>FormReporteFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormReporteDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FormReporteDepartamento.Designer.cs">
+      <DependentUpon>FormReporteDepartamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimiento\FormMantenimientoDeDepartamento.cs">
       <SubType>Form</SubType>
@@ -239,18 +252,6 @@
     <Compile Include="Reportes\FormReporteCliente.Designer.cs">
       <DependentUpon>FormReporteCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\FormReporteDepartamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\FormReporteDepartamento.Designer.cs">
-      <DependentUpon>FormReporteDepartamento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\FormReporteFactura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\FormReporteFactura.Designer.cs">
-      <DependentUpon>FormReporteFactura.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reportes\FormReporteProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +296,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReporteFactura.resx">
+      <DependentUpon>FormReporteFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FormReporteDepartamento.resx">
+      <DependentUpon>FormReporteDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimiento\FormMantenimientoDeDepartamento.resx">
       <DependentUpon>FormMantenimientoDeDepartamento.cs</DependentUpon>
@@ -344,9 +351,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reportes\FormReporteFactura.resx">
-      <DependentUpon>FormReporteFactura.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="ReportFactura.rdlc" />
+    <EmbeddedResource Include="Reports\ReportDepartamento.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporteProducto.resx">
       <DependentUpon>FormReporteProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,12 +362,7 @@
     <EmbeddedResource Include="Reportes\FormReporteUnidad.resx">
       <DependentUpon>FormReporteUnidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportFactura.rdlc" />
     <EmbeddedResource Include="Reports\ReportProducto.rdlc" />
-    <EmbeddedResource Include="Reports\ReportDepartamento.rdlc" />
-    <EmbeddedResource Include="Reportes\FormReporteDepartamento.resx">
-      <DependentUpon>FormReporteDepartamento.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportCliente.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporte.resx">
       <DependentUpon>FormReporte.cs</DependentUpon>
@@ -382,6 +383,17 @@
     </None>
     <None Include="DataSetFactura.xss">
       <DependentUpon>DataSetFactura.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetDepartamento.xsc">
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSetDepartamento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetDepartamento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DataSetDepartamento.xss">
+      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
     </None>
     <None Include="DataSets\DataSetProducto.xsc">
       <DependentUpon>DataSetProducto.xsd</DependentUpon>
@@ -404,17 +416,6 @@
     </None>
     <None Include="DataSets\DataSetSuplidor.xss">
       <DependentUpon>DataSetSuplidor.xsd</DependentUpon>
-    </None>
-    <None Include="DataSets\DataSetDepartamento.xsc">
-      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
-    </None>
-    <None Include="DataSets\DataSetDepartamento.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetDepartamento.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSets\DataSetDepartamento.xss">
-      <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
     </None>
     <None Include="DataSets\DataSetCliente.xsc">
       <DependentUpon>DataSetCliente.xsd</DependentUpon>

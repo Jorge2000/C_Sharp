@@ -174,5 +174,10 @@ namespace Inventario {
 
         }
 
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }

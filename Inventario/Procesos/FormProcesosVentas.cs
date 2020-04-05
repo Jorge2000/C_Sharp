@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Execution = Utilidades.ExecutionDB;
 using Inventario.Consultas;
+using Inventario.Reportes;
 
 namespace Inventario.Procesos {
     public partial class FormProcesosVentas : FormProcesos {
@@ -253,6 +254,18 @@ namespace Inventario.Procesos {
             DS = Execution.Ejecutar (storeProceduresactualizarDetalles);
         }
 
+        public void generarFactura(string numeroFactura) {
+            if (!validateDataGridView())
+            {
+                string storeProceduraConsultarVentas = string.Format("EXEC consultarVentas {0}", numeroFactura);
+                DS = Execution.Ejecutar (storeProceduraConsultarVentas);
+                FormReporteFactura ReporteFactura = new FormReporteFactura();
+                ReporteFactura.reportViewer1.LocalReport.DataSources[0].Value = DS.Tables[0];
+                ReporteFactura.ShowDialog();
+                nuevoProcesos();
+            }
+        }
+
         public void procesarProductos () {
             if (validateTextBoxsCliente () || validateDataGridView ()) {
                 messageExlamation ("Debe tener un cliente y productos para procesar");
@@ -265,7 +278,8 @@ namespace Inventario.Procesos {
                 DataRow row = DS.Tables[0].Rows[0];
                 string numeroFactura = row["numero_factura"].ToString ().Trim ();
                 actualizarDetalle (numeroFactura);
-                nuevoProcesos ();
+                generarFactura(numeroFactura);
+
             }
         }
 
