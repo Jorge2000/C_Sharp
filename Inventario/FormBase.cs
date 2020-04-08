@@ -179,5 +179,10 @@ namespace Inventario {
 
         }
 
+        private void FormBase_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

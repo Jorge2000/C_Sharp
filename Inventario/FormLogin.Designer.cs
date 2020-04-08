@@ -80,6 +80,7 @@ namespace Inventario {
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(217, 29);
             this.txtContrasena.TabIndex = 19;
+            this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
             // 
             // label2
             // 

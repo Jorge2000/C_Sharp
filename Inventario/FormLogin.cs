@@ -26,6 +26,7 @@ namespace Inventario {
         public void Limpiar () {
             txtContrasena.Text = "";
             txtUsuario.Text = "";
+            txtUsuario.Focus();
         }
 
         public void displayMenu () {
@@ -33,7 +34,8 @@ namespace Inventario {
             FormMenu Menu = new FormMenu ();
             Menu.Closed += (s, args) => this.Close ();
             Menu.Show ();
-            MessageBox.Show ("Bienvenido al Sistema de Inventario");
+            string nombre = txtUsuario.Text.Trim();
+            MessageBox.Show("Bienvenido al INVENTARIO CORONA © " + nombre);
         }
 
         public string makeProcedure () {
@@ -49,8 +51,13 @@ namespace Inventario {
             int countTable = DS.Tables.Count;
             int countRows = DS.Tables[0].Rows.Count;
             bool existeUsuario = countTable > 0 && countRows > 0;
-            if (existeUsuario) {
-                displayMenu ();
+            if (existeUsuario)
+            {
+                displayMenu();
+            }
+            else {
+                MessageBox.Show("Por favor revise los datos ingresados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Limpiar();
             }
         }
 
@@ -69,6 +76,11 @@ namespace Inventario {
 
         private void comboBoxGenero_KeyPress (object sender, KeyPressEventArgs e) {
             e.Handled = true;
+        }
+
+        private void txtContrasena_Enter(object sender, EventArgs e)
+        {
+
         }
 
     }
