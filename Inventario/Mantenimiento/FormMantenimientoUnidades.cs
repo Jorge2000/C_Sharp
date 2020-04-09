@@ -56,17 +56,25 @@ namespace Inventario.Mantenimiento {
             ConsultaUnidad.Dispose ();
         }
 
+        public void focus () {
+            txtCodigo.Focus ();
+        }
+
         public override void Eliminar () {
-            string codigo = txtCodigo.Text.Trim ();
+            string codigo = clearString (txtCodigo);
             if (!string.IsNullOrEmpty (codigo)) {
                 string storeProcedureEliminarUnidad = string.Format ("EXEC eliminarUnidad {0}", codigo);
-                DS = Execution.Ejecutar (storeProcedureEliminarUnidad);
-                messageWarning ();
-            } else {
+                DialogResult dialogResult = MessageBox.Show ("Estas seguro de que desea eliminar esta unidad?\nSi lo hace todo registro relacionado a dicha unidad igualmente sera eliminado.\nUna opcion es cambiarle su estado a inactivo", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialogResult == DialogResult.Yes) {
+                    DS = Execution.Ejecutar (storeProcedureEliminarUnidad);
+                    messageWarning ();
+                    Limpiar ();
+                    focus ();
+                }
 
-                messageExlamation ("No ha especificado que Cliente desea eliminar");
+            } else {
+                messageExlamation ("No ha especificado que unidad desea eliminar");
             }
-            Limpiar ();
         }
 
         private void checkBoxEstado_CheckedChanged (object sender, EventArgs e) {

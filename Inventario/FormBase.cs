@@ -50,7 +50,7 @@ namespace Inventario {
         }
 
         public virtual void messageWarning () {
-            MessageBox.Show ("Acaba de eliminar dicho elemento", "Eliminaci�n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show ("Acaba de eliminar dicho elemento", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         public virtual void Limpiar () {
@@ -174,14 +174,12 @@ namespace Inventario {
 
         }
 
-        private void panel2_Paint_1(object sender, PaintEventArgs e)
-        {
+        private void panel2_Paint_1 (object sender, PaintEventArgs e) {
 
         }
 
-        private void FormBase_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
+        private void FormBase_FormClosed (object sender, FormClosedEventArgs e) {
+            Application.Exit ();
         }
 
     }

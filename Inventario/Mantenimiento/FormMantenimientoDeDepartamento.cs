@@ -31,18 +31,25 @@ namespace Inventario.Mantenimiento {
             Limpiar ();
         }
 
-        public override void Eliminar () {
+        public void focus () {
+            txtCodigo.Focus ();
+        }
 
+        public override void Eliminar () {
             string codigo = clearString (txtCodigo);
             if (!string.IsNullOrEmpty (codigo)) {
-                string storeProcedureEliminarDepartamento = string.Format ("EXEC eliminarDepartamento {0}", codigo);
-                DS = Execution.Ejecutar (storeProcedureEliminarDepartamento);
-                messageWarning ();
-            } else {
+                string storeProcedureEliminarDepartametno = string.Format ("EXEC eliminarDepartamento {0}", codigo);
+                DialogResult dialogResult = MessageBox.Show ("Estas seguro de que desea eliminar este departamento?\nSi lo hace todo registro relacionado a dicho departamento igualmente sera eliminado.\nUna opcion es cambiarle su estado a inactivo", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialogResult == DialogResult.Yes) {
+                    DS = Execution.Ejecutar (storeProcedureEliminarDepartametno);
+                    messageWarning ();
+                    Limpiar ();
+                    focus ();
+                }
 
-                messageExlamation ("No ha especificado que Cliente desea eliminar");
+            } else {
+                messageExlamation ("No ha especificado que Departamento desea eliminar");
             }
-            Limpiar ();
         }
 
         public void Consulta () {

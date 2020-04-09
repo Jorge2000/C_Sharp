@@ -16,17 +16,25 @@ namespace Inventario {
             dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays (-1);
         }
 
+        public void focus () {
+            txtCodigo.Focus ();
+        }
+
         public override void Eliminar () {
             string codigo = clearString (txtCodigo);
             if (!string.IsNullOrEmpty (codigo)) {
                 string storeProcedureEliminarSuplidor = string.Format ("EXEC eliminarSuplidor {0}", codigo);
-                DS = Execution.Ejecutar (storeProcedureEliminarSuplidor);
-                messageWarning ();
-            } else {
+                DialogResult dialogResult = MessageBox.Show ("Estas seguro de que desea eliminar este suplidor?\nSi lo hace todo registro relacionado a dicho suplidor igualmente sera eliminado.\nUna opcion es cambiarle su estado a inactivo", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialogResult == DialogResult.Yes) {
+                    DS = Execution.Ejecutar (storeProcedureEliminarSuplidor);
+                    messageWarning ();
+                    Limpiar ();
+                    focus ();
+                }
 
-                messageExlamation ("No ha especificado que Cliente desea eliminar");
+            } else {
+                messageExlamation ("No ha especificado que Suplidor desea eliminar");
             }
-            Limpiar ();
         }
 
         public override void Limpiar () {
@@ -35,7 +43,7 @@ namespace Inventario {
             txtEmail.Text = "";
             txtTelefono.Text = "";
             checkBoxEstado.Checked = false;
-            comboBoxGenero.Text = "Selecciona un g�nero";
+            comboBoxGenero.Text = "Selecciona un genero";
             dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays (-1);
         }
 

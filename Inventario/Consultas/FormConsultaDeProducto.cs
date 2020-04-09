@@ -39,12 +39,12 @@ namespace Inventario.Consultas {
             return string.Format ("({0} LIKE('%{1}%'))", columna, valor);
         }
 
-        public string concatWhere() {
+        public string concatWhere () {
             string where = " WHERE ";
-            where += formulateWhere(txtNombre, "producto.nombre_producto");
-            where += formulateWhere(txtDepartamento, "departamento.nombre_departamento");
-            where += formulateWhere(txtSuplidor, "suplidor.nombre_suplidor");
-            where += formulateWhere(txtUnidad, "unidad.nombre_unidad");
+            where += formulateWhere (txtNombre, "producto.nombre_producto");
+            where += formulateWhere (txtDepartamento, "departamento.nombre_departamento");
+            where += formulateWhere (txtSuplidor, "suplidor.nombre_suplidor");
+            where += formulateWhere (txtUnidad, "unidad.nombre_unidad");
             return where;
         }
 
@@ -66,15 +66,15 @@ namespace Inventario.Consultas {
                             INNER JOIN unidad
                                 ON producto.codigo_unidad =  unidad.codigo_unidad";
 
-            string where = concatWhere();
-            query += condicionarWhere(where);
+            string where = concatWhere ();
+            query += condicionarWhere (where);
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
             if (countTable > 0) {
                 dataGridView.DataSource = DS.Tables[0];
             }
         }
-        
+
         public override void Imprimir () {
             if (dataGridView.Rows.Count == 0) return;
             object dataSet = dataGridView.DataSource;
@@ -82,7 +82,7 @@ namespace Inventario.Consultas {
             ReporteProducto.ds = dataSet;
             ReporteProducto.Show ();
         }
-        
+
         private void btnBuscar_Click (object sender, EventArgs e) {
             this.Consultar ();
         }

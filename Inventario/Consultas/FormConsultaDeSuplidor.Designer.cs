@@ -170,7 +170,7 @@ namespace Inventario {
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size (167, 22);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Buscar por g�nero";
+            this.label3.Text = "Buscar por genero";
             // 
             // FormConsultaDeSuplidor
             // 

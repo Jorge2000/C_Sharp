@@ -148,17 +148,25 @@ namespace Inventario.Mantenimiento {
             ConsultaDeProducto.Dispose ();
         }
 
+        public void focus () {
+            txtCodigo.Focus ();
+        }
+
         public override void Eliminar () {
             string codigo = clearString (txtCodigo);
             if (!string.IsNullOrEmpty (codigo)) {
                 string storeProcedureEliminarProducto = string.Format ("EXEC eliminarProducto {0}", codigo);
-                DS = Execution.Ejecutar (storeProcedureEliminarProducto);
-                messageWarning ();
-            } else {
+                DialogResult dialogResult = MessageBox.Show ("Estas seguro de que desea eliminar este producto?\nSi lo hace todo registro relacionado a dicho producto igualmente sera eliminado.\nUna opcion es cambiarle su estado a inactivo", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialogResult == DialogResult.Yes) {
+                    DS = Execution.Ejecutar (storeProcedureEliminarProducto);
+                    messageWarning ();
+                    Limpiar ();
+                    focus ();
+                }
 
-                messageExlamation ("No ha especificado que Cliente desea eliminar");
+            } else {
+                messageExlamation ("No ha especificado que Producto desea eliminar");
             }
-            Limpiar ();
         }
 
         public override void onlyInteger (object sender, KeyPressEventArgs e) {
@@ -295,7 +303,7 @@ namespace Inventario.Mantenimiento {
         }
 
         private void txtCantidadExistente_TextChanged (object sender, EventArgs e) {
-            limitadorDeCantidad (sender, e, "El n�mero m�ximo de existencia de un producto es ", 190);
+            limitadorDeCantidad (sender, e, "El numero muximo de existencia de un producto es ", 190);
         }
 
         private void txtPrecio_TextChanged (object sender, EventArgs e) {
@@ -303,7 +311,7 @@ namespace Inventario.Mantenimiento {
         }
 
         private void txtPunReo_TextChanged (object sender, EventArgs e) {
-            limitadorDeCantidad (sender, e, "El m�ximo punto de reorden es de ", 20);
+            limitadorDeCantidad (sender, e, "El maximo punto de reorden es de ", 20);
         }
 
         private void FormMantenimientoDeProducto_Load (object sender, EventArgs e) {

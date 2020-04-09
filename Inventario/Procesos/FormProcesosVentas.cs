@@ -254,15 +254,14 @@ namespace Inventario.Procesos {
             DS = Execution.Ejecutar (storeProceduresactualizarDetalles);
         }
 
-        public void generarFactura(string numeroFactura) {
-            if (!validateDataGridView())
-            {
-                string storeProceduraConsultarVentas = string.Format("EXEC consultarVentas {0}", numeroFactura);
+        public void generarFactura (string numeroFactura) {
+            if (!validateDataGridView ()) {
+                string storeProceduraConsultarVentas = string.Format ("EXEC consultarVentas {0}", numeroFactura);
                 DS = Execution.Ejecutar (storeProceduraConsultarVentas);
-                FormReporteFactura ReporteFactura = new FormReporteFactura();
+                FormReporteFactura ReporteFactura = new FormReporteFactura ();
                 ReporteFactura.reportViewer1.LocalReport.DataSources[0].Value = DS.Tables[0];
-                ReporteFactura.ShowDialog();
-                nuevoProcesos();
+                ReporteFactura.ShowDialog ();
+                nuevoProcesos ();
             }
         }
 
@@ -278,7 +277,7 @@ namespace Inventario.Procesos {
                 DataRow row = DS.Tables[0].Rows[0];
                 string numeroFactura = row["numero_factura"].ToString ().Trim ();
                 actualizarDetalle (numeroFactura);
-                generarFactura(numeroFactura);
+                generarFactura (numeroFactura);
 
             }
         }

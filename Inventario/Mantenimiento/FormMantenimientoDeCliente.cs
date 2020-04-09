@@ -16,6 +16,10 @@ namespace Inventario {
             dateTimePickerFechaNacimiento.Value = DateTime.Today.AddDays (-1);
         }
 
+        public void focus () {
+            txtCodigo.Focus ();
+        }
+
         public override void Consultar () {
             FormConsultaDeCliente ConsultaDeCliente = new FormConsultaDeCliente ();
             if (ConsultaDeCliente.ShowDialog () == DialogResult.OK) {
@@ -83,6 +87,7 @@ namespace Inventario {
                 DS = Execution.Ejecutar (storeProcedureUpsertCliente);
                 messageSucess ();
                 Limpiar ();
+                focus ();
             }
 
         }
@@ -91,13 +96,17 @@ namespace Inventario {
             string codigo = clearString (txtCodigo);
             if (!string.IsNullOrEmpty (codigo)) {
                 string storeProcedureEliminarCliente = string.Format ("EXEC eliminarCliente {0}", codigo);
-                DS = Execution.Ejecutar (storeProcedureEliminarCliente);
-                messageWarning ();
-            } else {
+                DialogResult dialogResult = MessageBox.Show ("Estas seguro de que desea eliminar este cliente?\nSi lo hace todo registro relacionado a dicha persona igualmente sera eliminado.\nUna opcion es cambiarle su estado a ainactivo", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialogResult == DialogResult.Yes) {
+                    DS = Execution.Ejecutar (storeProcedureEliminarCliente);
+                    messageWarning ();
+                    Limpiar ();
+                    focus ();
+                }
 
+            } else {
                 messageExlamation ("No ha especificado que Cliente desea eliminar");
             }
-            Limpiar ();
         }
 
         public override void onlyInteger (object sender, KeyPressEventArgs e) {

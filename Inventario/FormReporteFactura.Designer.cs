@@ -1,7 +1,5 @@
-﻿namespace Inventario
-{
-    partial class FormReporteFactura
-    {
+namespace Inventario {
+    partial class FormReporteFactura {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,13 +9,11 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
+        protected override void Dispose (bool disposing) {
+            if (disposing && (components != null)) {
+                components.Dispose ();
             }
-            base.Dispose(disposing);
+            base.Dispose (disposing);
         }
 
         #region Windows Form Designer generated code
@@ -26,21 +22,20 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataSet1 = new Inventario.DataSet1();
-            this.consultarVentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.consultarVentasTableAdapter = new Inventario.DataSet1TableAdapters.consultarVentasTableAdapter();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.consultarVentasBindingSource)).BeginInit();
-            this.SuspendLayout();
+        private void InitializeComponent () {
+            this.components = new System.ComponentModel.Container ();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource ();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer ();
+            this.DataSet1 = new Inventario.DataSet1 ();
+            this.consultarVentasBindingSource = new System.Windows.Forms.BindingSource (this.components);
+            this.consultarVentasTableAdapter = new Inventario.DataSet1TableAdapters.consultarVentasTableAdapter ();
+            this.panel1.SuspendLayout ();
+            this.panel2.SuspendLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.DataSet1)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.consultarVentasBindingSource)).BeginInit ();
+            this.SuspendLayout ();
             // 
             // buttonCerrar
             // 
@@ -48,18 +43,18 @@
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(977, 52);
+            this.panel2.Size = new System.Drawing.Size (977, 52);
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.consultarVentasBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add (reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Inventario.ReportFactura.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Location = new System.Drawing.Point (0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(977, 499);
+            this.reportViewer1.Size = new System.Drawing.Size (977, 499);
             this.reportViewer1.TabIndex = 3;
             // 
             // DataSet1
@@ -78,24 +73,24 @@
             // 
             // FormReporteFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1117, 499);
-            this.Controls.Add(this.reportViewer1);
+            this.ClientSize = new System.Drawing.Size (1117, 499);
+            this.Controls.Add (this.reportViewer1);
             this.Name = "FormReporteFactura";
             this.Text = "FormReporteFactura";
-            this.Load += new System.EventHandler(this.FormReporteFactura_Load);
-            this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.reportViewer1, 0);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.consultarVentasBindingSource)).EndInit();
-            this.ResumeLayout(false);
+            this.Load += new System.EventHandler (this.FormReporteFactura_Load);
+            this.Controls.SetChildIndex (this.panel1, 0);
+            this.Controls.SetChildIndex (this.panel2, 0);
+            this.Controls.SetChildIndex (this.reportViewer1, 0);
+            this.panel1.ResumeLayout (false);
+            this.panel2.ResumeLayout (false);
+            this.panel2.PerformLayout ();
+            ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.DataSet1)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.consultarVentasBindingSource)).EndInit ();
+            this.ResumeLayout (false);
 
         }
 

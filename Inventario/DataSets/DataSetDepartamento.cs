@@ -1,7 +1,4 @@
-﻿namespace Inventario.DataSets
-{
-    
-    
-    public partial class DataSetDepartamento {
-    }
+namespace Inventario.DataSets {
+
+    public partial class DataSetDepartamento { }
 }
