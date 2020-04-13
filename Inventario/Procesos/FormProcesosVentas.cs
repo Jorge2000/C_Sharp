@@ -18,25 +18,24 @@ namespace Inventario.Procesos {
             InitializeComponent ();
         }
 
-        public void activarProducto() {
+        public void activarProducto () {
             string codigoProducto = "";
             string storeProcedureActivarProducto = "";
-            for (int row = 0; row < dataGridView1.Rows.Count; row++)
-            {
-                codigoProducto = dataGridView1.Rows[row].Cells[0].Value.ToString();
-                storeProcedureActivarProducto += string.Format("EXEC activarProducto {0}\n", codigoProducto);
+            for (int row = 0; row < dataGridView1.Rows.Count; row++) {
+                codigoProducto = dataGridView1.Rows[row].Cells[0].Value.ToString ();
+                storeProcedureActivarProducto += string.Format ("EXEC activarProducto {0}\n", codigoProducto);
             }
-            Execution.Ejecutar(storeProcedureActivarProducto);
-            MessageBox.Show("Todos los productos elegidos han sido activados", "Accion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Execution.Ejecutar (storeProcedureActivarProducto);
+            MessageBox.Show ("Todos los productos elegidos han sido activados", "Accion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void activarCliente() {
-            string codigoCliente = clearString(txtCodigo);
-            string nombreCliente = clearString(txtNombre);
-            string storeProcedureActivarCliente = string.Format(@"EXEC activarCliente {0} ", codigoCliente);
+        public void activarCliente () {
+            string codigoCliente = clearString (txtCodigo);
+            string nombreCliente = clearString (txtNombre);
+            string storeProcedureActivarCliente = string.Format (@"EXEC activarCliente {0} ", codigoCliente);
 
-            Execution.Ejecutar(storeProcedureActivarCliente);
-            MessageBox.Show(string.Format("El cliente {0} ha sido activado", nombreCliente), "Accion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Execution.Ejecutar (storeProcedureActivarCliente);
+            MessageBox.Show (string.Format ("El cliente {0} ha sido activado", nombreCliente), "Accion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void LimpiarCliente () {
@@ -277,8 +276,8 @@ namespace Inventario.Procesos {
 
         public void generarFactura (string numeroFactura) {
             if (!validateDataGridView ()) {
-                activarCliente();
-                activarProducto();
+                activarCliente ();
+                activarProducto ();
                 string storeProceduraConsultarVentas = string.Format ("EXEC consultarVentas {0}", numeroFactura);
                 DS = Execution.Ejecutar (storeProceduraConsultarVentas);
                 FormReporteFactura ReporteFactura = new FormReporteFactura ();
