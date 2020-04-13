@@ -76,6 +76,12 @@
     <Compile Include="Consultas\FormConsultaDeUnidad.Designer.cs">
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\FormConsultaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FormConsultaFactura.Designer.cs">
+      <DependentUpon>FormConsultaFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles.cs" />
     <Compile Include="DataSetFactura.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\FormConsultaDeUnidad.resx">
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\FormConsultaFactura.resx">
+      <DependentUpon>FormConsultaFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
