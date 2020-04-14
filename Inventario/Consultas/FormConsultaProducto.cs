@@ -11,8 +11,8 @@ using System.Text.RegularExpressions;
 using Inventario.Reportes;
 
 namespace Inventario.Consultas {
-    public partial class FormConsultaDeProducto : FormConsulta {
-        public FormConsultaDeProducto () {
+    public partial class FormConsultaProducto : FormConsulta {
+        public FormConsultaProducto () {
             InitializeComponent ();
             this.Consultar ();
         }

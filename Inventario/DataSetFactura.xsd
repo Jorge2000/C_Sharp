@@ -36,6 +36,7 @@
               <Mapping SourceColumn="codigo_departamento" DataSetColumn="codigo_departamento" />
               <Mapping SourceColumn="nombre_departamento" DataSetColumn="nombre_departamento" />
               <Mapping SourceColumn="nombre_unidad" DataSetColumn="nombre_unidad" />
+              <Mapping SourceColumn="nombre_suplidor" DataSetColumn="nombre_suplidor" />
               <Mapping SourceColumn="estado" DataSetColumn="estado" />
             </Mappings>
             <Sources />
@@ -89,6 +90,13 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="nombre_unidad" msprop:Generator_ColumnVarNameInTable="columnnombre_unidad" msprop:Generator_ColumnPropNameInRow="nombre_unidad" msprop:Generator_ColumnPropNameInTable="nombre_unidadColumn" msprop:Generator_UserColumnName="nombre_unidad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombre_suplidor" msprop:Generator_ColumnVarNameInTable="columnnombre_suplidor" msprop:Generator_ColumnPropNameInRow="nombre_suplidor" msprop:Generator_ColumnPropNameInTable="nombre_suplidorColumn" msprop:Generator_UserColumnName="nombre_suplidor" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

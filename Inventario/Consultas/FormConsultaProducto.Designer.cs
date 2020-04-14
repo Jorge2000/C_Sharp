@@ -1,5 +1,5 @@
 namespace Inventario.Consultas {
-    partial class FormConsultaDeProducto {
+    partial class FormConsultaProducto {
         /// <summary>
         /// Required designer variable.
         /// </summary>

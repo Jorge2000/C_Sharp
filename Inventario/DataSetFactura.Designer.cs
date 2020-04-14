@@ -303,6 +303,8 @@ namespace Inventario {
 
             private global::System.Data.DataColumn columnnombre_unidad;
 
+            private global::System.Data.DataColumn columnnombre_suplidor;
+
             private global::System.Data.DataColumn columnestado;
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
@@ -451,6 +453,14 @@ namespace Inventario {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nombre_suplidorColumn {
+                get {
+                    return this.columnnombre_suplidor;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn estadoColumn {
                 get {
                     return this.columnestado;
@@ -494,7 +504,7 @@ namespace Inventario {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public consultarVentasRow AddconsultarVentasRow (System.DateTime fecha, float total, string nombre_cliente, string sexo, string nombre_producto, float cantidad_vendida, float precio_de_venta, float importe, string nombre_departamento, string nombre_unidad, bool estado) {
+            public consultarVentasRow AddconsultarVentasRow (System.DateTime fecha, float total, string nombre_cliente, string sexo, string nombre_producto, float cantidad_vendida, float precio_de_venta, float importe, string nombre_departamento, string nombre_unidad, string nombre_suplidor, bool estado) {
                 consultarVentasRow rowconsultarVentasRow = ((consultarVentasRow) (this.NewRow ()));
                 object[] columnValuesArray = new object[] {
                     null,
@@ -511,6 +521,7 @@ namespace Inventario {
                     null,
                     nombre_departamento,
                     nombre_unidad,
+                    nombre_suplidor,
                     estado
                 };
                 rowconsultarVentasRow.ItemArray = columnValuesArray;
@@ -549,6 +560,7 @@ namespace Inventario {
                 this.columncodigo_departamento = base.Columns["codigo_departamento"];
                 this.columnnombre_departamento = base.Columns["nombre_departamento"];
                 this.columnnombre_unidad = base.Columns["nombre_unidad"];
+                this.columnnombre_suplidor = base.Columns["nombre_suplidor"];
                 this.columnestado = base.Columns["estado"];
             }
 
@@ -583,6 +595,8 @@ namespace Inventario {
                 base.Columns.Add (this.columnnombre_departamento);
                 this.columnnombre_unidad = new global::System.Data.DataColumn ("nombre_unidad", typeof (string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add (this.columnnombre_unidad);
+                this.columnnombre_suplidor = new global::System.Data.DataColumn ("nombre_suplidor", typeof (string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add (this.columnnombre_suplidor);
                 this.columnestado = new global::System.Data.DataColumn ("estado", typeof (bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add (this.columnestado);
                 this.columnnumero_factura.AutoIncrement = true;
@@ -611,6 +625,7 @@ namespace Inventario {
                 this.columncodigo_departamento.ReadOnly = true;
                 this.columnnombre_departamento.MaxLength = 50;
                 this.columnnombre_unidad.MaxLength = 50;
+                this.columnnombre_suplidor.MaxLength = 50;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
@@ -946,6 +961,21 @@ namespace Inventario {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nombre_suplidor {
+                get {
+                    try {
+                        return ((string) (this [this.tableconsultarVentas.nombre_suplidorColumn]));
+                    } catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException ("The value for column \'nombre_suplidor\' in table \'consultarVentas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this [this.tableconsultarVentas.nombre_suplidorColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool estado {
                 get {
                     try {
@@ -1077,6 +1107,18 @@ namespace Inventario {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setnombre_unidadNull () {
                 this [this.tableconsultarVentas.nombre_unidadColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isnombre_suplidorNull () {
+                return this.IsNull (this.tableconsultarVentas.nombre_suplidorColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setnombre_suplidorNull () {
+                this [this.tableconsultarVentas.nombre_suplidorColumn] = global::System.Convert.DBNull;
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute ()]
@@ -1266,6 +1308,7 @@ namespace Inventario.DataSet1TableAdapters {
             tableMapping.ColumnMappings.Add ("codigo_departamento", "codigo_departamento");
             tableMapping.ColumnMappings.Add ("nombre_departamento", "nombre_departamento");
             tableMapping.ColumnMappings.Add ("nombre_unidad", "nombre_unidad");
+            tableMapping.ColumnMappings.Add ("nombre_suplidor", "nombre_suplidor");
             tableMapping.ColumnMappings.Add ("estado", "estado");
             this._adapter.TableMappings.Add (tableMapping);
         }

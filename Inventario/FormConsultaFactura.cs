@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +15,14 @@ namespace Inventario.Consultas {
             InitializeComponent ();
             setDate ();
             this.Consultar ();
+        }
+
+        public override void Imprimir () {
+            if (dataGridView.Rows.Count == 0) return;
+            object dataSet = dataGridView.DataSource;
+            FormReporteFactuca2 ReporteFactuca = new FormReporteFactuca2 ();
+            ReporteFactuca.ds = dataSet;
+            ReporteFactuca.Show ();
         }
 
         public override void Limpiar () {
@@ -78,10 +86,10 @@ namespace Inventario.Consultas {
 
         public override void Consultar () {
             string query = @"
-  SELECT venta.numero_factura AS 'No. Factura', venta.fecha AS 'Fecha', cliente.codigo_cliente AS 'No. Cliente', cliente.nombre_cliente AS 'Cliente', 
+  SELECT venta.numero_factura AS 'No_Factura', venta.fecha AS 'Fecha', cliente.codigo_cliente AS 'No_Cliente', cliente.nombre_cliente AS 'Cliente', 
 departamento.nombre_departamento AS 'Departamento', suplidor.nombre_suplidor AS 'Suplidor',
-producto.codigo_producto AS 'Codigo Producto', producto.nombre_producto AS 'Descripcion', unidad.nombre_unidad AS 'Unidad',
-detalles.cantidad_vendida AS 'Cantidad Vendida', detalles.precio_de_venta AS 'Precio', detalles.cantidad_vendida * detalles.precio_de_venta AS Importe,
+producto.codigo_producto AS 'Codigo_Producto', producto.nombre_producto AS 'Descripcion', unidad.nombre_unidad AS 'Unidad',
+detalles.cantidad_vendida AS 'Cantidad_Vendida', detalles.precio_de_venta AS 'Precio', detalles.cantidad_vendida * detalles.precio_de_venta AS Importe,
 venta.total AS 'Total' 
   FROM venta
   INNER JOIN detalles

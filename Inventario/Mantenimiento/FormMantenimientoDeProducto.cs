@@ -140,7 +140,7 @@ namespace Inventario.Mantenimiento {
         }
 
         public override void Consultar () {
-            FormConsultaDeProducto ConsultaDeProducto = new FormConsultaDeProducto ();
+            FormConsultaProducto ConsultaDeProducto = new FormConsultaProducto ();
             if (ConsultaDeProducto.ShowDialog () == DialogResult.OK) {
                 txtCodigo.Text = ConsultaDeProducto.Codigo;
                 SendKeys.Send ("{TAB}");

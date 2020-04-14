@@ -229,13 +229,13 @@ namespace Inventario {
         }
 
         private void deVentasToolStripMenuItem_Click (object sender, EventArgs e) {
-            FormConsultaFactura ConsultaFactura = new FormConsultaFactura();
+            FormConsultaFactura ConsultaFactura = new FormConsultaFactura ();
             ConsultaFactura.MdiParent = this;
-            ConsultaFactura.Show();
+            ConsultaFactura.Show ();
         }
 
         private void deProductoToolStripMenuItem1_Click (object sender, EventArgs e) {
-            FormConsultaDeProducto ConsultaDeProducto = new FormConsultaDeProducto ();
+            FormConsultaProducto ConsultaDeProducto = new FormConsultaProducto ();
             ConsultaDeProducto.MdiParent = this;
             ConsultaDeProducto.Show ();
         }
@@ -246,15 +246,13 @@ namespace Inventario {
             ConsultaDeUnidades.Show ();
         }
 
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            FormProcesosVentas ProcesosVentas = new FormProcesosVentas();
+        private void toolStripMenuItem3_Click (object sender, EventArgs e) {
+            FormProcesosVentas ProcesosVentas = new FormProcesosVentas ();
             ProcesosVentas.MdiParent = this;
-            ProcesosVentas.Show();
+            ProcesosVentas.Show ();
         }
 
-        private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
-        {
+        private void toolStripMenuItem2_Click_1 (object sender, EventArgs e) {
 
         }
 

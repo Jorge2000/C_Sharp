@@ -64,11 +64,11 @@
     <Compile Include="Consultas\FormConsulta.Designer.cs">
       <DependentUpon>FormConsulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\FormConsultaDeProducto.cs">
+    <Compile Include="Consultas\FormConsultaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\FormConsultaDeProducto.Designer.cs">
-      <DependentUpon>FormConsultaDeProducto.cs</DependentUpon>
+    <Compile Include="Consultas\FormConsultaProducto.Designer.cs">
+      <DependentUpon>FormConsultaProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Consultas\FormConsultaDeUnidad.cs">
       <SubType>Form</SubType>
@@ -76,10 +76,14 @@
     <Compile Include="Consultas\FormConsultaDeUnidad.Designer.cs">
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\FormConsultaFactura.cs">
+    <Compile Include="DataSetFactura2.cs">
+      <DependentUpon>DataSetFactura2.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormConsultaFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\FormConsultaFactura.Designer.cs">
+    <Compile Include="FormConsultaFactura.Designer.cs">
       <DependentUpon>FormConsultaFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles.cs" />
@@ -96,6 +100,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetFactura2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFactura2.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\DataSetProducto.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -124,23 +133,23 @@
     <Compile Include="FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\FormConsultaDeCliente.cs">
+    <Compile Include="Consultas\FormConsultaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\FormConsultaDeCliente.Designer.cs">
-      <DependentUpon>FormConsultaDeCliente.cs</DependentUpon>
+    <Compile Include="Consultas\FormConsultaCliente.Designer.cs">
+      <DependentUpon>FormConsultaCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\FormConsultaDeDepartamento.cs">
+    <Compile Include="Consultas\FormConsultaDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\FormConsultaDeDepartamento.Designer.cs">
-      <DependentUpon>FormConsultaDeDepartamento.cs</DependentUpon>
+    <Compile Include="Consultas\FormConsultaDepartamento.Designer.cs">
+      <DependentUpon>FormConsultaDepartamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\FormConsultaDeSuplidor.cs">
+    <Compile Include="Consultas\FormConsultaSuplidor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\FormConsultaDeSuplidor.Designer.cs">
-      <DependentUpon>FormConsultaDeSuplidor.cs</DependentUpon>
+    <Compile Include="Consultas\FormConsultaSuplidor.Designer.cs">
+      <DependentUpon>FormConsultaSuplidor.cs</DependentUpon>
     </Compile>
     <Compile Include="Ejercicios\FormCrud.cs">
       <SubType>Form</SubType>
@@ -153,6 +162,12 @@
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReporteFactuca2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReporteFactuca2.Designer.cs">
+      <DependentUpon>FormReporteFactuca2.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReporteFactura.cs">
       <SubType>Form</SubType>
@@ -279,32 +294,35 @@
     <EmbeddedResource Include="Consultas\FormConsulta.resx">
       <DependentUpon>FormConsulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\FormConsultaDeProducto.resx">
-      <DependentUpon>FormConsultaDeProducto.cs</DependentUpon>
+    <EmbeddedResource Include="Consultas\FormConsultaProducto.resx">
+      <DependentUpon>FormConsultaProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\FormConsultaDeUnidad.resx">
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\FormConsultaFactura.resx">
+    <EmbeddedResource Include="FormConsultaFactura.resx">
       <DependentUpon>FormConsultaFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\FormConsultaDeCliente.resx">
-      <DependentUpon>FormConsultaDeCliente.cs</DependentUpon>
+    <EmbeddedResource Include="Consultas\FormConsultaCliente.resx">
+      <DependentUpon>FormConsultaCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\FormConsultaDeDepartamento.resx">
-      <DependentUpon>FormConsultaDeDepartamento.cs</DependentUpon>
+    <EmbeddedResource Include="Consultas\FormConsultaDepartamento.resx">
+      <DependentUpon>FormConsultaDepartamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\FormConsultaDeSuplidor.resx">
-      <DependentUpon>FormConsultaDeSuplidor.cs</DependentUpon>
+    <EmbeddedResource Include="Consultas\FormConsultaSuplidor.resx">
+      <DependentUpon>FormConsultaSuplidor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ejercicios\FormCrud.resx">
       <DependentUpon>FormCrud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReporteFactuca2.resx">
+      <DependentUpon>FormReporteFactuca2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReporteFactura.resx">
       <DependentUpon>FormReporteFactura.cs</DependentUpon>
@@ -361,6 +379,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ReportFactura.rdlc" />
+    <EmbeddedResource Include="ReportFactura2.rdlc" />
     <EmbeddedResource Include="Reports\ReportDepartamento.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporteProducto.resx">
       <DependentUpon>FormReporteProducto.cs</DependentUpon>
@@ -371,6 +390,7 @@
     <EmbeddedResource Include="Reportes\FormReporteUnidad.resx">
       <DependentUpon>FormReporteUnidad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportFactura.rdlc" />
     <EmbeddedResource Include="Reports\ReportProducto.rdlc" />
     <EmbeddedResource Include="Reports\ReportCliente.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporte.resx">
@@ -403,6 +423,17 @@
     </None>
     <None Include="DataSets\DataSetDepartamento.xss">
       <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFactura2.xsc">
+      <DependentUpon>DataSetFactura2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFactura2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFactura2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetFactura2.xss">
+      <DependentUpon>DataSetFactura2.xsd</DependentUpon>
     </None>
     <None Include="DataSets\DataSetProducto.xsc">
       <DependentUpon>DataSetProducto.xsd</DependentUpon>

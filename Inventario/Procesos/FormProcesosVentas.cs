@@ -121,7 +121,7 @@ namespace Inventario.Procesos {
         }
 
         public void ConsultarProducto () {
-            FormConsultaDeProducto ConsultaDeProducto = new FormConsultaDeProducto ();
+            FormConsultaProducto ConsultaDeProducto = new FormConsultaProducto ();
             if (ConsultaDeProducto.ShowDialog () == DialogResult.OK) {
                 txtCodigoProducto.Text = ConsultaDeProducto.Codigo;
                 SendKeys.Send ("{TAB}");
