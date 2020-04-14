@@ -25,29 +25,44 @@ namespace Inventario {
         private void InitializeComponent () {
             this.components = new System.ComponentModel.Container ();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource ();
+            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource (this.components);
+            this.DataSetFactura = new Inventario.DataSetFactura ();
             this.consultarVentasBindingSource = new System.Windows.Forms.BindingSource (this.components);
             this.DataSet1 = new Inventario.DataSet1 ();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer ();
             this.consultarVentasTableAdapter = new Inventario.DataSet1TableAdapters.consultarVentasTableAdapter ();
-            this.DataSetFactura = new Inventario.DataSetFactura ();
-            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource (this.components);
             this.panel1.SuspendLayout ();
             this.panel2.SuspendLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
             ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.DataTable1BindingSource)).BeginInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.DataSetFactura)).BeginInit ();
             ((System.ComponentModel.ISupportInitialize) (this.consultarVentasBindingSource)).BeginInit ();
             ((System.ComponentModel.ISupportInitialize) (this.DataSet1)).BeginInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.DataSetFactura)).BeginInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.DataTable1BindingSource)).BeginInit ();
             this.SuspendLayout ();
             // 
             // panel1
             // 
+            this.panel1.Location = new System.Drawing.Point (1175, 0);
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler (this.panel1_Paint);
             // 
             // buttonCerrar
             // 
             this.buttonCerrar.FlatAppearance.BorderSize = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Size = new System.Drawing.Size (1401, 52);
+            // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.DataSetFactura;
+            // 
+            // DataSetFactura
+            // 
+            this.DataSetFactura.DataSetName = "DataSetFactura";
+            this.DataSetFactura.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // consultarVentasBindingSource
             // 
@@ -61,35 +76,24 @@ namespace Inventario {
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.DataTable1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add (reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Inventario.ReportFactura2.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point (0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size (977, 499);
+            this.reportViewer1.Size = new System.Drawing.Size (1182, 499);
             this.reportViewer1.TabIndex = 4;
             // 
             // consultarVentasTableAdapter
             // 
             this.consultarVentasTableAdapter.ClearBeforeFill = true;
             // 
-            // DataSetFactura
-            // 
-            this.DataSetFactura.DataSetName = "DataSetFactura";
-            this.DataSetFactura.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DataSetFactura;
-            // 
             // FormReporteFactuca2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF (6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size (1117, 499);
+            this.ClientSize = new System.Drawing.Size (1315, 499);
             this.Controls.Add (this.reportViewer1);
             this.Name = "FormReporteFactuca2";
             this.Text = "FormReporteFactuca2";
@@ -102,10 +106,10 @@ namespace Inventario {
             this.panel2.PerformLayout ();
             ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
             ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.DataTable1BindingSource)).EndInit ();
+            ((System.ComponentModel.ISupportInitialize) (this.DataSetFactura)).EndInit ();
             ((System.ComponentModel.ISupportInitialize) (this.consultarVentasBindingSource)).EndInit ();
             ((System.ComponentModel.ISupportInitialize) (this.DataSet1)).EndInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.DataSetFactura)).EndInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.DataTable1BindingSource)).EndInit ();
             this.ResumeLayout (false);
 
         }

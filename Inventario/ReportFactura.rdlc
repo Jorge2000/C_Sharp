@@ -707,7 +707,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!cantidad_vendida.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>0.0;(0.0)</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -739,7 +741,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!precio_de_venta.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-DO</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -771,7 +776,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!importe.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-DO</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
