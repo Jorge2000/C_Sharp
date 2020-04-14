@@ -149,5 +149,13 @@ namespace Inventario.Mantenimiento {
                 SendKeys.Send ("{TAB}");
             }
         }
+
+        private void txtNombre_TextChanged (object sender, EventArgs e) {
+
+        }
+
+        private void txtNombre_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
     }
 }

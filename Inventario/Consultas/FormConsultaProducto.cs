@@ -45,6 +45,7 @@ namespace Inventario.Consultas {
             where += formulateWhere (txtDepartamento, "departamento.nombre_departamento");
             where += formulateWhere (txtSuplidor, "suplidor.nombre_suplidor");
             where += formulateWhere (txtUnidad, "unidad.nombre_unidad");
+            where += whereEstado (comboBoxEstado, "producto");
             return where;
         }
 
@@ -57,7 +58,8 @@ namespace Inventario.Consultas {
                             suplidor.nombre_suplidor,
                             producto.cantidad_existente,
                             unidad.nombre_unidad,
-                            producto.precio_de_venta
+                            producto.precio_de_venta,
+                            producto.estado
                         FROM producto
                             INNER JOIN departamento
                                 ON producto.codigo_departamento = departamento.codigo_departamento
@@ -108,6 +110,22 @@ namespace Inventario.Consultas {
         }
 
         private void txtUnidad_TextChanged (object sender, EventArgs e) {
+            this.Consultar ();
+        }
+
+        private void txtDepartamento_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
+
+        private void txtSuplidor_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
+
+        private void txtUnidad_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
+
+        private void comboBoxEstado_SelectedIndexChanged (object sender, EventArgs e) {
             this.Consultar ();
         }
     }

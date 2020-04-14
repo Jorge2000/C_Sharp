@@ -1,3 +1,4 @@
+using Inventario.DataSets;
 namespace Inventario {
     partial class FormReporteFactuca2 {
         /// <summary>
@@ -26,7 +27,6 @@ namespace Inventario {
             this.components = new System.ComponentModel.Container ();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource ();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource (this.components);
-            this.DataSetFactura = new Inventario.DataSetFactura ();
             this.consultarVentasBindingSource = new System.Windows.Forms.BindingSource (this.components);
             this.DataSet1 = new Inventario.DataSet1 ();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer ();
@@ -36,7 +36,6 @@ namespace Inventario {
             ((System.ComponentModel.ISupportInitialize) (this.DS)).BeginInit ();
             ((System.ComponentModel.ISupportInitialize) (this.ep)).BeginInit ();
             ((System.ComponentModel.ISupportInitialize) (this.DataTable1BindingSource)).BeginInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.DataSetFactura)).BeginInit ();
             ((System.ComponentModel.ISupportInitialize) (this.consultarVentasBindingSource)).BeginInit ();
             ((System.ComponentModel.ISupportInitialize) (this.DataSet1)).BeginInit ();
             this.SuspendLayout ();
@@ -57,12 +56,6 @@ namespace Inventario {
             // DataTable1BindingSource
             // 
             this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DataSetFactura;
-            // 
-            // DataSetFactura
-            // 
-            this.DataSetFactura.DataSetName = "DataSetFactura";
-            this.DataSetFactura.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // consultarVentasBindingSource
             // 
@@ -79,7 +72,7 @@ namespace Inventario {
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.DataTable1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add (reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Inventario.ReportFactura2.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Inventario.Reports.ReportFactura.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point (0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size (1182, 499);
@@ -107,7 +100,6 @@ namespace Inventario {
             ((System.ComponentModel.ISupportInitialize) (this.DS)).EndInit ();
             ((System.ComponentModel.ISupportInitialize) (this.ep)).EndInit ();
             ((System.ComponentModel.ISupportInitialize) (this.DataTable1BindingSource)).EndInit ();
-            ((System.ComponentModel.ISupportInitialize) (this.DataSetFactura)).EndInit ();
             ((System.ComponentModel.ISupportInitialize) (this.consultarVentasBindingSource)).EndInit ();
             ((System.ComponentModel.ISupportInitialize) (this.DataSet1)).EndInit ();
             this.ResumeLayout (false);

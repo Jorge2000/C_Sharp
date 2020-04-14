@@ -105,7 +105,7 @@ namespace Inventario.Procesos {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (274, 31);
+            this.label1.Size = new System.Drawing.Size (290, 30);
             this.label1.Text = "     Procesos de ventas";
             // 
             // linkLabel1
@@ -129,6 +129,7 @@ namespace Inventario.Procesos {
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size (262, 29);
             this.txtNombre.TabIndex = 3;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtNombre_KeyPress);
             // 
             // txtCodigo
             // 
@@ -235,6 +236,7 @@ namespace Inventario.Procesos {
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point (12, 370);

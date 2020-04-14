@@ -81,7 +81,7 @@ namespace Inventario {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (353, 31);
+            this.label1.Size = new System.Drawing.Size (383, 30);
             this.label1.Text = "      Mantenimiento de clientes";
             // 
             // txtNombre
@@ -91,6 +91,8 @@ namespace Inventario {
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size (252, 29);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.TextChanged += new System.EventHandler (this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtNombre_KeyPress);
             // 
             // txtCodigo
             // 
@@ -236,6 +238,7 @@ namespace Inventario {
             this.Controls.Add (this.txtCodigo);
             this.Controls.Add (this.checkBoxEstado);
             this.Controls.Add (this.label2);
+            this.LabelonParent = "      Mantenimiento de clientes";
             this.Name = "FormMantenimientoDeCliente";
             this.Text = "Mantenimiento de clientes";
             this.Controls.SetChildIndex (this.panel1, 0);

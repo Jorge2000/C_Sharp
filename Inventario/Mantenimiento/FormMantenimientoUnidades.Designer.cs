@@ -66,7 +66,7 @@ namespace Inventario.Mantenimiento {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (371, 31);
+            this.label1.Size = new System.Drawing.Size (400, 30);
             this.label1.Text = "      Mantenimiento de unidades";
             // 
             // txtNombre
@@ -77,6 +77,7 @@ namespace Inventario.Mantenimiento {
             this.txtNombre.Size = new System.Drawing.Size (252, 29);
             this.txtNombre.TabIndex = 2;
             this.txtNombre.TextChanged += new System.EventHandler (this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtNombre_KeyPress);
             // 
             // txtCodigo
             // 
@@ -136,6 +137,7 @@ namespace Inventario.Mantenimiento {
             this.Controls.Add (this.txtCodigo);
             this.Controls.Add (this.checkBoxEstado);
             this.Controls.Add (this.label2);
+            this.LabelonParent = "      Mantenimiento de unidades";
             this.Name = "FormMantenimientoUnidades";
             this.Text = "Mantenimiento de unidades";
             this.Controls.SetChildIndex (this.panel1, 0);

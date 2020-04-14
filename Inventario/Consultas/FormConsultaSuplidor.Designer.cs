@@ -64,6 +64,7 @@ namespace Inventario {
             this.txtNombre.Size = new System.Drawing.Size (177, 29);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.TextChanged += new System.EventHandler (this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtNombre_KeyPress);
             // 
             // label2
             // 
@@ -97,7 +98,7 @@ namespace Inventario {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (312, 31);
+            this.label1.Size = new System.Drawing.Size (336, 30);
             this.label1.Text = "     Consulta de suplidores";
             // 
             // dataGridView

@@ -163,5 +163,35 @@ venta.total AS 'Total'
             Imprimir ();
         }
 
+        private void txtNombre_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
+
+        private void txtProducto_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
+
+        private void txtDepartamento_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
+
+        private void txtUnidad_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
+
+        private void txtSuplidor_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            this.Consultar();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            return;
+        }
+
     }
 }

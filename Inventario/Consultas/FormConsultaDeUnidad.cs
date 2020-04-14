@@ -22,7 +22,7 @@ namespace Inventario.Consultas {
             if (!string.IsNullOrEmpty (value)) {
                 query += string.Format (" ( nombre_unidad LIKE('%{0}%')) AND ", value);
             }
-            query += whereEstado (comboBoxEstado);
+            query += whereEstado (comboBoxEstado, "unidad");
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
             if (countTable > 0) {
@@ -71,6 +71,10 @@ namespace Inventario.Consultas {
 
         private void comboBoxEstado_KeyPress (object sender, KeyPressEventArgs e) {
             e.Handled = true;
+        }
+
+        private void txtNombre_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
         }
     }
 }

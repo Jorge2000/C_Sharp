@@ -93,7 +93,7 @@ namespace Inventario.Mantenimiento {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (380, 31);
+            this.label1.Size = new System.Drawing.Size (413, 30);
             this.label1.Text = "      Mantenimiento de productos";
             // 
             // txtPrecio
@@ -125,6 +125,7 @@ namespace Inventario.Mantenimiento {
             this.txtNombre.Size = new System.Drawing.Size (198, 29);
             this.txtNombre.TabIndex = 2;
             this.txtNombre.TextChanged += new System.EventHandler (this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtNombre_KeyPress);
             // 
             // txtCodigo
             // 
@@ -380,6 +381,7 @@ namespace Inventario.Mantenimiento {
             this.Controls.Add (this.txtNombre);
             this.Controls.Add (this.txtCodigo);
             this.Controls.Add (this.label2);
+            this.LabelonParent = "      Mantenimiento de productos";
             this.Name = "FormMantenimientoDeProducto";
             this.Text = "Mantenimiento de productos";
             this.Load += new System.EventHandler (this.FormMantenimientoDeProducto_Load);

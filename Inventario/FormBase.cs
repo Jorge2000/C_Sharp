@@ -49,6 +49,19 @@ namespace Inventario {
             }
         }
 
+        public virtual float removeMoneySymbol (string value) {
+            value = value.Trim ();
+            string symbol = "RD$";
+            return float.Parse (value.Replace (symbol, ""));
+
+        }
+
+        public virtual string addMoneySymbol (string value) {
+            value = value.Trim ();
+            string symbol = "RD$";
+            return string.Format ("{0}{1}", symbol, value);
+        }
+
         public virtual void messageWarning () {
             MessageBox.Show ("Acaba de eliminar dicho elemento", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
@@ -136,7 +149,7 @@ namespace Inventario {
         }
 
         public virtual void onlyString (object sender, KeyPressEventArgs e) {
-            e.Handled = !(char.IsLetter (e.KeyChar) || e.KeyChar == (char) Keys.Back);
+            if (!char.IsLetter (e.KeyChar) && !char.IsControl (e.KeyChar) && !char.IsWhiteSpace (e.KeyChar)) { e.Handled = true; }
         }
 
         public virtual void onlyFloat (object sender, KeyPressEventArgs e, TextBox txtBox) {

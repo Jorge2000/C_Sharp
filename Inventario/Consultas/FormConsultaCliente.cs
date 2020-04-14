@@ -23,7 +23,7 @@ namespace Inventario {
             if (!string.IsNullOrEmpty (value)) {
                 query += string.Format (" ( nombre_cliente LIKE('%{0}%')) AND ", value);
             }
-            query += whereEstado (comboBoxEstado) + " AND " + whereGenero (comboBoxGenero);
+            query += whereEstado (comboBoxEstado, "cliente") + " AND " + whereGenero (comboBoxGenero);
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
             if (countTable > 0) {
@@ -82,6 +82,10 @@ namespace Inventario {
 
         private void comboBoxEstado_KeyPress (object sender, KeyPressEventArgs e) {
             e.Handled = true;
+        }
+
+        private void txtNombre_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
         }
 
     }

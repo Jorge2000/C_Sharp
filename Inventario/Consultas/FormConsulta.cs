@@ -63,18 +63,18 @@ namespace Inventario {
 
         }
 
-        public virtual string whereEstado (ComboBox ComboBoxEstado) {
+        public virtual string whereEstado (ComboBox ComboBoxEstado, string table) {
             string estado = ComboBoxEstado.Text;
             string condition = "";
             switch (estado) {
                 case "Activo":
-                    condition += " (estado = 1) ";
+                    condition += string.Format("({0}.estado = 1)", table);
                     break;
                 case "Inactivo":
-                    condition += " (estado = 0) ";
+                    condition += string.Format("({0}.estado = 0)", table);
                     break;
                 default:
-                    condition += " (estado = 1 OR estado = 0) ";
+                    condition += string.Format("({0}.estado = 1 OR {0}.estado = 0)", table);
                     break;
             }
             return condition;

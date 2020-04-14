@@ -62,6 +62,7 @@ namespace Inventario {
             this.txtNombre.Size = new System.Drawing.Size (181, 29);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.TextChanged += new System.EventHandler (this.txtNombre_TextChanged_1);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler (this.txtNombre_KeyPress);
             // 
             // label2
             // 
@@ -95,7 +96,7 @@ namespace Inventario {
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size (365, 31);
+            this.label1.Size = new System.Drawing.Size (390, 30);
             this.label1.Text = "     Consulta de departamentos";
             // 
             // dataGridView

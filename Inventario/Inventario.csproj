@@ -76,14 +76,14 @@
     <Compile Include="Consultas\FormConsultaDeUnidad.Designer.cs">
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSetFactura2.cs">
-      <DependentUpon>DataSetFactura2.xsd</DependentUpon>
+    <Compile Include="DataSets\DataSetFactura.cs">
+      <DependentUpon>DataSetFactura.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FormConsultaFactura.cs">
+    <Compile Include="Consultas\FormConsultaFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormConsultaFactura.Designer.cs">
+    <Compile Include="Consultas\FormConsultaFactura.Designer.cs">
       <DependentUpon>FormConsultaFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles.cs" />
@@ -101,10 +101,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSetFactura2.Designer.cs">
+    <Compile Include="DataSets\DataSetFactura.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetFactura2.xsd</DependentUpon>
+      <DependentUpon>DataSetFactura.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\DataSetProducto.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -163,11 +163,11 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReporteFactuca2.cs">
+    <Compile Include="Reportes\FormReporteFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormReporteFactuca2.Designer.cs">
-      <DependentUpon>FormReporteFactuca2.cs</DependentUpon>
+    <Compile Include="Reportes\FormReporteFactura.Designer.cs">
+      <DependentUpon>FormReporteFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReporteFactura.cs">
       <SubType>Form</SubType>
@@ -300,7 +300,7 @@
     <EmbeddedResource Include="Consultas\FormConsultaDeUnidad.resx">
       <DependentUpon>FormConsultaDeUnidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormConsultaFactura.resx">
+    <EmbeddedResource Include="Consultas\FormConsultaFactura.resx">
       <DependentUpon>FormConsultaFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase.resx">
@@ -321,8 +321,8 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReporteFactuca2.resx">
-      <DependentUpon>FormReporteFactuca2.cs</DependentUpon>
+    <EmbeddedResource Include="Reportes\FormReporteFactura.resx">
+      <DependentUpon>FormReporteFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReporteFactura.resx">
       <DependentUpon>FormReporteFactura.cs</DependentUpon>
@@ -379,7 +379,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ReportFactura.rdlc" />
-    <EmbeddedResource Include="ReportFactura2.rdlc" />
+    <EmbeddedResource Include="Reports\ReportFactura.rdlc" />
     <EmbeddedResource Include="Reports\ReportDepartamento.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporteProducto.resx">
       <DependentUpon>FormReporteProducto.cs</DependentUpon>
@@ -390,7 +390,6 @@
     <EmbeddedResource Include="Reportes\FormReporteUnidad.resx">
       <DependentUpon>FormReporteUnidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportFactura.rdlc" />
     <EmbeddedResource Include="Reports\ReportProducto.rdlc" />
     <EmbeddedResource Include="Reports\ReportCliente.rdlc" />
     <EmbeddedResource Include="Reportes\FormReporte.resx">
@@ -424,16 +423,16 @@
     <None Include="DataSets\DataSetDepartamento.xss">
       <DependentUpon>DataSetDepartamento.xsd</DependentUpon>
     </None>
-    <None Include="DataSetFactura2.xsc">
-      <DependentUpon>DataSetFactura2.xsd</DependentUpon>
+    <None Include="DataSets\DataSetFactura.xsc">
+      <DependentUpon>DataSetFactura.xsd</DependentUpon>
     </None>
-    <None Include="DataSetFactura2.xsd">
+    <None Include="DataSets\DataSetFactura.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetFactura2.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetFactura.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSetFactura2.xss">
-      <DependentUpon>DataSetFactura2.xsd</DependentUpon>
+    <None Include="DataSets\DataSetFactura.xss">
+      <DependentUpon>DataSetFactura.xsd</DependentUpon>
     </None>
     <None Include="DataSets\DataSetProducto.xsc">
       <DependentUpon>DataSetProducto.xsd</DependentUpon>

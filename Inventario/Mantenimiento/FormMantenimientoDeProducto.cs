@@ -317,5 +317,9 @@ namespace Inventario.Mantenimiento {
         private void FormMantenimientoDeProducto_Load (object sender, EventArgs e) {
 
         }
+
+        private void txtNombre_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
     }
 }

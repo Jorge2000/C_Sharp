@@ -22,7 +22,7 @@ namespace Inventario {
             if (!string.IsNullOrEmpty (value)) {
                 query += string.Format (" ( nombre_suplidor LIKE('%{0}%')) AND ", value);
             }
-            query += whereEstado (comboBoxEstado) + " AND " + whereGenero (comboBoxGenero);
+            query += whereEstado (comboBoxEstado, "suplidor") + " AND " + whereGenero (comboBoxGenero);
             DS = Execution.Ejecutar (query);
             int countTable = DS.Tables.Count;
             if (countTable > 0) {
@@ -74,6 +74,10 @@ namespace Inventario {
 
         private void comboBoxEstado_SelectedIndexChanged (object sender, EventArgs e) {
             this.Consultar ();
+        }
+
+        private void txtNombre_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
         }
     }
 }

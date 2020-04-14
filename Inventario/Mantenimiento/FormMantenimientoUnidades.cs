@@ -125,5 +125,9 @@ namespace Inventario.Mantenimiento {
         private void linkLabel1_LinkClicked (object sender, LinkLabelLinkClickedEventArgs e) {
             Consultar ();
         }
+
+        private void txtNombre_KeyPress (object sender, KeyPressEventArgs e) {
+            onlyString (sender, e);
+        }
     }
 }
